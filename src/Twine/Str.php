@@ -92,6 +92,32 @@ class Str
     }
 
     /**
+     * Convert all or parts of the string to lowercase.
+     *
+     * @param string $type Config::LC_ALL - Lowercase all characters of the string
+     *                     Config::LC_FIRST - Lowercase the first character of the string only
+     *                     Config::LC_WORDS - Lowercase the first character of each word of the string
+     *
+     * @return Twine\Str
+     */
+    public function lowercase($type = Config::LC_ALL)
+    {
+        if (! in_array($type, [Config::LC_ALL, Config::LC_FIRST, Config::LC_WORDS])) {
+            throw new InvalidTypeException('$type must be one of Config::LC_ALL, Config::LC_FIRST, Config::LC_WORDS');
+        }
+
+        if ($type == Config::LC_WORDS) {
+            $words = array_map(function ($word) {
+                return lcfirst($word);
+            }, explode(' ', $this->string));
+
+            return new static(implode(' ', $words));
+        }
+
+        return new static($type($this->string));
+    }
+
+    /**
      * Remove whitespace or a specific set of characters from the beginning
      * and/or end of the string.
      *

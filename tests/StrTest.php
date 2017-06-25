@@ -74,6 +74,38 @@ class StrTest extends PHPUnit_Framework_TestCase
         $this->string->uppercase('invalid_type');
     }
 
+    public function test_it_can_be_lowercased()
+    {
+        $string = $this->string->uppercase()->lowercase();
+        // $string = (new Twine\Str('JOHN PINKERTON'))->lowercase();
+
+        $this->assertInstanceOf(Twine\Str::class, $string);
+        $this->assertEquals('john pinkerton', $string);
+    }
+
+    public function test_it_can_lowercase_the_first_letter_only()
+    {
+        $string = $this->string->uppercase()->lowercase(Twine\Config::LC_FIRST);
+
+        $this->assertInstanceOf(Twine\Str::class, $string);
+        $this->assertEquals('jOHN PINKERTON', $string);
+    }
+
+    public function test_it_can_lowercase_the_first_letter_of_each_word()
+    {
+        $string = $this->string->uppercase()->lowercase(Twine\Config::LC_WORDS);
+
+        $this->assertInstanceOf(Twine\Str::class, $string);
+        $this->assertEquals('jOHN pINKERTON', $string);
+    }
+
+    public function test_it_throws_an_exception_when_lowercasing_with_an_invalid_type()
+    {
+        $this->expectException(InvalidTypeException::class);
+
+        $this->string->lowercase('invalid_type');
+    }
+
     public function test_it_can_trim_excess_whitespace()
     {
         $string = (new Twine\Str('   foo bar     '))->trim();
