@@ -16,4 +16,8 @@ class Config
     const TRIM_BOTH = 'trim';
     const TRIM_LEFT = 'ltrim';
     const TRIM_RIGHT = 'rtrim';
+
+    const PAD_RIGHT = STR_PAD_RIGHT;
+    const PAD_LEFT = STR_PAD_LEFT;
+    const PAD_BOTH = STR_PAD_BOTH;
 }

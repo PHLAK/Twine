@@ -136,4 +136,17 @@ class Str
 
         return new static($type($this->string, $mask));
     }
+
+    /**
+     * Pad the string to a specific length.
+     *
+     * @param int $length Length to pad the string to
+     * @param string $padding Character to pad the string with
+     *
+     * @return Twine\Str
+     */
+    public function pad($length, $padding = ' ', $type = Config::PAD_RIGHT)
+    {
+        return new static(str_pad($this->string, $length, $padding, $type));
+    }
 }

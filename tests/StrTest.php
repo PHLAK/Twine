@@ -144,4 +144,28 @@ class StrTest extends PHPUnit_Framework_TestCase
 
         $this->string->trim(Twine\Config::TRIM_MASK, 'invalid_type');
     }
+
+    public function test_it_can_be_padded_on_the_right()
+    {
+        $string = $this->string->pad(20, '_');
+
+        $this->assertInstanceOf(Twine\Str::class, $string);
+        $this->assertEquals('john pinkerton______', $string);
+    }
+
+    public function test_it_can_be_padded_on_the_left()
+    {
+        $string = $this->string->pad(20, '_', Twine\Config::PAD_LEFT);
+
+        $this->assertInstanceOf(Twine\Str::class, $string);
+        $this->assertEquals('______john pinkerton', $string);
+    }
+
+    public function test_it_can_be_padded_on_both_sides()
+    {
+        $string = $this->string->pad(20, '_', Twine\Config::PAD_BOTH);
+
+        $this->assertInstanceOf(Twine\Str::class, $string);
+        $this->assertEquals('___john pinkerton___', $string);
+    }
 }
