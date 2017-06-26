@@ -225,4 +225,18 @@ class Str
 
         return new static($type($this->string));
     }
+
+    /**
+     * Wrap the string to a given number of characters.
+     *
+     * @param int $width Number of characters at which to wrap
+     * @param string $break Character used to break the string
+     * @param boolean $cut If true, always wrap at or before the specified width
+     *
+     * @return Twine\Str
+     */
+    public function wrap($width, $break = "\n", $cut = false)
+    {
+        return new static(wordwrap($this->string, $width, $break, $cut));
+    }
 }
