@@ -208,4 +208,21 @@ class Str
     {
         return new static(hash('sha256', $this->string, $raw));
     }
+
+    /**
+     * Encode the string to or decode from a base64 encoded value.
+     *
+     * @param string $type Config::BASE64_ENCODE - Encode the string to base64
+     *                     Config::BASE65_DECODE - Decode the string from base64
+     *
+     * @return Twine\Str
+     */
+    public function base64($type = Config::BASE64_ENCODE)
+    {
+        if (! in_array($type, [Config::BASE64_ENCODE, Config::BASE64_DECODE])) {
+            throw new InvalidTypeException('$type must be one of Config::BASE64_ENCODE, Config::BASE64_DECODE');
+        }
+
+        return new static($type($this->string));
+    }
 }

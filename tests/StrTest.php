@@ -213,4 +213,20 @@ class StrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('7434f26c8c2fc83e57347feb2dfb235c2f47b149b54b80692beca9d565159dfd', $string);
         $this->assertEquals(base64_decode('dDTybIwvyD5XNH/rLfsjXC9HsUm1S4BpK+yp1WUVnf0='), $raw);
     }
+
+    public function test_it_can_be_base64_encoded_and_decoded()
+    {
+        $string = $this->string->base64();
+
+        $this->assertInstanceOf(Twine\Str::class, $string);
+        $this->assertEquals('am9obiBwaW5rZXJ0b24=', $string);
+        $this->assertEquals('john pinkerton', $string->base64(Twine\Config::BASE64_DECODE));
+    }
+
+    public function test_it_throws_an_exception_when_base64_encoded_with_an_invalid_type()
+    {
+        $this->expectException(InvalidTypeException::class);
+
+        $this->string->base64('invalid_type');
+    }
 }

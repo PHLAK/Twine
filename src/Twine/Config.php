@@ -20,4 +20,7 @@ class Config
     const PAD_RIGHT = STR_PAD_RIGHT;
     const PAD_LEFT = STR_PAD_LEFT;
     const PAD_BOTH = STR_PAD_BOTH;
+
+    const BASE64_ENCODE = 'base64_encode';
+    const BASE64_DECODE = 'base64_decode';
 }
