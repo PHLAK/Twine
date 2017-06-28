@@ -247,4 +247,12 @@ class StrTest extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf(Twine\Str::class, $string);
         $this->assertEquals('john pinkertonjohn pinkerton', $string);
     }
+
+    public function test_it_can_replace_parts_of_the_string()
+    {
+        $string = $this->string->replace('john', 'bob', $count);
+
+        $this->assertEquals('bob pinkerton', $string);
+        $this->assertEquals(1, $count);
+    }
 }

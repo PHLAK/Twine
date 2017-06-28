@@ -251,4 +251,18 @@ class Str
     {
         return new static(str_repeat($this->string, $multiplier));
     }
+
+    /**
+     * Replace parts of the string with another string.
+     *
+     * @param string $search The value to be replaced
+     * @param string $replace The value to replace with
+     * @param int &$count This will be set to the number of replacements performed
+     *
+     * @return Twine\Str
+     */
+    public function replace($search, $replace, &$count = null)
+    {
+        return new static(str_replace($search, $replace, $this->string, $count));
+    }
 }
