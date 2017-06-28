@@ -252,7 +252,21 @@ class StrTest extends PHPUnit_Framework_TestCase
     {
         $string = $this->string->replace('john', 'bob', $count);
 
+        $this->assertInstanceOf(Twine\Str::class, $string);
         $this->assertEquals('bob pinkerton', $string);
         $this->assertEquals(1, $count);
+    }
+
+    public function test_it_can_be_shuffled()
+    {
+        $string = $this->string->shuffle();
+
+        while ($this->string == $string) {
+            $string = $this->string->shuffle();
+        }
+
+        $this->assertInstanceOf(Twine\Str::class, $string);
+        $this->assertNotEquals($this->string, $string);
+        $this->assertRegExp('/[ ehijknoprt]{14}/', (string) $string);
     }
 }

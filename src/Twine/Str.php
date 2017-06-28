@@ -265,4 +265,14 @@ class Str
     {
         return new static(str_replace($search, $replace, $this->string, $count));
     }
+
+    /**
+     * Randomly shuffle the string.
+     *
+     * @return Twine\Str
+     */
+    public function shuffle()
+    {
+        return new static(str_shuffle($this->string));
+    }
 }
