@@ -239,4 +239,16 @@ class Str
     {
         return new static(wordwrap($this->string, $width, $break, $cut));
     }
+
+    /**
+     * Repeat the string.
+     *
+     * @param int $multiplier Number of times to repeat the string
+     *
+     * @return Twine\Str
+     */
+    public function repeat($multiplier)
+    {
+        return new static(str_repeat($this->string, $multiplier));
+    }
 }

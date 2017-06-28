@@ -239,4 +239,12 @@ class StrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals("john\npinkerton", $string);
         $this->assertEquals("john\npinke\nrton", $agressive);
     }
+
+    public function test_it_is_repeatable()
+    {
+        $string = $this->string->repeat(2);
+
+        $this->assertInstanceOf(Twine\Str::class, $string);
+        $this->assertEquals('john pinkertonjohn pinkerton', $string);
+    }
 }
