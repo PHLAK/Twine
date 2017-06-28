@@ -269,4 +269,11 @@ class StrTest extends PHPUnit_Framework_TestCase
         $this->assertNotEquals($this->string, $string);
         $this->assertRegExp('/[ ehijknoprt]{14}/', (string) $string);
     }
+
+    public function test_it_can_be_split_into_an_array()
+    {
+        $string = $this->string->split(3);
+
+        $this->assertEquals(['joh', 'n p', 'ink', 'ert', 'on'], $string);
+    }
 }

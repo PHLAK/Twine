@@ -275,4 +275,16 @@ class Str
     {
         return new static(str_shuffle($this->string));
     }
+
+    /**
+     * Split the string into an array of characters.
+     *
+     * @param integer $length Length of each array chunk
+     *
+     * @return array
+     */
+    public function split($length = 1)
+    {
+        return str_split($this->string, $length);
+    }
 }
