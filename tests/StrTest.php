@@ -230,6 +230,14 @@ class StrTest extends PHPUnit_Framework_TestCase
         $this->string->base64('invalid_type');
     }
 
+    public function test_it_can_be_chunked()
+    {
+        $string = $this->string->chunk(5);
+
+        $this->assertInstanceOf(Twine\Str::class, $string);
+        $this->assertEquals("john \r\npinke\r\nrton\r\n", $string);
+    }
+
     public function test_it_can_be_wrapped()
     {
         $string = $this->string->wrap(5);
