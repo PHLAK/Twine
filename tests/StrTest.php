@@ -276,4 +276,11 @@ class StrTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(['joh', 'n p', 'ink', 'ert', 'on'], $string);
     }
+
+    public function test_it_can_explode_into_an_array()
+    {
+        $string = $this->string->explode(' ');
+
+        $this->assertEquals(['john', 'pinkerton'], $string);
+    }
 }
