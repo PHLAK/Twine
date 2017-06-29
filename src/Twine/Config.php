@@ -23,4 +23,8 @@ class Config
 
     const BASE64_ENCODE = 'base64_encode';
     const BASE64_DECODE = 'base64_decode';
+
+    const WORD_COUNT = 0;
+    const WORD_ARRAY = 1;
+    const WORD_POSITIONS = 2;
 }

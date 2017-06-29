@@ -283,4 +283,15 @@ class StrTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(['john', 'pinkerton'], $string);
     }
+
+    public function test_it_can_count_the_words_in_the_string()
+    {
+        $wordCount = $this->string->words();
+        $wordArray = $this->string->words(Twine\Config::WORD_ARRAY);
+        $wordPositions = $this->string->words(Twine\Config::WORD_POSITIONS);
+
+        $this->assertEquals(2, $wordCount);
+        $this->assertEquals(['john', 'pinkerton'], $wordArray);
+        $this->assertEquals([0 => 'john', 1 => 'pinkerton'], $wordArray);
+    }
 }

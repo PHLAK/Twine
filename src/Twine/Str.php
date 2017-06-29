@@ -40,6 +40,19 @@ class Str
     }
 
     /**
+     * Get information about words used in the string.
+     *
+     * @param int $format One of Config::WORD_COUNT, Config::WORD_ARRAY, Config::WORD_POSITIONS
+     * @param string $charList A list of additional characters to be considered words
+     *
+     * @return int|array
+     */
+    public function words($format = Config::WORD_COUNT, $charList = null)
+    {
+        return str_word_count($this->string, $format, $charList);
+    }
+
+    /**
      * Append a suffix to the string.
      *
      * @param string $suffix A suffix to append
