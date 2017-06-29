@@ -292,6 +292,17 @@ class StrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(['john', 'pinkerton'], $string);
     }
 
+    public function test_it_can_count_the_characters_in_the_string()
+    {
+        // TODO: Test all the modes
+        $charCount = $this->string->characters();
+
+        $this->assertEquals([
+            32 => 1, 101 => 1, 104 => 1, 105 => 1, 106 => 1, 107 => 1,
+            110 => 3, 111 => 2, 112 => 1, 114 => 1, 116 => 1
+        ], $charCount);
+    }
+
     public function test_it_can_count_the_words_in_the_string()
     {
         $wordCount = $this->string->words();

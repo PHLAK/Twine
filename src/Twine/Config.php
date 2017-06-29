@@ -27,4 +27,10 @@ class Config
     const WORD_COUNT = 0;
     const WORD_ARRAY = 1;
     const WORD_POSITIONS = 2;
+
+    const CHARS_ARRAY_ALL = 0;
+    const CHARS_ARRAY_USED = 1;
+    const CHARS_ARRAY_NOT_USED = 2;
+    const CHARS_UNIQUE = 3;
+    const CHARS_NOT_USED = 4;
 }
