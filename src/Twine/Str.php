@@ -52,6 +52,17 @@ class Str
      */
     public function characters($mode = Config::CHARS_ARRAY_USED)
     {
+        $charModes = [
+            Config::CHARS_ARRAY_USED,
+            Config::CHARS_ARRAY_NOT_USED,
+            Config::CHARS_UNIQUE,
+            Config::CHARS_NOT_USED
+        ];
+
+        if (! in_array($mode, $charModes, true)) {
+            throw new InvalidConfigOptionException('$mode must be one of ' . implode(', ', $charModes));
+        }
+
         return count_chars($this->string, $mode);
     }
 
@@ -105,37 +116,41 @@ class Str
     /**
      * Convert all or parts of the string to uppercase.
      *
-     * @param string $type Config::UC_ALL - Uppercase all characters of the string
+     * @param string $mode Config::UC_ALL - Uppercase all characters of the string
      *                     Config::UC_FIRST - Uppercase the first character of the string only
      *                     Config::UC_WORDS - Uppercase the first character of each word of the string
      *
      * @return Twine\Str
      */
-    public function uppercase($type = Config::UC_ALL)
+    public function uppercase($mode = Config::UC_ALL)
     {
-        if (! in_array($type, [Config::UC_ALL, Config::UC_FIRST, Config::UC_WORDS])) {
-            throw new InvalidConfigOptionException('$type must be one of Config::UC_ALL, Config::UC_FIRST, Config::UC_WORDS');
+        $uppercaseModes = [Config::UC_ALL, Config::UC_FIRST, Config::UC_WORDS];
+
+        if (! in_array($mode, $uppercaseModes, true)) {
+            throw new InvalidConfigOptionException('$mode must be one of ' . implode(', ', $uppercaseModes));
         }
 
-        return new static($type($this->string));
+        return new static($mode($this->string));
     }
 
     /**
      * Convert all or parts of the string to lowercase.
      *
-     * @param string $type Config::LC_ALL - Lowercase all characters of the string
+     * @param string $mode Config::LC_ALL - Lowercase all characters of the string
      *                     Config::LC_FIRST - Lowercase the first character of the string only
      *                     Config::LC_WORDS - Lowercase the first character of each word of the string
      *
      * @return Twine\Str
      */
-    public function lowercase($type = Config::LC_ALL)
+    public function lowercase($mode = Config::LC_ALL)
     {
-        if (! in_array($type, [Config::LC_ALL, Config::LC_FIRST, Config::LC_WORDS])) {
-            throw new InvalidConfigOptionException('$type must be one of Config::LC_ALL, Config::LC_FIRST, Config::LC_WORDS');
+        $lowercaseModes = [Config::LC_ALL, Config::LC_FIRST, Config::LC_WORDS];
+
+        if (! in_array($mode, $lowercaseModes, true)) {
+            throw new InvalidConfigOptionException('$mode must be one of ' . implode(', ', $lowercaseModes));
         }
 
-        if ($type == Config::LC_WORDS) {
+        if ($mode == Config::LC_WORDS) {
             $words = array_map(function ($word) {
                 return lcfirst($word);
             }, explode(' ', $this->string));
@@ -143,7 +158,7 @@ class Str
             return new static(implode(' ', $words));
         }
 
-        return new static($type($this->string));
+        return new static($mode($this->string));
     }
 
     /**
@@ -151,19 +166,21 @@ class Str
      * and/or end of the string.
      *
      * @param string $mask A list of characters to be stripped (default: Config::TRIM_MASK)
-     * @param string $type Config::TRIM_BOTH - Trim characters from the beginning and end of the string
+     * @param string $mode Config::TRIM_BOTH - Trim characters from the beginning and end of the string
      *                     Config::TRIM_LEFT - Only trim characters from the begining of the string
      *                     Config::TRIM_RIGHT - Only trim characters from the end of the strring
      *
      * @return Twine\Str
      */
-    public function trim($mask = Config::TRIM_MASK, $type = Config::TRIM_BOTH)
+    public function trim($mask = Config::TRIM_MASK, $mode = Config::TRIM_BOTH)
     {
-        if (! in_array($type, [Config::TRIM_BOTH, Config::TRIM_LEFT, Config::TRIM_RIGHT])) {
-            throw new InvalidConfigOptionException('$type must be one of Config::TRIM_BOTH, Config::TRIM_LEFT, Config::TRIM_RIGHT');
+        $trimModes = [Config::TRIM_BOTH, Config::TRIM_LEFT, Config::TRIM_RIGHT];
+
+        if (! in_array($mode, $trimModes, true)) {
+            throw new InvalidConfigOptionException('$mode must be one of ' . implode(', ', $trimModes));
         }
 
-        return new static($type($this->string, $mask));
+        return new static($mode($this->string, $mask));
     }
 
     /**
@@ -171,12 +188,25 @@ class Str
      *
      * @param int $length Length to pad the string to
      * @param string $padding Character to pad the string with
+     * @param int $mode Config::PAD_RIGHT
+                        Config::PAD_LEFT
+                        Config::PAD_BOTH
      *
      * @return Twine\Str
      */
-    public function pad($length, $padding = ' ', $type = Config::PAD_RIGHT)
+    public function pad($length, $padding = ' ', $mode = Config::PAD_RIGHT)
     {
-        return new static(str_pad($this->string, $length, $padding, $type));
+        $padModes = [
+            Config::PAD_RIGHT,
+            Config::PAD_LEFT,
+            Config::PAD_BOTH
+        ];
+
+        if (! in_array($mode, $padModes, true)) {
+            throw new InvalidConfigOptionException('$mode must be one of ' . implode(', ', $padModes));
+        }
+
+        return new static(str_pad($this->string, $length, $padding, $mode));
     }
 
     /**
@@ -241,18 +271,20 @@ class Str
     /**
      * Encode the string to or decode from a base64 encoded value.
      *
-     * @param string $type Config::BASE64_ENCODE - Encode the string to base64
+     * @param string $mode Config::BASE64_ENCODE - Encode the string to base64
      *                     Config::BASE65_DECODE - Decode the string from base64
      *
      * @return Twine\Str
      */
-    public function base64($type = Config::BASE64_ENCODE)
+    public function base64($mode = Config::BASE64_ENCODE)
     {
-        if (! in_array($type, [Config::BASE64_ENCODE, Config::BASE64_DECODE])) {
-            throw new InvalidConfigOptionException('$type must be one of Config::BASE64_ENCODE, Config::BASE64_DECODE');
+        $base64Types = [Config::BASE64_ENCODE, Config::BASE64_DECODE];
+
+        if (! in_array($mode, $base64Types, true)) {
+            throw new InvalidConfigOptionException('$mode must be one of ' . implode(', ', $base64Types));
         }
 
-        return new static($type($this->string));
+        return new static($mode($this->string));
     }
 
     /**
@@ -376,8 +408,15 @@ class Str
      */
     public function find($needle, $offset = 0, $mode = Config::FIND_FIRST)
     {
-        if (! in_array($mode, [Config::FIND_FIRST, Config::FIND_LAST, Config::FIND_FIRST_I, Config::FIND_LAST_I])) {
-            throw new InvalidConfigOptionException('$mode must be one of Config::FIND_FIRST, Config::FIND_LAST, Config::FIND_FIRST_I, Config::FIND_LAST_I');
+        $findModes = [
+            Config::FIND_FIRST,
+            Config::FIND_LAST,
+            Config::FIND_FIRST_I,
+            Config::FIND_LAST_I
+        ];
+
+        if (! in_array($mode, $findModes, true)) {
+            throw new InvalidConfigOptionException('$mode must be one of ' . implode(', ', $findModes));
         }
 
         return $mode($this->string, $needle, $offset);
@@ -410,8 +449,14 @@ class Str
      */
     public function compare($string, $mode = Config::COMPARE_CASE_SENSITIVE)
     {
-        if (! in_array($mode, [Config::COMPARE_CASE_SENSITIVE, Config::COMPARE_CASE_INSENSITIVE, Config::COMPARE_NATCASE])) {
-            throw new InvalidConfigOptionException('$mode must be one of Config::COMPARE_CASE_SENSITIVE, Config::COPMPARE_CASE_INSENSITIVE, Config::COMPARE_NATCASE');
+        $compareModes = [
+            Config::COMPARE_CASE_SENSITIVE,
+            Config::COMPARE_CASE_INSENSITIVE,
+            Config::COMPARE_NATCASE
+        ];
+
+        if (! in_array($mode, $compareModes, true)) {
+            throw new InvalidConfigOptionException('$mode must be one of ' . implode(', ', $compareModes));
         }
 
         return $mode($this->string, $string);
