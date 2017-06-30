@@ -413,4 +413,16 @@ class Str
     {
         return substr_compare($this->string, $string, $offset, $length, ! $caseSensitive);
     }
+
+    /**
+     * Count the number of occurences of a substring in the string.
+     *
+     * @param string $string Substring to count
+     *
+     * @return int
+     */
+    public function count($string)
+    {
+        return substr_count($this->string, $string);
+    }
 }
