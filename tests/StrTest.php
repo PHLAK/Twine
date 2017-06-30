@@ -334,4 +334,11 @@ class StrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(5, $firstI);
         $this->assertEquals(5, $lastI);
     }
+
+    public function test_it_throws_an_exception_when_finding_with_an_invalid_config_option()
+    {
+        $this->expectException(InvalidConfigOptionException::class);
+
+        $this->string->find('pink', 0, 'invalid');
+    }
 }
