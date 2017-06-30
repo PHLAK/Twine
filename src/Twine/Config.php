@@ -41,4 +41,5 @@ class Config
 
     const COMPARE_CASE_SENSITIVE = 'strcmp';
     const COMPARE_CASE_INSENSITIVE = 'strcasecmp';
+    const COMPARE_NATCASE = 'strnatcasecmp';
 }

@@ -410,8 +410,8 @@ class Str
      */
     public function compare($string, $mode = Config::COMPARE_CASE_SENSITIVE)
     {
-        if (! in_array($mode, [Config::COMPARE_CASE_SENSITIVE, Config::COMPARE_CASE_INSENSITIVE])) {
-            throw new InvalidConfigOptionException('$mode must be Config::COMPARE_CASE_SENSITIVE or Config::COPMPARE_CASE_INSENSITIVE');
+        if (! in_array($mode, [Config::COMPARE_CASE_SENSITIVE, Config::COMPARE_CASE_INSENSITIVE, Config::COMPARE_NATCASE])) {
+            throw new InvalidConfigOptionException('$mode must be one of Config::COMPARE_CASE_SENSITIVE, Config::COPMPARE_CASE_INSENSITIVE, Config::COMPARE_NATCASE');
         }
 
         return $mode($this->string, $string);
