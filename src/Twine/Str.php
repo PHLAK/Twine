@@ -397,4 +397,20 @@ class Str
 
         return new static(substr($this->string, $start, $length));
     }
+
+    /**
+     * Compare the string or a substring of the string with another string.
+     *
+     * @param string $string A string to compare against
+     * @param int $offset Start position of the comparison
+     * @param int $length Length of the comparison
+     * @param bool $caseSensitive Case sensitive if true, otherwise case insensitive
+     *
+     * @return int Returns < 0 if the offset of the string is less than $string,
+     *             > 0 if it is greater than $string, and 0 if they areequal.
+     */
+    public function compare($string, $offset = 0, $length = null, $caseSensitive = true)
+    {
+        return substr_compare($this->string, $string, $offset, $length, ! $caseSensitive);
+    }
 }

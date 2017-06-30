@@ -351,4 +351,18 @@ class StrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('pinkerton', $substring);
         $this->assertEquals('pink', $partial);
     }
+
+    public function test_it_can_be_compared_to_another_string()
+    {
+        $full = $this->string->compare('pink');
+        $partial = $this->string->compare('pink', 5);
+        $substr = $this->string->compare('pink', 5, 4);
+        $sensitive = $this->string->compare('PiNK', 5, 4);
+        $insensitive = $this->string->compare('PiNK', 5, 4, false);
+
+        $this->assertEquals(-6, $full);
+        $this->assertEquals(5, $partial);
+        $this->assertEquals(32, $sensitive);
+        $this->assertEquals(0, $substr);
+    }
 }
