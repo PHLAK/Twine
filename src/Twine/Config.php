@@ -38,4 +38,7 @@ class Config
     const FIND_LAST = 'strrpos';
     const FIND_FIRST_I = 'stripos';
     const FIND_LAST_I  = 'strripos';
+
+    const COMPARE_CASE_SENSITIVE = 'strcmp';
+    const COMPARE_CASE_INSENSITIVE = 'strcasecmp';
 }

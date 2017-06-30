@@ -354,16 +354,13 @@ class StrTest extends PHPUnit_Framework_TestCase
 
     public function test_it_can_be_compared_to_another_string()
     {
-        $full = $this->string->compare('pink');
-        $partial = $this->string->compare('pink', 5);
-        $substr = $this->string->compare('pink', 5, 4);
-        $sensitive = $this->string->compare('PiNK', 5, 4);
-        $insensitive = $this->string->compare('PiNK', 5, 4, false);
+        $comparison = $this->string->compare('pink');
+        $caseSensitive = $this->string->compare('PiNK');
+        $caseInsensitive = $this->string->compare('PiNK', Twine\Config::COMPARE_CASE_INSENSITIVE);
 
-        $this->assertEquals(-6, $full);
-        $this->assertEquals(5, $partial);
-        $this->assertEquals(32, $sensitive);
-        $this->assertEquals(0, $substr);
+        $this->assertEquals(-6, $comparison);
+        $this->assertEquals(26, $caseSensitive);
+        $this->assertEquals(-6, $caseInsensitive);
     }
 
     public function test_it_can_count_substring_occurrences()
