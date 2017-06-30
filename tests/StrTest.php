@@ -363,6 +363,13 @@ class StrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(-6, $caseInsensitive);
     }
 
+    public function test_it_throws_an_exception_when_comparing_with_an_invalid_config_option()
+    {
+        $this->expectException(InvalidConfigOptionException::class);
+
+        $this->string->compare('pink', 'invalid');
+    }
+
     public function test_it_can_count_substring_occurrences()
     {
         $string = new Twine\Str('How much wood could a woodchuck chuck if a woodchuck could chuck wood?');
