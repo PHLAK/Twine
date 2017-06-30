@@ -382,4 +382,19 @@ class Str
 
         return $mode($this->string, $needle, $offset);
     }
+
+    /**
+     * Return part of the string.
+     *
+     * @param int $start Starting position of the substring
+     * @param int $length Length of substring
+     *
+     * @return Twine\Str
+     */
+    public function substring($start, $length = null)
+    {
+        $length = $length ?? $this->length() - $start;
+
+        return new static(substr($this->string, $start, $length));
+    }
 }

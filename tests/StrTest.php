@@ -341,4 +341,14 @@ class StrTest extends PHPUnit_Framework_TestCase
 
         $this->string->find('pink', 0, 'invalid');
     }
+
+    public function test_it_can_get_a_substring()
+    {
+        $substring = $this->string->substring(5);
+        $partial = $this->string->substring(5, 4);
+
+        $this->assertInstanceOf(Twine\Str::class, $substring);
+        $this->assertEquals('pinkerton', $substring);
+        $this->assertEquals('pink', $partial);
+    }
 }
