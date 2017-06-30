@@ -346,4 +346,16 @@ class Str
     {
         return explode($delimiter, $this->string, $limit);
     }
+
+    /**
+     * Strip HTML and PHP tags from the string.
+     *
+     * @param  $allowedTags Tags which should not be stripped
+     *
+     * @return Twine\Str
+     */
+    public function strip($allowedTags = null)
+    {
+        return new static(strip_tags($this->string, $allowedTags));
+    }
 }

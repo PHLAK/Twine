@@ -313,4 +313,12 @@ class StrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(['john', 'pinkerton'], $wordArray);
         $this->assertEquals([0 => 'john', 1 => 'pinkerton'], $wordArray);
     }
+
+    public function test_it_can_strip_html_and_php_tags()
+    {
+        $string = (new Twine\Str("<b>Name:</b> <?php echo 'john pinkerton'; ?><br>"))->strip('<br>');
+
+        $this->assertInstanceOf(Twine\Str::class, $string);
+        $this->assertEquals('Name: <br>', $string);
+    }
 }
