@@ -33,4 +33,9 @@ class Config
     const CHARS_ARRAY_NOT_USED = 2;
     const CHARS_UNIQUE = 3;
     const CHARS_NOT_USED = 4;
+
+    const FIND_FIRST = 'strpos';
+    const FIND_LAST = 'strrpos';
+    const FIND_FIRST_I = 'stripos';
+    const FIND_LAST_I  = 'strripos';
 }
