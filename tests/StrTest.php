@@ -322,7 +322,7 @@ class StrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('Name: <br>', $string);
     }
 
-    public function test_it_can_be_searched_for_a_substring()
+    public function test_it_can_find_a_substring()
     {
         $first = $this->string->find('pink');
         $last = $this->string->find('pink', 0, Twine\Config::FIND_LAST);
