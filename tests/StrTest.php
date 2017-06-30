@@ -85,10 +85,14 @@ class StrTest extends PHPUnit_Framework_TestCase
 
     public function test_it_can_lowercase_the_first_letter_only()
     {
-        $string = $this->string->uppercase()->lowercase(Twine\Config::LC_FIRST);
+        $all = $this->string->uppercase()->lowercase();
+        $first = $this->string->uppercase()->lowercase(Twine\Config::LC_FIRST);
+        $words = $this->string->uppercase()->lowercase(Twine\Config::LC_WORDS);
 
-        $this->assertInstanceOf(Twine\Str::class, $string);
-        $this->assertEquals('jOHN PINKERTON', $string);
+        $this->assertInstanceOf(Twine\Str::class, $all);
+        $this->assertEquals('john pinkerton', $all);
+        $this->assertEquals('jOHN PINKERTON', $first);
+        $this->assertEquals('jOHN pINKERTON', $words);
     }
 
     public function test_it_can_lowercase_the_first_letter_of_each_word()
@@ -145,28 +149,23 @@ class StrTest extends PHPUnit_Framework_TestCase
         $this->string->trim(Twine\Config::TRIM_MASK, 'invalid');
     }
 
-    public function test_it_can_be_padded_on_the_right()
+    public function test_it_can_be_padded()
     {
-        $string = $this->string->pad(20, '_');
+        $rightPad = $this->string->pad(20, '_');
+        $leftPad = $this->string->pad(20, '_', Twine\Config::PAD_LEFT);
+        $bothPad = $this->string->pad(20, '_', Twine\Config::PAD_BOTH);
 
-        $this->assertInstanceOf(Twine\Str::class, $string);
-        $this->assertEquals('john pinkerton______', $string);
+        $this->assertInstanceOf(Twine\Str::class, $rightPad);
+        $this->assertEquals('john pinkerton______', $rightPad);
+        $this->assertEquals('______john pinkerton', $leftPad);
+        $this->assertEquals('___john pinkerton___', $bothPad);
     }
 
-    public function test_it_can_be_padded_on_the_left()
+    public function test_it_throws_an_exception_when_padding_with_an_invalid_config_option()
     {
-        $string = $this->string->pad(20, '_', Twine\Config::PAD_LEFT);
+        $this->expectException(InvalidConfigOptionException::class);
 
-        $this->assertInstanceOf(Twine\Str::class, $string);
-        $this->assertEquals('______john pinkerton', $string);
-    }
-
-    public function test_it_can_be_padded_on_both_sides()
-    {
-        $string = $this->string->pad(20, '_', Twine\Config::PAD_BOTH);
-
-        $this->assertInstanceOf(Twine\Str::class, $string);
-        $this->assertEquals('___john pinkerton___', $string);
+        $this->string->pad(20, '_', 'invalid');
     }
 
     public function test_it_can_calculate_the_crc32_polynomial()
