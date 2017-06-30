@@ -42,17 +42,28 @@ class Str
     /**
      * Get information about characters used in the string
      *
-     * @param int $mode Config::CHARS_ARRAY_ALL - an array with the byte-value as key and the frequency of every byte as value.
-     *                  Config::CHARS_ARRAY_USED- same as Config::CHARS_ARRAY_ALL but only byte-values with a frequency greater than zero are listed.
-     *                  Config::CHARS_ARRAY_NOT_USED - same as Config::CHARS_ARRAY_ALL but only byte-values with a frequency equal to zero are listed.
-     *                  Config::CHARS_UNIQUE - a string containing all unique characters is returned.
-     *                  Config::CHARS_NOT_USED - a string containing all not used characters is returned.
+     * @param int $mode Config::CHARS_ARRAY_ALL - an array with the byte-value
+     *                  as key and the frequency of every byte as value.
+     *
+     *                  Config::CHARS_ARRAY_USED - same as Config::CHARS_ARRAY_ALL
+     *                  but only byte-values with a frequency greater than zero
+     *                  are listed.
+     *
+     *                  Config::CHARS_ARRAY_NOT_USED - same as Config::CHARS_ARRAY_ALL
+     *                  but only byte-values with a frequency equal to zero are listed.
+     *
+     *                  Config::CHARS_UNIQUE - a string containing all unique
+     *                  characters is returned.
+     *
+     *                  Config::CHARS_NOT_USED - a string containing all not
+     *                  used characters is returned.
      *
      * @return array|string
      */
     public function characters($mode = Config::CHARS_ARRAY_USED)
     {
         $charModes = [
+            Config::CHARS_ARRAY_ALL,
             Config::CHARS_ARRAY_USED,
             Config::CHARS_ARRAY_NOT_USED,
             Config::CHARS_UNIQUE,
