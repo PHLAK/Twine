@@ -1,6 +1,6 @@
 <?php
 
-use Twine\Exceptions\InvalidTypeException;
+use Twine\Exceptions\InvalidConfigOptionException;
 
 class StrTest extends PHPUnit_Framework_TestCase
 {
@@ -67,11 +67,11 @@ class StrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('John Pinkerton', $string);
     }
 
-    public function test_it_throws_an_exception_when_uppercasing_with_an_invalid_type()
+    public function test_it_throws_an_exception_when_uppercasing_with_an_invalid_config_option()
     {
-        $this->expectException(InvalidTypeException::class);
+        $this->expectException(InvalidConfigOptionException::class);
 
-        $this->string->uppercase('invalid_type');
+        $this->string->uppercase('invalid');
     }
 
     public function test_it_can_be_lowercased()
@@ -99,11 +99,11 @@ class StrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('jOHN pINKERTON', $string);
     }
 
-    public function test_it_throws_an_exception_when_lowercasing_with_an_invalid_type()
+    public function test_it_throws_an_exception_when_lowercasing_with_an_invalid_config_option()
     {
-        $this->expectException(InvalidTypeException::class);
+        $this->expectException(InvalidConfigOptionException::class);
 
-        $this->string->lowercase('invalid_type');
+        $this->string->lowercase('invalid');
     }
 
     public function test_it_can_trim_excess_whitespace()
@@ -138,11 +138,11 @@ class StrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('john pinker', $string);
     }
 
-    public function test_it_throws_an_exception_when_trimming_with_an_invalid_type()
+    public function test_it_throws_an_exception_when_trimming_with_an_invalid_config_option()
     {
-        $this->expectException(InvalidTypeException::class);
+        $this->expectException(InvalidConfigOptionException::class);
 
-        $this->string->trim(Twine\Config::TRIM_MASK, 'invalid_type');
+        $this->string->trim(Twine\Config::TRIM_MASK, 'invalid');
     }
 
     public function test_it_can_be_padded_on_the_right()
@@ -223,11 +223,11 @@ class StrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('john pinkerton', $string->base64(Twine\Config::BASE64_DECODE));
     }
 
-    public function test_it_throws_an_exception_when_base64_encoded_with_an_invalid_type()
+    public function test_it_throws_an_exception_when_base64_encoded_with_an_invalid_config_option()
     {
-        $this->expectException(InvalidTypeException::class);
+        $this->expectException(InvalidConfigOptionException::class);
 
-        $this->string->base64('invalid_type');
+        $this->string->base64('invalid');
     }
 
     public function test_it_can_be_chunked()

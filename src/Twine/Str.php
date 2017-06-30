@@ -2,7 +2,7 @@
 
 namespace Twine;
 
-use Twine\Exceptions\InvalidTypeException;
+use Twine\Exceptions\InvalidConfigOptionException;
 
 class Str
 {
@@ -114,7 +114,7 @@ class Str
     public function uppercase($type = Config::UC_ALL)
     {
         if (! in_array($type, [Config::UC_ALL, Config::UC_FIRST, Config::UC_WORDS])) {
-            throw new InvalidTypeException('$type must be one of Config::UC_ALL, Config::UC_FIRST, Config::UC_WORDS');
+            throw new InvalidConfigOptionException('$type must be one of Config::UC_ALL, Config::UC_FIRST, Config::UC_WORDS');
         }
 
         return new static($type($this->string));
@@ -132,7 +132,7 @@ class Str
     public function lowercase($type = Config::LC_ALL)
     {
         if (! in_array($type, [Config::LC_ALL, Config::LC_FIRST, Config::LC_WORDS])) {
-            throw new InvalidTypeException('$type must be one of Config::LC_ALL, Config::LC_FIRST, Config::LC_WORDS');
+            throw new InvalidConfigOptionException('$type must be one of Config::LC_ALL, Config::LC_FIRST, Config::LC_WORDS');
         }
 
         if ($type == Config::LC_WORDS) {
@@ -160,7 +160,7 @@ class Str
     public function trim($mask = Config::TRIM_MASK, $type = Config::TRIM_BOTH)
     {
         if (! in_array($type, [Config::TRIM_BOTH, Config::TRIM_LEFT, Config::TRIM_RIGHT])) {
-            throw new InvalidTypeException('$type must be one of Config::TRIM_BOTH, Config::TRIM_LEFT, Config::TRIM_RIGHT');
+            throw new InvalidConfigOptionException('$type must be one of Config::TRIM_BOTH, Config::TRIM_LEFT, Config::TRIM_RIGHT');
         }
 
         return new static($type($this->string, $mask));
@@ -249,7 +249,7 @@ class Str
     public function base64($type = Config::BASE64_ENCODE)
     {
         if (! in_array($type, [Config::BASE64_ENCODE, Config::BASE64_DECODE])) {
-            throw new InvalidTypeException('$type must be one of Config::BASE64_ENCODE, Config::BASE64_DECODE');
+            throw new InvalidConfigOptionException('$type must be one of Config::BASE64_ENCODE, Config::BASE64_DECODE');
         }
 
         return new static($type($this->string));
@@ -377,7 +377,7 @@ class Str
     public function find($needle, $offset = 0, $mode = Config::FIND_FIRST)
     {
         if (! in_array($mode, [Config::FIND_FIRST, Config::FIND_LAST, Config::FIND_FIRST_I, Config::FIND_LAST_I])) {
-            throw new InvalidTypeException('$mode must be one of Config::FIND_FIRST, Config::FIND_LAST, Config::FIND_FIRST_I, Config::FIND_LAST_I');
+            throw new InvalidConfigOptionException('$mode must be one of Config::FIND_FIRST, Config::FIND_LAST, Config::FIND_FIRST_I, Config::FIND_LAST_I');
         }
 
         return $mode($this->string, $needle, $offset);

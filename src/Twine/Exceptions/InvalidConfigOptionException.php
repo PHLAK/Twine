@@ -4,6 +4,6 @@ namespace Twine\Exceptions;
 
 use RuntimeException;
 
-class InvalidTypeException extends RuntimeException
+class InvalidConfigOptionException extends RuntimeException
 {
 }
