@@ -376,4 +376,12 @@ class StrTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(4, $count);
     }
+
+    public function test_it_can_insert_a_string_into_the_string()
+    {
+        $string = $this->string->insert('athan', 4);
+
+        $this->assertInstanceOf(Twine\Str::class, $string);
+        $this->assertEquals('johnathan pinkerton', $string);
+    }
 }

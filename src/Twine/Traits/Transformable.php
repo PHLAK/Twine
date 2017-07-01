@@ -146,4 +146,17 @@ trait Transformable
 
         return new static(str_pad($this->string, $length, $padding, $mode));
     }
+
+    /**
+     * Insert a string into the string at a given position.
+     *
+     * @param string $string The string to be inserted
+     * @param int $position Position at which to insert $string
+     *
+     * @return Twine\Str
+     */
+    public function insert($string, $position)
+    {
+        return new static(substr_replace($this->string, $string, $position, 0));
+    }
 }
