@@ -11,7 +11,7 @@ trait Encodable
      * Encode the string to or decode from a base64 encoded value.
      *
      * @param string $mode Config::BASE64_ENCODE - Encode the string to base64
-     *                     Config::BASE65_DECODE - Decode the string from base64
+     *                     Config::BASE64_DECODE - Decode the string from base64
      *
      * @return Twine\Str
      */

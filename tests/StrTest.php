@@ -229,14 +229,6 @@ class StrTest extends PHPUnit_Framework_TestCase
         $this->string->base64('invalid');
     }
 
-    public function test_it_can_be_chunked()
-    {
-        $string = $this->string->chunk(5);
-
-        $this->assertInstanceOf(Twine\Str::class, $string);
-        $this->assertEquals("john \r\npinke\r\nrton\r\n", $string);
-    }
-
     public function test_it_can_be_wrapped()
     {
         $string = $this->string->wrap(5);
@@ -277,68 +269,12 @@ class StrTest extends PHPUnit_Framework_TestCase
         $this->assertRegExp('/[ ehijknoprt]{14}/', (string) $string);
     }
 
-    public function test_it_can_be_split_into_an_array()
-    {
-        $string = $this->string->split(3);
-
-        $this->assertEquals(['joh', 'n p', 'ink', 'ert', 'on'], $string);
-    }
-
-    public function test_it_can_explode_into_an_array()
-    {
-        $string = $this->string->explode(' ');
-
-        $this->assertEquals(['john', 'pinkerton'], $string);
-    }
-
-    public function test_it_can_count_the_characters_in_the_string()
-    {
-        // TODO: Test all the modes
-        $charCount = $this->string->characters();
-
-        $this->assertEquals([
-            32 => 1, 101 => 1, 104 => 1, 105 => 1, 106 => 1, 107 => 1,
-            110 => 3, 111 => 2, 112 => 1, 114 => 1, 116 => 1
-        ], $charCount);
-    }
-
-    public function test_it_can_count_the_words_in_the_string()
-    {
-        $wordCount = $this->string->words();
-        $wordArray = $this->string->words(Twine\Config::WORD_ARRAY);
-        $wordPositions = $this->string->words(Twine\Config::WORD_POSITIONS);
-
-        $this->assertEquals(2, $wordCount);
-        $this->assertEquals(['john', 'pinkerton'], $wordArray);
-        $this->assertEquals([0 => 'john', 1 => 'pinkerton'], $wordArray);
-    }
-
     public function test_it_can_strip_html_and_php_tags()
     {
         $string = (new Twine\Str("<b>Name:</b> <?php echo 'john pinkerton'; ?><br>"))->strip('<br>');
 
         $this->assertInstanceOf(Twine\Str::class, $string);
         $this->assertEquals('Name: <br>', $string);
-    }
-
-    public function test_it_can_find_a_substring()
-    {
-        $first = $this->string->find('pink');
-        $last = $this->string->find('pink', 0, Twine\Config::FIND_LAST);
-        $firstI = $this->string->find('PiNk', 0, Twine\Config::FIND_FIRST_I);
-        $lastI =$this->string->find('PiNk', 0, Twine\Config::FIND_LAST_I);
-
-        $this->assertEquals(5, $first);
-        $this->assertEquals(5, $last);
-        $this->assertEquals(5, $firstI);
-        $this->assertEquals(5, $lastI);
-    }
-
-    public function test_it_throws_an_exception_when_finding_with_an_invalid_config_option()
-    {
-        $this->expectException(InvalidConfigOptionException::class);
-
-        $this->string->find('pink', 0, 'invalid');
     }
 
     public function test_it_can_get_a_substring()
