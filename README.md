@@ -1,6 +1,10 @@
 Twine
 =========
 
+![Twine](twine.svg)
+
+-----
+
 [![Latest Stable Version](https://img.shields.io/packagist/v/PHLAK/Twine.svg)](https://packagist.org/packages/PHLAK/Twine)
 [![Total Downloads](https://img.shields.io/packagist/dt/PHLAK/Twine.svg)](https://packagist.org/packages/PHLAK/Twine)
 [![Author](https://img.shields.io/badge/author-Chris%20Kankiewicz-blue.svg)](https://www.ChrisKankiewicz.com)
@@ -52,7 +56,15 @@ Configuration
 Usage
 -----
 
-...
+### Chaining Methods
+
+Perform a substring comparison:
+
+```php
+$string = new Twine\Str('john pinkerton');
+
+$string->substring(5, 4)->compare('pink'); // Returns 0
+```
 
 Changelog
 ---------
