@@ -14,6 +14,20 @@ class StrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('john pinkerton', $this->string);
     }
 
+    public function test_it_can_be_access_characters_via_array_notation()
+    {
+        $this->assertTrue(isset($this->string[5]));
+        $this->assertEquals('p', $this->string[5]);
+    }
+
+    public function test_it_thows_an_exception_when_setting_or_unsetting_a_character_with_array_notation()
+    {
+        $this->expectException(\RuntimeException::class);
+
+        $this->string[5] = 'z';
+        unset($this->string[5]);
+    }
+
     public function test_it_has_a_length()
     {
         $this->assertEquals(14, $this->string->length());
