@@ -4,13 +4,12 @@ namespace Twine;
 
 use Twine\Traits\ArrayAccess;
 use Twine\Traits\Convinience;
-use Twine\Traits\Encodable;
 use Twine\Traits\Hashable;
 use Twine\Exceptions\InvalidConfigOptionException;
 
 class Str implements \ArrayAccess
 {
-    use ArrayAccess, Convinience, Encodable, Hashable;
+    use ArrayAccess, Convinience, Hashable;
 
     /** @var string A string */
     protected $string;
