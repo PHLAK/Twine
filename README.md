@@ -17,7 +17,7 @@ Strings, leveled up! -- by, [Chris Kankiewicz](https://www.ChrisKankiewicz.com)
 Introduction
 ------------
 
-...
+Twine is a simple string manipulation library with an expressive, fluent syntax.
 
 Like this project? Keep me caffeinated by [making a donation](https://paypal.me/ChrisKankiewicz).
 
@@ -45,25 +45,133 @@ use Twine;
 Then instantiate a Twine string:
 
 ```php
-$twine = Twine\String('john pinkerton');
+$string = Twine\String('john pinkerton');
 ```
-
-Configuration
--------------
-
-...
 
 Usage
 -----
 
+Return part of the string.
+
+```php
+$string->substring($start, $length = null);
+```
+
+Append a suffix to the string.
+
+```php
+$string->append($suffix);
+```
+
+Prepend the string with a prefix.
+
+```php
+$string->prepend($prfix);
+```
+
+Insert some text into the string at a given position.
+
+```php
+$string->insert($string, $position);
+```
+
+Convert all or parts of the string to uppercase.
+
+```php
+$string->uppercase($mode = Twine\Config::UC_ALL);
+```
+
+Available uppercase modes:
+
+  - `Twine\Config::UC_ALL` - Uppercase all characters of the string
+  - `Twine\Config::UC_FIRST` - Uppercase the first character of the string
+  - `Twine\Config::UC_WORDS` - Uppercase the first character of each word of the string
+
+Convert all or parts of the string to lowercase.
+
+```php
+$string->lowercase($mode = Twine\Config::LC_ALL);
+```
+
+Available lowercase modes:
+
+  - `Twine\Config::LC_ALL` - Lowercase all characters of the string
+  - `Twine\Config::LC_FIRST` - Lowercase the first character of the string
+  - `Twine\Config::LC_WORDS` - Lowercase the first character of each word of the string
+
+Repeat the string multiple times.
+
+```php
+$string->repeat($multiplier);
+```
+
+Reverse the string.
+
+```php
+$string->reverse();
+```
+
+Replace parts of the string with another string.
+
+```php
+$string->replace($search, $replace, &$count = null);
+```
+
+ Randomly shuffle the characters of the string.
+
+```php
+$string->shuffle();
+```
+
+Pad the string to a specific length.
+
+```php
+$string->pad($length, $padding = ' ', $mode = Config::PAD_RIGHT);
+```
+
+Available padding modes:
+  - `Config::PAD_RIGHT` - Only pad the right side of the string
+  - `Config::PAD_LEFT` - Only pad the left side of the string
+  - `Config::PAD_BOTH` - Pad both sides of the string
+
+Remove whitespace or a specific set of characters from the beginning and/or end
+of the string.
+
+```php
+$string->trim($mask = Twine\Config::TRIM_MASK, $mode = Twine\Config::TRIM_BOTH);
+```
+
+Available trim modes:
+
+  - `Twine\Config::TRIM_BOTH` - Trim characters from the beginning and end of the string
+  - `Twine\Config::TRIM_LEFT` - Only trim characters from the begining of the string
+  - `Twine\Config::TRIM_RIGHT` - Only trim characters from the end of the strring
+
+Wrap the string to a given number of characters.
+
+```php
+$string->wrap($width, $break = "\n", $cut = false);
+```
+
 ### Chaining Methods
+
+A Twine string can be manipulated fluently by chaining methods. Here are a few
+example chains:
 
 Perform a substring comparison:
 
 ```php
 $string = new Twine\Str('john pinkerton');
 
-$string->substring(5, 4)->compare('pink'); // Returns 0
+$string->substring(5, 4)->equals('pink'); // Returns true
+```
+
+Encode a file in compliance with [RFC 2045](https://tools.ietf.org/html/rfc2045).
+
+```php
+$string = new Twine\Str(file_get_contents('garbage.bin'));
+
+$string->base64()->wrap(76, "\r\n", true);
 ```
 
 Changelog
