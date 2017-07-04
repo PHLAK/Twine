@@ -44,7 +44,7 @@ class Str implements \ArrayAccess
      */
     public function substring($start, $length = null)
     {
-        $length = $length ?? $this->length() - $start;
+        $length = isset($length) ? $length : $this->length() - $start;
 
         return new static(substr($this->string, $start, $length));
     }
