@@ -24,7 +24,4 @@ class Config
     const BASE64_ENCODE = 'base64_encode';
     const BASE64_DECODE = 'base64_decode';
 
-    const COMPARE_CASE_SENSITIVE = 'strcmp';
-    const COMPARE_CASE_INSENSITIVE = 'strcasecmp';
-    const COMPARE_NATCASE = 'strnatcasecmp';
 }

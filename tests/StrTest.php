@@ -249,22 +249,4 @@ class StrTest extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(14, $this->string->length());
     }
-
-    public function test_it_can_be_compared_to_another_string()
-    {
-        $comparison = $this->string->compare('pink');
-        $caseSensitive = $this->string->compare('PiNK');
-        $caseInsensitive = $this->string->compare('PiNK', Twine\Config::COMPARE_CASE_INSENSITIVE);
-
-        $this->assertEquals(-6, $comparison);
-        $this->assertEquals(26, $caseSensitive);
-        $this->assertEquals(-6, $caseInsensitive);
-    }
-
-    public function test_it_throws_an_exception_when_comparing_with_an_invalid_config_option()
-    {
-        $this->expectException(InvalidConfigOptionException::class);
-
-        $this->string->compare('pink', 'invalid');
-    }
 }

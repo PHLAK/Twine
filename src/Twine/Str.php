@@ -259,30 +259,4 @@ class Str implements \ArrayAccess
     {
         return strlen($this->string);
     }
-
-    /**
-     * Compare the string or a substring of the string with another string.
-     *
-     * @param string $string A string to compare against
-     * @param int    $mode   Config::COMPARE_CASE_SENSITIVE - Case sensitive comparison
-     *                       Config::COMPARE_CASE_INSENSITIVE - Case insensitive comparison
-     *
-     * @return int Positive integer if offset of the string is less than $string
-     *             Negative ingeger if it is greater than $string
-     *             0 if they are equal
-     */
-    public function compare($string, $mode = Config::COMPARE_CASE_SENSITIVE)
-    {
-        $compareModes = [
-            Config::COMPARE_CASE_SENSITIVE,
-            Config::COMPARE_CASE_INSENSITIVE,
-            Config::COMPARE_NATCASE
-        ];
-
-        if (! in_array($mode, $compareModes, true)) {
-            throw new InvalidConfigOptionException('$mode must be one of ' . implode(', ', $compareModes));
-        }
-
-        return $mode($this->string, $string);
-    }
 }
