@@ -9,18 +9,18 @@ class StrTest extends PHPUnit_Framework_TestCase
         $this->string = new Twine\Str('john pinkerton');
     }
 
-    public function test_it_can_be_returned_as_a_string()
+    public function test_it_can_be_accessed_as_a_string()
     {
         $this->assertEquals('john pinkerton', $this->string);
     }
 
-    public function test_it_can_be_access_characters_via_array_notation()
+    public function test_it_can_access_characters_via_array_notation()
     {
         $this->assertTrue(isset($this->string[5]));
         $this->assertEquals('p', $this->string[5]);
     }
 
-    public function test_it_thows_an_exception_when_setting_or_unsetting_a_character_with_array_notation()
+    public function test_it_thows_an_exception_when_modifyinging_characters_with_array_notation()
     {
         $this->expectException(\RuntimeException::class);
 
@@ -28,7 +28,7 @@ class StrTest extends PHPUnit_Framework_TestCase
         unset($this->string[5]);
     }
 
-    public function test_it_can_get_a_substring()
+    public function test_it_can_return_a_substring()
     {
         $substring = $this->string->substring(5);
         $partial = $this->string->substring(5, 4);
@@ -38,53 +38,52 @@ class StrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('pink', $partial);
     }
 
-    public function test_it_can_be_appended()
+    public function test_it_can_append_a_string()
     {
-        $string = $this->string->append(' jr');
+        $appended = $this->string->append(' jr');
 
-        $this->assertInstanceOf(Twine\Str::class, $string);
-        $this->assertEquals('john pinkerton jr', $string);
+        $this->assertInstanceOf(Twine\Str::class, $appended);
+        $this->assertEquals('john pinkerton jr', $appended);
     }
 
-    public function test_it_can_be_prepended()
+    public function test_it_can_prepended_a_string()
     {
-        $string = $this->string->prepend('mr ');
+        $prepended = $this->string->prepend('mr ');
 
-        $this->assertInstanceOf(Twine\Str::class, $string);
-        $this->assertEquals('mr john pinkerton', $string);
+        $this->assertInstanceOf(Twine\Str::class, $prepended);
+        $this->assertEquals('mr john pinkerton', $prepended);
     }
 
-
-    public function test_it_can_insert_a_string_into_the_string()
+    public function test_it_can_insert_a_string()
     {
-        $string = $this->string->insert('athan', 4);
+        $inserted = $this->string->insert('athan', 4);
 
-        $this->assertInstanceOf(Twine\Str::class, $string);
-        $this->assertEquals('johnathan pinkerton', $string);
+        $this->assertInstanceOf(Twine\Str::class, $inserted);
+        $this->assertEquals('johnathan pinkerton', $inserted);
     }
 
-    public function test_it_can_be_uppercased()
+    public function test_it_can_uppercase_all_or_parts_of_the_string()
     {
-        $string = $this->string->uppercase();
+        $uppercased = $this->string->uppercase();
 
-        $this->assertInstanceOf(Twine\Str::class, $string);
-        $this->assertEquals('JOHN PINKERTON', $string);
+        $this->assertInstanceOf(Twine\Str::class, $uppercased);
+        $this->assertEquals('JOHN PINKERTON', $uppercased);
     }
 
     public function test_it_can_uppercase_the_first_letter_only()
     {
-        $string = $this->string->uppercase(Twine\Config::UC_FIRST);
+        $ucFirst = $this->string->uppercase(Twine\Config::UC_FIRST);
 
-        $this->assertInstanceOf(Twine\Str::class, $string);
-        $this->assertEquals('John pinkerton', $string);
+        $this->assertInstanceOf(Twine\Str::class, $ucFirst);
+        $this->assertEquals('John pinkerton', $ucFirst);
     }
 
     public function test_it_can_uppercase_the_first_letter_of_each_word()
     {
-        $string = $this->string->uppercase(Twine\Config::UC_WORDS);
+        $ucWords = $this->string->uppercase(Twine\Config::UC_WORDS);
 
-        $this->assertInstanceOf(Twine\Str::class, $string);
-        $this->assertEquals('John Pinkerton', $string);
+        $this->assertInstanceOf(Twine\Str::class, $ucWords);
+        $this->assertEquals('John Pinkerton', $ucWords);
     }
 
     public function test_it_throws_an_exception_when_uppercasing_with_an_invalid_config_option()
@@ -94,33 +93,34 @@ class StrTest extends PHPUnit_Framework_TestCase
         $this->string->uppercase('invalid');
     }
 
-    public function test_it_can_be_lowercased()
+    public function test_it_can_lowercase_all_or_parts_of_the_string()
     {
-        $string = $this->string->uppercase()->lowercase();
-        // $string = (new Twine\Str('JOHN PINKERTON'))->lowercase();
+        $string = new Twine\Str('JOHN PINKERTON');
 
-        $this->assertInstanceOf(Twine\Str::class, $string);
-        $this->assertEquals('john pinkerton', $string);
+        $lowercased = $string->lowercase();
+
+        $this->assertInstanceOf(Twine\Str::class, $lowercased);
+        $this->assertEquals('john pinkerton', $lowercased);
     }
 
     public function test_it_can_lowercase_the_first_letter_only()
     {
-        $all = $this->string->uppercase()->lowercase();
-        $first = $this->string->uppercase()->lowercase(Twine\Config::LC_FIRST);
-        $words = $this->string->uppercase()->lowercase(Twine\Config::LC_WORDS);
+        $string = new Twine\Str('JOHN PINKERTON');
 
-        $this->assertInstanceOf(Twine\Str::class, $all);
-        $this->assertEquals('john pinkerton', $all);
-        $this->assertEquals('jOHN PINKERTON', $first);
-        $this->assertEquals('jOHN pINKERTON', $words);
+        $lcFirst = $string->lowercase(Twine\Config::LC_FIRST);
+
+        $this->assertInstanceOf(Twine\Str::class, $lcFirst);
+        $this->assertEquals('jOHN PINKERTON', $lcFirst);
     }
 
     public function test_it_can_lowercase_the_first_letter_of_each_word()
     {
-        $string = $this->string->uppercase()->lowercase(Twine\Config::LC_WORDS);
+        $string = new Twine\Str('JOHN PINKERTON');
 
-        $this->assertInstanceOf(Twine\Str::class, $string);
-        $this->assertEquals('jOHN pINKERTON', $string);
+        $lcWords = $string->lowercase(Twine\Config::LC_WORDS);
+
+        $this->assertInstanceOf(Twine\Str::class, $lcWords);
+        $this->assertEquals('jOHN pINKERTON', $lcWords);
     }
 
     public function test_it_throws_an_exception_when_lowercasing_with_an_invalid_config_option()
@@ -130,42 +130,42 @@ class StrTest extends PHPUnit_Framework_TestCase
         $this->string->lowercase('invalid');
     }
 
-    public function test_it_is_repeatable()
+    public function test_it_can_be_repeated()
     {
-        $string = $this->string->repeat(2);
+        $repeated = $this->string->repeat(2);
 
-        $this->assertInstanceOf(Twine\Str::class, $string);
-        $this->assertEquals('john pinkertonjohn pinkerton', $string);
+        $this->assertInstanceOf(Twine\Str::class, $repeated);
+        $this->assertEquals('john pinkertonjohn pinkerton', $repeated);
     }
 
     public function test_it_can_be_reversed()
     {
-        $string = $this->string->reverse();
+        $reveresed = $this->string->reverse();
 
-        $this->assertInstanceOf(Twine\Str::class, $string);
-        $this->assertEquals('notreknip nhoj', $string);
+        $this->assertInstanceOf(Twine\Str::class, $reveresed);
+        $this->assertEquals('notreknip nhoj', $reveresed);
     }
 
     public function test_it_can_replace_parts_of_the_string()
     {
-        $string = $this->string->replace('john', 'bob', $count);
+        $replaced = $this->string->replace('john', 'bob', $count);
 
-        $this->assertInstanceOf(Twine\Str::class, $string);
-        $this->assertEquals('bob pinkerton', $string);
+        $this->assertInstanceOf(Twine\Str::class, $replaced);
+        $this->assertEquals('bob pinkerton', $replaced);
         $this->assertEquals(1, $count);
     }
 
     public function test_it_can_be_shuffled()
     {
-        $string = $this->string->shuffle();
+        $shuffled = $this->string->shuffle();
 
-        while ($this->string == $string) {
-            $string = $this->string->shuffle();
+        while ($this->string == $shuffled) {
+            $shuffled = $this->string->shuffle();
         }
 
-        $this->assertInstanceOf(Twine\Str::class, $string);
-        $this->assertNotEquals($this->string, $string);
-        $this->assertRegExp('/[ ehijknoprt]{14}/', (string) $string);
+        $this->assertInstanceOf(Twine\Str::class, $shuffled);
+        $this->assertNotEquals($this->string, $shuffled);
+        $this->assertRegExp('/[ ehijknoprt]{14}/', (string) $shuffled);
     }
 
     public function test_it_can_be_padded()
@@ -189,34 +189,34 @@ class StrTest extends PHPUnit_Framework_TestCase
 
     public function test_it_can_trim_excess_whitespace()
     {
-        $string = (new Twine\Str('   foo bar     '))->trim();
+        $trimmed = (new Twine\Str('   foo bar     '))->trim();
 
-        $this->assertInstanceOf(Twine\Str::class, $string);
-        $this->assertEquals('foo bar', $string);
+        $this->assertInstanceOf(Twine\Str::class, $trimmed);
+        $this->assertEquals('foo bar', $trimmed);
     }
 
     public function test_it_can_trim_specific_chracters()
     {
-        $string = $this->string->trim('jton');
+        $trimmed = $this->string->trim('jton');
 
-        $this->assertInstanceOf(Twine\Str::class, $string);
-        $this->assertEquals('hn pinker', $string);
+        $this->assertInstanceOf(Twine\Str::class, $trimmed);
+        $this->assertEquals('hn pinker', $trimmed);
     }
 
     public function test_it_can_trim_characters_from_the_left_only()
     {
-        $string = $this->string->trim('jton', Twine\Config::TRIM_LEFT);
+        $leftTrimmed = $this->string->trim('jton', Twine\Config::TRIM_LEFT);
 
-        $this->assertInstanceOf(Twine\Str::class, $string);
-        $this->assertEquals('hn pinkerton', $string);
+        $this->assertInstanceOf(Twine\Str::class, $leftTrimmed);
+        $this->assertEquals('hn pinkerton', $leftTrimmed);
     }
 
     public function test_it_can_trim_characters_from_the_right_only()
     {
-        $string = $this->string->trim('jton', Twine\Config::TRIM_RIGHT);
+        $rightTrimmed = $this->string->trim('jton', Twine\Config::TRIM_RIGHT);
 
-        $this->assertInstanceOf(Twine\Str::class, $string);
-        $this->assertEquals('john pinker', $string);
+        $this->assertInstanceOf(Twine\Str::class, $rightTrimmed);
+        $this->assertEquals('john pinker', $rightTrimmed);
     }
 
     public function test_it_throws_an_exception_when_trimming_with_an_invalid_config_option()
@@ -239,6 +239,7 @@ class StrTest extends PHPUnit_Framework_TestCase
     public function test_it_can_count_substring_occurrences()
     {
         $string = new Twine\Str('How much wood could a woodchuck chuck if a woodchuck could chuck wood?');
+
         $count = $string->count('wood');
 
         $this->assertEquals(4, $count);
