@@ -2,11 +2,10 @@
 
 namespace Twine;
 
-use Twine\Exceptions\InvalidConfigOptionException;
-
 use Twine\Traits\ArrayAccess;
 use Twine\Traits\Encodable;
 use Twine\Traits\Hashable;
+use Twine\Exceptions\InvalidConfigOptionException;
 
 class Str implements \ArrayAccess
 {
@@ -38,7 +37,7 @@ class Str implements \ArrayAccess
     /**
      * Return part of the string.
      *
-     * @param int $start Starting position of the substring
+     * @param int $start  Starting position of the substring
      * @param int $length Length of substring
      *
      * @return Twine\Str
@@ -77,8 +76,8 @@ class Str implements \ArrayAccess
     /**
      * Insert some text into the string at a given position.
      *
-     * @param string $string Text to be inserted
-     * @param int $position Position at which to insert the text
+     * @param string $string   Text to be inserted
+     * @param int    $position Position at which to insert the text
      *
      * @return Twine\Str
      */
@@ -160,9 +159,9 @@ class Str implements \ArrayAccess
     /**
      * Replace parts of the string with another string.
      *
-     * @param string $search The value to be replaced
+     * @param string $search  The value to be replaced
      * @param string $replace The value to replace with
-     * @param int &$count This will be set to the number of replacements performed
+     * @param int    &$count  This will be set to the number of replacements performed
      *
      * @return Twine\Str
      */
@@ -184,11 +183,11 @@ class Str implements \ArrayAccess
     /**
      * Pad the string to a specific length.
      *
-     * @param int $length Length to pad the string to
+     * @param int    $length  Length to pad the string to
      * @param string $padding Character to pad the string with
-     * @param int $mode Config::PAD_RIGHT - Only pad the right side of the string
-     *                  Config::PAD_LEFT - Only pad the left side of the string
-     *                  Config::PAD_BOTH - Pad both sides of the string
+     * @param int    $mode    Config::PAD_RIGHT - Only pad the right side of the string
+     *                        Config::PAD_LEFT - Only pad the left side of the string
+     *                        Config::PAD_BOTH - Pad both sides of the string
      *
      * @return Twine\Str
      */
@@ -228,9 +227,9 @@ class Str implements \ArrayAccess
     /**
      * Wrap the string to a given number of characters.
      *
-     * @param int $width Number of characters at which to wrap
+     * @param int    $width Number of characters at which to wrap
      * @param string $break Character used to break the string
-     * @param boolean $cut If true, always wrap at or before the specified width
+     * @param bool   $cut   If true, always wrap at or before the specified width
      *
      * @return Twine\Str
      */
@@ -265,8 +264,8 @@ class Str implements \ArrayAccess
      * Compare the string or a substring of the string with another string.
      *
      * @param string $string A string to compare against
-     * @param int $mode Config::COMPARE_CASE_SENSITIVE - Case sensitive comparison
-     *                  Config::COMPARE_CASE_INSENSITIVE - Case insensitive comparison
+     * @param int    $mode   Config::COMPARE_CASE_SENSITIVE - Case sensitive comparison
+     *                       Config::COMPARE_CASE_INSENSITIVE - Case insensitive comparison
      *
      * @return int Positive integer if offset of the string is less than $string
      *             Negative ingeger if it is greater than $string

@@ -30,7 +30,7 @@ trait Hashable
     /**
      * Calculate the md5 hash of the string.
      *
-     * @param boolean $raw If true, returns the raw binary of the hash
+     * @param bool $raw If true, returns the raw binary of the hash
      *
      * @return Twine\Str
      */
@@ -42,7 +42,7 @@ trait Hashable
     /**
      * Calculate the sha1 hash of the string.
      *
-     * @param boolean $raw If true, returns the raw binary of the hash
+     * @param bool $raw If true, returns the raw binary of the hash
      *
      * @return Twine\Str
      */
@@ -54,7 +54,7 @@ trait Hashable
     /**
      * Calculate the sha256 hash of the string.
      *
-     * @param boolean $raw If true, returns the raw binary of the hash
+     * @param bool $raw If true, returns the raw binary of the hash
      *
      * @return Twine\Str
      */
