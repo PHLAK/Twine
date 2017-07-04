@@ -8,16 +8,6 @@ use Twine\Exceptions\InvalidConfigOptionException;
 trait Convinience
 {
     /**
-     * Get the length of the string.
-     *
-     * @return int Length of the string
-     */
-    public function length()
-    {
-        return strlen($this->string);
-    }
-
-    /**
      * Encode the string to or decode from a base64 encoded value.
      *
      * @param string $mode Config::BASE64_ENCODE - Encode the string to base64
@@ -70,5 +60,15 @@ trait Convinience
     public function format(...$args)
     {
         return new static(sprintf($this->string, ...$args));
+    }
+
+    /**
+     * Get the length of the string.
+     *
+     * @return int Length of the string
+     */
+    public function length()
+    {
+        return strlen($this->string);
     }
 }

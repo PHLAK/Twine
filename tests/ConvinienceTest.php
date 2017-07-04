@@ -9,11 +9,6 @@ class ConvinienceTest extends PHPUnit_Framework_TestCase
         $this->string = new Twine\Str('john pinkerton');
     }
 
-    public function test_it_has_a_length()
-    {
-        $this->assertEquals(14, $this->string->length());
-    }
-
     public function test_it_can_be_base64_encoded_and_decoded()
     {
         $string = $this->string->base64();
@@ -65,5 +60,10 @@ class ConvinienceTest extends PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf(Twine\Str::class, $formatted);
         $this->assertEquals('Hello John! Welcome to Pinkertown, population 10100111001.', $formatted);
+    }
+
+    public function test_it_has_a_length()
+    {
+        $this->assertEquals(14, $this->string->length());
     }
 }
