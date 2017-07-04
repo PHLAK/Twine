@@ -7,11 +7,10 @@ use Twine\Exceptions\InvalidConfigOptionException;
 use Twine\Traits\ArrayAccess;
 use Twine\Traits\Encodable;
 use Twine\Traits\Hashable;
-use Twine\Traits\Sanitizable;
 
 class Str implements \ArrayAccess
 {
-    use ArrayAccess, Encodable, Hashable, Sanitizable;
+    use ArrayAccess, Encodable, Hashable;
 
     /** @var string A string */
     protected $string;
