@@ -39,4 +39,16 @@ trait Convinience
     {
         return $mode($this->string, $string) === 0;
     }
+
+    /**
+     * Return the formatted string.
+     *
+     * @param mixed $args Any number of elements to fill the string
+     *
+     * @return Twine\Str
+     */
+    public function format(...$args)
+    {
+        return new static(sprintf($this->string, ...$args));
+    }
 }

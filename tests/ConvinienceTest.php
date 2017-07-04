@@ -40,4 +40,14 @@ class ConvinienceTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($matches);
         $this->assertFalse($differs);
     }
+
+    public function test_it_can_be_formatted()
+    {
+        $string = new Twine\Str('Hello %s! Welcome to %s, population %b.');
+
+        $formatted = $string->format('John', 'Pinkertown', 1337);
+
+        $this->assertInstanceOf(Twine\Str::class, $formatted);
+        $this->assertEquals('Hello John! Welcome to Pinkertown, population 10100111001.', $formatted);
+    }
 }
