@@ -1,7 +1,7 @@
 Twine
 =========
 
-![Twine](twine.svg)
+![Twine](twine.png)
 
 -----
 
