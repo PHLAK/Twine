@@ -186,9 +186,9 @@ class Str implements \ArrayAccess
      *
      * @param int $length Length to pad the string to
      * @param string $padding Character to pad the string with
-     * @param int $mode Config::PAD_RIGHT
-     *                  Config::PAD_LEFT
-     *                  Config::PAD_BOTH
+     * @param int $mode Config::PAD_RIGHT - Only pad the right side of the string
+     *                  Config::PAD_LEFT - Only pad the left side of the string
+     *                  Config::PAD_BOTH - Pad both sides of the string
      *
      * @return Twine\Str
      */
