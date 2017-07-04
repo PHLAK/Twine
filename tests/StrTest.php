@@ -235,18 +235,4 @@ class StrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals("john\npinkerton", $string);
         $this->assertEquals("john\npinke\nrton", $agressive);
     }
-
-    public function test_it_can_count_substring_occurrences()
-    {
-        $string = new Twine\Str('How much wood could a woodchuck chuck if a woodchuck could chuck wood?');
-
-        $count = $string->count('wood');
-
-        $this->assertEquals(4, $count);
-    }
-
-    public function test_it_has_a_length()
-    {
-        $this->assertEquals(14, $this->string->length());
-    }
 }

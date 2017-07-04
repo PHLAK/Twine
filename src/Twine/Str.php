@@ -3,13 +3,14 @@
 namespace Twine;
 
 use Twine\Traits\ArrayAccess;
+use Twine\Traits\Convinience;
 use Twine\Traits\Encodable;
 use Twine\Traits\Hashable;
 use Twine\Exceptions\InvalidConfigOptionException;
 
 class Str implements \ArrayAccess
 {
-    use ArrayAccess, Encodable, Hashable;
+    use ArrayAccess, Convinience, Encodable, Hashable;
 
     /** @var string A string */
     protected $string;
@@ -236,27 +237,5 @@ class Str implements \ArrayAccess
     public function wrap($width, $break = "\n", $cut = false)
     {
         return new static(wordwrap($this->string, $width, $break, $cut));
-    }
-
-    /**
-     * Count the number of occurences of a substring in the string.
-     *
-     * @param string $string Substring to count
-     *
-     * @return int
-     */
-    public function count($string)
-    {
-        return substr_count($this->string, $string);
-    }
-
-    /**
-     * Get the length of the string.
-     *
-     * @return int Length of the string
-     */
-    public function length()
-    {
-        return strlen($this->string);
     }
 }
