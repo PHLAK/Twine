@@ -135,7 +135,7 @@ class Str implements \ArrayAccess
     }
 
     /*
-     * Repeat the string.
+     * Repeat the string multiple times.
      *
      * @param int $multiplier Number of times to repeat the string
      *
@@ -171,7 +171,7 @@ class Str implements \ArrayAccess
     }
 
     /**
-     * Randomly shuffle the string.
+     * Randomly shuffle the characters of the string.
      *
      * @return Twine\Str
      */
