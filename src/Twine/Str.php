@@ -40,7 +40,7 @@ class Str implements \ArrayAccess
      * @param int $start  Starting position of the substring
      * @param int $length Length of substring
      *
-     * @return Twine\Str
+     * @return Str
      */
     public function substring($start, $length = null)
     {
@@ -54,7 +54,7 @@ class Str implements \ArrayAccess
      *
      * @param string $suffix A suffix to append
      *
-     * @return Twine\Str
+     * @return Str
      */
     public function append($suffix)
     {
@@ -66,7 +66,7 @@ class Str implements \ArrayAccess
      *
      * @param string $prefix A prefix to prepend
      *
-     * @return Twine\Str
+     * @return Str
      */
     public function prepend($prefix)
     {
@@ -79,7 +79,7 @@ class Str implements \ArrayAccess
      * @param string $string   Text to be inserted
      * @param int    $position Position at which to insert the text
      *
-     * @return Twine\Str
+     * @return Str
      */
     public function insert($string, $position)
     {
@@ -93,7 +93,7 @@ class Str implements \ArrayAccess
      *                     Config::UC_FIRST - Uppercase the first character of the string only
      *                     Config::UC_WORDS - Uppercase the first character of each word of the string
      *
-     * @return Twine\Str
+     * @return Str
      */
     public function uppercase($mode = Config::UC_ALL)
     {
@@ -113,7 +113,7 @@ class Str implements \ArrayAccess
      *                     Config::LC_FIRST - Lowercase the first character of the string only
      *                     Config::LC_WORDS - Lowercase the first character of each word of the string
      *
-     * @return Twine\Str
+     * @return Str
      */
     public function lowercase($mode = Config::LC_ALL)
     {
@@ -139,7 +139,7 @@ class Str implements \ArrayAccess
      *
      * @param int $multiplier Number of times to repeat the string
      *
-     * @return Twine\Str
+     * @return Str
      */
     public function repeat($multiplier)
     {
@@ -149,7 +149,7 @@ class Str implements \ArrayAccess
     /**
      * Reverse the string.
      *
-     * @return Twine\Str
+     * @return Str
      */
     public function reverse()
     {
@@ -163,7 +163,7 @@ class Str implements \ArrayAccess
      * @param string $replace The value to replace with
      * @param int    &$count  This will be set to the number of replacements performed
      *
-     * @return Twine\Str
+     * @return Str
      */
     public function replace($search, $replace, &$count = null)
     {
@@ -173,7 +173,7 @@ class Str implements \ArrayAccess
     /**
      * Randomly shuffle the characters of the string.
      *
-     * @return Twine\Str
+     * @return Str
      */
     public function shuffle()
     {
@@ -189,7 +189,7 @@ class Str implements \ArrayAccess
      *                        Config::PAD_LEFT - Only pad the left side of the string
      *                        Config::PAD_BOTH - Pad both sides of the string
      *
-     * @return Twine\Str
+     * @return Str
      */
     public function pad($length, $padding = ' ', $mode = Config::PAD_RIGHT)
     {
@@ -211,7 +211,7 @@ class Str implements \ArrayAccess
      *                     Config::TRIM_LEFT - Only trim characters from the begining of the string
      *                     Config::TRIM_RIGHT - Only trim characters from the end of the strring
      *
-     * @return Twine\Str
+     * @return Str
      */
     public function trim($mask = Config::TRIM_MASK, $mode = Config::TRIM_BOTH)
     {
@@ -231,7 +231,7 @@ class Str implements \ArrayAccess
      * @param string $break Character used to break the string
      * @param bool   $cut   If true, always wrap at or before the specified width
      *
-     * @return Twine\Str
+     * @return Str
      */
     public function wrap($width, $break = "\n", $cut = false)
     {

@@ -13,7 +13,7 @@ trait Convinience
      * @param string $mode Config::BASE64_ENCODE - Encode the string to base64
      *                     Config::BASE64_DECODE - Decode the string from base64
      *
-     * @return Twine\Str
+     * @return Str
      */
     public function base64($mode = Config::BASE64_ENCODE)
     {
@@ -55,7 +55,7 @@ trait Convinience
      *
      * @param mixed $args Any number of elements to fill the string
      *
-     * @return Twine\Str
+     * @return Str
      */
     public function format(...$args)
     {
