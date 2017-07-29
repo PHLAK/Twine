@@ -19,7 +19,7 @@ class Str implements \ArrayAccess
      *
      * @param string $string A string
      */
-    public function __construct($string = null)
+    public function __construct($string = '')
     {
         $this->string = $string;
     }
