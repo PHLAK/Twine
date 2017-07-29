@@ -12,7 +12,7 @@ Twine
 [![Build Status](https://img.shields.io/travis/PHLAK/Twine.svg)](https://travis-ci.org/PHLAK/Twine)
 [![StyleCI](https://styleci.io/repos/95623990/shield?branch=master&style=flat)](https://styleci.io/repos/95623990)
 
-Strings, leveled up! -- by, [Chris Kankiewicz](https://www.ChrisKankiewicz.com)
+String manipulation, leveled up! -- by, [Chris Kankiewicz](https://www.ChrisKankiewicz.com)
 
 Introduction
 ------------
