@@ -235,4 +235,34 @@ class StrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals("john\npinkerton", $string);
         $this->assertEquals("john\npinke\nrton", $agressive);
     }
+
+    public function test_it_can_get_part_of_the_string_before_a_character()
+    {
+        $firstName = $this->string->before(' ');
+
+        $this->assertEquals('john', $firstName);
+    }
+
+    public function test_it_can_get_part_of_the_string_after_a_character()
+    {
+        $lastName = $this->string->after(' ');
+
+        $this->assertEquals('pinkerton', $lastName);
+    }
+
+    public function test_it_can_get_part_of_the_string_before_a_character_with_multiple_delimiters()
+    {
+        $string = new Twine\Str('john pinkerton jr');
+        $firstName = $string->before(' ');
+
+        $this->assertEquals('john', $firstName);
+    }
+
+    public function test_it_can_get_part_of_the_string_after_a_character_with_multiple_delimiters()
+    {
+        $string = new Twine\Str('john pinkerton jr');
+        $lastNameAndSuffix = $string->after(' ');
+
+        $this->assertEquals('pinkerton jr', $lastNameAndSuffix);
+    }
 }

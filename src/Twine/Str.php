@@ -237,4 +237,28 @@ class Str implements \ArrayAccess
     {
         return new static(wordwrap($this->string, $width, $break, $cut));
     }
+
+    /**
+     * Return part of the string occuring before a specific character.
+     *
+     * @param string $character The delimiting character
+     *
+     * @return Str
+     */
+    public function before($character)
+    {
+        return new static(explode($character, $this->string, 2)[0]);
+    }
+
+    /**
+     * Return part of the string occuring after a specific character.
+     *
+     * @param string $character The delimiting character
+     *
+     * @return Str
+     */
+    public function after($character)
+    {
+        return new static(explode($character, $this->string, 2)[1]);
+    }
 }
