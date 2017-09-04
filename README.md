@@ -126,13 +126,13 @@ $string->shuffle();
 Pad the string to a specific length.
 
 ```php
-$string->pad($length, $padding = ' ', $mode = Config::PAD_RIGHT);
+$string->pad($length, $padding = ' ', $mode = Twine\Config::PAD_RIGHT);
 ```
 
 Available padding modes:
-  - `Config::PAD_RIGHT` - Only pad the right side of the string
-  - `Config::PAD_LEFT` - Only pad the left side of the string
-  - `Config::PAD_BOTH` - Pad both sides of the string
+  - `Twine\Config::PAD_RIGHT` - Only pad the right side of the string
+  - `Twine\Config::PAD_LEFT` - Only pad the left side of the string
+  - `Twine\Config::PAD_BOTH` - Pad both sides of the string
 
 Remove whitespace or a specific set of characters from the beginning and/or end
 of the string.
