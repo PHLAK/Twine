@@ -1,6 +1,7 @@
 <?php
 
-use Twine\Exceptions\InvalidConfigOptionException;
+use PHLAK\Twine;
+use PHLAK\Twine\Exceptions\InvalidConfigOptionException;
 
 class StrTest extends PHPUnit_Framework_TestCase
 {

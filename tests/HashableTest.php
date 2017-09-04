@@ -1,5 +1,7 @@
 <?php
 
+use PHLAK\Twine;
+
 class HashableTest extends PHPUnit_Framework_TestCase
 {
     public function setUp()

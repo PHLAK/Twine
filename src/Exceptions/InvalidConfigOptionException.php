@@ -1,6 +1,6 @@
 <?php
 
-namespace Twine\Exceptions;
+namespace PHLAK\Twine\Exceptions;
 
 use RuntimeException;
 

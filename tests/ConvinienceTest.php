@@ -1,6 +1,7 @@
 <?php
 
-use Twine\Exceptions\InvalidConfigOptionException;
+use PHLAK\Twine;
+use PHLAK\Twine\Exceptions\InvalidConfigOptionException;
 
 class ConvinienceTest extends PHPUnit_Framework_TestCase
 {

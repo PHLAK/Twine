@@ -20,7 +20,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Twine\\": "src/Twine/"
+            "PHLAK\\Twine\\": "src/"
         }
     }
 }

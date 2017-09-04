@@ -1,11 +1,11 @@
 <?php
 
-namespace Twine;
+namespace PHLAK\Twine;
 
-use Twine\Traits\ArrayAccess;
-use Twine\Traits\Convinience;
-use Twine\Traits\Hashable;
-use Twine\Exceptions\InvalidConfigOptionException;
+use PHLAK\Twine\Traits\ArrayAccess;
+use PHLAK\Twine\Traits\Convinience;
+use PHLAK\Twine\Traits\Hashable;
+use PHLAK\Twine\Exceptions\InvalidConfigOptionException;
 
 class Str implements \ArrayAccess
 {

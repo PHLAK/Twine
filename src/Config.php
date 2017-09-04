@@ -1,6 +1,6 @@
 <?php
 
-namespace Twine;
+namespace PHLAK\Twine;
 
 class Config
 {

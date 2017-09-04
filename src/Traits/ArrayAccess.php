@@ -1,6 +1,6 @@
 <?php
 
-namespace Twine\Traits;
+namespace PHLAK\Twine\Traits;
 
 trait ArrayAccess
 {
@@ -25,6 +25,7 @@ trait ArrayAccess
      */
     public function offsetGet($offset)
     {
+        // NOTE: Return an instance of Str?
         return $this->string[$offset];
     }
 

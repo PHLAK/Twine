@@ -1,5 +1,7 @@
 <?php
 
+use PHLAK\Twine;
+
 class ArrayAccessTest extends PHPUnit_Framework_TestCase
 {
     public function setUp()

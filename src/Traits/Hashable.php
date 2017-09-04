@@ -1,6 +1,6 @@
 <?php
 
-namespace Twine\Traits;
+namespace PHLAK\Twine\Traits;
 
 trait Hashable
 {

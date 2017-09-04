@@ -1,9 +1,9 @@
 <?php
 
-namespace Twine\Traits;
+namespace PHLAK\Twine\Traits;
 
-use Twine\Config;
-use Twine\Exceptions\InvalidConfigOptionException;
+use PHLAK\Twine\Config;
+use PHLAK\Twine\Exceptions\InvalidConfigOptionException;
 
 trait Convinience
 {

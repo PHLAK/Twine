@@ -39,7 +39,7 @@ Initializing Twine
 First, import Twine:
 
 ```php
-use Twine;
+use PHLAK\Twine;
 ```
 
 Then instantiate a Twine string:
