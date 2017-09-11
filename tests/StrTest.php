@@ -230,7 +230,7 @@ class StrTest extends PHPUnit_Framework_TestCase
     public function test_it_can_be_wrapped()
     {
         $string = $this->string->wrap(5);
-        $agressive = $this->string->wrap(5, "\n", true);
+        $agressive = $this->string->wrap(5, "\n", Twine\Config::WRAP_HARD);
 
         $this->assertInstanceOf(Twine\Str::class, $string);
         $this->assertEquals("john\npinkerton", $string);

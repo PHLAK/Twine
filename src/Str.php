@@ -233,7 +233,7 @@ class Str implements \ArrayAccess
      *
      * @return Str
      */
-    public function wrap($width, $break = "\n", $cut = false)
+    public function wrap($width, $break = "\n", $cut = Config::WRAP_SOFT)
     {
         return new static(wordwrap($this->string, $width, $break, $cut));
     }
