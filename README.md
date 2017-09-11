@@ -150,8 +150,13 @@ Available trim modes:
 Wrap the string to a given number of characters.
 
 ```php
-$string->wrap($width, $break = "\n", $cut = false);
+$string->wrap($width, $break = "\n", $cut = Twine\Config::WRAP_SOFT);
 ```
+
+Available warp modes:
+
+  - `Twine\Config::WRAP_SOFT` - Wrap after the specified width
+  - `Twine\Config::WRAP_HARD` - Always wrap at or before the specified width
 
 ### Chaining Methods
 
