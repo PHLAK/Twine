@@ -144,8 +144,8 @@ $string->trim($mask = Twine\Config::TRIM_MASK, $mode = Twine\Config::TRIM_BOTH);
 Available trim modes:
 
   - `Twine\Config::TRIM_BOTH` - Trim characters from the beginning and end of the string
-  - `Twine\Config::TRIM_LEFT` - Only trim characters from the begining of the string
-  - `Twine\Config::TRIM_RIGHT` - Only trim characters from the end of the strring
+  - `Twine\Config::TRIM_LEFT` - Only trim characters from the beginning of the string
+  - `Twine\Config::TRIM_RIGHT` - Only trim characters from the end of the string
 
 Wrap the string to a given number of characters.
 
