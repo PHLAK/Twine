@@ -176,7 +176,7 @@ Encode a file in compliance with [RFC 2045](https://tools.ietf.org/html/rfc2045)
 ```php
 $string = new Twine\Str(file_get_contents('garbage.bin'));
 
-$string->base64()->wrap(76, "\r\n", true);
+$string->base64()->wrap(76, "\r\n", Twine\Config::WRAP_HARD);
 ```
 
 Changelog
