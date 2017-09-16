@@ -26,6 +26,12 @@ class StrTest extends PHPUnit_Framework_TestCase
         $this->expectException(\RuntimeException::class);
 
         $this->string[5] = 'z';
+    }
+
+    public function test_it_thows_an_exception_when_unsetting_characters_with_array_notation()
+    {
+        $this->expectException(\RuntimeException::class);
+
         unset($this->string[5]);
     }
 
