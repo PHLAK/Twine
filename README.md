@@ -45,7 +45,7 @@ use PHLAK\Twine;
 Then instantiate a Twine string:
 
 ```php
-$string = Twine\String('john pinkerton');
+$string = Twine\Str('john pinkerton');
 ```
 
 Usage
