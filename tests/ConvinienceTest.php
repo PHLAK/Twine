@@ -5,25 +5,24 @@ use PHLAK\Twine\Exceptions\InvalidConfigOptionException;
 
 class ConvinienceTest extends PHPUnit_Framework_TestCase
 {
-    public function setUp()
-    {
-        $this->string = new Twine\Str('john pinkerton');
-    }
-
     public function test_it_can_be_base64_encoded_and_decoded()
     {
-        $string = $this->string->base64();
+        $string = new Twine\Str('john pinkerton');
 
-        $this->assertInstanceOf(Twine\Str::class, $string);
-        $this->assertEquals('am9obiBwaW5rZXJ0b24=', $string);
-        $this->assertEquals('john pinkerton', $string->base64(Twine\Config::BASE64_DECODE));
+        $base64 = $string->base64();
+
+        $this->assertInstanceOf(Twine\Str::class, $base64);
+        $this->assertEquals('am9obiBwaW5rZXJ0b24=', $base64);
+        $this->assertEquals('john pinkerton', $base64->base64(Twine\Config::BASE64_DECODE));
     }
 
     public function test_it_throws_an_exception_when_base64_encoded_with_an_invalid_config_option()
     {
+        $string = new Twine\Str('john pinkerton');
+
         $this->expectException(InvalidConfigOptionException::class);
 
-        $this->string->base64('invalid');
+        $string->base64('invalid');
     }
 
     public function test_it_can_count_substring_occurrences()
@@ -37,8 +36,10 @@ class ConvinienceTest extends PHPUnit_Framework_TestCase
 
     public function test_it_can_determine_if_it_equals_another_string_exactly()
     {
-        $matches = $this->string->equals('john pinkerton');
-        $differs = $this->string->equals('JoHN PiNKeRToN');
+        $string = new Twine\Str('john pinkerton');
+
+        $matches = $string->equals('john pinkerton');
+        $differs = $string->equals('JoHN PiNKeRToN');
 
         $this->assertTrue($matches);
         $this->assertFalse($differs);
@@ -46,8 +47,10 @@ class ConvinienceTest extends PHPUnit_Framework_TestCase
 
     public function test_it_can_determine_if_it_equals_another_string_ignoring_case()
     {
-        $matches = $this->string->equals('JoHN PiNKeRToN', Twine\Config::EQ_CASE_INSENSITIVE);
-        $differs = $this->string->equals('BoB BeLCHeR', Twine\Config::EQ_CASE_INSENSITIVE);
+        $string = new Twine\Str('john pinkerton');
+
+        $matches = $string->equals('JoHN PiNKeRToN', Twine\Config::EQ_CASE_INSENSITIVE);
+        $differs = $string->equals('BoB BeLCHeR', Twine\Config::EQ_CASE_INSENSITIVE);
 
         $this->assertTrue($matches);
         $this->assertFalse($differs);
@@ -65,6 +68,8 @@ class ConvinienceTest extends PHPUnit_Framework_TestCase
 
     public function test_it_has_a_length()
     {
-        $this->assertEquals(14, $this->string->length());
+        $string = new Twine\Str('john pinkerton');
+
+        $this->assertEquals(14, $string->length());
     }
 }
