@@ -3,13 +3,14 @@
 namespace PHLAK\Twine;
 
 use PHLAK\Twine\Traits\ArrayAccess;
+use PHLAK\Twine\Traits\Comparable;
 use PHLAK\Twine\Traits\Convinience;
 use PHLAK\Twine\Traits\Hashable;
 use PHLAK\Twine\Exceptions\InvalidConfigOptionException;
 
 class Str implements \ArrayAccess
 {
-    use ArrayAccess, Convinience, Hashable;
+    use ArrayAccess, Comparable, Convinience, Hashable;
 
     /** @var string A string */
     protected $string;
