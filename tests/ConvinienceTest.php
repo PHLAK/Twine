@@ -1,9 +1,12 @@
 <?php
 
+namespace PHLAK\Twine\Tests;
+
 use PHLAK\Twine;
 use PHLAK\Twine\Exceptions\InvalidConfigOptionException;
+use PHPUnit\Framework\TestCase;
 
-class ConvinienceTest extends PHPUnit_Framework_TestCase
+class ConvinienceTest extends TestCase
 {
     public function test_it_can_be_base64_encoded_and_decoded()
     {

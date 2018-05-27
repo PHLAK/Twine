@@ -1,9 +1,12 @@
 <?php
 
+namespace PHLAK\Twine\Tests;
+
 use PHLAK\Twine;
 use PHLAK\Twine\Exceptions\InvalidConfigOptionException;
+use PHPUnit\Framework\TestCase;
 
-class StrTest extends PHPUnit_Framework_TestCase
+class StrTest extends TestCase
 {
     public function test_it_can_be_accessed_as_a_string()
     {

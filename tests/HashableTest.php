@@ -1,8 +1,11 @@
 <?php
 
-use PHLAK\Twine;
+namespace PHLAK\Twine\Tests;
 
-class HashableTest extends PHPUnit_Framework_TestCase
+use PHLAK\Twine;
+use PHPUnit\Framework\TestCase;
+
+class HashableTest extends TestCase
 {
     public function test_it_can_calculate_the_crc32_polynomial()
     {
