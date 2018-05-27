@@ -30,5 +30,4 @@ class ComparableTest extends TestCase
         $this->assertTrue($string->contains('pink'));
         $this->assertFalse($string->contains('purple'));
     }
-
 }
