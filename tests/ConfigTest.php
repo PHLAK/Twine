@@ -1,8 +1,11 @@
 <?php
 
-use PHLAK\Twine;
+namespace PHLAK\Twine\Tests;
 
-class ConfigTest extends PHPUnit_Framework_TestCase
+use PHLAK\Twine;
+use PHPUnit\Framework\TestCase;
+
+class ConfigTest extends TestCase
 {
     public function test_it_has_uppercase_config_options()
     {

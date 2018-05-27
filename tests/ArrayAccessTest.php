@@ -1,8 +1,11 @@
 <?php
 
-use PHLAK\Twine;
+namespace PHLAK\Twine\Tests;
 
-class ArrayAccessTest extends PHPUnit_Framework_TestCase
+use PHLAK\Twine;
+use PHPUnit\Framework\TestCase;
+
+class ArrayAccessTest extends TestCase
 {
     public function test_it_can_be_returned_as_a_string()
     {

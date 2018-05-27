@@ -1,8 +1,11 @@
 <?php
 
-use PHLAK\Twine;
+namespace PHLAK\Twine\Tests;
 
-class ComparableTest extends PHPUnit_Framework_TestCase
+use PHLAK\Twine;
+use PHPUnit\Framework\TestCase;
+
+class ComparableTest extends TestCase
 {
     public function test_it_can_determine_if_it_starts_with_a_string()
     {
