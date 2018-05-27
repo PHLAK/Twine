@@ -27,5 +27,9 @@
         "psr-4": {
             "PHLAK\\Twine\\Tests\\": "tests/"
         }
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true
     }
 }
