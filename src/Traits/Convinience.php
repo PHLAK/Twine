@@ -19,8 +19,8 @@ trait Convinience
     {
         $base64Types = [Config::BASE64_ENCODE, Config::BASE64_DECODE];
 
-        if (! in_array($mode, $base64Types, true)) {
-            throw new InvalidConfigOptionException('$mode must be one of ' . implode(', ', $base64Types));
+        if (! function_exists($mode)) {
+            throw new InvalidConfigOptionException("Invalid $mode specified");
         }
 
         return new static($mode($this->string));
