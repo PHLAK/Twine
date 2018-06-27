@@ -11,9 +11,6 @@ matrix:
   allow_failures:
     - php: nightly
 
-services:
-  - memcached
-
 cache:
     directories:
         - $HOME/.composer/cache
