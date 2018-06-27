@@ -7,6 +7,28 @@ use PHPUnit\Framework\TestCase;
 
 class ComparableTest extends TestCase
 {
+    public function test_it_can_determine_if_it_equals_another_string_exactly()
+    {
+        $string = new Twine\Str('john pinkerton');
+
+        $matches = $string->equals('john pinkerton');
+        $differs = $string->equals('JoHN PiNKeRToN');
+
+        $this->assertTrue($matches);
+        $this->assertFalse($differs);
+    }
+
+    public function test_it_can_determine_if_it_equals_another_string_ignoring_case()
+    {
+        $string = new Twine\Str('john pinkerton');
+
+        $matches = $string->equals('JoHN PiNKeRToN', Twine\Config\Equals::CASE_INSENSITIVE);
+        $differs = $string->equals('BoB BeLCHeR', Twine\Config\Equals::CASE_INSENSITIVE);
+
+        $this->assertTrue($matches);
+        $this->assertFalse($differs);
+    }
+
     public function test_it_can_determine_if_it_starts_with_a_string()
     {
         $string = new Twine\Str('john pinkerton');

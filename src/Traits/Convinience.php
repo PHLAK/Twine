@@ -34,22 +34,6 @@ trait Convinience
     }
 
     /**
-     * Determine if the string is equal to another string.
-     *
-     * @param string $string A string to compare against
-     * @param string $mode Config\Equals::EXACT - Match the string exactly (default)
-     *                     Config\Equals::CASE_INSENSITIVE - Case insensitive match
-     *
-     * @return bool
-     */
-    public function equals($string, $mode = Config\Equals::EXACT)
-    {
-        Config\Equals::validateOption($mode);
-
-        return $mode($this->string, $string) === 0;
-    }
-
-    /**
      * Return the formatted string.
      *
      * @param mixed $args Any number of elements to fill the string

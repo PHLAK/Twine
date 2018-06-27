@@ -2,8 +2,26 @@
 
 namespace PHLAK\Twine\Traits;
 
+use PHLAK\Twine\Config;
+
 trait Comparable
 {
+    /**
+     * Determine if the string is equal to another string.
+     *
+     * @param string $string A string to compare against
+     * @param string $mode Config\Equals::EXACT - Match the string exactly (default)
+     *                     Config\Equals::CASE_INSENSITIVE - Case insensitive match
+     *
+     * @return bool
+     */
+    public function equals($string, $mode = Config\Equals::EXACT)
+    {
+        Config\Equals::validateOption($mode);
+
+        return $mode($this->string, $string) === 0;
+    }
+
     /**
      * Determine if the string starts with another string.
      *

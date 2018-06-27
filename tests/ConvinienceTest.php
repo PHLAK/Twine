@@ -37,28 +37,6 @@ class ConvinienceTest extends TestCase
         $this->assertEquals(4, $count);
     }
 
-    public function test_it_can_determine_if_it_equals_another_string_exactly()
-    {
-        $string = new Twine\Str('john pinkerton');
-
-        $matches = $string->equals('john pinkerton');
-        $differs = $string->equals('JoHN PiNKeRToN');
-
-        $this->assertTrue($matches);
-        $this->assertFalse($differs);
-    }
-
-    public function test_it_can_determine_if_it_equals_another_string_ignoring_case()
-    {
-        $string = new Twine\Str('john pinkerton');
-
-        $matches = $string->equals('JoHN PiNKeRToN', Twine\Config\Equals::CASE_INSENSITIVE);
-        $differs = $string->equals('BoB BeLCHeR', Twine\Config\Equals::CASE_INSENSITIVE);
-
-        $this->assertTrue($matches);
-        $this->assertFalse($differs);
-    }
-
     public function test_it_can_be_formatted()
     {
         $string = new Twine\Str('Hello %s! Welcome to %s, population %b.');
