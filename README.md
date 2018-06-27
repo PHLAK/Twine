@@ -78,26 +78,26 @@ $string->insert($string, $position);
 Convert all or parts of the string to uppercase.
 
 ```php
-$string->uppercase($mode = Twine\Config::UC_ALL);
+$string->uppercase($mode = Twine\Config\Uppercase::ALL);
 ```
 
 Available uppercase modes:
 
-  - `Twine\Config::UC_ALL` - Uppercase all characters of the string
-  - `Twine\Config::UC_FIRST` - Uppercase the first character of the string
-  - `Twine\Config::UC_WORDS` - Uppercase the first character of each word of the string
+  - `Twine\Config\Uppercase::ALL` - Uppercase all characters of the string
+  - `Twine\Config\Uppercase::FIRST` - Uppercase the first character of the string
+  - `Twine\Config\Uppercase::WORDS` - Uppercase the first character of each word of the string
 
 Convert all or parts of the string to lowercase.
 
 ```php
-$string->lowercase($mode = Twine\Config::LC_ALL);
+$string->lowercase($mode = Twine\Config\Lowercase::ALL);
 ```
 
 Available lowercase modes:
 
-  - `Twine\Config::LC_ALL` - Lowercase all characters of the string
-  - `Twine\Config::LC_FIRST` - Lowercase the first character of the string
-  - `Twine\Config::LC_WORDS` - Lowercase the first character of each word of the string
+  - `Twine\Config\Lowercase::ALL` - Lowercase all characters of the string
+  - `Twine\Config\Lowercase::FIRST` - Lowercase the first character of the string
+  - `Twine\Config\Lowercase::WORDS` - Lowercase the first character of each word of the string
 
 Repeat the string multiple times.
 
@@ -126,37 +126,37 @@ $string->shuffle();
 Pad the string to a specific length.
 
 ```php
-$string->pad($length, $padding = ' ', $mode = Twine\Config::PAD_RIGHT);
+$string->pad($length, $padding = ' ', $mode = Twine\Config\Pad::RIGHT);
 ```
 
 Available padding modes:
-  - `Twine\Config::PAD_RIGHT` - Only pad the right side of the string
-  - `Twine\Config::PAD_LEFT` - Only pad the left side of the string
-  - `Twine\Config::PAD_BOTH` - Pad both sides of the string
+  - `Twine\Config\Pad::RIGHT` - Only pad the right side of the string
+  - `Twine\Config\Pad::LEFT` - Only pad the left side of the string
+  - `Twine\Config\Pad::BOTH` - Pad both sides of the string
 
 Remove whitespace or a specific set of characters from the beginning and/or end
 of the string.
 
 ```php
-$string->trim($mask = Twine\Config::TRIM_MASK, $mode = Twine\Config::TRIM_BOTH);
+$string->trim($mask = Twine\Config\Trim::MASK, $mode = Twine\Config\Trim::BOTH);
 ```
 
 Available trim modes:
 
-  - `Twine\Config::TRIM_BOTH` - Trim characters from the beginning and end of the string
-  - `Twine\Config::TRIM_LEFT` - Only trim characters from the beginning of the string
-  - `Twine\Config::TRIM_RIGHT` - Only trim characters from the end of the string
+  - `Twine\Config\Trim::BOTH` - Trim characters from the beginning and end of the string
+  - `Twine\Config\Trim::LEFT` - Only trim characters from the beginning of the string
+  - `Twine\Config\Trim::RIGHT` - Only trim characters from the end of the string
 
 Wrap the string to a given number of characters.
 
 ```php
-$string->wrap($width, $break = "\n", $cut = Twine\Config::WRAP_SOFT);
+$string->wrap($width, $break = "\n", $cut = Twine\Config\Wrap::SOFT);
 ```
 
 Available warp modes:
 
-  - `Twine\Config::WRAP_SOFT` - Wrap after the specified width
-  - `Twine\Config::WRAP_HARD` - Always wrap at or before the specified width
+  - `Twine\Config\Wrap::SOFT` - Wrap after the specified width
+  - `Twine\Config\Wrap::HARD` - Always wrap at or before the specified width
 
 ### Chaining Methods
 
@@ -176,7 +176,7 @@ Encode a file in compliance with [RFC 2045](https://tools.ietf.org/html/rfc2045)
 ```php
 $string = new Twine\Str(file_get_contents('garbage.bin'));
 
-$string->base64()->wrap(76, "\r\n", Twine\Config::WRAP_HARD);
+$string->base64()->wrap(76, "\r\n", Twine\Config\Wrap::HARD);
 ```
 
 Changelog

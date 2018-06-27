@@ -97,7 +97,7 @@ class StrTest extends TestCase
     {
         $string = new Twine\Str('john pinkerton');
 
-        $ucFirst = $string->uppercase(Twine\Config::UC_FIRST);
+        $ucFirst = $string->uppercase(Twine\Config\Uppercase::FIRST);
 
         $this->assertInstanceOf(Twine\Str::class, $ucFirst);
         $this->assertEquals('John pinkerton', $ucFirst);
@@ -107,7 +107,7 @@ class StrTest extends TestCase
     {
         $string = new Twine\Str('john pinkerton');
 
-        $ucWords = $string->uppercase(Twine\Config::UC_WORDS);
+        $ucWords = $string->uppercase(Twine\Config\Uppercase::WORDS);
 
         $this->assertInstanceOf(Twine\Str::class, $ucWords);
         $this->assertEquals('John Pinkerton', $ucWords);
@@ -136,7 +136,7 @@ class StrTest extends TestCase
     {
         $string = new Twine\Str('JOHN PINKERTON');
 
-        $lcFirst = $string->lowercase(Twine\Config::LC_FIRST);
+        $lcFirst = $string->lowercase(Twine\Config\Lowercase::FIRST);
 
         $this->assertInstanceOf(Twine\Str::class, $lcFirst);
         $this->assertEquals('jOHN PINKERTON', $lcFirst);
@@ -146,7 +146,7 @@ class StrTest extends TestCase
     {
         $string = new Twine\Str('JOHN PINKERTON');
 
-        $lcWords = $string->lowercase(Twine\Config::LC_WORDS);
+        $lcWords = $string->lowercase(Twine\Config\Lowercase::WORDS);
 
         $this->assertInstanceOf(Twine\Str::class, $lcWords);
         $this->assertEquals('jOHN pINKERTON', $lcWords);
@@ -212,8 +212,8 @@ class StrTest extends TestCase
         $string = new Twine\Str('john pinkerton');
 
         $rightPad = $string->pad(20, '_');
-        $leftPad = $string->pad(20, '_', Twine\Config::PAD_LEFT);
-        $bothPad = $string->pad(20, '_', Twine\Config::PAD_BOTH);
+        $leftPad = $string->pad(20, '_', Twine\Config\Pad::LEFT);
+        $bothPad = $string->pad(20, '_', Twine\Config\Pad::BOTH);
 
         $this->assertInstanceOf(Twine\Str::class, $rightPad);
         $this->assertEquals('john pinkerton______', $rightPad);
@@ -254,7 +254,7 @@ class StrTest extends TestCase
     {
         $string = new Twine\Str('john pinkerton');
 
-        $leftTrimmed = $string->trim('jton', Twine\Config::TRIM_LEFT);
+        $leftTrimmed = $string->trim('jton', Twine\Config\Trim::LEFT);
 
         $this->assertInstanceOf(Twine\Str::class, $leftTrimmed);
         $this->assertEquals('hn pinkerton', $leftTrimmed);
@@ -264,7 +264,7 @@ class StrTest extends TestCase
     {
         $string = new Twine\Str('john pinkerton');
 
-        $rightTrimmed = $string->trim('jton', Twine\Config::TRIM_RIGHT);
+        $rightTrimmed = $string->trim('jton', Twine\Config\Trim::RIGHT);
 
         $this->assertInstanceOf(Twine\Str::class, $rightTrimmed);
         $this->assertEquals('john pinker', $rightTrimmed);
@@ -276,7 +276,7 @@ class StrTest extends TestCase
 
         $this->expectException(InvalidConfigOptionException::class);
 
-        $string->trim(Twine\Config::TRIM_MASK, 'invalid');
+        $string->trim(Twine\Config\Trim::MASK, 'invalid');
     }
 
     public function test_it_can_be_wrapped()
@@ -284,7 +284,7 @@ class StrTest extends TestCase
         $string = new Twine\Str('john pinkerton');
 
         $wrappedSoft = $string->wrap(5);
-        $wrappedHard = $string->wrap(5, "\n", Twine\Config::WRAP_HARD);
+        $wrappedHard = $string->wrap(5, "\n", Twine\Config\Wrap::HARD);
 
         $this->assertInstanceOf(Twine\Str::class, $wrappedSoft);
         $this->assertEquals("john\npinkerton", $wrappedSoft);

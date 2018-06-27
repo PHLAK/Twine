@@ -16,7 +16,7 @@ class ConvinienceTest extends TestCase
 
         $this->assertInstanceOf(Twine\Str::class, $base64);
         $this->assertEquals('am9obiBwaW5rZXJ0b24=', $base64);
-        $this->assertEquals('john pinkerton', $base64->base64(Twine\Config::BASE64_DECODE));
+        $this->assertEquals('john pinkerton', $base64->base64(Twine\Config\Base64::DECODE));
     }
 
     public function test_it_throws_an_exception_when_base64_encoded_with_an_invalid_config_option()
@@ -52,8 +52,8 @@ class ConvinienceTest extends TestCase
     {
         $string = new Twine\Str('john pinkerton');
 
-        $matches = $string->equals('JoHN PiNKeRToN', Twine\Config::EQ_CASE_INSENSITIVE);
-        $differs = $string->equals('BoB BeLCHeR', Twine\Config::EQ_CASE_INSENSITIVE);
+        $matches = $string->equals('JoHN PiNKeRToN', Twine\Config\Equals::CASE_INSENSITIVE);
+        $differs = $string->equals('BoB BeLCHeR', Twine\Config\Equals::CASE_INSENSITIVE);
 
         $this->assertTrue($matches);
         $this->assertFalse($differs);

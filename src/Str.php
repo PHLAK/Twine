@@ -90,19 +90,17 @@ class Str implements \ArrayAccess
     /**
      * Convert all or parts of the string to uppercase.
      *
-     * @param string $mode Config::UC_ALL - Uppercase all characters of the string
-     *                     Config::UC_FIRST - Uppercase the first character of the string only
-     *                     Config::UC_WORDS - Uppercase the first character of each word of the string
+     * @param string $mode Config\Uppercase::ALL - Uppercase all characters of the string (default)
+     *                     Config\Uppercase::FIRST - Uppercase the first character of the string only
+     *                     Config\Uppercase::WORDS - Uppercase the first character of each word of the string
+     *
+     * @throws \PHLAK\Twine\Exceptions\InvalidConfigOptionException
      *
      * @return Str
      */
-    public function uppercase($mode = Config::UC_ALL)
+    public function uppercase($mode = Config\Uppercase::ALL)
     {
-        $uppercaseModes = [Config::UC_ALL, Config::UC_FIRST, Config::UC_WORDS];
-
-        if (! in_array($mode, $uppercaseModes, true)) {
-            throw new InvalidConfigOptionException('$mode must be one of ' . implode(', ', $uppercaseModes));
-        }
+        Config\Uppercase::validateOption($mode);
 
         return new static($mode($this->string));
     }
@@ -110,21 +108,17 @@ class Str implements \ArrayAccess
     /**
      * Convert all or parts of the string to lowercase.
      *
-     * @param string $mode Config::LC_ALL - Lowercase all characters of the string
-     *                     Config::LC_FIRST - Lowercase the first character of the string only
-     *                     Config::LC_WORDS - Lowercase the first character of each word of the string
+     * @param string $mode Config\Lowercase::ALL - Lowercase all characters of the string (default)
+     *                     Config\Lowercase::FIRST - Lowercase the first character of the string only
+     *                     Config\Lowercase::WORDS - Lowercase the first character of each word of the string
      *
      * @return Str
      */
-    public function lowercase($mode = Config::LC_ALL)
+    public function lowercase($mode = Config\Lowercase::ALL)
     {
-        $lowercaseModes = [Config::LC_ALL, Config::LC_FIRST, Config::LC_WORDS];
+        Config\Lowercase::validateOption($mode);
 
-        if (! in_array($mode, $lowercaseModes, true)) {
-            throw new InvalidConfigOptionException('$mode must be one of ' . implode(', ', $lowercaseModes));
-        }
-
-        if ($mode == Config::LC_WORDS) {
+        if ($mode == Config\Lowercase::WORDS) {
             $words = array_map(function ($word) {
                 return lcfirst($word);
             }, explode(' ', $this->string));
@@ -192,13 +186,9 @@ class Str implements \ArrayAccess
      *
      * @return Str
      */
-    public function pad($length, $padding = ' ', $mode = Config::PAD_RIGHT)
+    public function pad($length, $padding = ' ', $mode = Config\Pad::RIGHT)
     {
-        $padModes = [Config::PAD_RIGHT, Config::PAD_LEFT, Config::PAD_BOTH];
-
-        if (! in_array($mode, $padModes, true)) {
-            throw new InvalidConfigOptionException('$mode must be one of ' . implode(', ', $padModes));
-        }
+        Config\Pad::validateOption($mode);
 
         return new static(str_pad($this->string, $length, $padding, $mode));
     }
@@ -207,20 +197,16 @@ class Str implements \ArrayAccess
      * Remove whitespace or a specific set of characters from the beginning
      * and/or end of the string.
      *
-     * @param string $mask A list of characters to be stripped (default: Config::TRIM_MASK)
-     * @param string $mode Config::TRIM_BOTH - Trim characters from the beginning and end of the string
-     *                     Config::TRIM_LEFT - Only trim characters from the begining of the string
-     *                     Config::TRIM_RIGHT - Only trim characters from the end of the strring
+     * @param string $mask A list of characters to be stripped (default: Config\Trim::MASK)
+     * @param string $mode Config\Trim::BOTH - Trim characters from the beginning and end of the string (default)
+     *                     Config\Trim::LEFT - Only trim characters from the begining of the string
+     *                     Config\Trim::RIGHT - Only trim characters from the end of the strring
      *
      * @return Str
      */
-    public function trim($mask = Config::TRIM_MASK, $mode = Config::TRIM_BOTH)
+    public function trim($mask = Config\Trim::MASK, $mode = Config\Trim::BOTH)
     {
-        $trimModes = [Config::TRIM_BOTH, Config::TRIM_LEFT, Config::TRIM_RIGHT];
-
-        if (! in_array($mode, $trimModes, true)) {
-            throw new InvalidConfigOptionException('$mode must be one of ' . implode(', ', $trimModes));
-        }
+        Config\Trim::validateOption($mode);
 
         return new static($mode($this->string, $mask));
     }
@@ -230,11 +216,12 @@ class Str implements \ArrayAccess
      *
      * @param int    $width Number of characters at which to wrap
      * @param string $break Character used to break the string
-     * @param bool   $cut   If true, always wrap at or before the specified width
+     * @param bool   $cut   Config\Wrap::SOFT - Wrap at the first whitespace character after the specified width (default)
+     *                      Config\Wrap::HARD - Always wrap at or before the specified width
      *
      * @return Str
      */
-    public function wrap($width, $break = "\n", $cut = Config::WRAP_SOFT)
+    public function wrap($width, $break = "\n", $cut = Config\Wrap::SOFT)
     {
         return new static(wordwrap($this->string, $width, $break, $cut));
     }

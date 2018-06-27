@@ -3,25 +3,20 @@
 namespace PHLAK\Twine\Traits;
 
 use PHLAK\Twine\Config;
-use PHLAK\Twine\Exceptions\InvalidConfigOptionException;
 
 trait Convinience
 {
     /**
      * Encode the string to or decode from a base64 encoded value.
      *
-     * @param string $mode Config::BASE64_ENCODE - Encode the string to base64
-     *                     Config::BASE64_DECODE - Decode the string from base64
+     * @param string $mode Config\Base64::ENCODE - Encode the string to base64
+     *                     Config\Base64::DECODE - Decode the string from base64
      *
      * @return Str
      */
-    public function base64($mode = Config::BASE64_ENCODE)
+    public function base64($mode = Config\Base64::ENCODE)
     {
-        $base64Types = [Config::BASE64_ENCODE, Config::BASE64_DECODE];
-
-        if (! in_array($mode, $base64Types, true)) {
-            throw new InvalidConfigOptionException('$mode must be one of ' . implode(', ', $base64Types));
-        }
+        Config\Base64::validateOption($mode);
 
         return new static($mode($this->string));
     }
@@ -42,11 +37,15 @@ trait Convinience
      * Determine if the string is equal to another string.
      *
      * @param string $string A string to compare against
+     * @param string $mode Config\Equals::EXACT - Match the string exactly (default)
+     *                     Config\Equals::CASE_INSENSITIVE - Case insensitive match
      *
      * @return bool
      */
-    public function equals($string, $mode = Config::EQ_EXACT)
+    public function equals($string, $mode = Config\Equals::EXACT)
     {
+        Config\Equals::validateOption($mode);
+
         return $mode($this->string, $string) === 0;
     }
 
