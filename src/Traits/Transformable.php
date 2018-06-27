@@ -121,33 +121,32 @@ trait Transformable
         return new static(str_shuffle($this->string));
     }
 
+    /*
+     * Repeat the string multiple times.
+     *
+     * @param int $multiplier Number of times to repeat the string
+     *
+     * @return Str
+     */
+    public function repeat($multiplier)
+    {
+        return new static(str_repeat($this->string, $multiplier));
+    }
 
-        /*
-         * Repeat the string multiple times.
-         *
-         * @param int $multiplier Number of times to repeat the string
-         *
-         * @return Str
-         */
-        public function repeat($multiplier)
-        {
-            return new static(str_repeat($this->string, $multiplier));
-        }
-
-        /**
-         * Wrap the string to a given number of characters.
-         *
-         * @param int    $width Number of characters at which to wrap
-         * @param string $break Character used to break the string
-         * @param bool   $cut   Config\Wrap::SOFT - Wrap at the first whitespace character after the specified width (default)
-         *                      Config\Wrap::HARD - Always wrap at or before the specified width
-         *
-         * @return Str
-         */
-        public function wrap($width, $break = "\n", $cut = Config\Wrap::SOFT)
-        {
-            return new static(wordwrap($this->string, $width, $break, $cut));
-        }
+    /**
+     * Wrap the string to a given number of characters.
+     *
+     * @param int    $width Number of characters at which to wrap
+     * @param string $break Character used to break the string
+     * @param bool   $cut   Config\Wrap::SOFT - Wrap at the first whitespace character after the specified width (default)
+     *                      Config\Wrap::HARD - Always wrap at or before the specified width
+     *
+     * @return Str
+     */
+    public function wrap($width, $break = "\n", $cut = Config\Wrap::SOFT)
+    {
+        return new static(wordwrap($this->string, $width, $break, $cut));
+    }
 
     /**
      * Pad the string to a specific length.

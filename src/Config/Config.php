@@ -10,11 +10,9 @@ abstract class Config
     /**
      * Validate a given configuration option.
      *
-     * @param  mixed $option A given option
+     * @param mixed $option A given option
      *
      * @throws \PHLAK\Twine\Exceptions\InvalidConfigOptionException
-     *
-     * @return void
      */
     public static function validateOption($option)
     {
@@ -25,6 +23,6 @@ abstract class Config
             throw new InvalidConfigOptionException(
                 "Invalid configuration option '{$option}'. Must be one of: " . implode(', ', $constants)
             );
-        };
+        }
     }
 }

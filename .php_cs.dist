@@ -24,5 +24,6 @@ return PhpCsFixer\Config::create()
         'not_operator_with_successor_space' => true,
         'phpdoc_order' => true,
         'semicolon_after_instruction' => true,
-        'trailing_comma_in_multiline_array' => false
+        'trailing_comma_in_multiline_array' => false,
+        'yoda_style' => false
     ])->setFinder($finder);

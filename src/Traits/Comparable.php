@@ -10,8 +10,8 @@ trait Comparable
      * Determine if the string is equal to another string.
      *
      * @param string $string A string to compare against
-     * @param string $mode Config\Equals::EXACT - Match the string exactly (default)
-     *                     Config\Equals::CASE_INSENSITIVE - Case insensitive match
+     * @param string $mode   Config\Equals::EXACT - Match the string exactly (default)
+     *                       Config\Equals::CASE_INSENSITIVE - Case insensitive match
      *
      * @throws \PHLAK\Twine\Exceptions\InvalidConfigOptionException
      *
@@ -27,7 +27,7 @@ trait Comparable
     /**
      * Determine if the string starts with another string.
      *
-     * @param  string $string The string to compare against
+     * @param string $string The string to compare against
      *
      * @return bool True if the string starts with $string, otherwise false
      */
@@ -39,7 +39,7 @@ trait Comparable
     /**
      * Determine if the string ends with another string.
      *
-     * @param  string $string The string to compare against
+     * @param string $string The string to compare against
      *
      * @return bool True if the string ends with $string, otherwise false
      */
@@ -51,7 +51,7 @@ trait Comparable
     /**
      * Determine if the string contains another string.
      *
-     * @param  string $string The string to compare against
+     * @param string $string The string to compare against
      *
      * @return bool True if the string contains $string, otherwise false
      */

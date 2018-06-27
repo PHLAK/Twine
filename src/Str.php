@@ -32,7 +32,7 @@ class Str implements \ArrayAccess
     }
 
     /**
-     * Magic toString method.
+     * Magic toString method. Returns the object as a string.
      *
      * @return string The string
      */
