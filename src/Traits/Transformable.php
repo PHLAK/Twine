@@ -172,7 +172,7 @@ trait Transformable
      * Remove whitespace or a specific set of characters from the beginning
      * and/or end of the string.
      *
-     * @param string $mask A list of characters to be stripped (default: Config\Trim::MASK)
+     * @param string $mask A list of characters to be stripped (default: " \t\n\r\0\x0B")
      * @param string $mode Config\Trim::BOTH - Trim characters from the beginning and end of the string (default)
      *                     Config\Trim::LEFT - Only trim characters from the begining of the string
      *                     Config\Trim::RIGHT - Only trim characters from the end of the strring
@@ -181,7 +181,7 @@ trait Transformable
      *
      * @return Str
      */
-    public function trim($mask = Config\Trim::MASK, $mode = Config\Trim::BOTH)
+    public function trim($mask = " \t\n\r\0\x0B", $mode = Config\Trim::BOTH)
     {
         Config\Trim::validateOption($mode);
 

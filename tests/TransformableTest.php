@@ -243,6 +243,6 @@ class TransformableTest extends TestCase
 
         $this->expectException(InvalidConfigOptionException::class);
 
-        $string->trim(Twine\Config\Trim::MASK, 'invalid');
+        $string->trim(' ', 'invalid');
     }
 }

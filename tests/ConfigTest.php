@@ -23,7 +23,6 @@ class ConfigTest extends TestCase
 
     public function test_it_has_trim_config_options()
     {
-        $this->assertEquals(Twine\Config\Trim::MASK, " \t\n\r\0\x0B");
         $this->assertEquals(Twine\Config\Trim::BOTH, 'trim');
         $this->assertEquals(Twine\Config\Trim::LEFT, 'ltrim');
         $this->assertEquals(Twine\Config\Trim::RIGHT, 'rtrim');

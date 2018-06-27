@@ -138,7 +138,7 @@ Remove whitespace or a specific set of characters from the beginning and/or end
 of the string.
 
 ```php
-$string->trim($mask = Twine\Config\Trim::MASK, $mode = Twine\Config\Trim::BOTH);
+$string->trim($mask = " \t\n\r\0\x0B", $mode = Twine\Config\Trim::BOTH);
 ```
 
 Available trim modes:
