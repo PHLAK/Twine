@@ -13,6 +13,8 @@ trait Comparable
      * @param string $mode Config\Equals::EXACT - Match the string exactly (default)
      *                     Config\Equals::CASE_INSENSITIVE - Case insensitive match
      *
+     * @throws \PHLAK\Twine\Exceptions\InvalidConfigOptionException
+     *
      * @return bool
      */
     public function equals($string, $mode = Config\Equals::EXACT)

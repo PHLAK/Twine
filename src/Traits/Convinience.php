@@ -12,6 +12,8 @@ trait Convinience
      * @param string $mode Config\Base64::ENCODE - Encode the string to base64
      *                     Config\Base64::DECODE - Decode the string from base64
      *
+     * @throws \PHLAK\Twine\Exceptions\InvalidConfigOptionException
+     *
      * @return Str
      */
     public function base64($mode = Config\Base64::ENCODE)
