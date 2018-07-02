@@ -2,6 +2,7 @@
 
 namespace PHLAK\Twine;
 
+use PHLAK\Twine\Traits\Aliases;
 use PHLAK\Twine\Traits\ArrayAccess;
 use PHLAK\Twine\Traits\Comparable;
 use PHLAK\Twine\Traits\Convinience;
@@ -11,7 +12,8 @@ use PHLAK\Twine\Traits\Transformable;
 
 class Str implements \ArrayAccess
 {
-    use ArrayAccess,
+    use Aliases,
+        ArrayAccess,
         Comparable,
         Convinience,
         Hashable,
