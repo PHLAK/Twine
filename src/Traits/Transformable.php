@@ -9,7 +9,7 @@ trait Transformable
     /**
      * Append a suffix to the string.
      *
-     * @param string $suffix A suffix to append
+     * @param string $suffix A string to append
      *
      * @return Str
      */
@@ -21,7 +21,7 @@ trait Transformable
     /**
      * Prepend the string with a prefix.
      *
-     * @param string $prefix A prefix to prepend
+     * @param string $prefix A string to prepend
      *
      * @return Str
      */
@@ -33,7 +33,7 @@ trait Transformable
     /**
      * Insert some text into the string at a given position.
      *
-     * @param string $string   Text to be inserted
+     * @param string $string   Text to insert
      * @param int    $position Position at which to insert the text
      *
      * @return Str
@@ -46,9 +46,13 @@ trait Transformable
     /**
      * Convert all or parts of the string to uppercase.
      *
-     * @param string $mode Config\Uppercase::ALL - Uppercase all characters of the string (default)
-     *                     Config\Uppercase::FIRST - Uppercase the first character of the string only
-     *                     Config\Uppercase::WORDS - Uppercase the first character of each word of the string
+     * @param string $mode An uppercase mode flag
+     *
+     * Available mode flags:
+     *
+     *   - Twine\Config\Uppercase::ALL - Uppercase all characters of the string (default)
+     *   - Twine\Config\Uppercase::FIRST - Uppercase the first character of the string only
+     *   - Twine\Config\Uppercase::WORDS - Uppercase the first character of each word of the string
      *
      * @throws \PHLAK\Twine\Exceptions\InvalidConfigOptionException
      *
@@ -64,9 +68,13 @@ trait Transformable
     /**
      * Convert all or parts of the string to lowercase.
      *
-     * @param string $mode Config\Lowercase::ALL - Lowercase all characters of the string (default)
-     *                     Config\Lowercase::FIRST - Lowercase the first character of the string only
-     *                     Config\Lowercase::WORDS - Lowercase the first character of each word of the string
+     * @param string $mode A lowercase mode flag
+     *
+     * Available mode flags:
+     *
+     *   - Twine\Config\Lowercase::ALL - Lowercase all characters of the string (default)
+     *   - Twine\Config\Lowercase::FIRST - Lowercase the first character of the string only
+     *   - Twine\Config\Lowercase::WORDS - Lowercase the first character of each word of the string
      *
      * @throws \PHLAK\Twine\Exceptions\InvalidConfigOptionException
      *
@@ -138,8 +146,14 @@ trait Transformable
      *
      * @param int    $width Number of characters at which to wrap
      * @param string $break Character used to break the string
-     * @param bool   $cut   Config\Wrap::SOFT - Wrap at the first whitespace character after the specified width (default)
-     *                      Config\Wrap::HARD - Always wrap at or before the specified width
+     * @param bool   $mode  A wrap mode flag
+     *
+     * Available wrap modes:
+     *
+     *   - Twine\Config\Wrap::SOFT - Wrap at the first whitespace character after the specified width (default)
+     *   - Twine\Config\Wrap::HARD - Always wrap at or before the specified width
+     *
+     * @throws \PHLAK\Twine\Exceptions\InvalidConfigOptionException
      *
      * @return Str
      */
@@ -155,9 +169,13 @@ trait Transformable
      *
      * @param int    $length  Length to pad the string to
      * @param string $padding Character to pad the string with
-     * @param int    $mode    Config::PAD_RIGHT - Only pad the right side of the string
-     *                        Config::PAD_LEFT - Only pad the left side of the string
-     *                        Config::PAD_BOTH - Pad both sides of the string
+     * @param int    $mode    A pad mode flag
+     *
+     * Available mode flags:
+     *
+     *   - Twine\Config\Pad::RIGHT - Only pad the right side of the string (default)
+     *   - Twine\Config\Pad::LEFT - Only pad the left side of the string
+     *   - Twine\Config\Pad::BOTH - Pad both sides of the string
      *
      * @throws \PHLAK\Twine\Exceptions\InvalidConfigOptionException
      *
@@ -171,13 +189,17 @@ trait Transformable
     }
 
     /**
-     * Remove whitespace or a specific set of characters from the beginning
+     * Remove white space or a specific set of characters from the beginning
      * and/or end of the string.
      *
      * @param string $mask A list of characters to be stripped (default: " \t\n\r\0\x0B")
-     * @param string $mode Config\Trim::BOTH - Trim characters from the beginning and end of the string (default)
-     *                     Config\Trim::LEFT - Only trim characters from the begining of the string
-     *                     Config\Trim::RIGHT - Only trim characters from the end of the strring
+     * @param string $mode A trim mode flag
+     *
+     * Available trim modes:
+     *
+     *   - Twine\Config\Trim::BOTH - Trim characters from the beginning and end of the string (default)
+     *   - Twine\Config\Trim::LEFT - Only trim characters from the begining of the string
+     *   - Twine\Config\Trim::RIGHT - Only trim characters from the end of the strring
      *
      * @throws \PHLAK\Twine\Exceptions\InvalidConfigOptionException
      *

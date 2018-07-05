@@ -20,7 +20,7 @@ trait Hashable
      *
      * @param string $salt A salt string to base the hashing on
      *
-     * @return Twine\Str
+     * @return Str
      */
     public function crypt($salt)
     {
@@ -32,7 +32,7 @@ trait Hashable
      *
      * @param bool $raw If true, returns the raw binary of the hash
      *
-     * @return Twine\Str
+     * @return Str
      */
     public function md5($raw = false)
     {
@@ -44,7 +44,7 @@ trait Hashable
      *
      * @param bool $raw If true, returns the raw binary of the hash
      *
-     * @return Twine\Str
+     * @return Str
      */
     public function sha1($raw = false)
     {
@@ -56,7 +56,7 @@ trait Hashable
      *
      * @param bool $raw If true, returns the raw binary of the hash
      *
-     * @return Twine\Str
+     * @return Str
      */
     public function sha256($raw = false)
     {

@@ -14,8 +14,8 @@ trait Comparable
      *
      * Available mode flags:
      *
-     *   - Config\Equals::CASE_SENSITIVE - Match the string with case sensitivity (default)
-     *   - Config\Equals::CASE_INSENSITIVE - Match the string with case insensitivity
+     *   - Twine\Config\Equals::CASE_SENSITIVE - Match the string with case sensitivity (default)
+     *   - Twine\Config\Equals::CASE_INSENSITIVE - Match the string with case insensitivity
      *
      * @throws \PHLAK\Twine\Exceptions\InvalidConfigOptionException
      *

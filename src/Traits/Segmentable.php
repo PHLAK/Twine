@@ -20,26 +20,26 @@ trait Segmentable
     }
 
     /**
-     * Return part of the string occuring before a specific character.
+     * Return part of the string occurring before a specific string.
      *
-     * @param string $character The delimiting character
+     * @param string $string The delimiting string
      *
      * @return Str
      */
-    public function before($character)
+    public function before($string)
     {
-        return new static(explode($character, $this->string, 2)[0]);
+        return new static(explode($string, $this->string, 2)[0]);
     }
 
     /**
-     * Return part of the string occuring after a specific character.
+     * Return part of the string occurring after a specific string.
      *
-     * @param string $character The delimiting character
+     * @param string $string The delimiting string
      *
      * @return Str
      */
-    public function after($character)
+    public function after($string)
     {
-        return new static(explode($character, $this->string, 2)[1]);
+        return new static(explode($string, $this->string, 2)[1]);
     }
 }

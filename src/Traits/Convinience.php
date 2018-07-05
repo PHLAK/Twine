@@ -24,9 +24,9 @@ trait Convinience
     }
 
     /**
-     * Count the number of occurences of a substring in the string.
+     * Count the number of occurrences of a substring in the string.
      *
-     * @param string $string Substring to count
+     * @param string $string The substring to count
      *
      * @return int
      */
