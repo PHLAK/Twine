@@ -22,7 +22,7 @@ trait Hashable
      *
      * @return Twine\Str
      */
-    public function crypt($salt = null)
+    public function crypt($salt)
     {
         return new static(crypt($this->string, $salt));
     }
