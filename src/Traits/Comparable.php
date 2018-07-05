@@ -9,15 +9,19 @@ trait Comparable
     /**
      * Determine if the string is equal to another string.
      *
-     * @param string $string A string to compare against
-     * @param string $mode   Config\Equals::EXACT - Match the string exactly (default)
-     *                       Config\Equals::CASE_INSENSITIVE - Case insensitive match
+     * @param string $string The string to compare against
+     * @param string $mode   An equals mode flag
+     *
+     * Available mode flags:
+     *
+     *   - Config\Equals::CASE_SENSITIVE - Match the string with case sensitivity (default)
+     *   - Config\Equals::CASE_INSENSITIVE - Match the string with case insensitivity
      *
      * @throws \PHLAK\Twine\Exceptions\InvalidConfigOptionException
      *
      * @return bool
      */
-    public function equals($string, $mode = Config\Equals::EXACT)
+    public function equals($string, $mode = Config\Equals::CASE_SENSITIVE)
     {
         Config\Equals::validateOption($mode);
 
