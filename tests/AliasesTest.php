@@ -136,4 +136,17 @@ class AliasesTest extends TestCase
 
         $this->assertEquals($plaintext, $alias);
     }
+
+    public function test_it_has_an_alias_for_insensitive_match()
+    {
+        $string = new Twine\Str('john pinkerton');
+
+        $matches = $string->equals('JoHN PiNKeRToN');
+        $matchesAlias = $string->insensitiveMatch('JoHN PiNKeRToN');
+        $differs = $string->equals('BoB BeLCHeR');
+        $differsAlias = $string->equals('BoB BeLCHeR');
+
+        $this->assertEquals($matches, $matchesAlias);
+        $this->assertEquals($differs, $differsAlias);
+    }
 }
