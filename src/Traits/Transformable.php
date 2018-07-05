@@ -143,9 +143,11 @@ trait Transformable
      *
      * @return Str
      */
-    public function wrap($width, $break = "\n", $cut = Config\Wrap::SOFT)
+    public function wrap($width, $break = "\n", $mode = Config\Wrap::SOFT)
     {
-        return new static(wordwrap($this->string, $width, $break, $cut));
+        Config\Wrap::validateOption($mode);
+
+        return new static(wordwrap($this->string, $width, $break, $mode));
     }
 
     /**
