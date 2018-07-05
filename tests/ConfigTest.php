@@ -49,7 +49,7 @@ class ConfigTest extends TestCase
 
     public function test_it_has_equals_config_options()
     {
-        $this->assertEquals(Twine\Config\Equals::EXACT, 'strcmp');
+        $this->assertEquals(Twine\Config\Equals::CASE_SENSITIVE, 'strcmp');
         $this->assertEquals(Twine\Config\Equals::CASE_INSENSITIVE, 'strcasecmp');
     }
 }

@@ -156,4 +156,16 @@ trait Aliases
     {
         return $this->pad($length, $padding, Config\Pad::BOTH);
     }
+
+    /**
+     * Determine if the string matches another string regardless of case.
+     *
+     * @param string $string The string to compare against
+     *
+     * @return bool
+     */
+    public function insensitiveMatch($string)
+    {
+        $this->equals($string, Config\Equals::CASE_INSENSITIVE);
+    }
 }
