@@ -19,6 +19,8 @@ Introduction
 
 Twine is a simple string manipulation library with an expressive, fluent syntax.
 
+![Twine Demo](demo.gif)
+
 Like this project? Keep me caffeinated by [making a donation](https://paypal.me/ChrisKankiewicz).
 
 Requirements
