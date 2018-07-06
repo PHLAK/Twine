@@ -19,7 +19,7 @@ Introduction
 
 Twine is a simple string manipulation library with an expressive, fluent syntax.
 
-![Twine Demo](demo.gif)
+[![Twine Demo](demo.gif)](https://asciinema.org/a/190362)
 
 Like this project? Keep me caffeinated by [making a donation](https://paypal.me/ChrisKankiewicz).
 
