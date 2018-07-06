@@ -9,7 +9,7 @@ trait Aliases
     /**
      * Encode the string to base64.
      *
-     * @return Str
+     * @return self
      */
     public function base64Encode()
     {
@@ -19,7 +19,7 @@ trait Aliases
     /**
      * Decode the base64 encoded string.
      *
-     * @return Str
+     * @return self
      */
     public function base64Decode()
     {
@@ -32,7 +32,7 @@ trait Aliases
      *
      * @param string $mask A list of characters to be stripped (default: " \t\n\r\0\x0B")
      *
-     * @return Str
+     * @return self
      */
     public function trimLeft($mask = " \t\n\r\0\x0B")
     {
@@ -44,7 +44,7 @@ trait Aliases
      *
      * @param string $mask A list of characters to be stripped (default: " \t\n\r\0\x0B")
      *
-     * @return Str
+     * @return self
      */
     public function trimRight($mask = " \t\n\r\0\x0B")
     {
@@ -54,7 +54,7 @@ trait Aliases
     /**
      * Convert the first character of the string to uppercase.
      *
-     * @return Str
+     * @return self
      */
     public function uppercaseFirst()
     {
@@ -64,7 +64,7 @@ trait Aliases
     /**
      * Convert the first character of each word in the string to uppercase.
      *
-     * @return Str
+     * @return self
      */
     public function uppercaseWords()
     {
@@ -74,7 +74,7 @@ trait Aliases
     /**
      * Convert the first letter of the string to lowercase.
      *
-     * @return Str
+     * @return self
      */
     public function lowercaseFirst()
     {
@@ -84,7 +84,7 @@ trait Aliases
     /**
      * Convert the first letter of the string to lowercase.
      *
-     * @return Str
+     * @return self
      */
     public function lowercaseWords()
     {
@@ -98,7 +98,7 @@ trait Aliases
      * @param int    $width Number of characters at which to wrap
      * @param string $break Character used to break the string
      *
-     * @return Str
+     * @return self
      */
     public function wrapSoft($width, $break = "\n")
     {
@@ -111,7 +111,7 @@ trait Aliases
      * @param int    $width Number of characters at which to wrap
      * @param string $break Character used to break the string
      *
-     * @return Str
+     * @return self
      */
     public function wrapHard($width, $break = "\n")
     {
@@ -124,7 +124,7 @@ trait Aliases
      * @param int    $length  Length to pad the string to
      * @param string $padding Character to pad the string with
      *
-     * @return Str
+     * @return self
      */
     public function padRight($length, $padding = ' ')
     {
@@ -137,7 +137,7 @@ trait Aliases
      * @param int    $length  Length to pad the string to
      * @param string $padding Character to pad the string with
      *
-     * @return Str
+     * @return self
      */
     public function padLeft($length, $padding = ' ')
     {
@@ -150,7 +150,7 @@ trait Aliases
      * @param int    $length  Length to pad the string to
      * @param string $padding Character to pad the string with
      *
-     * @return Str
+     * @return self
      */
     public function padBoth($length, $padding = ' ')
     {

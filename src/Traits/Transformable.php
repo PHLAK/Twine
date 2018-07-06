@@ -11,7 +11,7 @@ trait Transformable
      *
      * @param string $suffix A string to append
      *
-     * @return Str
+     * @return self
      */
     public function append($suffix)
     {
@@ -23,7 +23,7 @@ trait Transformable
      *
      * @param string $prefix A string to prepend
      *
-     * @return Str
+     * @return self
      */
     public function prepend($prefix)
     {
@@ -36,7 +36,7 @@ trait Transformable
      * @param string $string   Text to insert
      * @param int    $position Position at which to insert the text
      *
-     * @return Str
+     * @return self
      */
     public function insert($string, $position)
     {
@@ -56,7 +56,7 @@ trait Transformable
      *
      * @throws \PHLAK\Twine\Exceptions\InvalidConfigOptionException
      *
-     * @return Str
+     * @return self
      */
     public function uppercase($mode = Config\Uppercase::ALL)
     {
@@ -78,7 +78,7 @@ trait Transformable
      *
      * @throws \PHLAK\Twine\Exceptions\InvalidConfigOptionException
      *
-     * @return Str
+     * @return self
      */
     public function lowercase($mode = Config\Lowercase::ALL)
     {
@@ -98,7 +98,7 @@ trait Transformable
     /**
      * Reverse the string.
      *
-     * @return Str
+     * @return self
      */
     public function reverse()
     {
@@ -112,7 +112,7 @@ trait Transformable
      * @param string $replace The value to replace with
      * @param int    &$count  This will be set to the number of replacements performed
      *
-     * @return Str
+     * @return self
      */
     public function replace($search, $replace, &$count = null)
     {
@@ -122,7 +122,7 @@ trait Transformable
     /**
      * Randomly shuffle the characters of the string.
      *
-     * @return Str
+     * @return self
      */
     public function shuffle()
     {
@@ -134,7 +134,7 @@ trait Transformable
      *
      * @param int $multiplier Number of times to repeat the string
      *
-     * @return Str
+     * @return self
      */
     public function repeat($multiplier)
     {
@@ -155,7 +155,7 @@ trait Transformable
      *
      * @throws \PHLAK\Twine\Exceptions\InvalidConfigOptionException
      *
-     * @return Str
+     * @return self
      */
     public function wrap($width, $break = "\n", $mode = Config\Wrap::SOFT)
     {
@@ -179,7 +179,7 @@ trait Transformable
      *
      * @throws \PHLAK\Twine\Exceptions\InvalidConfigOptionException
      *
-     * @return Str
+     * @return self
      */
     public function pad($length, $padding = ' ', $mode = Config\Pad::RIGHT)
     {
@@ -203,7 +203,7 @@ trait Transformable
      *
      * @throws \PHLAK\Twine\Exceptions\InvalidConfigOptionException
      *
-     * @return Str
+     * @return self
      */
     public function trim($mask = " \t\n\r\0\x0B", $mode = Config\Trim::BOTH)
     {

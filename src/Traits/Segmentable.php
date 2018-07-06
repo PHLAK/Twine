@@ -10,7 +10,7 @@ trait Segmentable
      * @param int $start  Starting position of the substring
      * @param int $length Length of substring
      *
-     * @return Str
+     * @return self
      */
     public function substring($start, $length = null)
     {
@@ -24,7 +24,7 @@ trait Segmentable
      *
      * @param string $string The delimiting string
      *
-     * @return Str
+     * @return self
      */
     public function before($string)
     {
@@ -36,7 +36,7 @@ trait Segmentable
      *
      * @param string $string The delimiting string
      *
-     * @return Str
+     * @return self
      */
     public function after($string)
     {

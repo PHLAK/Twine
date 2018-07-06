@@ -14,7 +14,7 @@ trait Convinience
      *
      * @throws \PHLAK\Twine\Exceptions\InvalidConfigOptionException
      *
-     * @return Str
+     * @return self
      */
     public function base64($mode = Config\Base64::ENCODE)
     {
@@ -40,7 +40,7 @@ trait Convinience
      *
      * @param mixed $args Any number of elements to fill the string
      *
-     * @return Str
+     * @return self
      */
     public function format(...$args)
     {
