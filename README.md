@@ -68,7 +68,7 @@ Twine\Str::substring( int $start [, int $length = null ] ) : Twine\Str
 ```php
 $string = Twine\Str('john pinkerton');
 
-$string->substring(4, 4); // Returns 'pink'
+$string->substring(5, 4); // Returns 'pink'
 ```
 
 ---
@@ -335,7 +335,7 @@ $string->shuffle(); // Returns something like 'jnphin erkotno'
 > Pad the string to a specific length.
 
 ```php
-Twine\Str::pad( int $length [, string $padding = ' ' [, $mode = Twine\Config\Pad::RIGHT ]] ) : Twine\Str
+Twine\Str::pad( int $length [, string $padding = ' ' [, int $mode = Twine\Config\Pad::RIGHT ]] ) : Twine\Str
 ```
 
 | Parameter  | Description                      |
@@ -555,7 +555,7 @@ $string->contains('purple'); // Returns false
 > Encode the string to or decode from a base64 encoded value.
 
 ```php
-Twine\Str::base64( [ $mode = Twine\Config\Base64::ENCODE ] ) : Twine\Str
+Twine\Str::base64( [ string $mode = Twine\Config\Base64::ENCODE ] ) : Twine\Str
 ```
 
 | Parameter | Description        |
