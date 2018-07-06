@@ -110,7 +110,7 @@ trait Transformable
      *
      * @param string $search  The value to be replaced
      * @param string $replace The value to replace with
-     * @param int    &$count  This will be set to the number of replacements performed
+     * @param int    $count   This will be set to the number of replacements performed
      *
      * @return self
      */

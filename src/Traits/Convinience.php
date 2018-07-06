@@ -38,7 +38,7 @@ trait Convinience
     /**
      * Return the formatted string.
      *
-     * @param mixed $args Any number of elements to fill the string
+     * @param mixed ...$args Any number of elements to fill the string
      *
      * @return self
      */

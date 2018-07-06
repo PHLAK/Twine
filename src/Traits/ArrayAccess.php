@@ -32,7 +32,7 @@ trait ArrayAccess
     /**
      * Not implemented due to immutability.
      *
-     * @throws RuntimeException
+     * @throws \RuntimeException
      */
     public function offsetSet($offset, $value)
     {
@@ -42,7 +42,7 @@ trait ArrayAccess
     /**
      * Not implemented due to immutability.
      *
-     * @throws RuntimeException
+     * @throws \RuntimeException
      */
     public function offsetUnset($offset)
     {
