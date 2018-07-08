@@ -26,7 +26,7 @@ Like this project? Keep me caffeinated by [making a donation](https://paypal.me/
 Requirements
 ------------
 
-  - [PHP](https://php.net) >= 5.6
+  - [PHP](https://php.net) >= 7.0
 
 Install with Composer
 ---------------------
