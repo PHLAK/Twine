@@ -129,7 +129,7 @@ trait Transformable
         return new static(str_shuffle($this->string));
     }
 
-    /*
+    /**
      * Repeat the string multiple times.
      *
      * @param int $multiplier Number of times to repeat the string
