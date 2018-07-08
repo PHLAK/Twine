@@ -31,7 +31,7 @@ class HashableTest extends TestCase
         $string = new Twine\Str('john pinkerton');
 
         $md5 = $string->md5();
-        $raw = $string->md5(true);
+        $raw = $string->md5(Twine\Config\Md5::RAW);
 
         $this->assertInstanceOf(Twine\Str::class, $md5);
         $this->assertEquals('30cac4703a16a2201ec5cafbd600d803', $md5);
@@ -43,7 +43,7 @@ class HashableTest extends TestCase
         $string = new Twine\Str('john pinkerton');
 
         $sha1 = $string->sha1();
-        $raw = $string->sha1(true);
+        $raw = $string->sha1(Twine\Config\Sha1::RAW);
 
         $this->assertInstanceOf(Twine\Str::class, $sha1);
         $this->assertEquals('fcaf28c7705ba8f267472bb5aa8ad883f6bf0427', $sha1);
@@ -55,7 +55,7 @@ class HashableTest extends TestCase
         $string = new Twine\Str('john pinkerton');
 
         $sha256 = $string->sha256();
-        $raw = $string->sha256(true);
+        $raw = $string->sha256(Twine\Config\Sha256::RAW);
 
         $this->assertInstanceOf(Twine\Str::class, $sha256);
         $this->assertEquals('7434f26c8c2fc83e57347feb2dfb235c2f47b149b54b80692beca9d565159dfd', $sha256);

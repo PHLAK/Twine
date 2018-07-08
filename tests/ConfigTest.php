@@ -52,4 +52,22 @@ class ConfigTest extends TestCase
         $this->assertEquals(Twine\Config\Equals::CASE_SENSITIVE, 'strcmp');
         $this->assertEquals(Twine\Config\Equals::CASE_INSENSITIVE, 'strcasecmp');
     }
+
+    public function test_it_has_md5_config_options()
+    {
+        $this->assertFalse(Twine\Config\Md5::DEFAULT);
+        $this->assertTrue(Twine\Config\Md5::RAW);
+    }
+
+    public function test_it_has_sha1_config_options()
+    {
+        $this->assertFalse(Twine\Config\Sha1::DEFAULT);
+        $this->assertTrue(Twine\Config\Sha1::RAW);
+    }
+
+    public function test_it_has_sha256_config_options()
+    {
+        $this->assertFalse(Twine\Config\Sha256::DEFAULT);
+        $this->assertTrue(Twine\Config\Sha256::RAW);
+    }
 }

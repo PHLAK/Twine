@@ -2,6 +2,8 @@
 
 namespace PHLAK\Twine\Traits;
 
+use PHLAK\Twine\Config;
+
 trait Hashable
 {
     /**
@@ -30,36 +32,57 @@ trait Hashable
     /**
      * Calculate the md5 hash of the string.
      *
-     * @param bool $raw If true, returns the raw binary of the hash
+     * @param bool $mode A md5 mode flag
+     *
+     * Available md5 modes:
+     *
+     *   - Twine\Config\Md5::DEFAULT - Return the hash
+     *   - Twine\Config\Md5::RAW - Return the raw binary of the hash
      *
      * @return self
      */
-    public function md5($raw = false)
+    public function md5($mode = Config\Md5::DEFAULT)
     {
-        return new static(hash('md5', $this->string, $raw));
+        Config\Md5::validateOption($mode);
+
+        return new static(hash('md5', $this->string, $mode));
     }
 
     /**
      * Calculate the sha1 hash of the string.
      *
-     * @param bool $raw If true, returns the raw binary of the hash
+     * @param bool $mode A sha1 mode flag
+     *
+     *  Available sha1 modes:
+     *
+     *   - Twine\Config\Sha1::DEFAULT - Return the hash
+     *   - Twine\Config\Sha1::RAW - Return the raw binary of the hash
      *
      * @return self
      */
-    public function sha1($raw = false)
+    public function sha1($mode = Config\Md5::DEFAULT)
     {
-        return new static(hash('sha1', $this->string, $raw));
+        Config\Md5::validateOption($mode);
+
+        return new static(hash('sha1', $this->string, $mode));
     }
 
     /**
      * Calculate the sha256 hash of the string.
      *
-     * @param bool $raw If true, returns the raw binary of the hash
+     * @param bool $mode A sha256 mode flag
+     *
+     *  Available sha256 modes:
+     *
+     *   - Twine\Config\Sha256::DEFAULT - Return the hash
+     *   - Twine\Config\Sha256::RAW - Return the raw binary of the hash
      *
      * @return self
      */
-    public function sha256($raw = false)
+    public function sha256($mode = Config\Sha256::DEFAULT)
     {
-        return new static(hash('sha256', $this->string, $raw));
+        Config\Sha256::validateOption($mode);
+
+        return new static(hash('sha256', $this->string, $mode));
     }
 }

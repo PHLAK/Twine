@@ -689,12 +689,17 @@ $string->crypt('NaCl'); // Returns 'Naq9mOMsN7Yac'
 > Calculate the md5 hash of the string.
 
 ```php
-Twine\Str::md5( [ bool $raw = false ] ) : Twine\Str
+Twine\Str::md5( [ bool $mode = Twine\Config\Md5::DEFAULT ] ) : Twine\Str
 ```
 
-| Parameter | Description                                 |
-| --------- | ------------------------------------------- |
-| `$raw`    | If true, returns the raw binary of the hash |
+| Parameter | Description     |
+| --------- | --------------- |
+| `$mode`   | A md5 mode flag |
+
+Available md5 modes:
+
+  - `Twine\Config\Md5::DEFAULT` - Return the hash
+  - `Twine\Config\Md5::RAW` - Return the raw binary of the hash
 
 #### Example
 
@@ -710,12 +715,17 @@ $string->md5(); // Returns '30cac4703a16a2201ec5cafbd600d803'
 > Calculate the sha1 hash of the string.
 
 ```php
-Twine\Str::sha1( [ bool $raw = false ] ) : Twine\Str
+Twine\Str::sha1( [ bool $mode = Twine\Config\Sha1::DEFAULT ] ) : Twine\Str
 ```
 
-| Parameter | Description                                 |
-| --------- | ------------------------------------------- |
-| `$raw`    | If true, returns the raw binary of the hash |
+| Parameter | Description      |
+| --------- | ---------------- |
+| `$mode`   | A sha1 mode flag |
+
+Available sha1 mode flags:
+
+  - `Twine\Config\Sha1::DEFAULT` - Return the hash
+  - `Twine\Config\Sha1::RAW` - Return the raw binary of the hash
 
 #### Example
 
@@ -731,19 +741,24 @@ $string->sha1(); // Returns 'fcaf28c7705ba8f267472bb5aa8ad883f6bf0427'
 > Calculate the sha256 hash of the string.
 
 ```php
-Twine\Str::sha256( [ bool $raw = false ] ) : Twine\Str
+Twine\Str::sha256( [ bool $mode = Twine\Config\Sha256::DEFAULT ] ) : Twine\Str
 ```
 
-| Parameter | Description                                 |
-| --------- | ------------------------------------------- |
-| `$raw`    | If true, returns the raw binary of the hash |
+| Parameter | Description        |
+| --------- | ------------------ |
+| `$mode`   | A sha256 mode flag |
+
+Available sha256 mode flags:
+
+  - `Twine\Config\Sha256::DEFAULT` - Return the hash
+  - `Twine\Config\Sha256::RAW` - Return the raw binary of the hash
 
 #### Example
 
 ```php
 $string = Twine\Str('john pinkerton');
 
-$string->sha1(); // Returns '7434f26c8c2fc83e57347feb2dfb235c2f47b149b54b80692beca9d565159dfd'
+$string->sha256(); // Returns '7434f26c8c2fc83e57347feb2dfb235c2f47b149b54b80692beca9d565159dfd'
 ```
 
 ---
