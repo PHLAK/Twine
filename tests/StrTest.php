@@ -22,7 +22,7 @@ class StrTest extends TestCase
         $this->assertEquals('p', $string[5]);
     }
 
-    public function test_it_thows_an_exception_when_modifyinging_characters_with_array_notation()
+    public function test_it_throws_an_exception_when_modifying_characters_with_array_notation()
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -31,7 +31,7 @@ class StrTest extends TestCase
         $string[5] = 'z';
     }
 
-    public function test_it_thows_an_exception_when_unsetting_characters_with_array_notation()
+    public function test_it_throws_an_exception_when_unsetting_characters_with_array_notation()
     {
         $string = new Twine\Str('john pinkerton');
 
