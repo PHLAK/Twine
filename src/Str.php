@@ -43,13 +43,11 @@ class Str implements \ArrayAccess, \JsonSerializable
         return $this->string;
     }
 
-
     /**
      * jsonSerialize method. Returns the object as a string when json_encode is called upon Str.
      *
      * @return string The string
      */
-
     public function jsonSerialize()
     {
         return $this->string;
