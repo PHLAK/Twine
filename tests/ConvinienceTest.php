@@ -3,8 +3,8 @@
 namespace PHLAK\Twine\Tests;
 
 use PHLAK\Twine;
-use PHLAK\Twine\Exceptions\InvalidConfigOptionException;
 use PHPUnit\Framework\TestCase;
+use PHLAK\Twine\Exceptions\InvalidConfigOptionException;
 
 class ConvinienceTest extends TestCase
 {

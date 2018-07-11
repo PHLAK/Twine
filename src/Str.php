@@ -3,14 +3,15 @@
 namespace PHLAK\Twine;
 
 use PHLAK\Twine\Traits\Aliases;
-use PHLAK\Twine\Traits\ArrayAccess;
-use PHLAK\Twine\Traits\Comparable;
-use PHLAK\Twine\Traits\Convinience;
 use PHLAK\Twine\Traits\Hashable;
+use PHLAK\Twine\Traits\Comparable;
+use PHLAK\Twine\Traits\ArrayAccess;
+use PHLAK\Twine\Traits\Convinience;
 use PHLAK\Twine\Traits\Segmentable;
+use ArrayAccess as NativeArrayAccess;
 use PHLAK\Twine\Traits\Transformable;
 
-class Str implements \ArrayAccess
+class Str implements NativeArrayAccess
 {
     use Aliases,
         ArrayAccess,
@@ -20,7 +21,9 @@ class Str implements \ArrayAccess
         Segmentable,
         Transformable;
 
-    /** @var string A string */
+    /**
+     * @var string A string
+     */
     protected $string;
 
     /**
