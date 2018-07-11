@@ -4,7 +4,7 @@ namespace PHLAK\Twine\Traits;
 
 use PHLAK\Twine\Config;
 
-trait Convinience
+trait Convenience
 {
     /**
      * Encode the string to or decode from a base64 encoded value.
