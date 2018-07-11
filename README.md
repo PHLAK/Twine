@@ -415,6 +415,23 @@ $string->trim('jton'); // Returns 'hn pinker'
 
 ---
 
+### urlencode
+> Encode the string to a URL safe string.
+
+```php
+Twine\Str::urlencode( void ) : Twine\Str
+```
+
+#### Example
+
+```php
+$string = new Twine\Str('john pinkerton');
+
+$string->urlencode(); // Returns 'john+pinkerton'
+```
+
+---
+
 ### wrap
 > Wrap the string to a given number of characters.
 
