@@ -773,9 +773,30 @@ Available sha256 mode flags:
 #### Example
 
 ```php
-$string = Twine\Str('john pinkerton');
+$string = new Twine\Str('john pinkerton');
 
 $string->sha256(); // Returns '7434f26c8c2fc83e57347feb2dfb235c2f47b149b54b80692beca9d565159dfd'
+```
+
+---
+
+### bcrypt
+> Creates a hash from the string using the CRYPT_BLOWFISH algorithm.
+
+```php
+Twine\Str::bcrypt( [ array $options = [] ] ) : Twine\Str
+```
+
+| Parameter  | Description                       |
+| ---------- | --------------------------------- |
+| `$options` | An array of bcrypt hasing options |
+
+#### Example
+
+```php
+$string = new Twine\Str('john pinkerton');
+
+$string->bcrypt(['salt' => 'NaClNaClNaClNaClNaClNaCl']); // Returns '$2y$10$NaClNaClNaClNaClNaClNOMtb0r8BE2WGaLqvGur17DqtgjsWl0lW'
 ```
 
 ---

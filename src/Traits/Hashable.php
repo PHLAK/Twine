@@ -85,4 +85,16 @@ trait Hashable
 
         return new static(hash('sha256', $this->string, $mode));
     }
+
+    /**
+     * Creates a hash from the string using the CRYPT_BLOWFISH algorithm.
+     *
+     * @param array $options An array of bcrypt hasing options
+     *
+     * @return self
+     */
+    public function bcrypt(array $options = [])
+    {
+        return new static(password_hash($this->string, PASSWORD_BCRYPT, $options));
+    }
 }
