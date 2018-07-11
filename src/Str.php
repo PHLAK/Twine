@@ -10,7 +10,7 @@ use PHLAK\Twine\Traits\Hashable;
 use PHLAK\Twine\Traits\Segmentable;
 use PHLAK\Twine\Traits\Transformable;
 
-class Str implements \ArrayAccess
+class Str implements \ArrayAccess, \JsonSerializable
 {
     use Aliases,
         ArrayAccess,
@@ -39,6 +39,18 @@ class Str implements \ArrayAccess
      * @return string The string
      */
     public function __toString()
+    {
+        return $this->string;
+    }
+
+
+    /**
+     * jsonSerialize method. Returns the object as a string when json_encode is called upon Str.
+     *
+     * @return string The string
+     */
+
+    public function jsonSerialize()
     {
         return $this->string;
     }
