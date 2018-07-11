@@ -245,4 +245,13 @@ class TransformableTest extends TestCase
 
         $string->trim(' ', 'invalid');
     }
+
+    public function test_it_can_url_encode_the_string()
+    {
+        $string = new Twine\Str('john pinkerton');
+
+        $urlencoded = $string->urlencode();
+
+        $this->assertEquals('john+pinkerton', $urlencoded);
+    }
 }

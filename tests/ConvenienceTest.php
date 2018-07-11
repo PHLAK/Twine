@@ -6,7 +6,7 @@ use PHLAK\Twine;
 use PHLAK\Twine\Exceptions\InvalidConfigOptionException;
 use PHPUnit\Framework\TestCase;
 
-class ConvinienceTest extends TestCase
+class ConvenienceTest extends TestCase
 {
     public function test_it_can_be_base64_encoded_and_decoded()
     {

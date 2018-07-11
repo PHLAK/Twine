@@ -5,7 +5,7 @@ namespace PHLAK\Twine;
 use PHLAK\Twine\Traits\Aliases;
 use PHLAK\Twine\Traits\ArrayAccess;
 use PHLAK\Twine\Traits\Comparable;
-use PHLAK\Twine\Traits\Convinience;
+use PHLAK\Twine\Traits\Convenience;
 use PHLAK\Twine\Traits\Hashable;
 use PHLAK\Twine\Traits\Segmentable;
 use PHLAK\Twine\Traits\Transformable;
@@ -15,7 +15,7 @@ class Str implements \ArrayAccess
     use Aliases,
         ArrayAccess,
         Comparable,
-        Convinience,
+        Convenience,
         Hashable,
         Segmentable,
         Transformable;

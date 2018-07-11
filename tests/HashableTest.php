@@ -61,4 +61,13 @@ class HashableTest extends TestCase
         $this->assertEquals('7434f26c8c2fc83e57347feb2dfb235c2f47b149b54b80692beca9d565159dfd', $sha256);
         $this->assertEquals(base64_decode('dDTybIwvyD5XNH/rLfsjXC9HsUm1S4BpK+yp1WUVnf0='), $raw);
     }
+
+    public function test_it_can_be_hashed_with_bcrypt()
+    {
+        $string = new Twine\Str('john pinkerton');
+
+        $bcrypt = $string->bcrypt(['salt' => 'NaClNaClNaClNaClNaClNaCl']);
+
+        $this->assertEquals('$2y$10$NaClNaClNaClNaClNaClNOMtb0r8BE2WGaLqvGur17DqtgjsWl0lW', $bcrypt);
+    }
 }
