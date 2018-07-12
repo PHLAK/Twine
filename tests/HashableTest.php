@@ -66,8 +66,8 @@ class HashableTest extends TestCase
     {
         $string = new Twine\Str('john pinkerton');
 
-        $bcrypt = $string->bcrypt(['salt' => 'NaClNaClNaClNaClNaClNaCl']);
+        $bcrypt = $string->bcrypt();
 
-        $this->assertEquals('$2y$10$NaClNaClNaClNaClNaClNOMtb0r8BE2WGaLqvGur17DqtgjsWl0lW', $bcrypt);
+        $this->assertRegExp('/\$2y\$10\$[a-zA-Z0-9+.\/]{53}/', (string) $bcrypt);
     }
 }
