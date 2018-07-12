@@ -46,7 +46,7 @@ class Str implements \ArrayAccess, \JsonSerializable
     }
 
     /**
-     * jsonSerialize method. Returns the object as a string when json_encode is called upon Str.
+     * Returns the object as a string when json_encode is called.
      *
      * @return string The string
      */

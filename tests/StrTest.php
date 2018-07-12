@@ -22,21 +22,6 @@ class StrTest extends TestCase
         $this->assertEquals('p', $string[5]);
     }
 
-    public function test_it_can_be_converted_to_a_string_when_serialized()
-    {
-        $string = new Twine\Str('john pinkerton');
-
-        $array = [
-            'name' => $string
-        ];
-
-        $json  = json_encode($array);
-        $array = json_decode($json, true);
-
-        $this->assertEquals('john pinkerton', $array['name']);
-    }
-
-
     public function test_it_thows_an_exception_when_modifyinging_characters_with_array_notation()
     {
         $string = new Twine\Str('john pinkerton');
@@ -53,5 +38,14 @@ class StrTest extends TestCase
         $this->expectException(\RuntimeException::class);
 
         unset($string[5]);
+    }
+
+    public function test_it_can_be_converted_to_a_string_when_json_encoded()
+    {
+        $string = new Twine\Str('john pinkerton');
+
+        $json = json_encode(['name' => $string]);
+
+        $this->assertJsonStringEqualsJsonString('{"name":"john pinkerton"}', $json);
     }
 }
