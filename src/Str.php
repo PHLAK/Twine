@@ -11,7 +11,7 @@ use PHLAK\Twine\Traits\Hashable;
 use PHLAK\Twine\Traits\Segmentable;
 use PHLAK\Twine\Traits\Transformable;
 
-class Str implements \ArrayAccess, \JsonSerializable
+class Str implements \ArrayAccess, \JsonSerializable, \Serializable
 {
     use Aliases,
         ArrayAccess,
@@ -53,5 +53,25 @@ class Str implements \ArrayAccess, \JsonSerializable
     public function jsonSerialize()
     {
         return $this->string;
+    }
+
+    /**
+     * Serialize the string.
+     *
+     * @return string
+     */
+    public function serialize()
+    {
+        return serialize($this->string);
+    }
+
+    /**
+     * Unserialize the string.
+     *
+     * @return void
+     */
+    public function unserialize($serialized)
+    {
+        $this->string = unserialize($serialized);
     }
 }
