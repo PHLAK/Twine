@@ -801,6 +801,50 @@ $string->bcrypt(['salt' => 'NaClNaClNaClNaClNaClNaCl']); // Returns '$2y$10$NaCl
 
 ---
 
+### encrypt
+> Encrypt the string.
+
+```php
+Twine\Str::encrypt( string $key, [ string $cipher = 'aes-128-gcm' ] ) : Twine\Str
+```
+
+| Parameter | Description            |
+| --------- | ---------------------- |
+| `$key`    | The key for encrypting |
+| `$cipher` | The cipher method      |
+
+#### Example
+
+```php
+$string = new Twine\Str('john pinkerton');
+
+$string->encrypt('secret'); // Returns something like '$DZpEm9ZFec9ybxF7$y2rc62EapV8p+xOKGaQHKA==$pKe7S3T7tf8jaXWpUHc='
+```
+
+---
+
+### decrypt
+> Decrypt the string.
+
+```php
+Twine\Str::decrypt( string $key, [ string $cipher = 'aes-128-gcm' ] ) : Twine\Str
+```
+
+| Parameter | Description            |
+| --------- | ---------------------- |
+| `$key`    | The key for decrypting |
+| `$cipher` | The cipher method      |
+
+#### Example
+
+```php
+$string = new Twine\Str('$DZpEm9ZFec9ybxF7$y2rc62EapV8p+xOKGaQHKA==$pKe7S3T7tf8jaXWpUHc=');
+
+$string->decrypt('secret'); // Returns 'john pinkerton'
+```
+
+---
+
 ## Chaining Methods
 
 A Twine string can be manipulated fluently by chaining methods. Here are a few
