@@ -73,6 +73,13 @@ $string = Twine\Str('john pinkerton');
 $string->substring(5, 4); // Returns 'pink'
 ```
 
+#### Aliases
+
+| Alias                      | For                             |
+| -------------------------- | ------------------------------- |
+| `Twine\Str::first($count)` | `$string->substring(0, $count)` |
+| `Twine\Str::last($count)`  | `$string->substring(-$count)`   |
+
 ---
 
 ### before

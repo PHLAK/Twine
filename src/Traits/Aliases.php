@@ -7,6 +7,30 @@ use PHLAK\Twine\Config;
 trait Aliases
 {
     /**
+     * Return a number of characters from the start of the string.
+     *
+     * @param int $count The number of characters to be returned
+     *
+     * @return self
+     */
+    public function first($count)
+    {
+        return $this->substring(0, $count);
+    }
+
+    /**
+     * Return a number of characters from the end of the string.
+     *
+     * @param int $count The number of characters to be returned
+     *
+     * @return self
+     */
+    public function last($count)
+    {
+        return $this->substring(-$count);
+    }
+
+    /**
      * Encode the string to base64.
      *
      * @return self

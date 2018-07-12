@@ -149,4 +149,22 @@ class AliasesTest extends TestCase
         $this->assertEquals($matches, $matchesAlias);
         $this->assertEquals($differs, $differsAlias);
     }
+
+    public function test_it_has_an_alias_for_first()
+    {
+        $string = new Twine\Str('john pinkerton');
+
+        $first = $string->first(4);
+
+        $this->assertEquals('john', $first);
+    }
+
+    public function test_it_has_an_alias_for_last()
+    {
+        $string = new Twine\Str('john pinkerton');
+
+        $last = $string->last(9);
+
+        $this->assertEquals('pinkerton', $last);
+    }
 }
