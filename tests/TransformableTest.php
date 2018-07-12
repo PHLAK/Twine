@@ -143,7 +143,7 @@ class TransformableTest extends TestCase
 
         $shuffled = $string->shuffle();
 
-        while ($string == $shuffled) {
+        while ($string === $shuffled) {
             $shuffled = $string->shuffle();
         }
 
