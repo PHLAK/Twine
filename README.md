@@ -47,7 +47,7 @@ use PHLAK\Twine;
 Then instantiate a Twine string:
 
 ```php
-$string = Twine\Str('john pinkerton');
+$string = new Twine\Str('john pinkerton');
 ```
 
 Usage
@@ -68,7 +68,7 @@ Twine\Str::substring( int $start [, int $length = null ] ) : Twine\Str
 #### Example
 
 ```php
-$string = Twine\Str('john pinkerton');
+$string = new Twine\Str('john pinkerton');
 
 $string->substring(5, 4); // Returns 'pink'
 ```
@@ -96,7 +96,7 @@ Twine\Str::before( string $string ) : Twine\Str
 #### Example
 
 ```php
-$string = Twine\Str('john pinkerton');
+$string = new Twine\Str('john pinkerton');
 
 $string->before(' '); // Returns 'john'
 ```
@@ -117,7 +117,7 @@ Twine\Str::after( string $string ) : Twine\Str
 #### Example
 
 ```php
-$string = Twine\Str('john pinkerton');
+$string = new Twine\Str('john pinkerton');
 
 $string->after(' '); // Returns 'pinkerton'
 ```
@@ -138,7 +138,7 @@ Twine\Str::append( string $suffix ) : Twine\Str
 #### Example
 
 ```php
-$string = Twine\Str('john pinkerton');
+$string = new Twine\Str('john pinkerton');
 
 $string->append(' jr'); // Returns 'john pinkerton jr'
 ```
@@ -159,7 +159,7 @@ Twine\Str::prepend( string $prefix );
 #### Example
 
 ```php
-$string = Twine\Str('john pinkerton');
+$string = new Twine\Str('john pinkerton');
 
 $string->prepend('mr '); // Returns 'mr john pinkerton'
 ```
@@ -181,7 +181,7 @@ Twine\Str::insert( string $string , int $position ) : Twine\Str
 #### Example
 
 ```php
-$string = Twine\Str('john pinkerton');
+$string = new Twine\Str('john pinkerton');
 
 $string->insert('athan', 4); // Returns 'johnathan pinkerton'
 ```
@@ -208,7 +208,7 @@ Available uppercase modes:
 #### Examples
 
 ```php
-$string = Twine\Str('john pinkerton');
+$string = new Twine\Str('john pinkerton');
 
 $string->uppercase(); // Returns 'JOHN PINKERTON'
 $string->uppercase(Twine\Config\Uppercase::FIRST); // Returns 'John pinkerton'
@@ -271,7 +271,7 @@ Twine\Str::reverse( void ) : Twine\Str
 #### Example
 
 ```php
-$string = Twine\Str('john pinkerton');
+$string = new Twine\Str('john pinkerton');
 
 $string->reverse(); // Returns 'notreknip nhoj'
 ```
@@ -315,7 +315,7 @@ Twine\Str::replace( string $search , string $replace [, int &$count = null ] ) :
 #### Examples
 
 ```php
-$string = Twine\Str('john pinkerton');
+$string = new Twine\Str('john pinkerton');
 
 $string->replace('john', 'bob'); // Returns 'bob pinkerton'
 $string->replace('n', 'x', $count); // Returns 'johx pixkertox' and $count will be 3
@@ -333,7 +333,7 @@ Twine\Str::shuffle( void ) : Twine\Str
 #### Example
 
 ```php
-$string = Twine\Str('john pinkerton');
+$string = new Twine\Str('john pinkerton');
 
 $string->shuffle(); // Returns something like 'jnphin erkotno'
 ```
@@ -362,7 +362,7 @@ Available pad modes:
 #### Examples
 
 ```php
-$string = Twine\Str('john pinkerton');
+$string = new Twine\Str('john pinkerton');
 
 $string->pad(20, '_');  // Returns 'john pinkerton______'
 $string->pad(20, '_', Twine\Config\Pad::LEFT); // Returns '______john pinkerton'
@@ -373,9 +373,9 @@ $string->pad(20, '_', Twine\Config\Pad::BOTH); // Returns '___john pinkerton___'
 
 | Alias                    | For                                      |
 | ------------------------ | ---------------------------------------- |
-| `Twine\Str::padRight($length, $padding)`  | `$string->trim($length, $padding, Twine\Config\Pad::RIGHT)` |
-| `Twine\Str::padLeft($length, $padding)`   | `$string->trim($length, $padding, Twine\Config\Pad::LEFT)`  |
-| `Twine\Str::padBoth($length, $padding)`   | `$string->trim($length, $padding, Twine\Config\Pad::BOTH)`  |
+| `Twine\Str::padRight($length, $padding)`  | `$string->pad($length, $padding, Twine\Config\Pad::RIGHT)` |
+| `Twine\Str::padLeft($length, $padding)`   | `$string->pad($length, $padding, Twine\Config\Pad::LEFT)`  |
+| `Twine\Str::padBoth($length, $padding)`   | `$string->pad($length, $padding, Twine\Config\Pad::BOTH)`  |
 
 ---
 
@@ -460,7 +460,7 @@ Available wrap modes:
 #### Examples
 
 ```php
-$string = Twine\Str('john pinkerton');
+$string = new Twine\Str('john pinkerton');
 
 $string->wrap(5); // Returns "john\npinkerton"
 $string->wrap(5, "\n", Twine\Config\Wrap::HARD); // Returns "john\npinke\nrton"
@@ -495,7 +495,7 @@ Available equals modes:
 #### Examples
 
 ```php
-$string = Twine\Str('john pinkerton');
+$string = new Twine\Str('john pinkerton');
 
 $string->equals('john pinkerton'); // Returns true
 $string->equals('JoHN PiNKeRToN'); // Returns false
@@ -525,7 +525,7 @@ Twine\Str::startsWith( string $string ) : bool
 #### Examples
 
 ```php
-$string = Twine\Str('john pinkerton');
+$string = new Twine\Str('john pinkerton');
 
 $string->startsWith('john'); // Returns true
 $string->startsWith('pinkerton'); // Returns false
@@ -547,7 +547,7 @@ Twine\Str::endsWith( string $string ) : bool
 #### Examples
 
 ```php
-$string = Twine\Str('john pinkerton');
+$string = new Twine\Str('john pinkerton');
 
 $string->endsWith('pinkerton'); // Returns true
 $string->endsWith('john'); // Returns false
@@ -569,7 +569,7 @@ Twine\Str::contains( string $string ) : bool
 #### Examples
 
 ```php
-$string = Twine\Str('john pinkerton');
+$string = new Twine\Str('john pinkerton');
 
 $string->contains('pink'); // Returns true
 $string->contains('purple'); // Returns false
@@ -663,7 +663,7 @@ Twine\Str::length( void ) : int
 #### Example
 
 ```php
-$string = Twine\Str('john pinkerton');
+$string = new Twine\Str('john pinkerton');
 
 $string->length(); // Returns 14
 ```
@@ -680,7 +680,7 @@ Twine\Str::crc32( void ) : int
 #### Example
 
 ```php
-$string = Twine\Str('john pinkerton');
+$string = new Twine\Str('john pinkerton');
 
 $string->crc32(); // Returns 3367853299
 ```
@@ -702,7 +702,7 @@ Twine\Str::crypt( string $salt ) : Twine\Str
 #### Example
 
 ```php
-$string = Twine\Str('john pinkerton');
+$string = new Twine\Str('john pinkerton');
 
 $string->crypt('NaCl'); // Returns 'Naq9mOMsN7Yac'
 ```
@@ -728,7 +728,7 @@ Available md5 modes:
 #### Example
 
 ```php
-$string = Twine\Str('john pinkerton');
+$string = new Twine\Str('john pinkerton');
 
 $string->md5(); // Returns '30cac4703a16a2201ec5cafbd600d803'
 ```
@@ -754,7 +754,7 @@ Available sha1 mode flags:
 #### Example
 
 ```php
-$string = Twine\Str('john pinkerton');
+$string = new Twine\Str('john pinkerton');
 
 $string->sha1(); // Returns 'fcaf28c7705ba8f267472bb5aa8ad883f6bf0427'
 ```
