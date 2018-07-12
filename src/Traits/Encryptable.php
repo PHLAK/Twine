@@ -18,19 +18,18 @@ trait Encryptable
      *
      * @return self
      */
-    public function encrypt($key, $cipher = 'aes-128-gcm')
+    public function encrypt($key, $cipher = 'AES-128-CBC')
     {
         if (! in_array($cipher, openssl_get_cipher_methods(true))) {
             throw new UnsupportedCipherException("The system does not support the {$cipher} cipher");
         }
 
         $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length($cipher));
-        $ciphertext = openssl_encrypt($this->string, $cipher, $key, 0, $iv, $tag);
+        $ciphertext = openssl_encrypt($this->string, $cipher, $key, 0, $iv);
 
         $ivEncoded = base64_encode($iv);
-        $tagEncoded = base64_encode($tag);
 
-        return new static("\${$ivEncoded}\${$tagEncoded}\${$ciphertext}");
+        return new static("\${$ivEncoded}\${$ciphertext}");
     }
 
     /**
@@ -44,16 +43,16 @@ trait Encryptable
      *
      * @return self
      */
-    public function decrypt($key, $cipher = 'aes-128-gcm')
+    public function decrypt($key, $cipher = 'AES-128-CBC')
     {
-        $encryptedStringPattern = '/\$([a-zA-Z0-9=+\/]+)\$([a-zA-Z0-9=+\/]+)\$([a-zA-Z0-9=+\/]+)/';
+        $encryptedStringPattern = '/\$([a-zA-Z0-9=+\/]+)\$([a-zA-Z0-9=+\/]+)/';
         if (! preg_match($encryptedStringPattern, $this->string, $matches)) {
             throw new NotAnEncryptedStringException('The string is not an encrypted string');
         }
 
-        [$match, $iv, $tag, $ciphertext] = $matches;
+        list($match, $iv, $ciphertext) = $matches;
 
-        $plaintext = openssl_decrypt($ciphertext, $cipher, $key, 0, base64_decode($iv), base64_decode($tag));
+        $plaintext = openssl_decrypt($ciphertext, $cipher, $key, 0, base64_decode($iv));
 
         if ($plaintext === false) {
             throw new DecryptionFailedException('Failed to decrypt the string');

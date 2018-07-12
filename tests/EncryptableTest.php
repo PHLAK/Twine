@@ -16,7 +16,7 @@ class EncryptableTest extends TestCase
 
         $encrypted = $string->encrypt('secret');
 
-        $this->assertRegExp('/\$([a-zA-Z0-9=+\/]+)\$([a-zA-Z0-9=+\/]+)\$([a-zA-Z0-9=+\/]+)/', (string) $encrypted);
+        $this->assertRegExp('/\$([a-zA-Z0-9=+\/]+)\$([a-zA-Z0-9=+\/]+)/', (string) $encrypted);
 
         return $encrypted;
     }
