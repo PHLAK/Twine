@@ -39,4 +39,33 @@ class StrTest extends TestCase
 
         unset($string[5]);
     }
+
+    public function test_it_can_be_converted_to_a_string_when_json_encoded()
+    {
+        $string = new Twine\Str('john pinkerton');
+
+        $json = json_encode(['name' => $string]);
+
+        $this->assertJsonStringEqualsJsonString('{"name":"john pinkerton"}', $json);
+    }
+
+    public function test_it_can_be_serialized()
+    {
+        $string = new Twine\Str('john pinkerton');
+
+        $serialized = serialize($string);
+
+        $this->assertEquals('C:15:"PHLAK\Twine\Str":22:{s:14:"john pinkerton";}', $serialized);
+
+        return $serialized;
+    }
+
+    /** @depends test_it_can_be_serialized */
+    public function test_it_can_be_unserialized($serialized)
+    {
+        $unserialized = unserialize($serialized);
+
+        $this->assertInstanceOf(Twine\Str::class, $unserialized);
+        $this->assertEquals('john pinkerton', $unserialized);
+    }
 }
