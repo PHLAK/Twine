@@ -42,4 +42,19 @@ trait Segmentable
     {
         return new static(explode($string, $this->string, 2)[1]);
     }
+
+    /**
+     * Truncate a string to a specific length and append a suffix.
+     *
+     * @param int    $length Length string will be truncated to, including suffix
+     * @param string $suffix Suffix to append (default: '...')
+     *
+     * @return self
+     */
+    public function truncate($length, $suffix = '...')
+    {
+        return new static(
+            $this->first($length - strlen($suffix))->trimRight()->append($suffix)
+        );
+    }
 }
