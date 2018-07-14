@@ -601,6 +601,27 @@ $string->contains('purple'); // Returns false
 
 ---
 
+### similarity
+> Calculate the similarity percentage between two strings.
+
+```php
+Twine\Str::similarity( string $string ) : float
+```
+
+| Parameter | Description                   |
+| --------- | ----------------------------- |
+| `$string` | The string to compare against |
+
+#### Examples
+
+```php
+$string = new Twine\Str('john pinkerton');
+
+$string->similarity('jim ponkerten'); // Returns 66.666666666667
+```
+
+---
+
 ### base64
 > Encode the string to or decode from a base64 encoded value.
 

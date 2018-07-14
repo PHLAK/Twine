@@ -64,4 +64,13 @@ class ComparableTest extends TestCase
         $this->assertTrue($string->contains('pink'));
         $this->assertFalse($string->contains('purple'));
     }
+
+    public function test_it_can_determine_similarity_percentage_to_another_string()
+    {
+        $string = new Twine\Str('john pinkerton');
+
+        $similarity = $string->similarity('jim ponkerten');
+
+        $this->assertEquals(66.666666666667, $similarity);
+    }
 }

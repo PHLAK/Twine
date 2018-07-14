@@ -63,4 +63,18 @@ trait Comparable
     {
         return strpos($this->string, $string) !== false;
     }
+
+    /**
+     * Calculate the similarity percentage between two strings.
+     *
+     * @param string $string The string to compare against
+     *
+     * @return float
+     */
+    public function similarity($string)
+    {
+        similar_text($this->string, $string, $percent);
+
+        return $percent;
+    }
 }
