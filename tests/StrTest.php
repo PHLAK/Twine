@@ -7,6 +7,13 @@ use PHPUnit\Framework\TestCase;
 
 class StrTest extends TestCase
 {
+    public function test_it_can_be_initialized_statically()
+    {
+        $string = Twine\Str::make('john pinkerton');
+
+        $this->assertEquals('john pinkerton', $string);
+    }
+
     public function test_it_can_be_accessed_as_a_string()
     {
         $string = new Twine\Str('john pinkerton');

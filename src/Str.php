@@ -46,6 +46,18 @@ class Str implements \ArrayAccess, \JsonSerializable, \Serializable
     }
 
     /**
+     * Static make constructor.
+     *
+     * @param string $string A string
+     *
+     * @return self
+     */
+    public static function make($string)
+    {
+        return new static($string);
+    }
+
+    /**
      * Returns the object as a string when json_encode is called.
      *
      * @return string The string
