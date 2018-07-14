@@ -32,7 +32,7 @@ class Str implements \ArrayAccess, \JsonSerializable, \Serializable
      */
     public function __construct($string = '')
     {
-        $this->string = $string;
+        $this->string = (string) $string;
     }
 
     /**
