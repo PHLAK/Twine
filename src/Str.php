@@ -6,6 +6,7 @@ use PHLAK\Twine\Traits\Aliases;
 use PHLAK\Twine\Traits\ArrayAccess;
 use PHLAK\Twine\Traits\Comparable;
 use PHLAK\Twine\Traits\Convenience;
+use PHLAK\Twine\Traits\Encodable;
 use PHLAK\Twine\Traits\Encryptable;
 use PHLAK\Twine\Traits\Hashable;
 use PHLAK\Twine\Traits\Segmentable;
@@ -17,6 +18,7 @@ class Str implements \ArrayAccess, \JsonSerializable, \Serializable
         ArrayAccess,
         Comparable,
         Convenience,
+        Encodable,
         Encryptable,
         Hashable,
         Segmentable,

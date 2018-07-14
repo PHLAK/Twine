@@ -211,14 +211,4 @@ trait Transformable
 
         return new static($mode($this->string, $mask));
     }
-
-    /**
-     * Encode the string to a URL safe string.
-     *
-     * @return self
-     */
-    public function urlencode()
-    {
-        return new static(urlencode($this->string));
-    }
 }
