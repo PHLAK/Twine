@@ -13,7 +13,7 @@ trait Transformable
      *
      * @return self
      */
-    public function append($suffix) : self
+    public function append(string $suffix) : self
     {
         return new static($this->string . $suffix);
     }
@@ -25,7 +25,7 @@ trait Transformable
      *
      * @return self
      */
-    public function prepend($prefix) : self
+    public function prepend(string $prefix) : self
     {
         return new static($prefix . $this->string);
     }
@@ -38,7 +38,7 @@ trait Transformable
      *
      * @return self
      */
-    public function insert($string, $position) : self
+    public function insert(string $string, int $position) : self
     {
         return new static(substr_replace($this->string, $string, $position, 0));
     }
@@ -58,7 +58,7 @@ trait Transformable
      *
      * @return self
      */
-    public function uppercase($mode = Config\Uppercase::ALL) : self
+    public function uppercase(string $mode = Config\Uppercase::ALL) : self
     {
         Config\Uppercase::validateOption($mode);
 
@@ -80,7 +80,7 @@ trait Transformable
      *
      * @return self
      */
-    public function lowercase($mode = Config\Lowercase::ALL) : self
+    public function lowercase(string $mode = Config\Lowercase::ALL) : self
     {
         Config\Lowercase::validateOption($mode);
 
@@ -114,7 +114,7 @@ trait Transformable
      *
      * @return self
      */
-    public function replace($search, $replace, &$count = null) : self
+    public function replace(string $search, string $replace, int &$count = null) : self
     {
         return new static(str_replace($search, $replace, $this->string, $count));
     }
@@ -136,7 +136,7 @@ trait Transformable
      *
      * @return self
      */
-    public function repeat($multiplier) : self
+    public function repeat(int $multiplier) : self
     {
         return new static(str_repeat($this->string, $multiplier));
     }
@@ -157,7 +157,7 @@ trait Transformable
      *
      * @return self
      */
-    public function wrap($width, $break = "\n", $mode = Config\Wrap::SOFT) : self
+    public function wrap(int $width, string $break = "\n", bool $mode = Config\Wrap::SOFT) : self
     {
         Config\Wrap::validateOption($mode);
 
@@ -181,7 +181,7 @@ trait Transformable
      *
      * @return self
      */
-    public function pad($length, $padding = ' ', $mode = Config\Pad::RIGHT) : self
+    public function pad(int $length, string $padding = ' ', int $mode = Config\Pad::RIGHT) : self
     {
         Config\Pad::validateOption($mode);
 
@@ -205,7 +205,7 @@ trait Transformable
      *
      * @return self
      */
-    public function trim($mask = " \t\n\r\0\x0B", $mode = Config\Trim::BOTH) : self
+    public function trim(string $mask = " \t\n\r\0\x0B", string $mode = Config\Trim::BOTH) : self
     {
         Config\Trim::validateOption($mode);
 

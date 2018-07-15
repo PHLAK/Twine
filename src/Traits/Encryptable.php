@@ -18,7 +18,7 @@ trait Encryptable
      *
      * @return self
      */
-    public function encrypt($key, $cipher = 'AES-128-CBC') : self
+    public function encrypt(string $key, string $cipher = 'AES-128-CBC') : self
     {
         if (! in_array($cipher, openssl_get_cipher_methods(true))) {
             throw new UnsupportedCipherException("The system does not support the {$cipher} cipher");
@@ -43,7 +43,7 @@ trait Encryptable
      *
      * @return self
      */
-    public function decrypt($key, $cipher = 'AES-128-CBC') : self
+    public function decrypt(string $key, string $cipher = 'AES-128-CBC') : self
     {
         $encryptedStringPattern = '/\$([a-zA-Z0-9=+\/]+)\$([a-zA-Z0-9=+\/]+)/';
         if (! preg_match($encryptedStringPattern, $this->string, $matches)) {

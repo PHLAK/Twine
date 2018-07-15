@@ -194,7 +194,7 @@ class TransformableTest extends TestCase
 
         $this->expectException(InvalidConfigOptionException::class);
 
-        $string->pad(20, '_', 'invalid');
+        $string->pad(20, '_', 99);
     }
 
     public function test_it_can_trim_excess_whitespace()

@@ -24,7 +24,7 @@ trait Hashable
      *
      * @return self
      */
-    public function crypt($salt) : self
+    public function crypt(string $salt) : self
     {
         return new static(crypt($this->string, $salt));
     }
@@ -41,7 +41,7 @@ trait Hashable
      *
      * @return self
      */
-    public function md5($mode = Config\Md5::DEFAULT) : self
+    public function md5(bool $mode = Config\Md5::DEFAULT) : self
     {
         Config\Md5::validateOption($mode);
 
@@ -60,7 +60,7 @@ trait Hashable
      *
      * @return self
      */
-    public function sha1($mode = Config\Md5::DEFAULT) : self
+    public function sha1(bool $mode = Config\Md5::DEFAULT) : self
     {
         Config\Md5::validateOption($mode);
 
@@ -79,7 +79,7 @@ trait Hashable
      *
      * @return self
      */
-    public function sha256($mode = Config\Sha256::DEFAULT) : self
+    public function sha256(bool $mode = Config\Sha256::DEFAULT) : self
     {
         Config\Sha256::validateOption($mode);
 

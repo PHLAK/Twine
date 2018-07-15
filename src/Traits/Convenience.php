@@ -11,7 +11,7 @@ trait Convenience
      *
      * @return int
      */
-    public function count($string) : int
+    public function count(string $string) : int
     {
         return substr_count($this->string, $string);
     }

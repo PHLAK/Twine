@@ -21,7 +21,7 @@ trait Comparable
      *
      * @return bool True if the string matches the comparing string
      */
-    public function equals($string, $mode = Config\Equals::CASE_SENSITIVE) : bool
+    public function equals(string $string, string $mode = Config\Equals::CASE_SENSITIVE) : bool
     {
         Config\Equals::validateOption($mode);
 
@@ -35,7 +35,7 @@ trait Comparable
      *
      * @return bool True if the string starts with $string, otherwise false
      */
-    public function startsWith($string) : bool
+    public function startsWith(string $string) : bool
     {
         return substr($this->string, 0, strlen($string)) == $string;
     }
@@ -47,7 +47,7 @@ trait Comparable
      *
      * @return bool True if the string ends with $string, otherwise false
      */
-    public function endsWith($string) : bool
+    public function endsWith(string $string) : bool
     {
         return substr($this->string, -strlen($string)) == $string;
     }
@@ -59,7 +59,7 @@ trait Comparable
      *
      * @return bool True if the string contains $string, otherwise false
      */
-    public function contains($string) : bool
+    public function contains(string $string) : bool
     {
         return strpos($this->string, $string) !== false;
     }
@@ -71,7 +71,7 @@ trait Comparable
      *
      * @return float
      */
-    public function similarity($string) : float
+    public function similarity(string $string) : float
     {
         similar_text($this->string, $string, $percent);
 

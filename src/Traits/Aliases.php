@@ -13,7 +13,7 @@ trait Aliases
      *
      * @return self
      */
-    public function first($count) : self
+    public function first(int $count) : self
     {
         return $this->substring(0, $count);
     }
@@ -25,7 +25,7 @@ trait Aliases
      *
      * @return self
      */
-    public function last($count) : self
+    public function last(int $count) : self
     {
         return $this->substring(-$count);
     }
@@ -78,7 +78,7 @@ trait Aliases
      *
      * @return self
      */
-    public function trimLeft($mask = " \t\n\r\0\x0B") : self
+    public function trimLeft(string $mask = " \t\n\r\0\x0B") : self
     {
         return $this->trim($mask, Config\Trim::LEFT);
     }
@@ -90,7 +90,7 @@ trait Aliases
      *
      * @return self
      */
-    public function trimRight($mask = " \t\n\r\0\x0B") : self
+    public function trimRight(string $mask = " \t\n\r\0\x0B") : self
     {
         return $this->trim($mask, Config\Trim::RIGHT);
     }
@@ -144,7 +144,7 @@ trait Aliases
      *
      * @return self
      */
-    public function wrapSoft($width, $break = "\n") : self
+    public function wrapSoft(int $width, string $break = "\n") : self
     {
         return $this->wrap($width, $break, Config\Wrap::SOFT);
     }
@@ -170,7 +170,7 @@ trait Aliases
      *
      * @return self
      */
-    public function padRight($length, $padding = ' ') : self
+    public function padRight(int $length, string $padding = ' ') : self
     {
         return $this->pad($length, $padding, Config\Pad::RIGHT);
     }
@@ -183,7 +183,7 @@ trait Aliases
      *
      * @return self
      */
-    public function padLeft($length, $padding = ' ') : self
+    public function padLeft(int $length, string $padding = ' ') : self
     {
         return $this->pad($length, $padding, Config\Pad::LEFT);
     }
@@ -196,7 +196,7 @@ trait Aliases
      *
      * @return self
      */
-    public function padBoth($length, $padding = ' ') : self
+    public function padBoth(int $length, string $padding = ' ') : self
     {
         return $this->pad($length, $padding, Config\Pad::BOTH);
     }
@@ -208,7 +208,7 @@ trait Aliases
      *
      * @return bool
      */
-    public function insensitiveMatch($string) : bool
+    public function insensitiveMatch(string $string) : bool
     {
         return $this->equals($string, Config\Equals::CASE_INSENSITIVE);
     }
