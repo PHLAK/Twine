@@ -51,6 +51,26 @@ trait Aliases
     }
 
     /**
+     * Encode the string to hex.
+     *
+     * @return self
+     */
+    public function hexEncode()
+    {
+        return $this->hex(Config\Hex::ENCODE);
+    }
+
+    /**
+     * Decode the hex encoded string.
+     *
+     * @return self
+     */
+    public function hexDecode()
+    {
+        return $this->hex(Config\Hex::DECODE);
+    }
+
+    /**
      * Remove whitespace or a specific set of characters from the beginning of
      * the string.
      *

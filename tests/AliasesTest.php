@@ -137,6 +137,26 @@ class AliasesTest extends TestCase
         $this->assertEquals($plaintext, $alias);
     }
 
+    public function test_it_has_an_alias_for_hex_encode()
+    {
+        $string = new Twine\Str('john pinkerton');
+
+        $hex = $string->hex(Twine\Config\Hex::ENCODE);
+        $alias = $string->hexEncode();
+
+        $this->assertEquals($hex, $alias);
+    }
+
+    public function test_it_has_an_alias_for_hex_decode()
+    {
+        $string = new Twine\Str('\x6a\x6f\x68\x6e\x20\x70\x69\x6e\x6b\x65\x72\x74\x6f\x6e');
+
+        $plaintext = $string->hex(Twine\Config\Hex::DECODE);
+        $alias = $string->hexDecode();
+
+        $this->assertEquals($plaintext, $alias);
+    }
+
     public function test_it_has_an_alias_for_insensitive_match()
     {
         $string = new Twine\Str('john pinkerton');

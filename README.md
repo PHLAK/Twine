@@ -467,6 +467,38 @@ $string->urlencode(); // Returns 'john+pinkerton'
 
 ---
 
+### hex
+> Encode and decode the string to and from hex.
+
+```php
+Twine\Str::hex( [ $mode = Config\Hex::ENCODE ] ) : Twine\Str
+```
+
+| Parameter | Description     |
+| --------- | --------------- |
+| `$mode`   | A hex mode flag |
+
+Available hex modes:
+
+  - `Twine\Config\Hex::ENCODE` - Encode the string to hex
+  - `Twine\Config\Hex::DECODE` - Decode the string from hex
+
+#### Example
+
+```php
+$string = new Twine\Str('john pinkerton');
+
+$string->hex(); // Returns '\x6a\x6f\x68\x6e\x20\x70\x69\x6e\x6b\x65\x72\x74\x6f\x6e'
+```
+
+```php
+$string = new Twine\Str('\x6a\x6f\x68\x6e\x20\x70\x69\x6e\x6b\x65\x72\x74\x6f\x6e');
+
+$string->hex(Twine\Config\Hex::DECODE); // Returns 'john pinkerton'
+```
+
+---
+
 ### wrap
 > Wrap the string to a given number of characters.
 
