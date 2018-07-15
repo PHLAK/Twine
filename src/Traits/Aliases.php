@@ -210,6 +210,6 @@ trait Aliases
      */
     public function insensitiveMatch($string)
     {
-        $this->equals($string, Config\Equals::CASE_INSENSITIVE);
+        return $this->equals($string, Config\Equals::CASE_INSENSITIVE);
     }
 }
