@@ -59,14 +59,16 @@ trait Encodable
                     return '\x' . dechex(ord($char));
                 }, str_split($this->string));
 
-                return new static(implode($characters));
+                $string = implode($characters);
+                break;
 
             case Config\Hex::DECODE:
                 $string = preg_replace_callback('/\\\\x([0-9A-Fa-f]+)/', function ($matched) {
                     return chr(hexdec($matched[1]));
                 }, $this->string);
-
-                return new static($string);
+                break;
         }
+
+        return new static($string);
     }
 }

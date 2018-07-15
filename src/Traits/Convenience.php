@@ -2,8 +2,6 @@
 
 namespace PHLAK\Twine\Traits;
 
-use PHLAK\Twine\Config;
-
 trait Convenience
 {
     /**
