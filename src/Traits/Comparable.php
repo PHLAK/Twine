@@ -19,9 +19,9 @@ trait Comparable
      *
      * @throws \PHLAK\Twine\Exceptions\InvalidConfigOptionException
      *
-     * @return bool
+     * @return bool True if the string matches the comparing string
      */
-    public function equals($string, $mode = Config\Equals::CASE_SENSITIVE)
+    public function equals($string, $mode = Config\Equals::CASE_SENSITIVE) : bool
     {
         Config\Equals::validateOption($mode);
 
@@ -35,7 +35,7 @@ trait Comparable
      *
      * @return bool True if the string starts with $string, otherwise false
      */
-    public function startsWith($string)
+    public function startsWith($string) : bool
     {
         return substr($this->string, 0, strlen($string)) == $string;
     }
@@ -47,7 +47,7 @@ trait Comparable
      *
      * @return bool True if the string ends with $string, otherwise false
      */
-    public function endsWith($string)
+    public function endsWith($string) : bool
     {
         return substr($this->string, -strlen($string)) == $string;
     }
@@ -59,7 +59,7 @@ trait Comparable
      *
      * @return bool True if the string contains $string, otherwise false
      */
-    public function contains($string)
+    public function contains($string) : bool
     {
         return strpos($this->string, $string) !== false;
     }
@@ -71,7 +71,7 @@ trait Comparable
      *
      * @return float
      */
-    public function similarity($string)
+    public function similarity($string) : float
     {
         similar_text($this->string, $string, $percent);
 

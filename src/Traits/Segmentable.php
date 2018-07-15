@@ -12,7 +12,7 @@ trait Segmentable
      *
      * @return self
      */
-    public function substring($start, $length = null)
+    public function substring($start, $length = null) : self
     {
         $length = isset($length) ? $length : $this->length() - $start;
 
@@ -26,7 +26,7 @@ trait Segmentable
      *
      * @return self
      */
-    public function before($string)
+    public function before($string) : self
     {
         return new static(explode($string, $this->string, 2)[0]);
     }
@@ -38,7 +38,7 @@ trait Segmentable
      *
      * @return self
      */
-    public function after($string)
+    public function after($string) : self
     {
         return new static(explode($string, $this->string, 2)[1]);
     }
@@ -51,7 +51,7 @@ trait Segmentable
      *
      * @return self
      */
-    public function truncate($length, $suffix = '...')
+    public function truncate($length, $suffix = '...') : self
     {
         return new static(
             $this->first($length - strlen($suffix))->trimRight()->append($suffix)

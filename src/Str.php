@@ -42,7 +42,7 @@ class Str implements \ArrayAccess, \JsonSerializable, \Serializable
      *
      * @return string The string
      */
-    public function __toString()
+    public function __toString() : string
     {
         return $this->string;
     }
@@ -54,7 +54,7 @@ class Str implements \ArrayAccess, \JsonSerializable, \Serializable
      *
      * @return self
      */
-    public static function make($string)
+    public static function make($string) : self
     {
         return new static($string);
     }
@@ -62,9 +62,9 @@ class Str implements \ArrayAccess, \JsonSerializable, \Serializable
     /**
      * Returns the object as a string when json_encode is called.
      *
-     * @return string The string
+     * @return string
      */
-    public function jsonSerialize()
+    public function jsonSerialize() : string
     {
         return $this->string;
     }
@@ -74,7 +74,7 @@ class Str implements \ArrayAccess, \JsonSerializable, \Serializable
      *
      * @return string
      */
-    public function serialize()
+    public function serialize() : string
     {
         return serialize($this->string);
     }

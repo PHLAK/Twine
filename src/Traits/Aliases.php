@@ -13,7 +13,7 @@ trait Aliases
      *
      * @return self
      */
-    public function first($count)
+    public function first($count) : self
     {
         return $this->substring(0, $count);
     }
@@ -25,7 +25,7 @@ trait Aliases
      *
      * @return self
      */
-    public function last($count)
+    public function last($count) : self
     {
         return $this->substring(-$count);
     }
@@ -35,7 +35,7 @@ trait Aliases
      *
      * @return self
      */
-    public function base64Encode()
+    public function base64Encode() : self
     {
         return $this->base64(Config\Base64::ENCODE);
     }
@@ -45,7 +45,7 @@ trait Aliases
      *
      * @return self
      */
-    public function base64Decode()
+    public function base64Decode() : self
     {
         return $this->base64(Config\Base64::DECODE);
     }
@@ -55,7 +55,7 @@ trait Aliases
      *
      * @return self
      */
-    public function hexEncode()
+    public function hexEncode() : self
     {
         return $this->hex(Config\Hex::ENCODE);
     }
@@ -65,7 +65,7 @@ trait Aliases
      *
      * @return self
      */
-    public function hexDecode()
+    public function hexDecode() : self
     {
         return $this->hex(Config\Hex::DECODE);
     }
@@ -78,7 +78,7 @@ trait Aliases
      *
      * @return self
      */
-    public function trimLeft($mask = " \t\n\r\0\x0B")
+    public function trimLeft($mask = " \t\n\r\0\x0B") : self
     {
         return $this->trim($mask, Config\Trim::LEFT);
     }
@@ -90,7 +90,7 @@ trait Aliases
      *
      * @return self
      */
-    public function trimRight($mask = " \t\n\r\0\x0B")
+    public function trimRight($mask = " \t\n\r\0\x0B") : self
     {
         return $this->trim($mask, Config\Trim::RIGHT);
     }
@@ -100,7 +100,7 @@ trait Aliases
      *
      * @return self
      */
-    public function uppercaseFirst()
+    public function uppercaseFirst() : self
     {
         return $this->uppercase(Config\Uppercase::FIRST);
     }
@@ -110,7 +110,7 @@ trait Aliases
      *
      * @return self
      */
-    public function uppercaseWords()
+    public function uppercaseWords() : self
     {
         return $this->uppercase(Config\Uppercase::WORDS);
     }
@@ -120,7 +120,7 @@ trait Aliases
      *
      * @return self
      */
-    public function lowercaseFirst()
+    public function lowercaseFirst() : self
     {
         return $this->lowercase(Config\Lowercase::FIRST);
     }
@@ -130,7 +130,7 @@ trait Aliases
      *
      * @return self
      */
-    public function lowercaseWords()
+    public function lowercaseWords() : self
     {
         return $this->lowercase(Config\Lowercase::WORDS);
     }
@@ -144,7 +144,7 @@ trait Aliases
      *
      * @return self
      */
-    public function wrapSoft($width, $break = "\n")
+    public function wrapSoft($width, $break = "\n") : self
     {
         return $this->wrap($width, $break, Config\Wrap::SOFT);
     }
@@ -157,7 +157,7 @@ trait Aliases
      *
      * @return self
      */
-    public function wrapHard($width, $break = "\n")
+    public function wrapHard($width, $break = "\n") : self
     {
         return $this->wrap($width, $break, Config\Wrap::HARD);
     }
@@ -170,7 +170,7 @@ trait Aliases
      *
      * @return self
      */
-    public function padRight($length, $padding = ' ')
+    public function padRight($length, $padding = ' ') : self
     {
         return $this->pad($length, $padding, Config\Pad::RIGHT);
     }
@@ -183,7 +183,7 @@ trait Aliases
      *
      * @return self
      */
-    public function padLeft($length, $padding = ' ')
+    public function padLeft($length, $padding = ' ') : self
     {
         return $this->pad($length, $padding, Config\Pad::LEFT);
     }
@@ -196,7 +196,7 @@ trait Aliases
      *
      * @return self
      */
-    public function padBoth($length, $padding = ' ')
+    public function padBoth($length, $padding = ' ') : self
     {
         return $this->pad($length, $padding, Config\Pad::BOTH);
     }
@@ -208,7 +208,7 @@ trait Aliases
      *
      * @return bool
      */
-    public function insensitiveMatch($string)
+    public function insensitiveMatch($string) : bool
     {
         return $this->equals($string, Config\Equals::CASE_INSENSITIVE);
     }

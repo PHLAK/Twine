@@ -11,7 +11,7 @@ trait Convenience
      *
      * @return int
      */
-    public function count($string)
+    public function count($string) : int
     {
         return substr_count($this->string, $string);
     }
@@ -23,7 +23,7 @@ trait Convenience
      *
      * @return self
      */
-    public function format(...$args)
+    public function format(...$args) : self
     {
         return new static(sprintf($this->string, ...$args));
     }
@@ -33,7 +33,7 @@ trait Convenience
      *
      * @return int Length of the string
      */
-    public function length()
+    public function length() : int
     {
         return strlen($this->string);
     }
