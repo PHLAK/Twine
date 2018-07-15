@@ -28,7 +28,7 @@ class Str implements \ArrayAccess, \JsonSerializable, \Serializable
     protected $string;
 
     /**
-     * Str constructor, runs on object creation.
+     * Create a new Str object.
      *
      * @param string $string A string
      */
