@@ -55,11 +55,11 @@ trait Encodable
 
         switch ($mode) {
             case Config\Hex::ENCODE:
-                $characters = array_map(function ($char) {
-                    return '\x' . dechex(ord($char));
-                }, str_split($this->string));
+                $string = array_reduce(str_split($this->string), function ($str, $char) {
+                    $str .= '\x' . dechex(ord($char));
 
-                $string = implode($characters);
+                    return $str;
+                }, '');
                 break;
 
             case Config\Hex::DECODE:
