@@ -85,11 +85,13 @@ trait Transformable
         Config\Lowercase::validateOption($mode);
 
         if ($mode == Config\Lowercase::WORDS) {
-            $words = array_map(function ($word) {
-                return lcfirst($word);
-            }, explode(' ', $this->string));
+            // A word is defined as a series of non-space characters. We specifically
+            // locate only words needing modification (start with a capital letter).
+            $string = preg_replace_callback('/([A-Z][^\s]*)/', function ($matched) {
+                return lcfirst($matched[1]);
+            }, $this->string);
 
-            return new static(implode(' ', $words));
+            return new static($string);
         }
 
         return new static($mode($this->string));
