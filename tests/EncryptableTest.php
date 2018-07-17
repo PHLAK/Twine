@@ -3,9 +3,8 @@
 namespace PHLAK\Twine\Tests;
 
 use PHLAK\Twine;
-use PHLAK\Twine\Exceptions\DecryptionFailedException;
-use PHLAK\Twine\Exceptions\UnsupportedCipherException;
-use PHLAK\Twine\Exceptions\NotAnEncryptedStringException;
+use PHLAK\Twine\Exceptions\EncryptionException;
+use PHLAK\Twine\Exceptions\DecryptionException;
 use PHPUnit\Framework\TestCase;
 
 class EncryptableTest extends TestCase
@@ -16,7 +15,7 @@ class EncryptableTest extends TestCase
 
         $encrypted = $string->encrypt('secret');
 
-        $this->assertRegExp('/\$([a-zA-Z0-9=+\/]+)\$([a-zA-Z0-9=+\/]+)/', (string) $encrypted);
+        $this->assertRegExp('/[a-zA-Z0-9=+\/]+/', (string) $encrypted);
 
         return $encrypted;
     }
@@ -35,7 +34,7 @@ class EncryptableTest extends TestCase
     {
         $string = new Twine\Str('john pinkerton');
 
-        $this->expectException(UnsupportedCipherException::class);
+        $this->expectException(EncryptionException::class);
 
         $string->encrypt('secret', 'invalid');
     }
@@ -44,7 +43,7 @@ class EncryptableTest extends TestCase
     {
         $string = new Twine\Str('john pinkerton');
 
-        $this->expectException(NotAnEncryptedStringException::class);
+        $this->expectException(DecryptionException::class);
 
         $string->decrypt('secret');
     }
@@ -54,7 +53,7 @@ class EncryptableTest extends TestCase
     {
         $string = new Twine\Str($encryptedString);
 
-        $this->expectException(DecryptionFailedException::class);
+        $this->expectException(DecryptionException::class);
 
         $string->decrypt('shmecret');
     }

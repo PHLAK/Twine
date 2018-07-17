@@ -4,6 +4,6 @@ namespace PHLAK\Twine\Exceptions;
 
 use RuntimeException;
 
-class NotAnEncryptedStringException extends RuntimeException
+class EncryptionException extends RuntimeException
 {
 }
