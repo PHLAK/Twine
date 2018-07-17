@@ -19,11 +19,11 @@ trait Encryptable
      * Encrypt the string.
      *
      * @param string $key    The key for encrypting
-     * @param string $cipher The cipher method (default: 'AES-128-CBC')
+     * @param string $cipher The cipher method
      *
      * Supported cipher methods:
      *
-     *   - AES-128-CBC
+     *   - AES-128-CBC (default)
      *   - AES-256-CBC
      *
      * @throws \PHLAK\Twine\Exceptions\EncryptionException
@@ -56,11 +56,11 @@ trait Encryptable
      * Decrypt the string.
      *
      * @param string $key    The key for decrypting
-     * @param string $cipher The cipher method (default: 'AES-128-CBC')
+     * @param string $cipher The cipher method
      *
      * Supported cipher methods:
      *
-     *   - AES-128-CBC
+     *   - AES-128-CBC (default)
      *   - AES-256-CBC
      *
      * @throws \PHLAK\Twine\Exceptions\DecryptionException

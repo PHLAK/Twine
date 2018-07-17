@@ -893,13 +893,18 @@ $string->bcrypt(['salt' => 'NaClNaClNaClNaClNaClNaCl']); // Returns '$2y$10$NaCl
 > Encrypt the string.
 
 ```php
-Twine\Str::encrypt( string $key, [ string $cipher = 'aes-128-gcm' ] ) : Twine\Str
+Twine\Str::encrypt( string $key, [ string $cipher = 'AES-128-CBC' ] ) : Twine\Str
 ```
 
 | Parameter | Description            |
 | --------- | ---------------------- |
 | `$key`    | The key for encrypting |
 | `$cipher` | The cipher method      |
+
+Supported cipher methods:
+
+  - `AES-128-CBC` (default)
+  - `AES-256-CBC`
 
 #### Example
 
@@ -915,13 +920,18 @@ $string->encrypt('secret'); // Returns something like '$DZpEm9ZFec9ybxF7$y2rc62E
 > Decrypt the string.
 
 ```php
-Twine\Str::decrypt( string $key, [ string $cipher = 'aes-128-gcm' ] ) : Twine\Str
+Twine\Str::decrypt( string $key, [ string $cipher = 'AES-128-CBC' ] ) : Twine\Str
 ```
 
 | Parameter | Description            |
 | --------- | ---------------------- |
 | `$key`    | The key for decrypting |
 | `$cipher` | The cipher method      |
+
+Supported cipher methods:
+
+  - `AES-128-CBC` (default)
+  - `AES-256-CBC`
 
 #### Example
 
