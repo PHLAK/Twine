@@ -7,27 +7,31 @@ use PHLAK\Twine\Config;
 trait Transformable
 {
     /**
-     * Append a suffix to the string.
+     * Append one or more strings to the string.
      *
-     * @param string $suffix A string to append
+     * @param string ...$strings One or more strings to append
      *
      * @return self
      */
-    public function append(string $suffix) : self
+    public function append(string ...$strings) : self
     {
-        return new static($this->string . $suffix);
+        array_unshift($strings, $this->string);
+
+        return new static(implode($strings));
     }
 
     /**
-     * Prepend the string with a prefix.
+     * Prepend one or more strings to the string.
      *
-     * @param string $prefix A string to prepend
+     * @param string ...$strings One or more strings to prepend
      *
      * @return self
      */
-    public function prepend(string $prefix) : self
+    public function prepend(string ...$strings) : self
     {
-        return new static($prefix . $this->string);
+        array_push($strings, $this->string);
+
+        return new static(implode($strings));
     }
 
     /**

@@ -153,7 +153,7 @@ $string->truncate(8); // Returns 'john...'
 ---
 
 ### append
-> Append a suffix to the string.
+> Append one or more strings to the string.
 
 ```php
 Twine\Str::append( string $suffix ) : Twine\Str
@@ -171,18 +171,26 @@ $string = new Twine\Str('john pinkerton');
 $string->append(' jr'); // Returns 'john pinkerton jr'
 ```
 
+```php
+$first = new Twine\Str('john');
+$last = new Twine\Str('pinkerton');
+
+$first->append(' ', $pinkerton, ' ', 'jr'); // Returns 'john pikerton jr'
+```
+
+
 ---
 
 ### prepend
-> Prepend the string with a prefix.
+> Prepend one or more strings to the string.
 
 ```php
-Twine\Str::prepend( string $prefix );
+Twine\Str::prepend( string ...$strings ) : Twine\Str;
 ```
 
-| Parameter | Description         |
-| --------- | ------------------- |
-| `$prefix` | A string to prepend |
+| Parameter     | Description                   |
+| ------------- | ----------------------------- |
+| `...$strings` | One or more strings to append |
 
 #### Example
 
@@ -190,6 +198,13 @@ Twine\Str::prepend( string $prefix );
 $string = new Twine\Str('john pinkerton');
 
 $string->prepend('mr '); // Returns 'mr john pinkerton'
+```
+
+```php
+$first = new Twine\Str('john');
+$last = new Twine\Str('pinkerton');
+
+$last->prepend('mr', ' ', $first); // Returns 'mr john pinkerton'
 ```
 
 ---

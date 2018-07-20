@@ -18,6 +18,17 @@ class TransformableTest extends TestCase
         $this->assertEquals('john pinkerton jr', $appended);
     }
 
+    public function test_it_can_append_multiple_strings()
+    {
+        $first = new Twine\Str('john');
+        $last = new Twine\STr('pinkerton');
+
+        $appended = $first->append(' ', $last);
+
+        $this->assertInstanceOf(Twine\Str::class, $appended);
+        $this->assertEquals('john pinkerton', $appended);
+    }
+
     public function test_it_can_prepended_a_string()
     {
         $string = new Twine\Str('john pinkerton');
@@ -26,6 +37,17 @@ class TransformableTest extends TestCase
 
         $this->assertInstanceOf(Twine\Str::class, $prepended);
         $this->assertEquals('mr john pinkerton', $prepended);
+    }
+
+    public function test_it_can_prepended_multiple_strings()
+    {
+        $first = new Twine\Str('john');
+        $last = new Twine\Str('pinkerton');
+
+        $prepended = $last->prepend($first, ' ');
+
+        $this->assertInstanceOf(Twine\Str::class, $prepended);
+        $this->assertEquals('john pinkerton', $prepended);
     }
 
     public function test_it_can_insert_a_string()
