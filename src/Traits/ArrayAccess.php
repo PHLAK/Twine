@@ -32,8 +32,8 @@ trait ArrayAccess
     /**
      * Not implemented due to immutability.
      *
-     * @param $offset Not implemented
-     * @param $value Not implemented
+     * @param int   $offset Not implemented
+     * @param mixed $value  Not implemented
      *
      * @throws \RuntimeException
      *
@@ -47,7 +47,7 @@ trait ArrayAccess
     /**
      * Not implemented due to immutability.
      *
-     * @param $offset Not implemented
+     * @param int $offset Not implemented
      *
      * @throws \RuntimeException
      *

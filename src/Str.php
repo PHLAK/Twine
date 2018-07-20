@@ -30,7 +30,7 @@ class Str implements \ArrayAccess, \JsonSerializable, \Serializable
     /**
      * Create a new Str object.
      *
-     * @param string $string A string
+     * @param mixed $string A string
      */
     public function __construct($string = '')
     {
