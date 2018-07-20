@@ -35,6 +35,19 @@ trait Transformable
     }
 
     /**
+     * Join two strings with another string in between.
+     *
+     * @param string $string The string to be joined
+     * @param string $glue   A string to use as the glue
+     *
+     * @return self
+     */
+    public function join(string $string, string $glue = ' ')
+    {
+        return new static($this->string . $glue . $string);
+    }
+
+    /**
      * Insert some text into the string at a given position.
      *
      * @param string $string   Text to insert

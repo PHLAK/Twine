@@ -209,6 +209,36 @@ $last->prepend('mr', ' ', $first); // Returns 'mr john pinkerton'
 
 ---
 
+### join
+> Join two strings with another string in between.
+
+```php
+Twine\Str::join( string $string [, string $glue = ' ' ] ) : Twine\Str
+```
+
+| Parameter | Description                 |
+| --------- | --------------------------- |
+| `$string` | The string to be joined     |
+| `$glue`   | A string to use as the glue |
+
+#### Example
+
+```php
+$first = new Twine\Str('john');
+$last = new Twine\Str('pinkerton');
+
+$first->join($last); // Returns 'john pinkerton'
+```
+
+```php
+$min = new Twine\Str('1');
+$max = new Twine\Str('100');
+
+$min->join($max, '-'); // Returns '1-100'
+```
+
+---
+
 ### insert
 > Insert some text into the string at a given position.
 

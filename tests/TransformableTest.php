@@ -50,6 +50,26 @@ class TransformableTest extends TestCase
         $this->assertEquals('john pinkerton', $prepended);
     }
 
+    public function test_it_can_be_joined()
+    {
+        $first = new Twine\Str('john');
+        $last = new Twine\Str('pinkerton');
+
+        $joined = $first->join($last);
+
+        $this->assertEquals('john pinkerton', $joined);
+    }
+
+    public function test_it_can_be_joined_with_a_custom_glue()
+    {
+        $min = new Twine\Str('1');
+        $max = new Twine\Str('100');
+
+        $glued = $min->join($max, '-');
+
+        $this->assertEquals('1-100', $glued);
+    }
+
     public function test_it_can_insert_a_string()
     {
         $string = new Twine\Str('john pinkerton');
