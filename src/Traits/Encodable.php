@@ -3,6 +3,7 @@
 namespace PHLAK\Twine\Traits;
 
 use PHLAK\Twine\Config;
+use RuntimeException;
 
 trait Encodable
 {
@@ -40,7 +41,7 @@ trait Encodable
     /**
      * Encode and decode the string to and from hex.
      *
-     * @param int $mode A hex mode flag
+     * @param string $mode A hex mode flag
      *
      * Available hex modes:
      *
@@ -49,7 +50,7 @@ trait Encodable
      *
      * @return self
      */
-    public function hex(int $mode = Config\Hex::ENCODE) : self
+    public function hex(string $mode = Config\Hex::ENCODE) : self
     {
         Config\Hex::validateOption($mode);
 
@@ -67,6 +68,9 @@ trait Encodable
                     return chr(hexdec($matched[1]));
                 }, $this->string);
                 break;
+
+            default:
+                throw new RuntimeException('Invalid mode');
         }
 
         return new static($string);

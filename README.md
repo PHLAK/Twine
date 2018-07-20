@@ -516,7 +516,7 @@ $string->urlencode(); // Returns 'john+pinkerton'
 > Encode and decode the string to and from hex.
 
 ```php
-Twine\Str::hex( [ $mode = Config\Hex::ENCODE ] ) : Twine\Str
+Twine\Str::hex( [ string $mode = Config\Hex::ENCODE ] ) : Twine\Str
 ```
 
 | Parameter | Description     |
@@ -541,6 +541,14 @@ $string = new Twine\Str('\x6a\x6f\x68\x6e\x20\x70\x69\x6e\x6b\x65\x72\x74\x6f\x6
 
 $string->hex(Twine\Config\Hex::DECODE); // Returns 'john pinkerton'
 ```
+
+#### Aliases
+
+| Alias                    | For                                      |
+| ------------------------ | ---------------------------------------- |
+| `Twine\Str::hexEncode()` | `$string->hex(Twine\Config\Hex::ENCODE)` |
+| `Twine\Str::hexDecode()` | `$string->hex(Twine\Config\Hex::DECODE)` |
+
 
 ---
 
