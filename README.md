@@ -173,9 +173,9 @@ $string->append(' jr'); // Returns 'john pinkerton jr'
 
 ```php
 $first = new Twine\Str('john');
-$pinkerton = new Twine\Str('pinkerton');
+$last = new Twine\Str('pinkerton');
 
-$first->append(' ', $pinkerton, ' ', 'jr'); // Returns 'john pinkerton jr'
+$first->append(' ', $last, ' ', 'jr'); // Returns 'john pinkerton jr'
 ```
 
 
