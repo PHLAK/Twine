@@ -52,6 +52,10 @@ $string = new Twine\Str('john pinkerton');
 // or statically via the make() method
 
 $string = Twine\Str::make('john pinkerton');
+
+// or with the str() helper method
+
+$string = str('john pinkerton');
 ```
 
 Usage

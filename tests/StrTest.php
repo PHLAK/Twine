@@ -14,6 +14,14 @@ class StrTest extends TestCase
         $this->assertEquals('john pinkerton', $string);
     }
 
+    public function test_it_can_be_initialized_with_the_helper_function()
+    {
+        $string = str('john pinkerton');
+
+        $this->assertInstanceOf(Twine\Str::class, $string);
+        $this->assertEquals('john pinkerton', $string);
+    }
+
     public function test_it_can_be_accessed_as_a_string()
     {
         $string = new Twine\Str('john pinkerton');
