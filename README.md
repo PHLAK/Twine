@@ -1047,6 +1047,91 @@ $string->decrypt('secret'); // Returns 'john pinkerton'
 
 ---
 
+### camelCase
+> Convert the string to camelCase.
+
+```php
+Twine\Str::camelCase( void ) : Twine\Str
+```
+
+#### Example
+
+```php
+$string = new Twine\Str('john pinkerton');
+
+$string->camelCase(); // Returns 'johnPinkerton'
+```
+
+---
+
+### studlyCase
+> Convert the string to studlyCase.
+
+```php
+Twine\Str::studlyCase( void ) : Twine\Str
+```
+
+#### Example
+
+```php
+$string = new Twine\Str('john pinkerton');
+
+$string->studlyCase(); // Returns 'JohnPinkerton'
+```
+
+---
+
+### pascalCase
+> Convert the string to pascalCase.
+
+```php
+Twine\Str::pascalCase( void ) : Twine\Str
+```
+
+#### Example
+
+```php
+$string = new Twine\Str('john pinkerton');
+
+$string->pascalCase(); // Returns 'JohnPinkerton'
+```
+
+---
+
+### snakeCase
+> Convert the string to snakeCase.
+
+```php
+Twine\Str::snakeCase( void ) : Twine\Str
+```
+
+#### Example
+
+```php
+$string = new Twine\Str('john pinkerton');
+
+$string->snakeCase(); // Returns 'john_pinkerton'
+```
+
+---
+
+### kebabCase
+> Convert the string to kebabCase.
+
+```php
+Twine\Str::kebabCase( void ) : Twine\Str
+```
+
+#### Example
+
+```php
+$string = new Twine\Str('john pinkerton');
+
+$string->kebabCase(); // Returns 'john-pinkerton'
+```
+
+---
+
 ## Chaining Methods
 
 A Twine string can be manipulated fluently by chaining methods. Here are a few
