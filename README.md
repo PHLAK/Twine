@@ -61,6 +61,92 @@ $string = str('john pinkerton');
 Usage
 -----
 
+#### Available Methods
+
+[substr](https://github.com/PHLAK/Twine#substr) - Return part of the string.
+
+[before](https://github.com/PHLAK/Twine#before) - Return part of the string occurring before a specific string.
+
+[after](https://github.com/PHLAK/Twine#after) - Return part of the string occurring after a specific string.
+
+[truncate](https://github.com/PHLAK/Twine#truncate) - Truncate a string to a specific length and append a suffix.
+
+[words](https://github.com/PHLAK/Twine#words) - Split the string into an array of words.
+
+[append](https://github.com/PHLAK/Twine#append) - Append one or more strings to the string.
+
+[prepend](https://github.com/PHLAK/Twine#prepend) - Prepend one or more strings to the string.
+
+[join](https://github.com/PHLAK/Twine#join) - Join two strings with another string in between.
+
+[insert](https://github.com/PHLAK/Twine#insert) - Insert some text into the string at a given position.
+
+[uppercase](https://github.com/PHLAK/Twine#uppercase) - Convert all or parts of the string to uppercase.
+
+[lowercase](https://github.com/PHLAK/Twine#lowercase) - Convert all or parts of the string to lowercase.
+
+[reverse](https://github.com/PHLAK/Twine#reverse) - Reverse the string.
+
+[repeat](https://github.com/PHLAK/Twine#repeat) - Repeat the string multiple times.
+
+[replace](https://github.com/PHLAK/Twine#replace) - Replace parts of the string with another string.
+
+[shuffle](https://github.com/PHLAK/Twine#shuffle) - Randomly shuffle the characters of the string.
+
+[pad](https://github.com/PHLAK/Twine#pad) - Pad the string to a specific length.
+
+[trim](https://github.com/PHLAK/Twine#trim) - Remove white space or a specific set of characters from the beginning and/or end of the string.
+
+[urlencode](https://github.com/PHLAK/Twine#urlencode) - Encode the string to a URL safe string.
+
+[hex](https://github.com/PHLAK/Twine#hex) - Encode and decode the string to and from hex.
+
+[wrap](https://github.com/PHLAK/Twine#wrap) - Wrap the string to a given number of characters.
+
+[equals](https://github.com/PHLAK/Twine#equals) - Determine if the string is equal to another string.
+
+[startsWith](https://github.com/PHLAK/Twine#startswith) - Determine if the string starts with another string.
+
+[endsWith](https://github.com/PHLAK/Twine#endswith) - Determine if the string ends with another string.
+
+[contains](https://github.com/PHLAK/Twine#contains) - Determine if the string contains another string.
+
+[similarity](https://github.com/PHLAK/Twine#similarity) - Calculate the similarity percentage between two strings.
+
+[base64](https://github.com/PHLAK/Twine#base64) - Encode the string to or decode from a base64 encoded value.
+
+[count](https://github.com/PHLAK/Twine#count) - Count the number of occurrences of a substring in the string.
+
+[format](https://github.com/PHLAK/Twine#format) - Return the formatted string
+
+[length](https://github.com/PHLAK/Twine#length) - Get the length of the string.
+
+[crc32](https://github.com/PHLAK/Twine#crc32) - Calculate the crc32 polynomial of the string.
+
+[crypt](https://github.com/PHLAK/Twine#crypt) - Hash the string using the standard Unix DES-based algorithm or an alternative algorithm that may be available on the system.
+
+[md5](https://github.com/PHLAK/Twine#md5) - Calculate the md5 hash of the string.
+
+[sha1](https://github.com/PHLAK/Twine#sha1) - Calculate the sha1 hash of the string.
+
+[sha256](https://github.com/PHLAK/Twine#sha256) - Calculate the sha256 hash of the string.
+
+[bcrypt](https://github.com/PHLAK/Twine#bcrypt) - Creates a hash from the string using the CRYPT_BLOWFISH algorithm.
+
+[encrypt](https://github.com/PHLAK/Twine#encrypt) - Encrypt the string.
+
+[decrypt](https://github.com/PHLAK/Twine#decrypt) - Decrypt the string.
+
+[camelCase](https://github.com/PHLAK/Twine#camelcase) - Convert the string to camelCase.
+
+[studlyCase](https://github.com/PHLAK/Twine#studlycase) - Convert the string to studlyCase.
+
+[pascalCase](https://github.com/PHLAK/Twine#pascalcase) - Convert the string to pascalCase.
+
+[snakeCase](https://github.com/PHLAK/Twine#snakecase) - Convert the string to snakeCase.
+
+[kebabCase](https://github.com/PHLAK/Twine#kebabcase) - Convert the string to kebabCase.
+
 ### substr
 > Return part of the string.
 
