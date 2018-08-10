@@ -56,7 +56,9 @@ trait Encodable
 
         switch ($mode) {
             case Config\Hex::ENCODE:
-                $string = array_reduce(str_split($this->string), function ($str, $char) {
+                $split = preg_split('//u', $this->string, -1, PREG_SPLIT_NO_EMPTY);
+
+                $string = array_reduce($split, function ($str, $char) {
                     $str .= '\x' . dechex(mb_ord($char));
 
                     return $str;
