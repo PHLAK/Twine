@@ -37,7 +37,7 @@ trait Comparable
      */
     public function startsWith(string $string) : bool
     {
-        return substr($this->string, 0, strlen($string)) == $string;
+        return mb_substr($this->string, 0, mb_strlen($string)) == $string;
     }
 
     /**
@@ -49,7 +49,7 @@ trait Comparable
      */
     public function endsWith(string $string) : bool
     {
-        return substr($this->string, -strlen($string)) == $string;
+        return mb_substr($this->string, -mb_strlen($string)) == $string;
     }
 
     /**
@@ -61,7 +61,7 @@ trait Comparable
      */
     public function contains(string $string) : bool
     {
-        return strpos($this->string, $string) !== false;
+        return mb_strpos($this->string, $string) !== false;
     }
 
     /**

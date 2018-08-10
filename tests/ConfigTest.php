@@ -27,7 +27,7 @@ class ConfigTest extends TestCase
 
     public function test_it_has_lowercase_config_options()
     {
-        $this->assertEquals('strtolower', Twine\Config\Lowercase::ALL);
+        $this->assertEquals('mb_strtolower', Twine\Config\Lowercase::ALL);
         $this->assertEquals('lcfirst', Twine\Config\Lowercase::FIRST);
         $this->assertEquals('lcwords', Twine\Config\Lowercase::WORDS);
     }
@@ -66,7 +66,7 @@ class ConfigTest extends TestCase
 
     public function test_it_has_uppercase_config_options()
     {
-        $this->assertEquals('strtoupper', Twine\Config\Uppercase::ALL);
+        $this->assertEquals('mb_strtoupper', Twine\Config\Uppercase::ALL);
         $this->assertEquals('ucfirst', Twine\Config\Uppercase::FIRST);
         $this->assertEquals('ucwords', Twine\Config\Uppercase::WORDS);
     }

@@ -13,7 +13,7 @@ trait Convenience
      */
     public function count(string $string) : int
     {
-        return substr_count($this->string, $string);
+        return mb_substr_count($this->string, $string);
     }
 
     /**
@@ -35,6 +35,6 @@ trait Convenience
      */
     public function length() : int
     {
-        return strlen($this->string);
+        return mb_strlen($this->string);
     }
 }

@@ -57,7 +57,7 @@ trait Encodable
         switch ($mode) {
             case Config\Hex::ENCODE:
                 $string = array_reduce(str_split($this->string), function ($str, $char) {
-                    $str .= '\x' . dechex(ord($char));
+                    $str .= '\x' . dechex(mb_ord($char));
 
                     return $str;
                 }, '');
@@ -65,7 +65,7 @@ trait Encodable
 
             case Config\Hex::DECODE:
                 $string = preg_replace_callback('/\\\\x([0-9A-Fa-f]+)/', function ($matched) {
-                    return chr(hexdec($matched[1]));
+                    return mb_chr(hexdec($matched[1]));
                 }, $this->string);
                 break;
 

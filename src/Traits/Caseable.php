@@ -12,7 +12,7 @@ trait Caseable
     public function camelCase() : self
     {
         $words = array_map(function ($word) {
-            return ucfirst(strtolower($word));
+            return ucfirst(mb_strtolower($word));
         }, $this->words());
 
         return new static(lcfirst(implode('', $words)));
@@ -26,7 +26,7 @@ trait Caseable
     public function studlyCase() : self
     {
         $words = array_map(function ($word) {
-            return ucfirst(strtolower($word));
+            return ucfirst(mb_strtolower($word));
         }, $this->words());
 
         return new static(implode('', $words));
@@ -50,7 +50,7 @@ trait Caseable
     public function snakeCase() : self
     {
         $words = array_map(function ($word) {
-            return strtolower($word);
+            return mb_strtolower($word);
         }, $this->words());
 
         return new static(implode('_', $words));
@@ -64,7 +64,7 @@ trait Caseable
     public function kebabCase() : self
     {
         $words = array_map(function ($word) {
-            return strtolower($word);
+            return mb_strtolower($word);
         }, $this->words());
 
         return new static(implode('-', $words));
