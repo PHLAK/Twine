@@ -61,7 +61,7 @@ trait Segmentable
     /**
      * Split the string into an array of words.
      *
-     * @return array An array of words.
+     * @return array
      */
     public function words() : array
     {
