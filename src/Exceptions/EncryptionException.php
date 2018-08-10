@@ -2,8 +2,6 @@
 
 namespace PHLAK\Twine\Exceptions;
 
-use RuntimeException;
-
-class EncryptionException extends RuntimeException
+class EncryptionException extends TwineException
 {
 }

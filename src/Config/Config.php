@@ -3,7 +3,7 @@
 namespace PHLAK\Twine\Config;
 
 use ReflectionClass;
-use PHLAK\Twine\Exceptions\InvalidConfigOptionException;
+use PHLAK\Twine\Exceptions\ConfigException;
 
 abstract class Config
 {
@@ -12,7 +12,7 @@ abstract class Config
      *
      * @param mixed $option A given option
      *
-     * @throws \PHLAK\Twine\Exceptions\InvalidConfigOptionException
+     * @throws \PHLAK\Twine\Exceptions\ConfigException
      *
      * @return void
      */
@@ -22,7 +22,7 @@ abstract class Config
         $constants = $reflection->getConstants();
 
         if (! in_array($option, $constants, true)) {
-            throw new InvalidConfigOptionException(
+            throw new ConfigException(
                 "Invalid configuration option '{$option}'. Must be one of: " . implode(', ', $constants)
             );
         }

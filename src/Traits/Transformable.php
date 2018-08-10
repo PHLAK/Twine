@@ -71,7 +71,7 @@ trait Transformable
      *   - Twine\Config\Uppercase::FIRST - Uppercase the first character of the string only
      *   - Twine\Config\Uppercase::WORDS - Uppercase the first character of each word of the string
      *
-     * @throws \PHLAK\Twine\Exceptions\InvalidConfigOptionException
+     * @throws \PHLAK\Twine\Exceptions\ConfigException
      *
      * @return self
      */
@@ -93,7 +93,7 @@ trait Transformable
      *   - Twine\Config\Lowercase::FIRST - Lowercase the first character of the string only
      *   - Twine\Config\Lowercase::WORDS - Lowercase the first character of each word of the string
      *
-     * @throws \PHLAK\Twine\Exceptions\InvalidConfigOptionException
+     * @throws \PHLAK\Twine\Exceptions\ConfigException
      *
      * @return self
      */
@@ -172,7 +172,7 @@ trait Transformable
      *   - Twine\Config\Wrap::SOFT - Wrap at the first whitespace character after the specified width (default)
      *   - Twine\Config\Wrap::HARD - Always wrap at or before the specified width
      *
-     * @throws \PHLAK\Twine\Exceptions\InvalidConfigOptionException
+     * @throws \PHLAK\Twine\Exceptions\ConfigException
      *
      * @return self
      */
@@ -196,7 +196,7 @@ trait Transformable
      *   - Twine\Config\Pad::LEFT - Only pad the left side of the string
      *   - Twine\Config\Pad::BOTH - Pad both sides of the string
      *
-     * @throws \PHLAK\Twine\Exceptions\InvalidConfigOptionException
+     * @throws \PHLAK\Twine\Exceptions\ConfigException
      *
      * @return self
      */
@@ -220,7 +220,7 @@ trait Transformable
      *   - Twine\Config\Trim::LEFT - Only trim characters from the begining of the string
      *   - Twine\Config\Trim::RIGHT - Only trim characters from the end of the strring
      *
-     * @throws \PHLAK\Twine\Exceptions\InvalidConfigOptionException
+     * @throws \PHLAK\Twine\Exceptions\ConfigException
      *
      * @return self
      */

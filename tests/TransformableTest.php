@@ -3,7 +3,7 @@
 namespace PHLAK\Twine\Tests;
 
 use PHLAK\Twine;
-use PHLAK\Twine\Exceptions\InvalidConfigOptionException;
+use PHLAK\Twine\Exceptions\ConfigException;
 use PHPUnit\Framework\TestCase;
 
 class TransformableTest extends TestCase
@@ -114,7 +114,7 @@ class TransformableTest extends TestCase
     {
         $string = new Twine\Str('john pinkerton');
 
-        $this->expectException(InvalidConfigOptionException::class);
+        $this->expectException(ConfigException::class);
 
         $string->uppercase('invalid');
     }
@@ -153,7 +153,7 @@ class TransformableTest extends TestCase
     {
         $string = new Twine\Str('john pinkerton');
 
-        $this->expectException(InvalidConfigOptionException::class);
+        $this->expectException(ConfigException::class);
 
         $string->lowercase('invalid');
     }
@@ -234,7 +234,7 @@ class TransformableTest extends TestCase
     {
         $string = new Twine\Str('john pinkerton');
 
-        $this->expectException(InvalidConfigOptionException::class);
+        $this->expectException(ConfigException::class);
 
         $string->pad(20, '_', 99);
     }
@@ -283,7 +283,7 @@ class TransformableTest extends TestCase
     {
         $string = new Twine\Str('john pinkerton');
 
-        $this->expectException(InvalidConfigOptionException::class);
+        $this->expectException(ConfigException::class);
 
         $string->trim(' ', 'invalid');
     }

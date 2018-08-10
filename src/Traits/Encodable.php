@@ -17,7 +17,7 @@ trait Encodable
      *   - Twine\Config\Base64::ENCODE - Encode the string to base64
      *   - Twin\Config\Base64::DECODE - Decode the string from base64
      *
-     * @throws \PHLAK\Twine\Exceptions\InvalidConfigOptionException
+     * @throws \PHLAK\Twine\Exceptions\ConfigException
      *
      * @return self
      */

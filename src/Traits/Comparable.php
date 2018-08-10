@@ -17,7 +17,7 @@ trait Comparable
      *   - Twine\Config\Equals::CASE_SENSITIVE - Match the string with case sensitivity (default)
      *   - Twine\Config\Equals::CASE_INSENSITIVE - Match the string with case insensitivity
      *
-     * @throws \PHLAK\Twine\Exceptions\InvalidConfigOptionException
+     * @throws \PHLAK\Twine\Exceptions\ConfigException
      *
      * @return bool True if the string matches the comparing string
      */
