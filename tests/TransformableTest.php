@@ -296,4 +296,22 @@ class TransformableTest extends TestCase
 
         $string->trim(' ', 'invalid');
     }
+
+    public function test_it_can_strip_a_string_from_the_string()
+    {
+        $string = new Twine\Str('john pinkerton');
+
+        $striped = $string->strip('pink');
+
+        $this->assertEquals('john erton', $striped);
+    }
+
+    public function test_it_can_strip_multiple_strings_from_the_string()
+    {
+        $string = new Twine\Str('john pinkerton');
+
+        $striped = $string->strip(['a', 'e', 'i', 'o', 'u']);
+
+        $this->assertEquals('jhn pnkrtn', $striped);
+    }
 }

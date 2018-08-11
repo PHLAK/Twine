@@ -230,4 +230,16 @@ trait Transformable
 
         return new static($mode($this->string, $mask));
     }
+
+    /**
+     * Remove one or more strings from the string.
+     *
+     * @param string|array $search One or more strings to be removed
+     *
+     * @return self
+     */
+    public function strip($search)
+    {
+        return $this->replace($search, '');
+    }
 }
