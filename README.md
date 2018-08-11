@@ -61,50 +61,51 @@ $string = str('john pinkerton');
 Usage
 -----
 
-#### Available Methods
+  - [subtring](#subtring) - Return part of the string.
+  - [before](#before) - Return part of the string occurring before a specific string.
+  - [after](#after) - Return part of the string occurring after a specific string.
+  - [truncate](#truncate) - Truncate a string to a specific length and append a suffix.
+  - [words](#words) - Split the string into an array of words.
+  - [append](#append) - Append one or more strings to the string.
+  - [prepend](#prepend) - Prepend one or more strings to the string.
+  - [join](#join) - Join two strings with another string in between.
+  - [insert](#insert) - Insert some text into the string at a given position.
+  - [uppercase](#uppercase) - Convert all or parts of the string to uppercase.
+  - [lowercase](#lowercase) - Convert all or parts of the string to lowercase.
+  - [reverse](#reverse) - Reverse the string.
+  - [repeat](#repeat) - Repeat the string multiple times.
+  - [replace](#replace) - Replace parts of the string with another string.
+  - [shuffle](#shuffle) - Randomly shuffle the characters of the string.
+  - [pad](#pad) - Pad the string to a specific length.
+  - [trim](#trim) - Remove white space or a specific set of characters from the beginning and/or end of the string.
+  - [strip](#strip) - Remove one or more strings from the string.
+  - [urlencode](#urlencode) - Encode the string to a URL safe string.
+  - [hex](#hex) - Encode and decode the string to and from hex.
+  - [wrap](#wrap) - Wrap the string to a given number of characters.
+  - [equals](#equals) - Determine if the string is equal to another string.
+  - [startsWith](#startswith) - Determine if the string starts with another string.
+  - [endsWith](#endswith) - Determine if the string ends with another string.
+  - [contains](#contains) - Determine if the string contains another string.
+  - [similarity](#similarity) - Calculate the similarity percentage between two strings.
+  - [base64](#base64) - Encode the string to or decode from a base64 encoded value.
+  - [count](#count) - Count the number of occurrences of a substring in the string.
+  - [format](#format) - Return the formatted string\
+  - [length](#length) - Get the length of the string.
+  - [crc32](#crc32) - Calculate the crc32 polynomial of the string.
+  - [crypt](#crypt) - Hash the string using the standard Unix DES-based algorithm or an alternative algorithm that may be available on the system.
+  - [md5](#md5) - Calculate the md5 hash of the string.
+  - [sha1](#sha1) - Calculate the sha1 hash of the string.
+  - [sha256](#sha256) - Calculate the sha256 hash of the string.
+  - [bcrypt](#bcrypt) - Creates a hash from the string using the CRYPT_BLOWFISH algorithm.
+  - [encrypt](#encrypt) - Encrypt the string.
+  - [decrypt](#decrypt) - Decrypt the string.
+  - [camelCase](#camelcase) - Convert the string to camelCase.
+  - [studlyCase](#studlycase) - Convert the string to studlyCase.
+  - [pascalCase](#pascalcase) - Convert the string to pascalCase.
+  - [snakeCase](#snakecase) - Convert the string to snakeCase.
+  - [kebabCase](#kebabcase) - Convert the string to kebabCase.
 
-[subtring](#subtring) - Return part of the string.\
-[before](#before) - Return part of the string occurring before a specific string.\
-[after](#after) - Return part of the string occurring after a specific string.\
-[truncate](#truncate) - Truncate a string to a specific length and append a suffix.\
-[words](#words) - Split the string into an array of words.\
-[append](#append) - Append one or more strings to the string.\
-[prepend](#prepend) - Prepend one or more strings to the string.\
-[join](#join) - Join two strings with another string in between.\
-[insert](#insert) - Insert some text into the string at a given position.\
-[uppercase](#uppercase) - Convert all or parts of the string to uppercase.\
-[lowercase](#lowercase) - Convert all or parts of the string to lowercase.\
-[reverse](#reverse) - Reverse the string.\
-[repeat](#repeat) - Repeat the string multiple times.\
-[replace](#replace) - Replace parts of the string with another string.\
-[shuffle](#shuffle) - Randomly shuffle the characters of the string.\
-[pad](#pad) - Pad the string to a specific length.\
-[trim](#trim) - Remove white space or a specific set of characters from the beginning and/or end of the string.\
-[urlencode](#urlencode) - Encode the string to a URL safe string.\
-[hex](#hex) - Encode and decode the string to and from hex.\
-[wrap](#wrap) - Wrap the string to a given number of characters.\
-[equals](#equals) - Determine if the string is equal to another string.\
-[startsWith](#startswith) - Determine if the string starts with another string.\
-[endsWith](#endswith) - Determine if the string ends with another string.\
-[contains](#contains) - Determine if the string contains another string.\
-[similarity](#similarity) - Calculate the similarity percentage between two strings.\
-[base64](#base64) - Encode the string to or decode from a base64 encoded value.\
-[count](#count) - Count the number of occurrences of a substring in the string.\
-[format](#format) - Return the formatted string\
-[length](#length) - Get the length of the string.\
-[crc32](#crc32) - Calculate the crc32 polynomial of the string.\
-[crypt](#crypt) - Hash the string using the standard Unix DES-based algorithm or an alternative algorithm that may be available on the system.\
-[md5](#md5) - Calculate the md5 hash of the string.\
-[sha1](#sha1) - Calculate the sha1 hash of the string.\
-[sha256](#sha256) - Calculate the sha256 hash of the string.\
-[bcrypt](#bcrypt) - Creates a hash from the string using the CRYPT_BLOWFISH algorithm.\
-[encrypt](#encrypt) - Encrypt the string.\
-[decrypt](#decrypt) - Decrypt the string.\
-[camelCase](#camelcase) - Convert the string to camelCase.\
-[studlyCase](#studlycase) - Convert the string to studlyCase.\
-[pascalCase](#pascalcase) - Convert the string to pascalCase.\
-[snakeCase](#snakecase) - Convert the string to snakeCase.\
-[kebabCase](#kebabcase) - Convert the string to kebabCase.
+---
 
 ### substring
 > Return part of the string.
