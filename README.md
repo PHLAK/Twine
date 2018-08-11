@@ -63,7 +63,7 @@ Usage
 
 #### Available Methods
 
-[substr](#substr) - Return part of the string.\
+[subtring](#subtring) - Return part of the string.\
 [before](#before) - Return part of the string occurring before a specific string.\
 [after](#after) - Return part of the string occurring after a specific string.\
 [truncate](#truncate) - Truncate a string to a specific length and append a suffix.\
@@ -106,7 +106,7 @@ Usage
 [snakeCase](#snakecase) - Convert the string to snakeCase.\
 [kebabCase](#kebabcase) - Convert the string to kebabCase.
 
-### substr
+### substring
 > Return part of the string.
 
 ```php
