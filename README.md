@@ -472,13 +472,13 @@ $string->repeat(3); // Returns 'beetlejuicebeetlejuicebeetlejuice'
 > Replace parts of the string with another string.
 
 ```php
-Twine\Str::replace( string $search , string $replace [, int &$count = null ] ) : Twine\Str
+Twine\Str::replace( string|array $search , string|array $replace [, int &$count = null ] ) : Twine\Str
 ```
 
 | Parameter  | Description                                              |
 | ---------- | -------------------------------------------------------- |
-| `$search`  | The value to be replaced                                 |
-| `$replace` | The value to replace with                                |
+| `$search`  | One or more strings to be replaced                       |
+| `$replace` | One or more strings to replace with                      |
 | `&$count`  | This will be set to the number of replacements performed |
 
 #### Examples
@@ -488,6 +488,13 @@ $string = new Twine\Str('john pinkerton');
 
 $string->replace('john', 'bob'); // Returns 'bob pinkerton'
 $string->replace('n', 'x', $count); // Returns 'johx pixkertox' and $count will be 3
+```
+
+```php
+$string = new Twine\Str('john pinkerton');
+
+$string->replace(['o', 'n'], ['a', 'm']); // Returns 'jahm pimkertam'
+$string->replace(['a', 'e', 'i', 'o', 'u'], 'x'); // Returns 'jxhn pxnkxrtxn'
 ```
 
 ---

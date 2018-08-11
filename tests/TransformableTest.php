@@ -179,6 +179,15 @@ class TransformableTest extends TestCase
         $this->assertEquals(1, $count);
     }
 
+    public function test_it_can_replace_multiple_strings_at_once()
+    {
+        $string = new Twine\Str('john pinkerton');
+
+        $replaced = $string->replace(['o', 'n'], ['a', 'm']);
+
+        $this->assertEquals('jahm pimkertam', $replaced);
+    }
+
     public function test_it_can_be_shuffled()
     {
         $string = new Twine\Str('john pinkerton');

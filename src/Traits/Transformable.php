@@ -127,13 +127,13 @@ trait Transformable
     /**
      * Replace parts of the string with another string.
      *
-     * @param string $search  The value to be replaced
-     * @param string $replace The value to replace with
-     * @param int    $count   This will be set to the number of replacements performed
+     * @param string|array $search  One or more strings to be replaced
+     * @param string|array $replace One or more strings to replace with
+     * @param int          $count   This will be set to the number of replacements performed
      *
      * @return self
      */
-    public function replace(string $search, string $replace, int &$count = null) : self
+    public function replace($search, $replace, int &$count = null) : self
     {
         return new static(str_replace($search, $replace, $this->string, $count));
     }
