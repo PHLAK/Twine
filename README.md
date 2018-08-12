@@ -178,6 +178,34 @@ $string->after(' '); // Returns 'pinkerton'
 
 ---
 
+### from
+> Return part of the string starting from another string.
+
+```php
+Twine\Str::from( string $string ) : Twine\Str
+```
+
+| Parameter | Description              |
+| --------- | ------------------------ |
+| `$string` | The string to start from |
+
+
+#### Example
+
+```php
+$string = new Twine\Str('john pinkerton');
+
+$from = $string->from('pink'); // Returns 'pinkerton'
+```
+
+```php
+$string = new Twine\Str('john pinkerton');
+
+$from = $string->from('purple'); // Returns ''
+```
+
+---
+
 ### truncate
 > Truncate a string to a specific length and append a suffix.
 

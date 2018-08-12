@@ -57,6 +57,24 @@ class SegmentableTest extends TestCase
         $this->assertEquals('pinkerton jr', $lastNameAndSuffix);
     }
 
+    public function test_it_can_get_part_of_the_string_starting_from_another_string()
+    {
+        $string = new Twine\Str('john pinkerton');
+
+        $from = $string->from('pink');
+
+        $this->assertEquals('pinkerton', $from);
+    }
+
+    public function test_it_returns_an_empty_string_when_getting_part_of_the_string_from_a_non_existent_string()
+    {
+        $string = new Twine\Str('john pinkerton');
+
+        $from = $string->from('purple');
+
+        $this->assertEquals('', $from);
+    }
+
     public function test_it_can_be_truncated()
     {
         $string = new Twine\Str('john pinkerton');

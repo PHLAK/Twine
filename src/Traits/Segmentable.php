@@ -44,6 +44,18 @@ trait Segmentable
     }
 
     /**
+     * Return part of the string starting from another string.
+     *
+     * @param string $string The string to start from
+     *
+     * @return self
+     */
+    public function from(string $string) : self
+    {
+        return new static(mb_strstr($this->string, $string));
+    }
+
+    /**
      * Truncate a string to a specific length and append a suffix.
      *
      * @param int    $length Length string will be truncated to, including suffix
