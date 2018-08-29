@@ -155,9 +155,11 @@ trait Transformable
      *
      * @return self
      */
-    public function repeat(int $multiplier) : self
+    public function repeat(int $multiplier, string $glue = '') : self
     {
-        return new static(str_repeat($this->string, $multiplier));
+        $strings = array_fill(0, $multiplier, $this->string);
+
+        return new static(implode($glue, $strings));
     }
 
     /**

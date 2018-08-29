@@ -213,6 +213,16 @@ class TransformableTest extends TestCase
         $this->assertEquals('john pinkertonjohn pinkerton', $repeated);
     }
 
+    public function test_it_can_be_repeated_with_glue()
+    {
+        $string = new Twine\Str('beetlejuice');
+
+        $repeated = $string->repeat(3, ' ');
+
+        $this->assertInstanceOf(Twine\Str::class, $repeated);
+        $this->assertEquals('beetlejuice beetlejuice beetlejuice', $repeated);
+    }
+
     public function test_it_can_be_wrapped()
     {
         $string = new Twine\Str('john pinkerton');
