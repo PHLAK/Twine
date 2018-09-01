@@ -57,7 +57,9 @@ trait Transformable
      */
     public function insert(string $string, int $position) : self
     {
-        return new static(substr_replace($this->string, $string, $position, 0));
+        return new static(
+            mb_substr($this->string, 0, $position) . $string . mb_substr($this->string, $position)
+        );
     }
 
     /**
@@ -121,7 +123,14 @@ trait Transformable
      */
     public function reverse() : self
     {
-        return new static(strrev($this->string));
+        $length = mb_strlen($this->string);
+        $reversed = '';
+
+        while ($length-- > 0) {
+            $reversed .= mb_substr($this->string, $length, 1) ?? '';
+        }
+
+        return new static($reversed);
     }
 
     /**
