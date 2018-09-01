@@ -29,13 +29,22 @@ trait Encodable
     }
 
     /**
-     * Encode the string to a URL safe string.
+     * Encode the string to or decode it from a URL safe string.
+     *
+     * Available url modes:
+     *
+     *   - Twine\Config\Url::ENCODE - Encode the string to a URL safe string
+     *   - Twine\Config\Url::DECODE - Decode the string from a URL safe string
+     *
+     * @param string $mode A url mode flag
      *
      * @return self
      */
-    public function urlencode() : self
+    public function url(string $mode = Config\Url::ENCODE) : self
     {
-        return new static(urlencode($this->string));
+        Config\Url::validateOption($mode);
+
+        return new static($mode($this->string));
     }
 
     /**
