@@ -5,17 +5,8 @@ namespace PHLAK\Twine\Tests;
 use PHLAK\Twine;
 use PHPUnit\Framework\TestCase;
 
-class ConvenienceTest extends TestCase
+class FormatTest extends TestCase
 {
-    public function test_it_can_count_substring_occurrences()
-    {
-        $string = new Twine\Str('How much wood could a woodchuck chuck if a woodchuck could chuck wood?');
-
-        $count = $string->count('wood');
-
-        $this->assertEquals(4, $count);
-    }
-
     public function test_it_can_be_formatted()
     {
         $string = new Twine\Str('Hello %s! Welcome to %s, population %b.');
@@ -26,10 +17,13 @@ class ConvenienceTest extends TestCase
         $this->assertEquals('Hello John! Welcome to Pinkertown, population 10100111001.', $formatted);
     }
 
-    public function test_it_has_a_length()
+    public function test_a_multibyte_string_can_be_formatted()
     {
-        $string = new Twine\Str('john pinkerton');
+        $string = new Twine\Str('こんにちは, %s! ようこそ %s.');
 
-        $this->assertEquals(14, $string->length());
+        $formatted = $string->format('宮本 茂', '任天堂');
+
+        $this->assertInstanceOf(Twine\Str::class, $formatted);
+        $this->assertEquals('こんにちは, 宮本 茂! ようこそ 任天堂.', $formatted);
     }
 }

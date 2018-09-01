@@ -11,6 +11,7 @@ class StrTest extends TestCase
     {
         $string = Twine\Str::make('john pinkerton');
 
+        $this->assertInstanceOf(Twine\Str::class, $string);
         $this->assertEquals('john pinkerton', $string);
     }
 

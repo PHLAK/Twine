@@ -6,7 +6,7 @@ use PHLAK\Twine;
 use PHLAK\Twine\Exceptions\ConfigException;
 use PHPUnit\Framework\TestCase;
 
-class EncodableTest extends TestCase
+class Base64Test extends TestCase
 {
     public function test_it_can_be_base64_encoded()
     {
@@ -38,31 +38,13 @@ class EncodableTest extends TestCase
         $string->base64('invalid');
     }
 
-    public function test_it_can_url_encode_the_string()
+    public function test_a_multibyte_string_can_be_base64_encoded()
     {
-        $string = new Twine\Str('john pinkerton');
+        $string = new Twine\Str('宮本 茂');
 
-        $urlencoded = $string->urlencode();
+        $base64 = $string->base64();
 
-        $this->assertEquals('john+pinkerton', $urlencoded);
-    }
-
-    public function test_it_can_be_hex_encoded()
-    {
-        $string = new Twine\Str('john pinkerton');
-
-        $hex = $string->hex();
-
-        $this->assertEquals('\x6a\x6f\x68\x6e\x20\x70\x69\x6e\x6b\x65\x72\x74\x6f\x6e', $hex);
-
-        return $hex;
-    }
-
-    /** @depends test_it_can_be_hex_encoded */
-    public function test_it_can_be_hex_decoded(Twine\Str $hex)
-    {
-        $plaintext = $hex->hex(Twine\Config\Hex::DECODE);
-
-        $this->assertEquals('john pinkerton', $plaintext);
+        $this->assertInstanceOf(Twine\Str::class, $base64);
+        $this->assertEquals('5a6u5pysIOiMgg==', $base64);
     }
 }

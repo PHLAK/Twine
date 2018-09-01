@@ -5,7 +5,7 @@ namespace PHLAK\Twine\Tests;
 use PHLAK\Twine;
 use PHPUnit\Framework\TestCase;
 
-class ComparableTest extends TestCase
+class EqualsTest extends TestCase
 {
     public function test_it_can_determine_if_it_equals_another_string_exactly()
     {
@@ -41,36 +41,14 @@ class ComparableTest extends TestCase
         $this->assertFalse($string1->equals($string3, Twine\Config\Equals::CASE_INSENSITIVE));
     }
 
-    public function test_it_can_determine_if_it_starts_with_a_string()
+    public function test_it_can_determine_if_a_multibyte_string_equals_another_multibyte_string_exactly()
     {
-        $string = new Twine\Str('john pinkerton');
+        $string = new Twine\Str('宮本 茂');
 
-        $this->assertTrue($string->startsWith('john'));
-        $this->assertFalse($string->startsWith('pinkerton'));
-    }
+        $matches = $string->equals('宮本 茂');
+        $differs = $string->equals('任天堂');
 
-    public function test_it_can_determine_if_it_ends_with_a_string()
-    {
-        $string = new Twine\Str('john pinkerton');
-
-        $this->assertTrue($string->endsWith('pinkerton'));
-        $this->assertFalse($string->endsWith('john'));
-    }
-
-    public function test_it_can_determine_if_it_contains_a_string()
-    {
-        $string = new Twine\Str('john pinkerton');
-
-        $this->assertTrue($string->contains('pink'));
-        $this->assertFalse($string->contains('purple'));
-    }
-
-    public function test_it_can_determine_similarity_percentage_to_another_string()
-    {
-        $string = new Twine\Str('john pinkerton');
-
-        $similarity = $string->similarity('jim ponkerten');
-
-        $this->assertEquals(66.666666666667, $similarity);
+        $this->assertTrue($matches);
+        $this->assertFalse($differs);
     }
 }
