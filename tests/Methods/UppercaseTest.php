@@ -59,24 +59,4 @@ class UppercaseTest extends TestCase
         $this->assertEquals('宮本 茂', $uppercasedFirst);
         $this->assertEquals('宮本 茂', $uppercasedWords);
     }
-
-    public function test_it_has_an_alias_for_uppercase_first()
-    {
-        $string = new Twine\Str('john pinkerton');
-
-        $ucFirst = $string->uppercase(Twine\Config\Uppercase::FIRST);
-        $alias = $string->uppercaseFirst();
-
-        $this->assertEquals($ucFirst, $alias);
-    }
-
-    public function test_it_has_an_alias_for_uppercase_words()
-    {
-        $string = new Twine\Str('john pinkerton');
-
-        $ucWords = $string->uppercase(Twine\Config\Uppercase::WORDS);
-        $alias = $string->uppercaseWords();
-
-        $this->assertEquals($ucWords, $alias);
-    }
 }

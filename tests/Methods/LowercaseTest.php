@@ -60,24 +60,4 @@ class LowercaseTest extends TestCase
         $this->assertEquals('宮本 茂', $lowercasedFirst);
         $this->assertEquals('宮本 茂', $lowercasedWords);
     }
-
-    public function test_it_has_an_alias_for_lowercase_first()
-    {
-        $string = new Twine\Str('JOHN PINKERTON');
-
-        $lcFirst = $string->lowercase(Twine\Config\Lowercase::FIRST);
-        $alias = $string->lowercaseFirst();
-
-        $this->assertEquals($lcFirst, $alias);
-    }
-
-    public function test_it_has_an_alias_for_lowercase_words()
-    {
-        $string = new Twine\Str('JOHN PINKERTON');
-
-        $lcWords = $string->lowercase(Twine\Config\Lowercase::WORDS);
-        $alias = $string->lowercaseWords();
-
-        $this->assertEquals($lcWords, $alias);
-    }
 }
