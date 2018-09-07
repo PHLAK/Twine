@@ -76,6 +76,7 @@ Available Methods
 [crc32](https://twine.phlak.net/methods/crc32) •
 [crypt](https://twine.phlak.net/methods/crypt) •
 [decrypt](https://twine.phlak.net/methods/decrypt) •
+[echo](https://twine.phlak.net/methods/echo) •
 [encrypt](https://twine.phlak.net/methods/encrypt) •
 [endsWith](https://twine.phlak.net/methods/endswith) •
 [equals](https://twine.phlak.net/methods/equals) •

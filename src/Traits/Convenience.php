@@ -17,6 +17,18 @@ trait Convenience
     }
 
     /**
+     * Echo the string.
+     *
+     * @return self
+     */
+    public function echo()
+    {
+        echo $this->string;
+
+        return $this;
+    }
+
+    /**
      * Return the formatted string.
      *
      * @param mixed ...$args Any number of elements to fill the string
