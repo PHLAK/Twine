@@ -13,6 +13,7 @@ class FirstTest extends TestCase
 
         $first = $string->first(4);
 
+        $this->assertInstanceOf(Twine\Str::class, $first);
         $this->assertEquals('john', $first);
     }
 }

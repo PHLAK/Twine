@@ -14,6 +14,7 @@ class WrapSoftTest extends TestCase
         $wrappedSoft = $string->wrap(5, "\n", Twine\Config\Wrap::SOFT);
         $alias = $string->wrapSoft(5);
 
+        $this->assertInstanceOf(Twine\Str::class, $alias);
         $this->assertEquals($wrappedSoft, $alias);
     }
 }

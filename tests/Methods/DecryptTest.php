@@ -20,6 +20,7 @@ class DecryptTest extends TestCase
 
         $decrypted = $string->decrypt('secret');
 
+        $this->assertInstanceOf(Twine\Str::class, $decrypted);
         $this->assertEquals('john pinkerton', $decrypted);
     }
 
@@ -47,6 +48,7 @@ class DecryptTest extends TestCase
 
         $decrypted = $string->decrypt('任天堂');
 
+        $this->assertInstanceOf(Twine\Str::class, $decrypted);
         $this->assertEquals('宮本 茂', $decrypted);
     }
 }

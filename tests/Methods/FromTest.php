@@ -13,6 +13,7 @@ class FromTest extends TestCase
 
         $from = $string->from('pink');
 
+        $this->assertInstanceOf(Twine\Str::class, $from);
         $this->assertEquals('pinkerton', $from);
     }
 
@@ -22,6 +23,7 @@ class FromTest extends TestCase
 
         $from = $string->from('purple');
 
+        $this->assertInstanceOf(Twine\Str::class, $from);
         $this->assertEquals('', $from);
     }
 
@@ -31,6 +33,7 @@ class FromTest extends TestCase
 
         $from = $string->from('本');
 
+        $this->assertInstanceOf(Twine\Str::class, $from);
         $this->assertEquals('本 茂', $from);
     }
 }

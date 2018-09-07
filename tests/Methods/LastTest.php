@@ -13,6 +13,7 @@ class LastTest extends TestCase
 
         $last = $string->last(9);
 
+        $this->assertInstanceOf(Twine\Str::class, $last);
         $this->assertEquals('pinkerton', $last);
     }
 }

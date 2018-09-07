@@ -13,6 +13,7 @@ class StudlyCaseTest extends TestCase
 
         $studlyCase = $string->studlyCase();
 
+        $this->assertInstanceOf(Twine\Str::class, $studlyCase);
         $this->assertEquals('JohnPinkerton', $studlyCase);
     }
 }

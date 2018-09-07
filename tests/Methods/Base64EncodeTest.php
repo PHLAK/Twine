@@ -14,6 +14,7 @@ class Base64EncodeTest extends TestCase
         $base64 = $string->base64(Twine\Config\Base64::ENCODE);
         $alias = $string->base64Encode();
 
+        $this->assertInstanceOf(Twine\Str::class, $alias);
         $this->assertEquals($base64, $alias);
     }
 }

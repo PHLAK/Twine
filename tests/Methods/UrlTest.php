@@ -13,6 +13,7 @@ class UrlTest extends TestCase
 
         $urlencoded = $string->url();
 
+        $this->assertInstanceOf(Twine\Str::class, $urlencoded);
         $this->assertEquals('john%2Bpinkerton%2Fjohn%3Dpinkerton', $urlencoded);
 
         return $urlencoded;
@@ -23,6 +24,7 @@ class UrlTest extends TestCase
     {
         $urldecoded = $urlencodedString->url(Twine\Config\Url::DECODE);
 
+        $this->assertInstanceOf(Twine\Str::class, $urldecoded);
         $this->assertEquals('john+pinkerton/john=pinkerton', $urldecoded);
     }
 
@@ -32,6 +34,7 @@ class UrlTest extends TestCase
 
         $urlencoded = $string->url();
 
+        $this->assertInstanceOf(Twine\Str::class, $urlencoded);
         $this->assertEquals('%E5%AE%AE%E6%9C%AC%2B%E8%8C%82%2F%E4%BB%BB%E5%A4%A9%E5%A0%82', $urlencoded);
 
         return $urlencoded;
@@ -42,6 +45,7 @@ class UrlTest extends TestCase
     {
         $urldecoded = $urlencodedString->url(Twine\Config\Url::DECODE);
 
+        $this->assertInstanceOf(Twine\Str::class, $urldecoded);
         $this->assertEquals('宮本+茂/任天堂', $urldecoded);
     }
 }

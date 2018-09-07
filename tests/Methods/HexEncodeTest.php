@@ -14,6 +14,7 @@ class HexEncodeTest extends TestCase
         $hex = $string->hex(Twine\Config\Hex::ENCODE);
         $alias = $string->hexEncode();
 
+        $this->assertInstanceOf(Twine\Str::class, $alias);
         $this->assertEquals($hex, $alias);
     }
 }

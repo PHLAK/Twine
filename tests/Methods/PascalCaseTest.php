@@ -13,6 +13,7 @@ class PascalCaseTest extends TestCase
 
         $pascalCase = $string->pascalCase();
 
+        $this->assertInstanceOf(Twine\Str::class, $pascalCase);
         $this->assertEquals('JohnPinkerton', $pascalCase);
     }
 }

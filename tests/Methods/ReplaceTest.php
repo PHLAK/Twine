@@ -24,6 +24,7 @@ class ReplaceTest extends TestCase
 
         $replaced = $string->replace(['o', 'n'], ['a', 'm']);
 
+        $this->assertInstanceOf(Twine\Str::class, $replaced);
         $this->assertEquals('jahm pimkertam', $replaced);
     }
 

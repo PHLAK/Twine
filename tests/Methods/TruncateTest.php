@@ -13,6 +13,7 @@ class TruncateTest extends TestCase
 
         $truncated = $string->truncate(12);
 
+        $this->assertInstanceOf(Twine\Str::class, $truncated);
         $this->assertEquals('john pink...', $truncated);
     }
 
@@ -22,6 +23,7 @@ class TruncateTest extends TestCase
 
         $truncated = $string->truncate(10, '~');
 
+        $this->assertInstanceOf(Twine\Str::class, $truncated);
         $this->assertEquals('john pink~', $truncated);
     }
 
@@ -31,6 +33,7 @@ class TruncateTest extends TestCase
 
         $truncated = $string->truncate(8);
 
+        $this->assertInstanceOf(Twine\Str::class, $truncated);
         $this->assertEquals('john...', $truncated);
     }
 
@@ -40,6 +43,7 @@ class TruncateTest extends TestCase
 
         $truncated = $string->truncate(24);
 
+        $this->assertInstanceOf(Twine\Str::class, $truncated);
         $this->assertEquals('john pinkerton' . PHP_EOL . 'the gr...', $truncated);
     }
 
@@ -49,6 +53,7 @@ class TruncateTest extends TestCase
 
         $truncated = $string->truncate(18);
 
+        $this->assertInstanceOf(Twine\Str::class, $truncated);
         $this->assertEquals('john pinkerton...', $truncated);
     }
 
@@ -58,6 +63,7 @@ class TruncateTest extends TestCase
 
         $truncated = $string->truncate(4, '...');
 
+        $this->assertInstanceOf(Twine\Str::class, $truncated);
         $this->assertEquals('宮...', $truncated);
     }
 
@@ -67,6 +73,7 @@ class TruncateTest extends TestCase
 
         $truncated = $string->truncate(4, '~');
 
+        $this->assertInstanceOf(Twine\Str::class, $truncated);
         $this->assertEquals('宮本~', $truncated);
     }
 }

@@ -13,9 +13,10 @@ class EchoTest extends TestCase
 
         $this->expectOutputString('john pinkerton');
 
-        $return = $string->echo();
+        $echoed = $string->echo();
 
-        $this->assertInstanceOf(Twine\Str::class, $return);
+        $this->assertInstanceOf(Twine\Str::class, $echoed);
+        $this->assertEquals('john pinkerton', $echoed);
     }
 
     public function test_a_multibyte_string_can_be_echoed()
@@ -24,8 +25,9 @@ class EchoTest extends TestCase
 
         $this->expectOutputString('宮本 茂');
 
-        $return = $string->echo();
+        $echoed = $string->echo();
 
-        $this->assertInstanceOf(Twine\Str::class, $return);
+        $this->assertInstanceOf(Twine\Str::class, $echoed);
+        $this->assertEquals('宮本 茂', $echoed);
     }
 }

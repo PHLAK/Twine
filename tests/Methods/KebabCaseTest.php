@@ -13,6 +13,7 @@ class KebabCaseTest extends TestCase
 
         $kebabCase = $string->kebabCase();
 
+        $this->assertInstanceOf(Twine\Str::class, $kebabCase);
         $this->assertEquals('john-pinkerton', $kebabCase);
     }
 }

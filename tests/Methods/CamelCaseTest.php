@@ -13,6 +13,7 @@ class CamelCaseTest extends TestCase
 
         $camelCase = $string->camelCase();
 
+        $this->assertInstanceOf(Twine\Str::class, $camelCase);
         $this->assertEquals('johnPinkerton', $camelCase);
     }
 }

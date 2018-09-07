@@ -13,6 +13,7 @@ class SnakeCaseTest extends TestCase
 
         $snakeCase = $string->snakeCase();
 
+        $this->assertInstanceOf(Twine\Str::class, $snakeCase);
         $this->assertEquals('john_pinkerton', $snakeCase);
     }
 }

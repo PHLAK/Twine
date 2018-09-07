@@ -23,6 +23,7 @@ class BeforeTest extends TestCase
 
         $firstName = $string->before(' ');
 
+        $this->assertInstanceOf(Twine\Str::class, $firstName);
         $this->assertEquals('john', $firstName);
     }
 

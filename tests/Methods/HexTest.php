@@ -13,6 +13,7 @@ class HexTest extends TestCase
 
         $hex = $string->hex();
 
+        $this->assertInstanceOf(Twine\Str::class, $hex);
         $this->assertEquals('\x6a\x6f\x68\x6e\x20\x70\x69\x6e\x6b\x65\x72\x74\x6f\x6e', $hex);
 
         return $hex;
@@ -23,6 +24,7 @@ class HexTest extends TestCase
     {
         $plaintext = $hex->hex(Twine\Config\Hex::DECODE);
 
+        $this->assertInstanceOf(Twine\Str::class, $plaintext);
         $this->assertEquals('john pinkerton', $plaintext);
     }
 
@@ -32,6 +34,7 @@ class HexTest extends TestCase
 
         $hex = $string->hex();
 
+        $this->assertInstanceOf(Twine\Str::class, $hex);
         $this->assertEquals('\x5bae\x672c\x20\x8302', $hex);
 
         return $hex;
@@ -42,6 +45,7 @@ class HexTest extends TestCase
     {
         $plaintext = $hex->hex(Twine\Config\Hex::DECODE);
 
+        $this->assertInstanceOf(Twine\Str::class, $plaintext);
         $this->assertEquals('宮本 茂', $plaintext);
     }
 }

@@ -23,6 +23,7 @@ class AfterTest extends TestCase
 
         $lastNameAndSuffix = $string->after(' ');
 
+        $this->assertInstanceOf(Twine\Str::class, $lastNameAndSuffix);
         $this->assertEquals('pinkerton jr', $lastNameAndSuffix);
     }
 
@@ -32,6 +33,7 @@ class AfterTest extends TestCase
 
         $after = $string->after('本');
 
+        $this->assertInstanceOf(Twine\Str::class, $after);
         $this->assertEquals(' 茂', $after);
     }
 }
