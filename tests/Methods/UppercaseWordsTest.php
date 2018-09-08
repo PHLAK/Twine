@@ -3,7 +3,6 @@
 namespace PHLAK\Twine\Tests;
 
 use PHLAK\Twine;
-use PHLAK\Twine\Exceptions\ConfigException;
 use PHPUnit\Framework\TestCase;
 
 class UppercaseWordsTest extends TestCase
