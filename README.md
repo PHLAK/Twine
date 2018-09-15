@@ -93,6 +93,7 @@ Available Methods
 [last](https://twine.phlak.net/methods/last) •
 [length](https://twine.phlak.net/methods/length) •
 [lowercase](https://twine.phlak.net/methods/lowercase) •
+[matches](https://twine.phlak.net/methods/matches) •
 [md5](https://twine.phlak.net/methods/md5) •
 [pad](https://twine.phlak.net/methods/pad) •
 [padBoth](https://twine.phlak.net/methods/padboth) •

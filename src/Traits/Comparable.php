@@ -29,6 +29,18 @@ trait Comparable
     }
 
     /**
+     * Determine if the string matches a regular expression pattern.
+     *
+     * @param string $pattern A regular expression
+     *
+     * @return bool True if the string matches the regular expression pattern
+     */
+    public function matches(string $pattern)
+    {
+        return (bool) preg_match($pattern, $this->string);
+    }
+
+    /**
      * Determine if the string starts with another string.
      *
      * @param string $string The string to compare against
