@@ -41,7 +41,7 @@ trait ArrayAccess
      */
     public function offsetSet($offset, $value)
     {
-        throw new \RuntimeException('Not implemented; Twine\Str objects are immutable');
+        throw new \RuntimeException('Cannot set string offsets; Twine\Str objects are immutable');
     }
 
     /**
@@ -55,6 +55,6 @@ trait ArrayAccess
      */
     public function offsetUnset($offset)
     {
-        throw new \RuntimeException('Not implemented; Twine\Str objects are immutable');
+        throw new \RuntimeException('Cannot unset string offsets; Twine\Str objects are immutable');
     }
 }
