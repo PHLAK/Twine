@@ -49,4 +49,16 @@ trait Convenience
     {
         return mb_strlen($this->string);
     }
+
+    /**
+     * Split the string into an array of words.
+     *
+     * @return array
+     */
+    public function words() : array
+    {
+        preg_match_all('/[A-Z]?[a-z0-9]+/', $this->string, $matches);
+
+        return $matches[0];
+    }
 }

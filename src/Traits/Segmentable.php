@@ -69,16 +69,4 @@ trait Segmentable
             $this->first($length - mb_strlen($suffix))->trimRight()->append($suffix)
         );
     }
-
-    /**
-     * Split the string into an array of words.
-     *
-     * @return array
-     */
-    public function words() : array
-    {
-        preg_match_all('/[A-Z]?[a-z0-9]+/', $this->string, $matches);
-
-        return $matches[0];
-    }
 }

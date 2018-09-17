@@ -2,29 +2,21 @@
 
 namespace PHLAK\Twine;
 
-use PHLAK\Twine\Traits\Aliases;
-use PHLAK\Twine\Traits\ArrayAccess;
-use PHLAK\Twine\Traits\Caseable;
-use PHLAK\Twine\Traits\Comparable;
-use PHLAK\Twine\Traits\Convenience;
-use PHLAK\Twine\Traits\Encodable;
-use PHLAK\Twine\Traits\Encryptable;
-use PHLAK\Twine\Traits\Hashable;
-use PHLAK\Twine\Traits\Segmentable;
-use PHLAK\Twine\Traits\Transformable;
+use PHLAK\Twine\Traits;
 
 class Str implements \ArrayAccess, \JsonSerializable, \Serializable
 {
-    use Aliases,
-        ArrayAccess,
-        Caseable,
-        Comparable,
-        Convenience,
-        Encodable,
-        Encryptable,
-        Hashable,
-        Segmentable,
-        Transformable;
+    use Traits\Aliases,
+        Traits\ArrayAccess,
+        Traits\Caseable,
+        Traits\Comparable,
+        Traits\Convenience,
+        Traits\Encodable,
+        Traits\Encryptable,
+        Traits\Hashable,
+        Traits\Joinable,
+        Traits\Segmentable,
+        Traits\Transformable;
 
     /** @var string A string */
     protected $string;
