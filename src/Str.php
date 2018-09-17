@@ -2,8 +2,6 @@
 
 namespace PHLAK\Twine;
 
-use PHLAK\Twine\Traits;
-
 class Str implements \ArrayAccess, \JsonSerializable, \Serializable
 {
     use Traits\Aliases,
