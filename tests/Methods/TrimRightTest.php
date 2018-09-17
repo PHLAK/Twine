@@ -16,4 +16,14 @@ class TrimRightTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $rightTrimmed);
         $this->assertEquals('john pinker', $rightTrimmed);
     }
+
+    public function test_a_multibyte_string_can_be_right_trimmed()
+    {
+        $string = new Twine\Str('宮本 茂');
+
+        $rightTrimmed = $string->trimRight('茂');
+
+        $this->assertInstanceOf(Twine\Str::class, $rightTrimmed);
+        $this->assertEquals('宮本 ', $rightTrimmed);
+    }
 }

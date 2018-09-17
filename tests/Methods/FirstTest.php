@@ -16,4 +16,14 @@ class FirstTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $first);
         $this->assertEquals('john', $first);
     }
+
+    public function test_it_can_get_the_first_chunk_of_a_multibyte_string()
+    {
+        $string = new Twine\Str('宮本 茂');
+
+        $first = $string->first(2);
+
+        $this->assertInstanceOf(Twine\Str::class, $first);
+        $this->assertEquals('宮本', $first);
+    }
 }

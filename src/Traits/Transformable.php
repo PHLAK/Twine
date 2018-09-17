@@ -59,7 +59,14 @@ trait Transformable
      */
     public function shuffle() : self
     {
-        return new static(str_shuffle($this->string));
+        $characters = [];
+        for ($character = 0; $character <= mb_strlen($this->string); $character++) {
+            $characters[] = mb_substr($this->string, $character, 1);
+        }
+
+        shuffle($characters);
+
+        return new static(implode($characters));
     }
 
     /**
@@ -120,7 +127,9 @@ trait Transformable
     {
         Config\Pad::validateOption($mode);
 
-        return new static(str_pad($this->string, $length, $padding, $mode));
+        $diff = strlen($this->string) - mb_strlen($this->string);
+
+        return new static(str_pad($this->string, $length + $diff, $padding, $mode));
     }
 
     /**

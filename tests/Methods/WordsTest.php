@@ -15,6 +15,4 @@ class WordsTest extends TestCase
 
         $this->assertEquals(['john', 'pinkerton', 'jingle', 'Heimer', 'Shmidt', 'Johnson'], $words);
     }
-
-    // TODO: Multibyte test
 }

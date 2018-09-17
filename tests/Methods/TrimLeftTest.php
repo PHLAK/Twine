@@ -16,4 +16,14 @@ class TrimLeftTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $leftTrimmed);
         $this->assertEquals('hn pinkerton', $leftTrimmed);
     }
+
+    public function test_a_multibyte_string_can_be_left_trimmed()
+    {
+        $string = new Twine\Str('宮本 茂');
+
+        $leftTrimmed = $string->trimLeft('宮');
+
+        $this->assertInstanceOf(Twine\Str::class, $leftTrimmed);
+        $this->assertEquals('本 茂', $leftTrimmed);
+    }
 }

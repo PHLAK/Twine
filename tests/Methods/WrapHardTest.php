@@ -11,10 +11,9 @@ class WrapHardTest extends TestCase
     {
         $string = new Twine\Str('john pinkerton');
 
-        $wrappedHard = $string->wrap(5, "\n", Twine\Config\Wrap::HARD);
-        $alias = $string->wrapHard(5);
+        $wrappedHard = $string->wrapHard(5);
 
-        $this->assertInstanceOf(Twine\Str::class, $alias);
-        $this->assertEquals($wrappedHard, $alias);
+        $this->assertInstanceOf(Twine\Str::class, $wrappedHard);
+        $this->assertEquals("john\npinke\nrton", $wrappedHard);
     }
 }

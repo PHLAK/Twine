@@ -17,4 +17,15 @@ class Base64DecodeTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $alias);
         $this->assertEquals($plaintext, $alias);
     }
+
+    public function test_a_multibyte_string_can_be_base64_decoded()
+    {
+        $string = new Twine\Str('5a6u5pysIOiMgg==');
+
+        $plaintext = $string->base64(Twine\Config\Base64::DECODE);
+        $alias = $string->base64Decode();
+
+        $this->assertInstanceOf(Twine\Str::class, $alias);
+        $this->assertEquals($plaintext, $alias);
+    }
 }

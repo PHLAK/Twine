@@ -17,4 +17,15 @@ class HexDecodeTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $alias);
         $this->assertEquals($plaintext, $alias);
     }
+
+    public function test_a_multibyte_string_can_be_hex_decoded()
+    {
+        $string = new Twine\Str('\x5bae\x672c\x20\x8302');
+
+        $plaintext = $string->hex(Twine\Config\Hex::DECODE);
+        $alias = $string->hexDecode();
+
+        $this->assertInstanceOf(Twine\Str::class, $alias);
+        $this->assertEquals($plaintext, $alias);
+    }
 }

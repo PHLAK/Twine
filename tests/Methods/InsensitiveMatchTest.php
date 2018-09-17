@@ -11,12 +11,21 @@ class InsensitiveMatchTest extends TestCase
     {
         $string = new Twine\Str('john pinkerton');
 
-        $matches = $string->equals('JoHN PiNKeRToN', Twine\Config\Equals::CASE_INSENSITIVE);
-        $matchesAlias = $string->insensitiveMatch('JoHN PiNKeRToN');
-        $differs = $string->equals('BoB BeLCHeR', Twine\Config\Equals::CASE_INSENSITIVE);
-        $differsAlias = $string->insensitiveMatch('BoB BeLCHeR');
+        $matches = $string->insensitiveMatch('JoHN PiNKeRToN');
+        $differs = $string->insensitiveMatch('BoB BeLCHeR');
 
-        $this->assertEquals($matches, $matchesAlias);
-        $this->assertEquals($differs, $differsAlias);
+        $this->assertTrue($matches);
+        $this->assertFalse($differs);
+    }
+
+    public function test_a_multibyte_string_can_be_insensitively_matched()
+    {
+        $string = new Twine\Str('宮本 茂');
+
+        $matches = $string->insensitiveMatch('宮本 茂');
+        $differs = $string->insensitiveMatch('任天堂');
+
+        $this->assertTrue($matches);
+        $this->assertFalse($differs);
     }
 }

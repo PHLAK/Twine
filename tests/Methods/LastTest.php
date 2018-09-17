@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class LastTest extends TestCase
 {
-    public function test_it_has_an_alias_for_last()
+    public function test_it_can_get_the_last_chunk_of_a_string()
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -15,5 +15,15 @@ class LastTest extends TestCase
 
         $this->assertInstanceOf(Twine\Str::class, $last);
         $this->assertEquals('pinkerton', $last);
+    }
+
+    public function test_it_can_get_the_last_chunk_of_a_multibyte_string()
+    {
+        $string = new Twine\Str('宮本 茂');
+
+        $last = $string->last(3);
+
+        $this->assertInstanceOf(Twine\Str::class, $last);
+        $this->assertEquals('本 茂', $last);
     }
 }
