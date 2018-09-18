@@ -7,14 +7,13 @@ use PHPUnit\Framework\TestCase;
 
 class UppercaseWordsTest extends TestCase
 {
-    public function test_it_has_an_alias_for_uppercase_words()
+    public function test_it_can_uppercase_the_first_letter_of_each_word()
     {
         $string = new Twine\Str('john pinkerton');
 
-        $ucWords = $string->uppercase(Twine\Config\Uppercase::WORDS);
-        $alias = $string->uppercaseWords();
+        $ucWords = $string->uppercaseWords();
 
-        $this->assertInstanceOf(Twine\Str::class, $alias);
-        $this->assertEquals($ucWords, $alias);
+        $this->assertInstanceOf(Twine\Str::class, $ucWords);
+        $this->assertEquals('John Pinkerton', $ucWords);
     }
 }

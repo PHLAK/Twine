@@ -11,21 +11,19 @@ class Base64DecodeTest extends TestCase
     {
         $string = new Twine\Str('am9obiBwaW5rZXJ0b24=');
 
-        $plaintext = $string->base64(Twine\Config\Base64::DECODE);
-        $alias = $string->base64Decode();
+        $plaintext = $string->base64Decode();
 
-        $this->assertInstanceOf(Twine\Str::class, $alias);
-        $this->assertEquals($plaintext, $alias);
+        $this->assertInstanceOf(Twine\Str::class, $plaintext);
+        $this->assertEquals('john pinkerton', $plaintext);
     }
 
     public function test_a_multibyte_string_can_be_base64_decoded()
     {
         $string = new Twine\Str('5a6u5pysIOiMgg==');
 
-        $plaintext = $string->base64(Twine\Config\Base64::DECODE);
-        $alias = $string->base64Decode();
+        $plaintext = $string->base64Decode();
 
-        $this->assertInstanceOf(Twine\Str::class, $alias);
-        $this->assertEquals($plaintext, $alias);
+        $this->assertInstanceOf(Twine\Str::class, $plaintext);
+        $this->assertEquals('宮本 茂', $plaintext);
     }
 }

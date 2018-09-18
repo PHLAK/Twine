@@ -7,14 +7,13 @@ use PHPUnit\Framework\TestCase;
 
 class UppercaseFirstTest extends TestCase
 {
-    public function test_it_has_an_alias_for_uppercase_first()
+    public function test_it_can_uppercase_the_first_letter_only()
     {
         $string = new Twine\Str('john pinkerton');
 
-        $ucFirst = $string->uppercase(Twine\Config\Uppercase::FIRST);
-        $alias = $string->uppercaseFirst();
+        $ucFirst = $string->uppercaseFirst();
 
-        $this->assertInstanceOf(Twine\Str::class, $alias);
-        $this->assertEquals($ucFirst, $alias);
+        $this->assertInstanceOf(Twine\Str::class, $ucFirst);
+        $this->assertEquals('John pinkerton', $ucFirst);
     }
 }

@@ -11,21 +11,19 @@ class HexDecodeTest extends TestCase
     {
         $string = new Twine\Str('\x6a\x6f\x68\x6e\x20\x70\x69\x6e\x6b\x65\x72\x74\x6f\x6e');
 
-        $plaintext = $string->hex(Twine\Config\Hex::DECODE);
-        $alias = $string->hexDecode();
+        $plaintext = $string->hexDecode();
 
-        $this->assertInstanceOf(Twine\Str::class, $alias);
-        $this->assertEquals($plaintext, $alias);
+        $this->assertInstanceOf(Twine\Str::class, $plaintext);
+        $this->assertEquals('john pinkerton', $plaintext);
     }
 
     public function test_a_multibyte_string_can_be_hex_decoded()
     {
         $string = new Twine\Str('\x5bae\x672c\x20\x8302');
 
-        $plaintext = $string->hex(Twine\Config\Hex::DECODE);
-        $alias = $string->hexDecode();
+        $plaintext = $string->hexDecode();
 
-        $this->assertInstanceOf(Twine\Str::class, $alias);
-        $this->assertEquals($plaintext, $alias);
+        $this->assertInstanceOf(Twine\Str::class, $plaintext);
+        $this->assertEquals('宮本 茂', $plaintext);
     }
 }

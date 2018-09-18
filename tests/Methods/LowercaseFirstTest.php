@@ -7,14 +7,13 @@ use PHPUnit\Framework\TestCase;
 
 class LowercaseFirstTest extends TestCase
 {
-    public function test_it_has_an_alias_for_lowercase_first()
+    public function test_it_can_lowercase_the_first_letter_only()
     {
         $string = new Twine\Str('JOHN PINKERTON');
 
-        $lcFirst = $string->lowercase(Twine\Config\Lowercase::FIRST);
-        $alias = $string->lowercaseFirst();
+        $lcFirst = $string->lowercaseFirst();
 
-        $this->assertInstanceOf(Twine\Str::class, $alias);
-        $this->assertEquals($lcFirst, $alias);
+        $this->assertInstanceOf(Twine\Str::class, $lcFirst);
+        $this->assertEquals('jOHN PINKERTON', $lcFirst);
     }
 }
