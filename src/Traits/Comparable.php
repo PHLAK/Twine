@@ -31,7 +31,7 @@ trait Comparable
     /**
      * Determine if the string matches a regular expression pattern.
      *
-     * @param string $pattern A regular expression
+     * @param string $pattern A regular expression pattern
      *
      * @return bool True if the string matches the regular expression pattern
      */
