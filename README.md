@@ -112,7 +112,7 @@ Available Methods
 [startsWith](https://twine.phlak.net/docs/methods/startswith) •
 [strip](https://twine.phlak.net/docs/methods/strip) •
 [studlyCase](https://twine.phlak.net/docs/methods/studlycase) •
-[subtring](https://twine.phlak.net/docs/methods/subtring) •
+[substring](https://twine.phlak.net/docs/methods/substring) •
 [trim](https://twine.phlak.net/docs/methods/trim) •
 [trimLeft](https://twine.phlak.net/docs/methods/trimleft) •
 [trimRight](https://twine.phlak.net/docs/methods/trimright) •
