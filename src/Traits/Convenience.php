@@ -21,7 +21,7 @@ trait Convenience
      *
      * @return self
      */
-    public function echo()
+    public function echo() : self
     {
         echo $this->string;
 

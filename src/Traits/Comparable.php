@@ -35,7 +35,7 @@ trait Comparable
      *
      * @return bool True if the string matches the regular expression pattern
      */
-    public function matches(string $pattern)
+    public function matches(string $pattern) : bool
     {
         return (bool) preg_match($pattern, $this->string);
     }
