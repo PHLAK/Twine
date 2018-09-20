@@ -16,6 +16,15 @@ class MatchesTest extends TestCase
         $this->assertTrue($matches);
     }
 
+    public function test_it_can_not_be_matched()
+    {
+        $string = new Twine\Str('john pinkerton');
+
+        $differs = $string->matches('/[0-9]+/');
+
+        $this->assertFalse($differs);
+    }
+
     public function test_it_a_multibyte_string_can_be_matched()
     {
         $string = new Twine\Str('宮本 茂');
