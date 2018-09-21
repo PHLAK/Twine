@@ -58,7 +58,7 @@ $string = Twine\Str::make('john pinkerton');
 $string = str('john pinkerton');
 ```
 
-More details available at <https://twine.phlak.net/getting-started/>
+More details available at <https://twine.phlak.net/docs/usage/>
 
 Available Methods
 -----------------
