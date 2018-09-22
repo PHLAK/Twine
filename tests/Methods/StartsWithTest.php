@@ -17,9 +17,11 @@ class StartsWith extends TestCase
 
     public function test_it_can_determine_if_a_multibyte_string_starts_with_a_multibyte_string()
     {
-        $string = new Twine\Str('宮本 茂');
+        for ($i = 0; $i < 2; $i++) { // keep this loop for simple performance tests
+            $string = new Twine\Str('宮本 茂');
 
-        $this->assertTrue($string->startsWith('宮本'));
-        $this->assertFalse($string->startsWith('茂'));
+            $this->assertTrue($string->startsWith('宮本'));
+            $this->assertFalse($string->startsWith('茂'));
+        }
     }
 }
