@@ -1,11 +1,11 @@
 <?php
 
-namespace PHLAK\Twine\Traits;
+namespace PHLAK\Twine\Methods;
 
-use PHLAK\Twine\Exceptions\EncryptionException;
+use PHLAK\Twine;
 use PHLAK\Twine\Exceptions\DecryptionException;
 
-trait Encryptable
+class Decrypt extends Method
 {
     /** @var array Supported cipher methods */
     protected $supportedCiphers = [
@@ -14,43 +14,6 @@ trait Encryptable
         'aes-256-cbc',
         'AES-256-CBC'
     ];
-
-    /**
-     * Encrypt the string.
-     *
-     * @param string $key    The key for encrypting
-     * @param string $cipher The cipher method
-     *
-     * Supported cipher methods:
-     *
-     *   - AES-128-CBC (default)
-     *   - AES-256-CBC
-     *
-     * @throws \PHLAK\Twine\Exceptions\EncryptionException
-     *
-     * @return self
-     */
-    public function encrypt(string $key, string $cipher = 'AES-128-CBC') : self
-    {
-        if (! in_array($cipher, $this->supportedCiphers)) {
-            throw new EncryptionException('The cipher must be one of: ' . implode(', ', $this->supportedCiphers));
-        }
-
-        $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length($cipher));
-        $ciphertext = openssl_encrypt($this->string, $cipher, $key = md5($key), 0, $iv);
-
-        $json = json_encode([
-            'iv' => $iv = base64_encode($iv),
-            'ciphertext' => $ciphertext,
-            'hmac' => hash_hmac('sha256', $iv . $ciphertext, $key)
-        ]);
-
-        if (json_last_error() !== JSON_ERROR_NONE) {
-            throw new EncryptionException('Failed to encrypt the string');
-        }
-
-        return new static(base64_encode($json));
-    }
 
     /**
      * Decrypt the string.
@@ -65,9 +28,9 @@ trait Encryptable
      *
      * @throws \PHLAK\Twine\Exceptions\DecryptionException
      *
-     * @return self
+     * @return \PHLAK\Twine\Str
      */
-    public function decrypt(string $key, string $cipher = 'AES-128-CBC') : self
+    public function __invoke(string $key, string $cipher = 'AES-128-CBC') : Twine\Str
     {
         if (! $this->isEncrypted($cipher)) {
             throw new DecryptionException('The string is not an encrypted string');
@@ -86,7 +49,7 @@ trait Encryptable
             throw new DecryptionException('Failed to decrypt the string');
         }
 
-        return new static($plaintext);
+        return new Twine\Str($plaintext);
     }
 
     /**

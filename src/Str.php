@@ -4,17 +4,7 @@ namespace PHLAK\Twine;
 
 class Str implements \ArrayAccess, \JsonSerializable, \Serializable
 {
-    use Traits\Aliases,
-        Traits\ArrayAccess,
-        Traits\Caseable,
-        Traits\Comparable,
-        Traits\Convenience,
-        Traits\Encodable,
-        Traits\Encryptable,
-        Traits\Hashable,
-        Traits\Joinable,
-        Traits\Segmentable,
-        Traits\Transformable;
+    use Traits\Aliases, Traits\ArrayAccess;
 
     /** @var string A string */
     protected $string;
@@ -40,6 +30,31 @@ class Str implements \ArrayAccess, \JsonSerializable, \Serializable
     }
 
     /**
+     * Magic call method for calling built-in Twine methods.
+     *
+     * @param string $name      The method name
+     * @param array  $arguments An array of arguments
+     *
+     * @return mixed The output of the method
+     */
+    public function __call(string $name, array $arguments)
+    {
+        $class = '\\PHLAK\\Twine\\Methods\\' . ucfirst($name);
+
+        if (! class_exists($class)) {
+            throw new \Exception("Method class '{$class}' does not exist");
+        }
+
+        $method = new $class($this);
+
+        if (! is_callable($method)) {
+            throw new \Exception("Method class '{$class}' is not callable");
+        }
+
+        return $method(...$arguments);
+    }
+
+    /**
      * Static make constructor.
      *
      * @param string $string A string
@@ -49,6 +64,18 @@ class Str implements \ArrayAccess, \JsonSerializable, \Serializable
     public static function make($string) : self
     {
         return new static($string);
+    }
+
+    /**
+     * Echo the string.
+     *
+     * @return self
+     */
+    public function echo() : self
+    {
+        echo $this->string;
+
+        return $this;
     }
 
     /**
