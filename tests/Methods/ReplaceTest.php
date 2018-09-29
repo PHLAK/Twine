@@ -11,11 +11,10 @@ class ReplaceTest extends TestCase
     {
         $string = new Twine\Str('john pinkerton');
 
-        $replaced = $string->replace('john', 'bob', $count);
+        $replaced = $string->replace('john', 'bob');
 
         $this->assertInstanceOf(Twine\Str::class, $replaced);
         $this->assertEquals('bob pinkerton', $replaced);
-        $this->assertEquals(1, $count);
     }
 
     public function test_it_can_replace_multiple_strings_at_once()
