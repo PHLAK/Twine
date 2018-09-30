@@ -2,7 +2,9 @@
 
 if (! function_exists('str')) {
     /**
-     * Create a Twine string object.
+     * Create a Twine\Str object.
+     *
+     * @param mixed $string A string
      *
      * @return \PHLAK\Twine\Str
      */
