@@ -14,8 +14,7 @@ class Str implements \ArrayAccess, \JsonSerializable, \Serializable
         Traits\Hashable,
         Traits\Joinable,
         Traits\Segmentable,
-        Traits\Transformable,
-        Traits\Containable;
+        Traits\Transformable;
 
     /** @var string A string */
     protected $string;
