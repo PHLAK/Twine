@@ -106,6 +106,7 @@ trait Comparable
     public function in(string $string, string $mode = Config\In::CASE_SENSITIVE) : bool
     {
         Config\In::validateOption($mode);
+
         return $mode($string, $this->string, 0) !== false;
     }
 
