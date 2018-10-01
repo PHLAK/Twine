@@ -7,7 +7,6 @@ use PHPUnit\Framework\TestCase;
 
 class ExplodeTest extends TestCase
 {
-
     /**
      * @dataProvider explode_data_provider
      */
