@@ -84,4 +84,16 @@ class StrTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $unserialized);
         $this->assertEquals('john pinkerton', $unserialized);
     }
+
+    public function test_it_can_be_checked_if_exists_in_other_string_case_sensitive()
+    {
+        $string = new Twine\Str('pink');
+        $this->assertTrue($string->in('john pinkerton'));
+    }
+
+    public function test_it_can_be_checked_if_exists_in_other_string_case_insensitive()
+    {
+        $string = new Twine\Str('Pink');
+        $this->assertTrue($string->in('john pinkerton', Twine\Config\In::CASE_INSENSITIVE));
+    }
 }
