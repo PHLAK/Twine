@@ -41,6 +41,18 @@ trait Convenience
     }
 
     /**
+     * Get whether string is contained in haystack
+     *
+     * @param string $haystack
+     *
+     * @return bool
+     */
+    public function in(string $haystack) : bool
+    {
+        return mb_strpos($haystack, $this->string) !== false;
+    }
+
+    /**
      * Get the length of the string.
      *
      * @return int Length of the string
