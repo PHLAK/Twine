@@ -41,7 +41,7 @@ trait Convenience
     }
 
     /**
-     * Get whether string is contained in haystack
+     * Get whether string is contained in haystack.
      *
      * @param string $haystack
      *
