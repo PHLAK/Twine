@@ -169,7 +169,7 @@ trait Transformable
     }
 
     /**
-     * Split a string by a string
+     * Split a string by a string.
      *
      * @param string $delimiter The boundary string
      * @param int $limit If limit is set and positive, the returned array will contain a maximum of limit elements with the last element containing the rest of string.
