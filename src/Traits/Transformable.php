@@ -167,4 +167,28 @@ trait Transformable
     {
         return $this->replace($search, '');
     }
+
+    /**
+     * @param string $delimiter The string to split on.
+     * @param int $limit
+     *   The maximum number of items in the resulting array.
+     *   - If $limit is positive, the resulting array will contain $limit items,
+     *     with the last element containing the rest of the string
+     *   - If $limit is negative, all elements except the last $limit are
+     *     returned
+     *   - If $limit is null, all elements will be returned
+     *   - If $limit is 0, it will be treated as being 1.
+     *
+     * @return array|false
+     *   Returns false and issues a warning if $delimiter is the empty string.
+     */
+    public function explode(string $delimiter, int $limit = null)
+    {
+        // We have to explicitly check if $limit is passed to the method
+        // because if we just pass `null` to the native explode function, it
+        // gets treated as `0`.
+        return $limit !== null
+            ? explode($delimiter, $this->string, $limit)
+            : explode($delimiter, $this->string);
+    }
 }
