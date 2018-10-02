@@ -172,16 +172,18 @@ trait Transformable
      * Split a string by a string.
      *
      * @param string $delimiter The boundary string
-     * @param int $limit If limit is set and positive, the returned array will contain a maximum of limit elements with the last element containing the rest of string.
-     *                  If the limit parameter is negative, all components except the last -limit are returned.
-     *                  If the limit parameter is zero, then this is treated as 1.
+     * @param int $limit The maximum number of elements in the exploded array.
      *
-     * @return self[]|false If delimiter is an empty string (""), explode() will return FALSE. If delimiter contains a value that is not contained in string and a negative limit is used, then an empty array will be returned, otherwise an array containing string will be returned.
+     *   - If limit is set and positive, the returned array will contain a maximum of limit elements with the last element containing the rest of string.
+     *   - If the limit parameter is negative, all components except the last -limit are returned.
+     *   - If the limit parameter is zero, then this is treated as 1.
+     *
+     * @return self[]
      */
     public function explode(string $delimiter, int $limit = PHP_INT_MAX)
     {
-        return array_map(function ($value) {
-            return new static($value);
+        return array_map(function ($string) {
+            return new static($string);
         }, explode($delimiter, $this->string, $limit));
     }
 }
