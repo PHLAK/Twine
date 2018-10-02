@@ -167,4 +167,23 @@ trait Transformable
     {
         return $this->replace($search, '');
     }
+
+    /**
+     * Split a string by a string.
+     *
+     * @param string $delimiter The boundary string
+     * @param int $limit The maximum number of elements in the exploded array.
+     *
+     *   - If limit is set and positive, the returned array will contain a maximum of limit elements with the last element containing the rest of string.
+     *   - If the limit parameter is negative, all components except the last -limit are returned.
+     *   - If the limit parameter is zero, then this is treated as 1.
+     *
+     * @return self[]
+     */
+    public function explode(string $delimiter, int $limit = PHP_INT_MAX)
+    {
+        return array_map(function ($string) {
+            return new static($string);
+        }, explode($delimiter, $this->string, $limit));
+    }
 }
