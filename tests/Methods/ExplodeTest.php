@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class ExplodeTest extends TestCase
 {
-    public function test_it_can_exploded()
+    public function test_it_can_be_exploded()
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -18,7 +18,7 @@ class ExplodeTest extends TestCase
         $this->assertEquals('pinkerton', $exploded[1]);
     }
 
-    public function test_it_can_exploded_by_limit()
+    public function test_it_can_be_exploded_with_a_limit()
     {
         $string = new Twine\Str('john maurice mcclean pinkerton');
 
