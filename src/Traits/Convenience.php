@@ -2,6 +2,8 @@
 
 namespace PHLAK\Twine\Traits;
 
+use PHLAK\Twine\Config;
+
 trait Convenience
 {
     /**
@@ -60,5 +62,25 @@ trait Convenience
         preg_match_all('/[A-Z]?[a-z0-9]+/', $this->string, $matches);
 
         return $matches[0];
+    }
+
+    /**
+     * Split the string into an array of characters.
+     *
+     * @return array
+     */
+    public function characters($mode = Config\Characters::ALL) : array
+    {
+        Config\Characters::validateOption($mode);
+
+        $characters =  preg_split('//u', $this->string, -1, PREG_SPLIT_NO_EMPTY);
+
+        if ($mode === Config\Characters::UNIQUE) {
+            $characters = array_values(array_unique($characters));
+        }
+
+        return array_map(function ($character) {
+            return new static($character);
+        }, $characters);
     }
 }
