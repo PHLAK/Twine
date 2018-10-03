@@ -58,7 +58,7 @@ trait Segmentable
     /**
      * Return part of the string up to and including the first occurance of another string.
      *
-     * @param  string $string The string to end with
+     * @param string $string The string to end with
      *
      * @return self
      */
