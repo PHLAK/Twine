@@ -61,7 +61,9 @@ trait Convenience
     {
         preg_match_all('/[A-Z]?[a-z0-9]+/', $this->string, $matches);
 
-        return $matches[0];
+        return array_map(function ($words) {
+            return new static($words);
+        }, $matches[0]);
     }
 
     /**

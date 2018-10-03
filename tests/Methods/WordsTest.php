@@ -14,5 +14,8 @@ class WordsTest extends TestCase
         $words = $string->words();
 
         $this->assertEquals(['john', 'pinkerton', 'jingle', 'Heimer', 'Shmidt', 'Johnson'], $words);
+        foreach ($words as $word) {
+            $this->assertInstanceOf(Twine\Str::class, $word);
+        }
     }
 }
