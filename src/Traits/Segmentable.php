@@ -56,6 +56,20 @@ trait Segmentable
     }
 
     /**
+     * Return part of the string up to and including the first occurance of another string.
+     *
+     * @param  string $string The string to end with
+     *
+     * @return self
+     */
+    public function to(string $string) : self
+    {
+        $substring = mb_strstr($this->string, $string, true);
+
+        return new static($substring ? $substring . $string : null);
+    }
+
+    /**
      * Truncate a string to a specific length and append a suffix.
      *
      * @param int    $length Length string will be truncated to, including suffix
