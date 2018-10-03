@@ -75,7 +75,7 @@ trait Convenience
     {
         Config\Characters::validateOption($mode);
 
-        $characters =  preg_split('//u', $this->string, -1, PREG_SPLIT_NO_EMPTY);
+        $characters = preg_split('//u', $this->string, -1, PREG_SPLIT_NO_EMPTY);
 
         if ($mode === Config\Characters::UNIQUE) {
             $characters = array_values(array_unique($characters));
