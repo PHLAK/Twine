@@ -55,7 +55,7 @@ trait Convenience
     /**
      * Split the string into an array of words.
      *
-     * @return array
+     * @return \PHLAK\Twine\Str[]
      */
     public function words() : array
     {
@@ -69,7 +69,7 @@ trait Convenience
     /**
      * Split the string into an array of characters.
      *
-     * @return array
+     * @return \PHLAK\Twine\Str[]
      */
     public function characters($mode = Config\Characters::ALL) : array
     {

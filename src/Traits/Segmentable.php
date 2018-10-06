@@ -89,7 +89,7 @@ trait Segmentable
      *
      * @param int $size
      *
-     * @return Twine\Str[]
+     * @return \PHLAK\Twine\Str[]
      */
     public function chunk(int $size) : array
     {
