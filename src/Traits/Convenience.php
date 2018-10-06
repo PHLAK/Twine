@@ -85,4 +85,24 @@ trait Convenience
             return new static($character);
         }, $characters);
     }
+
+    /**
+     * Determine if the string is empty.
+     *
+     * @return bool
+     */
+    public function isEmpty() : bool
+    {
+        return empty($this->string);
+    }
+
+    /**
+     * Determine if the string is not empty.
+     *
+     * @return bool
+     */
+    public function isNotEmpty() : bool
+    {
+        return ! empty($this->string);
+    }
 }
