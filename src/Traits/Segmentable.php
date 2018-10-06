@@ -83,4 +83,20 @@ trait Segmentable
             $this->first($length - mb_strlen($suffix))->trimRight()->append($suffix)
         );
     }
+
+    /**
+     * Spit the string into an array of chunks.
+     *
+     * @param int $size
+     *
+     * @return Twine\Str[]
+     */
+    public function chunk(int $size) : array
+    {
+        preg_match_all("/(?:.|\p{L}|\w){1,{$size}}/u", $this->string, $chunks);
+
+        return array_map(function ($chunk) {
+            return new static($chunk);
+        }, $chunks[0]);
+    }
 }
