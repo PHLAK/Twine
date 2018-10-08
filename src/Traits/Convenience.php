@@ -87,6 +87,24 @@ trait Convenience
     }
 
     /**
+     * Get every nth character of the string.
+     *
+     * @param int $step   The number of characters to step
+     * @param int $offset The string offset to start at
+     *
+     * @return self
+     */
+    public function nth(int $step, int $offset = 0) : self
+    {
+        $length = $step - 1;
+        $substring = $this->substring($offset);
+
+        preg_match_all("/(?:^|(?:.|\p{L}|\w){{$length}})(.|\p{L}|\w)/u", $substring, $matches);
+
+        return new static(implode($matches[1]));
+    }
+
+    /**
      * Determine if the string is empty.
      *
      * @return bool
