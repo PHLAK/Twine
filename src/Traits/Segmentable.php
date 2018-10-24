@@ -85,15 +85,15 @@ trait Segmentable
     }
 
     /**
-     * Spit the string into an array of chunks.
+     * Spit the string into an array of chunks of a given length.
      *
-     * @param int $size
+     * @param int $length The desired chunk length
      *
      * @return \PHLAK\Twine\Str[]
      */
-    public function chunk(int $size) : array
+    public function chunk(int $length) : array
     {
-        preg_match_all("/(?:.|\p{L}|\w){1,{$size}}/u", $this->string, $chunks);
+        preg_match_all("/(?:.|\p{L}|\w){1,{$length}}/u", $this->string, $chunks);
 
         return array_map(function ($chunk) {
             return new static($chunk);
