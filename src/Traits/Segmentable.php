@@ -99,4 +99,22 @@ trait Segmentable
             return new static($chunk);
         }, $chunks[0]);
     }
+
+    /**
+     * Split the string into an array containing a specific number of chunks.
+     *
+     * @param int $chunks The number of chunks
+     *
+     * @return \PHLAK\Twine\Str[]
+     */
+    public function split(int $chunks) : array
+    {
+        $length = ceil($this->length() / $chunks);
+
+        preg_match_all("/(?:.|\p{L}|\w){1,{$length}}/u", $this->string, $chunks);
+
+        return array_map(function ($chunk) {
+            return new static($chunk);
+        }, $chunks[0]);
+    }
 }
