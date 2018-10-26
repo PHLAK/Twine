@@ -22,4 +22,18 @@ class StartsWith extends TestCase
         $this->assertTrue($string->startsWith('宮本'));
         $this->assertFalse($string->startsWith('茂'));
     }
+
+    public function test_it_should_return_false_with_passing_empty_string_to_constructor()
+    {
+        $string = new Twine\Str('');
+
+        $this->assertFalse($string->startsWith('john pinkerton'));
+    }
+
+    public function test_it_should_return_false_with_passing_empty_string_to_method()
+    {
+        $string = new Twine\Str('john pinkerton');
+
+        $this->assertFalse($string->startsWith(''));
+    }
 }
