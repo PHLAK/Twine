@@ -3,6 +3,7 @@
 namespace PHLAK\Twine\Traits;
 
 use PHLAK\Twine\Config;
+use RuntimeException;
 
 trait Encodable
 {
