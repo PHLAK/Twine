@@ -22,4 +22,18 @@ class EndsWithTest extends TestCase
         $this->assertTrue($string->endsWith('茂'));
         $this->assertFalse($string->endsWith('宮本'));
     }
+
+    public function test_it_should_return_false_with_passing_empty_string_to_constructor()
+    {
+        $string = new Twine\Str('');
+
+        $this->assertFalse($string->endsWith('john pinkerton'));
+    }
+
+    public function test_it_should_return_false_with_passing_empty_string_to_method()
+    {
+        $string = new Twine\Str('john pinkerton');
+
+        $this->assertFalse($string->endsWith(''));
+    }
 }

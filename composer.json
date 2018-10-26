@@ -12,7 +12,8 @@
         "issues": "https://github.com/PHLAK/Twine/issues"
     },
     "require": {
-        "php": ">=7.0"
+        "php": ">=7.0",
+        "ext-openssl": "*"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.3",
