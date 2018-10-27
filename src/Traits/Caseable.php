@@ -3,6 +3,7 @@
 namespace PHLAK\Twine\Traits;
 
 use PHLAK\Twine\Config;
+use RuntimeException;
 
 trait Caseable
 {
@@ -25,7 +26,25 @@ trait Caseable
     {
         Config\Uppercase::validateOption($mode);
 
-        return new static($mode($this->string));
+        switch ($mode) {
+            case Config\Uppercase::ALL:
+                return new static(mb_strtoupper($this->string));
+
+            case Config\Uppercase::FIRST:
+                return new static(
+                    mb_strtoupper(mb_substr($this->string, 0, 1)) . mb_substr($this->string, 1)
+                );
+
+            case Config\Uppercase::WORDS:
+                $string = preg_replace_callback('/(\p{Ll})[\S]*/u', function ($matched) {
+                    return mb_strtoupper($matched[1]) . mb_substr($matched[0], 1);
+                }, $this->string);
+
+                return new static($string);
+
+            default:
+                throw new RuntimeException('Invalid mode');
+        }
     }
 
     /**
@@ -47,15 +66,25 @@ trait Caseable
     {
         Config\Lowercase::validateOption($mode);
 
-        if ($mode == Config\Lowercase::WORDS) {
-            $string = preg_replace_callback('/([A-Z][^\s]*)/', function ($matched) {
-                return lcfirst($matched[1]);
-            }, $this->string);
+        switch ($mode) {
+            case Config\Lowercase::ALL:
+                return new static(mb_strtolower($this->string));
 
-            return new static($string);
+            case Config\Lowercase::FIRST:
+                return new static(
+                    mb_strtolower(mb_substr($this->string, 0, 1)) . mb_substr($this->string, 1)
+                );
+
+            case Config\Lowercase::WORDS:
+                $string = preg_replace_callback('/(\p{Lu})[\S]*/u', function ($matched) {
+                    return mb_strtolower($matched[1]) . mb_substr($matched[0], 1);
+                }, $this->string);
+
+                return new static($string);
+
+            default:
+                throw new RuntimeException('Invalid mode');
         }
-
-        return new static($mode($this->string));
     }
 
     /**

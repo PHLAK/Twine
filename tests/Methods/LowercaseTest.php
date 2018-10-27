@@ -49,15 +49,15 @@ class LowercaseTest extends TestCase
 
     public function test_it_can_lowercase_a_multibyte_string()
     {
-        $first = new Twine\Str('宮本 茂');
+        $first = new Twine\Str('ДЖОН ПИНКЕРТОН');
 
         $lowercased = $first->lowercase();
         $lowercasedFirst = $first->lowercase(Twine\Config\Lowercase::FIRST);
         $lowercasedWords = $first->lowercase(Twine\Config\Lowercase::WORDS);
 
         $this->assertInstanceOf(Twine\Str::class, $lowercased);
-        $this->assertEquals('宮本 茂', $lowercased);
-        $this->assertEquals('宮本 茂', $lowercasedFirst);
-        $this->assertEquals('宮本 茂', $lowercasedWords);
+        $this->assertEquals('джон пинкертон', $lowercased);
+        $this->assertEquals('дЖОН ПИНКЕРТОН', $lowercasedFirst);
+        $this->assertEquals('дЖОН пИНКЕРТОН', $lowercasedWords);
     }
 }

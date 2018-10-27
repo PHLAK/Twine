@@ -16,4 +16,14 @@ class LowercaseFirstTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $lcFirst);
         $this->assertEquals('jOHN PINKERTON', $lcFirst);
     }
+
+    public function test_it_can_lowercase_the_first_letter_of_a_multibyte_string()
+    {
+        $first = new Twine\Str('ДЖОН ПИНКЕРТОН');
+
+        $lowercasedFirst = $first->lowercaseFirst();
+
+        $this->assertInstanceOf(Twine\Str::class, $lowercasedFirst);
+        $this->assertEquals('дЖОН ПИНКЕРТОН', $lowercasedFirst);
+    }
 }

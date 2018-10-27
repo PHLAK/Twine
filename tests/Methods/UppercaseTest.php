@@ -49,14 +49,15 @@ class UppercaseTest extends TestCase
 
     public function test_it_can_uppercase_a_multibyte_string()
     {
-        $string = new Twine\Str('宮本 茂');
+        $string = new Twine\Str('джон пинкертон');
 
         $uppercased = $string->uppercase();
         $uppercasedFirst = $string->uppercase(Twine\Config\Uppercase::FIRST);
         $uppercasedWords = $string->uppercase(Twine\Config\Uppercase::WORDS);
 
-        $this->assertEquals('宮本 茂', $uppercased);
-        $this->assertEquals('宮本 茂', $uppercasedFirst);
-        $this->assertEquals('宮本 茂', $uppercasedWords);
+        $this->assertInstanceOf(Twine\Str::class, $uppercased);
+        $this->assertEquals('ДЖОН ПИНКЕРТОН', $uppercased);
+        $this->assertEquals('Джон пинкертон', $uppercasedFirst);
+        $this->assertEquals('Джон Пинкертон', $uppercasedWords);
     }
 }
