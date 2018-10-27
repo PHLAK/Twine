@@ -18,4 +18,16 @@ class WordsTest extends TestCase
             $this->assertInstanceOf(Twine\Str::class, $word);
         }
     }
+
+    public function test_a_multibyte_string_can_be_split_into_an_array_of_words()
+    {
+        $string = new Twine\Str('Джон Пинкертон-звяканьеХаймер_ШмидтДжонсон');
+
+        $words = $string->words();
+
+        $this->assertEquals(['Джон', 'Пинкертон', 'звяканье', 'Хаймер', 'Шмидт', 'Джонсон'], $words);
+        foreach ($words as $word) {
+            $this->assertInstanceOf(Twine\Str::class, $word);
+        }
+    }
 }

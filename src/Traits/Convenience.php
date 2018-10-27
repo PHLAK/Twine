@@ -59,7 +59,7 @@ trait Convenience
      */
     public function words() : array
     {
-        preg_match_all('/[A-Z]?[a-z0-9]+/', $this->string, $matches);
+        preg_match_all('/\p{Lu}?[\p{Ll}0-9]+/u', $this->string, $matches);
 
         return array_map(function ($words) {
             return new static($words);
