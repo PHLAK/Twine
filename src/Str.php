@@ -26,7 +26,7 @@ class Str implements \ArrayAccess, \JsonSerializable, \Serializable
     /**
      * Create a new Str object.
      *
-     * @param mixed $string A string
+     * @param mixed  $string   A string
      * @param string $encoding The internal encoding
      *
      * @return \PHLAK\Twine\Str
@@ -92,7 +92,7 @@ class Str implements \ArrayAccess, \JsonSerializable, \Serializable
     /**
      * Set the internal character encoding.
      *
-     * @param  string $encoding The desired character encoding
+     * @param string $encoding The desired character encoding
      *
      * @return self
      */
