@@ -85,7 +85,7 @@ trait Comparable
      */
     public function contains(string $string) : bool
     {
-        return mb_strpos($this->string, $string) !== false;
+        return mb_strpos($this->string, $string, 0, $this->encoding) !== false;
     }
 
     /**

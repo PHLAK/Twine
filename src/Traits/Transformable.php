@@ -17,7 +17,7 @@ trait Transformable
     public function insert(string $string, int $position) : self
     {
         return new static(
-            mb_substr($this->string, 0, $position) . $string . mb_substr($this->string, $position)
+            mb_substr($this->string, 0, $position, $this->encoding) . $string . mb_substr($this->string, $position, null, $this->encoding)
         );
     }
 
@@ -28,11 +28,11 @@ trait Transformable
      */
     public function reverse() : self
     {
-        $length = mb_strlen($this->string);
+        $length = mb_strlen($this->string, $this->encoding);
         $reversed = '';
 
         while ($length-- > 0) {
-            $reversed .= mb_substr($this->string, $length, 1) ?? '';
+            $reversed .= mb_substr($this->string, $length, 1, $this->encoding) ?? '';
         }
 
         return new static($reversed);
@@ -60,8 +60,8 @@ trait Transformable
     public function shuffle() : self
     {
         $characters = [];
-        for ($character = 0; $character <= mb_strlen($this->string); $character++) {
-            $characters[] = mb_substr($this->string, $character, 1);
+        for ($character = 0; $character <= mb_strlen($this->string, $this->encoding); $character++) {
+            $characters[] = mb_substr($this->string, $character, 1, $this->encoding);
         }
 
         shuffle($characters);
@@ -127,7 +127,7 @@ trait Transformable
     {
         Config\Pad::validateOption($mode);
 
-        $diff = strlen($this->string) - mb_strlen($this->string);
+        $diff = strlen($this->string) - mb_strlen($this->string, $this->encoding);
 
         return new static(str_pad($this->string, $length + $diff, $padding, $mode));
     }

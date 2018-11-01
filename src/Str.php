@@ -20,14 +20,19 @@ class Str implements \ArrayAccess, \JsonSerializable, \Serializable
     /** @var string A string */
     protected $string;
 
+    /** @var string The internal character encoding */
+    protected $encoding;
+
     /**
      * Create a new Str object.
      *
      * @param mixed $string A string
+     * @param string $encoding The internal encoding
      */
-    public function __construct($string = '')
+    public function __construct($string = '', $encoding = null)
     {
         $this->string = (string) $string;
+        $this->encoding = $encoding ?? Config\Str::getEncoding();
     }
 
     /**
@@ -80,5 +85,17 @@ class Str implements \ArrayAccess, \JsonSerializable, \Serializable
     public function unserialize($serialized)
     {
         $this->string = unserialize($serialized);
+    }
+
+    /**
+     * Set the internal character encoding.
+     *
+     * @param  string $encoding The desired character encoding
+     *
+     * @return self
+     */
+    public function encoding(string $encoding) : self
+    {
+        return new static($this->string, $encoding);
     }
 }

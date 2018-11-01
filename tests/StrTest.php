@@ -7,6 +7,11 @@ use PHPUnit\Framework\TestCase;
 
 class StrTest extends TestCase
 {
+    public function tearDown()
+    {
+        Twine\Config\Str::setEncoding('UTF-8');
+    }
+
     public function test_it_can_be_initialized_statically()
     {
         $string = Twine\Str::make('john pinkerton');
@@ -83,5 +88,22 @@ class StrTest extends TestCase
 
         $this->assertInstanceOf(Twine\Str::class, $unserialized);
         $this->assertEquals('john pinkerton', $unserialized);
+    }
+
+    public function test_it_has_a_default_internal_encoding()
+    {
+        $string = new Twine\Str();
+
+        $this->assertAttributeEquals('UTF-8', 'encoding', $string);
+    }
+
+    public function test_it_can_override_the_default_internal_encoding()
+    {
+        $utf8 = new Twine\Str();
+        Twine\Config\Str::setEncoding('ASCII');
+        $ascii = new Twine\Str();
+
+        $this->assertAttributeEquals('UTF-8', 'encoding', $utf8);
+        $this->assertAttributeEquals('ASCII', 'encoding', $ascii);
     }
 }

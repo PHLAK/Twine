@@ -16,7 +16,7 @@ trait Segmentable
     {
         $length = isset($length) ? $length : $this->length() - $start;
 
-        return new static(mb_substr($this->string, $start, $length));
+        return new static(mb_substr($this->string, $start, $length, $this->encoding));
     }
 
     /**
@@ -52,7 +52,7 @@ trait Segmentable
      */
     public function from(string $string) : self
     {
-        return new static(mb_strstr($this->string, $string));
+        return new static(mb_strstr($this->string, $string, null, $this->encoding));
     }
 
     /**
@@ -64,7 +64,7 @@ trait Segmentable
      */
     public function to(string $string) : self
     {
-        $substring = mb_strstr($this->string, $string, true);
+        $substring = mb_strstr($this->string, $string, true, $this->encoding);
 
         return new static($substring ? $substring . $string : null);
     }
@@ -80,7 +80,7 @@ trait Segmentable
     public function truncate(int $length, string $suffix = '...') : self
     {
         return new static(
-            $this->first($length - mb_strlen($suffix))->trimRight()->append($suffix)
+            $this->first($length - mb_strlen($suffix, $this->encoding))->trimRight()->append($suffix)
         );
     }
 

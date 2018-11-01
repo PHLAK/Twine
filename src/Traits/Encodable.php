@@ -68,7 +68,7 @@ trait Encodable
                 $split = preg_split('//u', $this->string, -1, PREG_SPLIT_NO_EMPTY);
 
                 $string = array_reduce($split, function ($str, $char) {
-                    $str .= '\x' . dechex(mb_ord($char));
+                    $str .= '\x' . dechex(mb_ord($char, $this->encoding));
 
                     return $str;
                 }, '');
@@ -76,7 +76,7 @@ trait Encodable
 
             case Config\Hex::DECODE:
                 $string = preg_replace_callback('/\\\\x([0-9A-Fa-f]+)/', function ($matched) {
-                    return mb_chr(hexdec($matched[1]));
+                    return mb_chr(hexdec($matched[1]), $this->encoding);
                 }, $this->string);
                 break;
 

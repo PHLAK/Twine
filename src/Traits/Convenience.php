@@ -15,7 +15,7 @@ trait Convenience
      */
     public function count(string $string) : int
     {
-        return mb_substr_count($this->string, $string);
+        return mb_substr_count($this->string, $string, $this->encoding);
     }
 
     /**
@@ -49,7 +49,7 @@ trait Convenience
      */
     public function length() : int
     {
-        return mb_strlen($this->string);
+        return mb_strlen($this->string, $this->encoding);
     }
 
     /**

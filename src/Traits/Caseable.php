@@ -28,16 +28,16 @@ trait Caseable
 
         switch ($mode) {
             case Config\Uppercase::ALL:
-                return new static(mb_strtoupper($this->string));
+                return new static(mb_strtoupper($this->string, $this->encoding));
 
             case Config\Uppercase::FIRST:
                 return new static(
-                    mb_strtoupper(mb_substr($this->string, 0, 1)) . mb_substr($this->string, 1)
+                    mb_strtoupper(mb_substr($this->string, 0, 1, $this->encoding)) . mb_substr($this->string, 1)
                 );
 
             case Config\Uppercase::WORDS:
                 $string = preg_replace_callback('/(\p{Ll})[\S]*/u', function ($matched) {
-                    return mb_strtoupper($matched[1]) . mb_substr($matched[0], 1);
+                    return mb_strtoupper($matched[1], $this->encoding) . mb_substr($matched[0], 1, null, $this->encoding);
                 }, $this->string);
 
                 return new static($string);
@@ -68,16 +68,16 @@ trait Caseable
 
         switch ($mode) {
             case Config\Lowercase::ALL:
-                return new static(mb_strtolower($this->string));
+                return new static(mb_strtolower($this->string, $this->encoding));
 
             case Config\Lowercase::FIRST:
                 return new static(
-                    mb_strtolower(mb_substr($this->string, 0, 1)) . mb_substr($this->string, 1)
+                    mb_strtolower(mb_substr($this->string, 0, 1, $this->encoding)) . mb_substr($this->string, 1, null, $this->encoding)
                 );
 
             case Config\Lowercase::WORDS:
                 $string = preg_replace_callback('/(\p{Lu})[\S]*/u', function ($matched) {
-                    return mb_strtolower($matched[1]) . mb_substr($matched[0], 1);
+                    return mb_strtolower($matched[1], $this->encoding) . mb_substr($matched[0], 1, null, $this->encoding);
                 }, $this->string);
 
                 return new static($string);
@@ -95,7 +95,7 @@ trait Caseable
     public function camelCase() : self
     {
         $words = array_map(function ($word) {
-            return ucfirst(mb_strtolower($word));
+            return ucfirst(mb_strtolower($word, $this->encoding));
         }, $this->words());
 
         return new static(lcfirst(implode('', $words)));
@@ -109,7 +109,7 @@ trait Caseable
     public function studlyCase() : self
     {
         $words = array_map(function ($word) {
-            return ucfirst(mb_strtolower($word));
+            return ucfirst(mb_strtolower($word, $this->encoding));
         }, $this->words());
 
         return new static(implode('', $words));
@@ -133,7 +133,7 @@ trait Caseable
     public function snakeCase() : self
     {
         $words = array_map(function ($word) {
-            return mb_strtolower($word);
+            return mb_strtolower($word, $this->encoding);
         }, $this->words());
 
         return new static(implode('_', $words));
@@ -147,7 +147,7 @@ trait Caseable
     public function kebabCase() : self
     {
         $words = array_map(function ($word) {
-            return mb_strtolower($word);
+            return mb_strtolower($word, $this->encoding);
         }, $this->words());
 
         return new static(implode('-', $words));
