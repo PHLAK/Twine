@@ -28,6 +28,8 @@ class Str implements \ArrayAccess, \JsonSerializable, \Serializable
      *
      * @param mixed $string A string
      * @param string $encoding The internal encoding
+     *
+     * @return \PHLAK\Twine\Str
      */
     public function __construct($string = '', $encoding = null)
     {
