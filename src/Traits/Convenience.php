@@ -3,6 +3,7 @@
 namespace PHLAK\Twine\Traits;
 
 use PHLAK\Twine\Config;
+use PHLAK\Twine\Support;
 
 trait Convenience
 {
@@ -75,7 +76,7 @@ trait Convenience
     {
         Config\Characters::validateOption($mode);
 
-        $characters = preg_split('//u', $this->string, -1, PREG_SPLIT_NO_EMPTY);
+        $characters = Support\Str::characters($this->string);
 
         if ($mode === Config\Characters::UNIQUE) {
             $characters = array_values(array_unique($characters));
@@ -97,7 +98,7 @@ trait Convenience
     public function nth(int $step, int $offset = 0) : self
     {
         $length = $step - 1;
-        $substring = $this->substring($offset);
+        $substring = mb_substr($this->string, $offset, null, $this->encoding);
 
         preg_match_all("/(?:^|(?:.|\p{L}|\w){{$length}})(.|\p{L}|\w)/u", $substring, $matches);
 

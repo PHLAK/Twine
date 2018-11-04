@@ -73,7 +73,7 @@ trait Comparable
             return false;
         }
 
-        return substr($this->string, -strlen($string)) == $string;
+        return mb_substr($this->string, -mb_strlen($string, $this->encoding), null, $this->encoding) === $string;
     }
 
     /**
@@ -107,7 +107,7 @@ trait Comparable
     {
         Config\In::validateOption($mode);
 
-        return $mode($string, $this->string, 0) !== false;
+        return $mode($string, $this->string, 0, $this->encoding) !== false;
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace PHLAK\Twine\Traits;
 
 use PHLAK\Twine\Config;
+use PHLAK\Twine\Support;
 use RuntimeException;
 
 trait Encodable
@@ -65,12 +66,8 @@ trait Encodable
 
         switch ($mode) {
             case Config\Hex::ENCODE:
-                $split = preg_split('//u', $this->string, -1, PREG_SPLIT_NO_EMPTY);
-
-                $string = array_reduce($split, function ($str, $char) {
-                    $str .= '\x' . dechex(mb_ord($char, $this->encoding));
-
-                    return $str;
+                $string = array_reduce(Support\Str::characters($this->string), function ($str, $char) {
+                    return $str . '\x' . dechex(mb_ord($char, $this->encoding));
                 }, '');
                 break;
 

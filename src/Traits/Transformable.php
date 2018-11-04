@@ -3,6 +3,7 @@
 namespace PHLAK\Twine\Traits;
 
 use PHLAK\Twine\Config;
+use PHLAK\Twine\Support;
 
 trait Transformable
 {
@@ -28,14 +29,9 @@ trait Transformable
      */
     public function reverse() : self
     {
-        $length = mb_strlen($this->string, $this->encoding);
-        $reversed = '';
-
-        while ($length-- > 0) {
-            $reversed .= mb_substr($this->string, $length, 1, $this->encoding) ?? '';
-        }
-
-        return new static($reversed);
+        return new static(
+            implode(array_reverse(Support\Str::characters($this->string)))
+        );
     }
 
     /**
@@ -59,10 +55,7 @@ trait Transformable
      */
     public function shuffle() : self
     {
-        $characters = [];
-        for ($character = 0; $character <= mb_strlen($this->string, $this->encoding); $character++) {
-            $characters[] = mb_substr($this->string, $character, 1, $this->encoding);
-        }
+        $characters = Support\Str::characters($this->string);
 
         shuffle($characters);
 

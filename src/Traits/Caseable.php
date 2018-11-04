@@ -3,6 +3,7 @@
 namespace PHLAK\Twine\Traits;
 
 use PHLAK\Twine\Config;
+use PHLAK\Twine\Support;
 use RuntimeException;
 
 trait Caseable
@@ -95,8 +96,8 @@ trait Caseable
     public function camelCase() : self
     {
         $words = array_map(function ($word) {
-            return $word->uppercaseFirst();
-        }, $this->words());
+            return mb_strtoupper(mb_substr($word, 0, 1, $this->encoding), $this->encoding) . mb_substr($word, 1, null, $this->encoding);
+        }, Support\Str::words($this->string));
 
         $word = implode('', $words);
 
@@ -113,8 +114,8 @@ trait Caseable
     public function studlyCase() : self
     {
         $words = array_map(function ($word) {
-            return $word->uppercaseFirst();
-        }, $this->words());
+            return mb_strtoupper(mb_substr($word, 0, 1, $this->encoding), $this->encoding) . mb_substr($word, 1, null, $this->encoding);
+        }, Support\Str::words($this->string));
 
         return new static(implode('', $words));
     }
@@ -137,8 +138,8 @@ trait Caseable
     public function snakeCase() : self
     {
         $words = array_map(function ($word) {
-            return $word->lowercase();
-        }, $this->words());
+            return mb_strtolower($word, $this->encoding);
+        }, Support\Str::words($this->string));
 
         return new static(implode('_', $words));
     }
@@ -151,8 +152,8 @@ trait Caseable
     public function kebabCase() : self
     {
         $words = array_map(function ($word) {
-            return $word->lowercase();
-        }, $this->words());
+            return mb_strtolower($word, $this->encoding);
+        }, Support\Str::words($this->string));
 
         return new static(implode('-', $words));
     }

@@ -110,7 +110,6 @@ trait Segmentable
     public function split(int $chunks) : array
     {
         $length = ceil($this->length() / $chunks);
-
         preg_match_all("/(?:.|\p{L}|\w){1,{$length}}/u", $this->string, $chunks);
 
         return array_map(function ($chunk) {
