@@ -32,7 +32,7 @@ trait Caseable
 
             case Config\Uppercase::FIRST:
                 return new static(
-                    mb_strtoupper(mb_substr($this->string, 0, 1, $this->encoding)) . mb_substr($this->string, 1)
+                    mb_strtoupper(mb_substr($this->string, 0, 1, $this->encoding), $this->encoding) . mb_substr($this->string, 1)
                 );
 
             case Config\Uppercase::WORDS:
@@ -72,7 +72,7 @@ trait Caseable
 
             case Config\Lowercase::FIRST:
                 return new static(
-                    mb_strtolower(mb_substr($this->string, 0, 1, $this->encoding)) . mb_substr($this->string, 1, null, $this->encoding)
+                    mb_strtolower(mb_substr($this->string, 0, 1, $this->encoding), $this->encoding) . mb_substr($this->string, 1, null, $this->encoding)
                 );
 
             case Config\Lowercase::WORDS:
@@ -101,7 +101,7 @@ trait Caseable
         $word = implode('', $words);
 
         return new static(
-            mb_strtolower(mb_substr($word, 0, 1, $this->encoding)) . mb_substr($word, 1, null, $this->encoding)
+            mb_strtolower(mb_substr($word, 0, 1, $this->encoding), $this->encoding) . mb_substr($word, 1, null, $this->encoding)
         );
     }
 
