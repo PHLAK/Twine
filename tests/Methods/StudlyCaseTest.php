@@ -16,4 +16,14 @@ class StudlyCaseTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $studlyCase);
         $this->assertEquals('JohnPinkerton', $studlyCase);
     }
+
+    public function test_it_a_multibyte_string_can_be_converted_to_studly_case()
+    {
+        $string = new Twine\Str('джон пинкертон');
+
+        $studlyCase = $string->studlyCase();
+
+        $this->assertInstanceOf(Twine\Str::class, $studlyCase);
+        $this->assertEquals('ДжонПинкертон', $studlyCase);
+    }
 }

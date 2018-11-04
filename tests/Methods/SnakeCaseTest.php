@@ -16,4 +16,14 @@ class SnakeCaseTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $snakeCase);
         $this->assertEquals('john_pinkerton', $snakeCase);
     }
+
+    public function test_it_a_multibyte_string_can_be_converted_to_snake_case()
+    {
+        $string = new Twine\Str('джон пинкертон');
+
+        $snakeCase = $string->snakeCase();
+
+        $this->assertInstanceOf(Twine\Str::class, $snakeCase);
+        $this->assertEquals('джон_пинкертон', $snakeCase);
+    }
 }

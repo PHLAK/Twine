@@ -16,4 +16,14 @@ class KebabCaseTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $kebabCase);
         $this->assertEquals('john-pinkerton', $kebabCase);
     }
+
+    public function test_it_a_multibyte_string_can_be_converted_to_kebab_case()
+    {
+        $string = new Twine\Str('джон пинкертон');
+
+        $kebabCase = $string->kebabCase();
+
+        $this->assertInstanceOf(Twine\Str::class, $kebabCase);
+        $this->assertEquals('джон-пинкертон', $kebabCase);
+    }
 }

@@ -16,4 +16,14 @@ class CamelCaseTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $camelCase);
         $this->assertEquals('johnPinkerton', $camelCase);
     }
+
+    public function test_it_a_multibyte_string_can_be_converted_to_camel_case()
+    {
+        $string = new Twine\Str('джон пинкертон');
+
+        $camelCase = $string->camelCase();
+
+        $this->assertInstanceOf(Twine\Str::class, $camelCase);
+        $this->assertEquals('джонПинкертон', $camelCase);
+    }
 }
