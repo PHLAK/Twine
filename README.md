@@ -1,7 +1,10 @@
 Twine
 =====
 
-![Twine](twine.png)
+<center>
+    ![Twine](twine.png)
+    <https://twine.phlak.net>
+</center>
 
 -----
 
@@ -19,9 +22,8 @@ Introduction
 
 Twine is a simple string manipulation library with an expressive, fluent syntax.
 
-[![Twine Demo](demo.gif)](https://asciinema.org/a/190362)
-
-Like this project? Keep me caffeinated by [making a donation](https://paypal.me/ChrisKankiewicz).
+Like this project? [Become a Patron](https://patreon.com/PHLAK) to keep me
+caffeinated or [make a one-time donation](https://paypal.me/ChrisKankiewicz).
 
 Requirements
 ------------
@@ -71,15 +73,19 @@ Available Methods
 [bcrypt](https://twine.phlak.net/docs/methods/bcrypt) •
 [before](https://twine.phlak.net/docs/methods/before) •
 [camelCase](https://twine.phlak.net/docs/methods/camelcase) •
+[characters](https://twine.phlak.net/docs/methods/characters) •
+[chunk](https://twine.phlak.net/docs/methods/chunk) •
 [contains](https://twine.phlak.net/docs/methods/contains) •
 [count](https://twine.phlak.net/docs/methods/count) •
 [crc32](https://twine.phlak.net/docs/methods/crc32) •
 [crypt](https://twine.phlak.net/docs/methods/crypt) •
 [decrypt](https://twine.phlak.net/docs/methods/decrypt) •
 [echo](https://twine.phlak.net/docs/methods/echo) •
+[encoding](https://twine.phlak.net/docs/methods/encoding) •
 [encrypt](https://twine.phlak.net/docs/methods/encrypt) •
 [endsWith](https://twine.phlak.net/docs/methods/endswith) •
 [equals](https://twine.phlak.net/docs/methods/equals) •
+[explode](https://twine.phlak.net/docs/methods/explode) •
 [first](https://twine.phlak.net/docs/methods/first) •
 [format](https://twine.phlak.net/docs/methods/format) •
 [from](https://twine.phlak.net/docs/methods/from) •
@@ -88,13 +94,27 @@ Available Methods
 [hexDecode](https://twine.phlak.net/docs/methods/hexdecode) •
 [insensitiveMatch](https://twine.phlak.net/docs/methods/insensitivematch) •
 [insert](https://twine.phlak.net/docs/methods/insert) •
+[in](https://twine.phlak.net/docs/methods/in) •
+[isAlphabetic](https://twine.phlak.net/docs/methods/isalphabetic) •
+[isAlphanumeric](https://twine.phlak.net/docs/methods/isalphanumeric) •
+[isEmpty](https://twine.phlak.net/docs/methods/isempty) •
+[isLowercase](https://twine.phlak.net/docs/methods/islowercase) •
+[isNotEmpty](https://twine.phlak.net/docs/methods/isnotempty) •
+[isNumeric](https://twine.phlak.net/docs/methods/isnumeric) •
+[isPrintable](https://twine.phlak.net/docs/methods/isprintable) •
+[isPunctuation](https://twine.phlak.net/docs/methods/ispunctuation) •
+[isUppercase](https://twine.phlak.net/docs/methods/isuppercase) •
+[isWhitespace](https://twine.phlak.net/docs/methods/iswhitespace) •
 [join](https://twine.phlak.net/docs/methods/join) •
 [kebabCase](https://twine.phlak.net/docs/methods/kebabcase) •
 [last](https://twine.phlak.net/docs/methods/last) •
 [length](https://twine.phlak.net/docs/methods/length) •
 [lowercase](https://twine.phlak.net/docs/methods/lowercase) •
+[lowercaseFirst](https://twine.phlak.net/docs/methods/lowercasefirst) •
+[lowercaseWords](https://twine.phlak.net/docs/methods/lowercasewords) •
 [matches](https://twine.phlak.net/docs/methods/matches) •
 [md5](https://twine.phlak.net/docs/methods/md5) •
+[nth](https://twine.phlak.net/docs/methods/nth) •
 [pad](https://twine.phlak.net/docs/methods/pad) •
 [padBoth](https://twine.phlak.net/docs/methods/padboth) •
 [padLeft](https://twine.phlak.net/docs/methods/padleft) •
@@ -109,15 +129,19 @@ Available Methods
 [shuffle](https://twine.phlak.net/docs/methods/shuffle) •
 [similarity](https://twine.phlak.net/docs/methods/similarity) •
 [snakeCase](https://twine.phlak.net/docs/methods/snakecase) •
+[split](https://twine.phlak.net/docs/methods/split) •
 [startsWith](https://twine.phlak.net/docs/methods/startswith) •
 [strip](https://twine.phlak.net/docs/methods/strip) •
 [studlyCase](https://twine.phlak.net/docs/methods/studlycase) •
 [substring](https://twine.phlak.net/docs/methods/substring) •
+[to](https://twine.phlak.net/docs/methods/to) •
 [trim](https://twine.phlak.net/docs/methods/trim) •
 [trimLeft](https://twine.phlak.net/docs/methods/trimleft) •
 [trimRight](https://twine.phlak.net/docs/methods/trimright) •
 [truncate](https://twine.phlak.net/docs/methods/truncate) •
 [uppercase](https://twine.phlak.net/docs/methods/uppercase) •
+[uppercaseFirst](https://twine.phlak.net/docs/methods/uppercasefirst) •
+[uppercaseWords](https://twine.phlak.net/docs/methods/uppercasewords) •
 [url](https://twine.phlak.net/docs/methods/url) •
 [words](https://twine.phlak.net/docs/methods/words) •
 [wrap](https://twine.phlak.net/docs/methods/wrap) •
