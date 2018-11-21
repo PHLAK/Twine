@@ -46,21 +46,40 @@ First, import Twine:
 use PHLAK\Twine;
 ```
 
-Then instantiate a Twine string:
+Then instantiate a Twine object by newing up a `Twine\Str` object and passing
+your string as the first parameter.
 
 ```php
 $string = new Twine\Str('john pinkerton');
+```
 
-// or statically via the make() method
+You may also instantiate a `Twine\Str` object statically via the `make()` method.
 
+```php
 $string = Twine\Str::make('john pinkerton');
+```
 
-// or with the str() helper method
+Or use the global `str()` helper method. The method takes a string as the only
+parameter and returns a `Twine\Str` object.
 
+```php
 $string = str('john pinkerton');
 ```
 
-More details available at <https://twine.phlak.net/docs/usage/>
+Once you have a concrete `Twine\Str` instance you may treat it like any other
+string. This includes echoing it or using any of PHPs built in string functions
+against it.
+
+```php
+echo $string; // Echos 'john pinkerton'
+
+str_shuffle($string) // Returns something like 'enoipo ktnjhnr'
+
+strlen($string); // Returns 14
+```
+
+At this point you're ready to start using Twine by calling any of it's many
+built in methods.
 
 Available Methods
 -----------------
@@ -148,8 +167,6 @@ Available Methods
 [wrapHard](https://twine.phlak.net/docs/methods/wraphard) •
 [wrapSoft](https://twine.phlak.net/docs/methods/wrapsoft)
 
-Full documentation available at <https://twine.phlak.net>
-
 ---
 
 Method Chaining
@@ -173,6 +190,8 @@ $string = new Twine\Str(file_get_contents('garbage.bin'));
 
 $string->base64()->wrap(76, "\r\n", Twine\Config\Wrap::HARD);
 ```
+
+Additional details available in the full documentation at <https://twine.phlak.net>.
 
 Changelog
 ---------
