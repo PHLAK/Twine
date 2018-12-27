@@ -4,7 +4,7 @@ namespace PHLAK\Twine\Benchmarks;
 
 use PHLAK\Twine;
 
-class After extends Benchmark
+class Explode extends Benchmark
 {
     /**
      * The Twine method benchmark.
@@ -15,7 +15,7 @@ class After extends Benchmark
      */
     protected function twineBenchmark(Twine\Str $input)
     {
-        $input->after(' ');
+        $input->explode(' ');
     }
 
     /**
@@ -27,6 +27,6 @@ class After extends Benchmark
      */
     protected function nativeBenchmark(string $input)
     {
-        mb_split(' ', $input, 2)[1];
+        explode(' ', $input);
     }
 }

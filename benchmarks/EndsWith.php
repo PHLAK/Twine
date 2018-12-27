@@ -3,8 +3,9 @@
 namespace PHLAK\Twine\Benchmarks;
 
 use PHLAK\Twine;
+use PHLAK\Twine\Benchmarks\Exceptions\BenchmarkException;
 
-class After extends Benchmark
+class EndsWith extends Benchmark
 {
     /**
      * The Twine method benchmark.
@@ -15,7 +16,7 @@ class After extends Benchmark
      */
     protected function twineBenchmark(Twine\Str $input)
     {
-        $input->after(' ');
+        $input->endsWith('foo');
     }
 
     /**
@@ -27,6 +28,6 @@ class After extends Benchmark
      */
     protected function nativeBenchmark(string $input)
     {
-        mb_split(' ', $input, 2)[1];
+        throw new BenchmarkException('No equivilent native method availabe');
     }
 }

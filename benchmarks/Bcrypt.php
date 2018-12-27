@@ -4,8 +4,11 @@ namespace PHLAK\Twine\Benchmarks;
 
 use PHLAK\Twine;
 
-class After extends Benchmark
+class Bcrypt extends Benchmark
 {
+    /** @var int Number of iterations to be ran */
+    protected $iterations = 100;
+
     /**
      * The Twine method benchmark.
      *
@@ -15,7 +18,7 @@ class After extends Benchmark
      */
     protected function twineBenchmark(Twine\Str $input)
     {
-        $input->after(' ');
+        $input->bcrypt();
     }
 
     /**
@@ -27,6 +30,6 @@ class After extends Benchmark
      */
     protected function nativeBenchmark(string $input)
     {
-        mb_split(' ', $input, 2)[1];
+        password_hash($input, PASSWORD_BCRYPT);
     }
 }

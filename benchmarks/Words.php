@@ -9,17 +9,19 @@ class Words extends Benchmark
     /**
      * The Twine method benchmark.
      *
+     * @param \PHLAK\Twine\Str $input
+     *
      * @return void
      */
-    protected function twineBenchmark(string $input)
+    protected function twineBenchmark(Twine\Str $input)
     {
-        $string = Twine\Str::make($input);
-
-        $string->words();
+        $input->words();
     }
 
     /**
      * The native PHP benchmark.
+     *
+     * @param string $input
      *
      * @return void
      */

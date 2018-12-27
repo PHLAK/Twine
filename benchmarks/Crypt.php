@@ -4,7 +4,7 @@ namespace PHLAK\Twine\Benchmarks;
 
 use PHLAK\Twine;
 
-class After extends Benchmark
+class Crypt extends Benchmark
 {
     /**
      * The Twine method benchmark.
@@ -15,7 +15,7 @@ class After extends Benchmark
      */
     protected function twineBenchmark(Twine\Str $input)
     {
-        $input->after(' ');
+        $input->crypt('NaCl');
     }
 
     /**
@@ -27,6 +27,6 @@ class After extends Benchmark
      */
     protected function nativeBenchmark(string $input)
     {
-        mb_split(' ', $input, 2)[1];
+        crypt($input, 'NaCl');
     }
 }
