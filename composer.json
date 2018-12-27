@@ -16,11 +16,11 @@
         "ext-openssl": "*"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^2.3",
-        "phlak/chronometer": "^0.1.0",
+        "friendsofphp/php-cs-fixer": "^1.0 || ^2.0",
+        "phlak/chronometer": "^1.0",
         "phpunit/phpunit": "^6.0 || ^7.0",
-        "psy/psysh": "^0.9.6",
-        "symfony/console": "^4.1"
+        "psy/psysh": "^0.9.0",
+        "symfony/console": "^3.0 || ^4.0"
     },
     "autoload": {
         "psr-4": {
