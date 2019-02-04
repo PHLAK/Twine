@@ -24,8 +24,10 @@ abstract class Benchmark
      */
     public function __invoke() : object
     {
+        ini_set('opcache.enable', 0);
+
         return (object) [
-            'title' => get_class($this),
+            'method' => $this->method(),
             'iterations' => $this->iterations,
             'short_string' => (object) [
                 'twine' => $this->executeTwineBenchmark($this->shortString),
@@ -71,7 +73,7 @@ abstract class Benchmark
 
         Timer::stop();
 
-        return Timer::elapsed();
+        return Timer::elapsed() / $this->iterations * 1000000;
     }
 
     /**
@@ -95,7 +97,19 @@ abstract class Benchmark
 
         Timer::stop();
 
-        return Timer::elapsed();
+        return Timer::elapsed() / $this->iterations * 1000000;
+    }
+
+    /**
+     * Get the name of the method being benchmarked.
+     *
+     * @return string
+     */
+    protected function method() : string
+    {
+        $parts = explode('\\', get_class($this));
+
+        return lcfirst(array_pop($parts));
     }
 
     /**

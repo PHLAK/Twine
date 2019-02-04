@@ -4,7 +4,9 @@ namespace PHLAK\Twine\Benchmarks\Commands;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use LucidFrame\Console\ConsoleTable;
 use FilesystemIterator;
 
 class RunAll extends Command
@@ -18,6 +20,10 @@ class RunAll extends Command
     {
         $this->setName('run:all');
         $this->setDescription('Runs the full benchmark suite');
+        $this->addOption('iterations', 'i', InputOption::VALUE_REQUIRED, 'The number of benchmark iterations to be run');
+
+        $this->table = new ConsoleTable();
+        $this->table->setHeaders(['Method', 'Short Twine', 'Short Native', 'Long Twine', 'Long Native']);
     }
 
     /**
@@ -36,11 +42,23 @@ class RunAll extends Command
                 continue;
             }
 
-            $class = "PHLAK\\Twine\\Benchmarks\\{$file->getBasename('.php')}";
-            $benchmark = call_user_func(new $class);
+            $className = "PHLAK\\Twine\\Benchmarks\\{$file->getBasename('.php')}";
+            $class = new $className;
+            if (! empty($input->getOption('iterations'))) {
+                $class->setIterations((int) $input->getOption('iterations'));
+            }
 
-            $output->writeln($benchmark->title);
-            dump($benchmark);
+            $benchmark = $class();
+
+            $this->table->addRow([
+                $benchmark->method,
+                $benchmark->short_string->twine,
+                $benchmark->short_string->native,
+                $benchmark->long_string->twine,
+                $benchmark->long_string->native,
+            ]);
         }
+
+        $output->write($this->table->display());
     }
 }
