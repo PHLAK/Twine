@@ -7,7 +7,7 @@ use PHLAK\Twine\Tests\TestCase;
 
 class StrTest extends TestCase
 {
-    protected function tearDown() : void
+    protected function tearDown()
     {
         Twine\Config\Str::setEncoding('UTF-8');
     }
