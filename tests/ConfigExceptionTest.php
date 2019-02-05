@@ -2,7 +2,6 @@
 
 namespace PHLAK\Twine\Tests;
 
-use PHPUnit\Framework\TestCase;
 use PHLAK\Twine\Exceptions\ConfigException;
 use PHLAK\Twine\Exceptions\TwineException;
 

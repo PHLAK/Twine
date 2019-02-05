@@ -3,11 +3,11 @@
 namespace PHLAK\Twine\Tests\Config;
 
 use PHLAK\Twine;
-use PHPUnit\Framework\TestCase;
+use PHLAK\Twine\Tests\TestCase;
 
 class StrTest extends TestCase
 {
-    public function tearDown()
+    protected function tearDown() : void
     {
         Twine\Config\Str::setEncoding('UTF-8');
     }

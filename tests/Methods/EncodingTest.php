@@ -1,9 +1,9 @@
 <?php
 
-namespace PHLAK\Twine\Tests;
+namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
-use PHPUnit\Framework\TestCase;
+use PHLAK\Twine\Tests\TestCase;
 
 class EncodingTest extends TestCase
 {
@@ -14,6 +14,6 @@ class EncodingTest extends TestCase
         $ascii = $string->encoding('ASCII');
 
         $this->assertInstanceOf(Twine\Str::class, $ascii);
-        $this->assertAttributeEquals('ASCII', 'encoding', $ascii);
+        $this->assertEquals('ASCII', $this->getAttributeValue($ascii, 'encoding'));
     }
 }

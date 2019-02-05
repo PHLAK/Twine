@@ -3,7 +3,7 @@
 namespace PHLAK\Twine\Tests\Support;
 
 use PHLAK\Twine;
-use PHPUnit\Framework\TestCase;
+use PHLAK\Twine\Tests\TestCase;
 
 class StrTest extends TestCase
 {

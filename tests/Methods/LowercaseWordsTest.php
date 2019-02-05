@@ -1,9 +1,9 @@
 <?php
 
-namespace PHLAK\Twine\Tests;
+namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
-use PHPUnit\Framework\TestCase;
+use PHLAK\Twine\Tests\TestCase;
 
 class LowercaseWordsTest extends TestCase
 {

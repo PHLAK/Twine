@@ -3,11 +3,10 @@
 namespace PHLAK\Twine\Tests;
 
 use PHLAK\Twine;
-use PHPUnit\Framework\TestCase;
 
 class StrTest extends TestCase
 {
-    public function tearDown()
+    protected function tearDown() : void
     {
         Twine\Config\Str::setEncoding('UTF-8');
     }
@@ -94,7 +93,7 @@ class StrTest extends TestCase
     {
         $string = new Twine\Str();
 
-        $this->assertAttributeEquals('UTF-8', 'encoding', $string);
+        $this->assertEquals('UTF-8', $this->getAttributeValue($string, 'encoding'));
     }
 
     public function test_it_can_override_the_default_internal_encoding()
@@ -103,7 +102,7 @@ class StrTest extends TestCase
         Twine\Config\Str::setEncoding('ASCII');
         $ascii = new Twine\Str();
 
-        $this->assertAttributeEquals('UTF-8', 'encoding', $utf8);
-        $this->assertAttributeEquals('ASCII', 'encoding', $ascii);
+        $this->assertEquals('UTF-8', $this->getAttributeValue($utf8, 'encoding'));
+        $this->assertEquals('ASCII', $this->getAttributeValue($ascii, 'encoding'));
     }
 }
