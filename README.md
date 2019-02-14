@@ -1,11 +1,8 @@
 Twine
 =====
 
-<center>
-    ![Twine](twine.png)
-    <https://twine.phlak.net>
-</center>
-
+[![Twine](https://raw.githubusercontent.com/PHLAK/Twine/master/twine.png)](https://twine.phlak.net)
+    
 -----
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/PHLAK/Twine.svg)](https://packagist.org/packages/PHLAK/Twine)
@@ -67,7 +64,7 @@ $string = str('john pinkerton');
 ```
 
 Once you have a concrete `Twine\Str` instance you may treat it like any other
-string. This includes echoing it or using any of PHPs built in string functions
+string. This includes echoing it or using any of PHP's built in string functions
 against it.
 
 ```php
@@ -78,7 +75,7 @@ str_shuffle($string) // Returns something like 'enoipo ktnjhnr'
 strlen($string); // Returns 14
 ```
 
-At this point you're ready to start using Twine by calling any of it's many
+At this point you're ready to start using Twine by calling any of its many
 built in methods.
 
 Available Methods
