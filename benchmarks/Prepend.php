@@ -3,7 +3,6 @@
 namespace PHLAK\Twine\Benchmarks;
 
 use PHLAK\Twine;
-use PHLAK\Twine\Benchmarks\Exceptions\BenchmarkException;
 
 class Prepend extends Benchmark
 {

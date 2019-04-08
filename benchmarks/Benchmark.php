@@ -113,7 +113,7 @@ abstract class Benchmark
     }
 
     /**
-     * The Twine benchmark;
+     * The Twine benchmark.
      *
      * @param \PHLAK\Twine\Str $input
      *
