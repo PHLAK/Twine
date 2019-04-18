@@ -1,20 +1,35 @@
 sudo: false
 
 language: php
-php:
-    - 7.0
-    - 7.1
-    - 7.2
-    - 7.3
-    - nightly
 
 matrix:
+  include:
+    - php: 7.0
+    - php: 7.0
+      env: SETUP=lowest
+    - php: 7.1
+    - php: 7.1
+      env: SETUP=lowest
+    - php: 7.2
+    - php: 7.2
+      env: SETUP=lowest
+    - php: 7.3
+    - php: 7.3
+      env: SETUP=lowest
+    - php: nightly
+    - php: nightly
+      env: SETUP=lowest
   allow_failures:
     - php: nightly
 
 cache:
-    directories:
-        - $HOME/.composer/cache
-        - vendor
+  directories:
+    - $HOME/.composer/cache
+    - vendor
 
-install: composer install
+before_install:
+  - phpenv config-rm xdebug.ini || true
+  - travis_retry composer self-update
+
+install:
+  - if [[ $SETUP = 'lowest' ]]; then composer update --no-interaction --prefer-lowest; else composer update --no-interaction
