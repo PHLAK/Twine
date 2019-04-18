@@ -22,5 +22,18 @@ class ShuffleTest extends TestCase
         $this->assertRegExp('/[ ehijknoprt]{14}/', (string) $shuffled);
     }
 
-    // TODO:  public function test_it_is_multibyte_compatible()
+    public function test_a_multibyte_string_can_be_shuffled()
+    {
+        $string = new Twine\Str('宮本 任天堂 茂');
+
+        $shuffled = $string->shuffle();
+
+        while ($string === $shuffled) {
+            $shuffled = $string->shuffle();
+        }
+
+        $this->assertInstanceOf(Twine\Str::class, $shuffled);
+        $this->assertNotEquals($string, $shuffled);
+        $this->assertRegExp('/[ 本天任宮堂茂]{7}/', (string) $shuffled);
+    }
 }
