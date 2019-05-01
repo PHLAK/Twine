@@ -2,23 +2,18 @@ sudo: false
 
 language: php
 
+env:
+  - COMPOSER_PREFER=default
+  - COMPOSER_PREFER=lowest
+
+php:
+  - 7.0
+  - 7.1
+  - 7.2
+  - 7.3
+  - nightly
+
 matrix:
-  include:
-    - php: 7.0
-    - php: 7.0
-      env: SETUP=lowest
-    - php: 7.1
-    - php: 7.1
-      env: SETUP=lowest
-    - php: 7.2
-    - php: 7.2
-      env: SETUP=lowest
-    - php: 7.3
-    - php: 7.3
-      env: SETUP=lowest
-    - php: nightly
-    - php: nightly
-      env: SETUP=lowest
   allow_failures:
     - php: nightly
 
@@ -32,4 +27,4 @@ before_install:
   - travis_retry composer self-update
 
 install:
-  - if [[ $SETUP = 'lowest' ]]; then composer update --no-interaction --prefer-lowest; else composer update --no-interaction
+  - "[[ $COMPOSER_PREFER == 'lowest' ]] && composer update --prefer-lowest || composer update"
