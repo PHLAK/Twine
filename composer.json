@@ -12,7 +12,7 @@
         "issues": "https://github.com/PHLAK/Twine/issues"
     },
     "require": {
-        "php": ">=7.0",
+        "php": ">=7.2",
         "ext-openssl": "*"
     },
     "require-dev": {

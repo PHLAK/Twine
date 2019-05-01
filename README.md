@@ -29,7 +29,7 @@ Twine is a simple string manipulation library with an expressive, fluent syntax.
 Requirements
 ------------
 
-  - [PHP](https://php.net) >= 7.0
+  - [PHP](https://php.net) >= 7.2
 
 Install with Composer
 ---------------------
