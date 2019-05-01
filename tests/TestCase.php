@@ -15,7 +15,4 @@ class TestCase extends BaseTest
 
         return $property->getValue($object);
     }
-
-
-
 }
