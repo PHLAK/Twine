@@ -4,6 +4,6 @@ namespace PHLAK\Twine\Config;
 
 final class Wrap extends Config
 {
-    const SOFT = false;
-    const HARD = true;
+    public const SOFT = false;
+    public const HARD = true;
 }
