@@ -33,7 +33,9 @@ trait Caseable
 
             case Config\Uppercase::FIRST:
                 return new static(
-                    mb_strtoupper(mb_substr($this->string, 0, 1, $this->encoding), $this->encoding) . mb_substr($this->string, 1)
+                    mb_strtoupper(
+                        mb_substr($this->string, 0, 1, $this->encoding), $this->encoding
+                    ) . mb_substr($this->string, 1, null, $this->encoding)
                 );
 
             case Config\Uppercase::WORDS:
