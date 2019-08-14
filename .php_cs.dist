@@ -29,6 +29,7 @@ return PhpCsFixer\Config::create()
             'space_before' => 'one'
         ],
         'semicolon_after_instruction' => true,
+        'single_trait_insert_per_statement' => false,
         'trailing_comma_in_multiline_array' => false,
         'yoda_style' => false
     ])->setFinder($finder);
