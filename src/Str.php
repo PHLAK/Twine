@@ -50,13 +50,13 @@ class Str implements \ArrayAccess, \JsonSerializable, \Serializable
     /**
      * Static make constructor.
      *
-     * @param string $string A string
+     * @param mixed ...$parameters The parameters
      *
      * @return self
      */
-    public static function make($string) : self
+    public static function make(...$parameters) : self
     {
-        return new static($string);
+        return new static(...$parameters);
     }
 
     /**
