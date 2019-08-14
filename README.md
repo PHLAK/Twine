@@ -1,16 +1,19 @@
-[![Twine](twine.png)](https://twine.phlak.net)
+<p align="center">
+  <img src="twine.png" alt="Twine" width="50%">
+</p>
 
------
+<p align="center">
+  <a href="https://packagist.org/packages/PHLAK/Twine"><img src="https://img.shields.io/packagist/v/PHLAK/Twine.svg" alt="Latest Stable Version"></a>
+  <a href="https://packagist.org/packages/PHLAK/Twine"><img src="https://img.shields.io/packagist/dt/PHLAK/Twine.svg" alt="Total Downloads"></a>
+  <a href="https://www.ChrisKankiewicz.com"><img src="https://img.shields.io/badge/author-Chris%20Kankiewicz-blue.svg" alt="Author"></a>
+  <a href="https://packagist.org/packages/PHLAK/Twine"><img src="https://img.shields.io/packagist/l/PHLAK/Twine.svg" alt="License"></a>
+  <a href="https://travis-ci.org/PHLAK/Twine"><img src="https://img.shields.io/travis/PHLAK/Twine.svg" alt="Build Status"></a>
+  <a href="https://styleci.io/repos/95623990"><img src="https://styleci.io/repos/95623990/shield?branch=master&style=flat" alt="StyleCI"></a>
+</p>
 
-[![Latest Stable Version](https://img.shields.io/packagist/v/PHLAK/Twine.svg)](https://packagist.org/packages/PHLAK/Twine)
-[![Total Downloads](https://img.shields.io/packagist/dt/PHLAK/Twine.svg)](https://packagist.org/packages/PHLAK/Twine)
-[![Author](https://img.shields.io/badge/author-Chris%20Kankiewicz-blue.svg)](https://www.ChrisKankiewicz.com)
-[![License](https://img.shields.io/packagist/l/PHLAK/Twine.svg)](https://packagist.org/packages/PHLAK/Twine)
-[![Build Status](https://img.shields.io/travis/PHLAK/Twine.svg)](https://travis-ci.org/PHLAK/Twine)
-[![StyleCI](https://styleci.io/repos/95623990/shield?branch=master&style=flat)](https://styleci.io/repos/95623990)
-
-String manipulation, leveled up! -- by, [Chris Kankiewicz](https://www.ChrisKankiewicz.com) ([@PHLAK](https://twitter.com/PHLAK))
-
+<p align="center">
+   String manipulation, leveled up! -- by, <a href="https://www.ChrisKankiewicz.com">Chris Kankiewicz</a> (<a href="https://twitter.com/PHLAK">@PHLAK</a>)
+</p>
 
 Introduction
 ------------
