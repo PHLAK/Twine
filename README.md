@@ -1,7 +1,4 @@
-Twine
-=====
-
-[![Twine](https://raw.githubusercontent.com/PHLAK/Twine/master/twine.png)](https://twine.phlak.net)
+[![Twine](twine.png)](https://twine.phlak.net)
 
 -----
 
