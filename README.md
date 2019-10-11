@@ -79,6 +79,21 @@ str_shuffle($string) // Returns something like 'enoipo ktnjhnr'
 strlen($string); // Returns 14
 ```
 
+The strength of Twine, however comes from it's built-in methods.
+
+```php
+$string->echo(); // Echos 'john pinkerton'
+$string->shuffle(); // Returns something like 'enoipo ktnjhnr'
+$string->length(); // Returns 14
+
+// or some more interesting methods
+
+$string->reverse(); // Returns 'notreknip nhoj'
+$string->contains('pink'); // Returns true
+$stting->replace('pink', 'purple'); // Returns 'john purpleton'
+$string->snakeCase(); // Returns 'john_pinkerton'
+```
+
 At this point you're ready to start using Twine by calling any of its many
 built in methods.
 
