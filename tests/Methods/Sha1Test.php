@@ -16,7 +16,7 @@ class Sha1Test extends TestCase
 
         $this->assertInstanceOf(Twine\Str::class, $sha1);
         $this->assertEquals('fcaf28c7705ba8f267472bb5aa8ad883f6bf0427', $sha1);
-        $this->assertEquals(base64_decode('/K8ox3BbqPJnRyu1qorYg/a/BCc='), $raw);
+        $this->assertEquals(base64_decode('Pz8oP3BbPz9nRys/Pz/Ygz8/BCc='), $raw);
     }
 
     public function test_a_multibyte_string_can_be_hashed_with_sha1()
@@ -28,7 +28,7 @@ class Sha1Test extends TestCase
 
         $this->assertInstanceOf(Twine\Str::class, $sha1);
         $this->assertEquals('606d67644969b213dbd54696de4b428caa4acb1f', $sha1);
-        $this->assertEquals(base64_decode('YG1nZElpshPb1UaW3ktCjKpKyx8='), $raw);
+        $this->assertEquals(base64_decode('YG1nZElpPxM/P0Y/P0tCPz9KPx8='), $raw);
     }
 
     public function test_it_preserves_encoding()

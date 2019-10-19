@@ -34,8 +34,8 @@ class Str implements \ArrayAccess, \JsonSerializable, \Serializable
      */
     public function __construct($string = '', $encoding = null)
     {
-        $this->string = (string) $string;
         $this->encoding = $encoding ?? Config\Str::getEncoding();
+        $this->string = mb_convert_encoding((string) $string, $this->encoding);
     }
 
     /**
