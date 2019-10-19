@@ -4,6 +4,7 @@ namespace PHLAK\Twine\Tests;
 
 use PHLAK\Twine\Exceptions\EncryptionException;
 use PHLAK\Twine\Exceptions\TwineException;
+use PHPUnit\Framework\TestCase;
 
 class EncryptionExceptionTest extends TestCase
 {

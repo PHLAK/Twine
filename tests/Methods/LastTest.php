@@ -3,7 +3,7 @@
 namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
-use PHLAK\Twine\Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class LastTest extends TestCase
 {

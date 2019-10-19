@@ -4,7 +4,7 @@ namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
 use PHLAK\Twine\Exceptions\ConfigException;
-use PHLAK\Twine\Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class LowercaseTest extends TestCase
 {
