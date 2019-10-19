@@ -13,6 +13,7 @@ class Str implements \ArrayAccess, \JsonSerializable, \Serializable
         Traits\Encryptable,
         Traits\Hashable,
         Traits\Joinable,
+        Traits\Searchable,
         Traits\Segmentable,
         Traits\Transformable,
         Traits\Typeable;
