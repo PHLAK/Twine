@@ -26,4 +26,13 @@ class KebabCaseTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $kebabCase);
         $this->assertEquals('джон-пинкертон', $kebabCase);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $kebabCase = $string->kebabCase();
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $kebabCase);
+    }
 }

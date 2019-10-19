@@ -26,4 +26,13 @@ class PascalCaseTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $pascalCase);
         $this->assertEquals('ДжонПинкертон', $pascalCase);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $pascalCase = $string->pascalCase();
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $pascalCase);
+    }
 }

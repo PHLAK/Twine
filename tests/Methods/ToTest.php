@@ -36,4 +36,13 @@ class ToTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $to);
         $this->assertEquals('宮本', $to);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $to = $string->to('pink');
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $to);
+    }
 }

@@ -60,4 +60,13 @@ class UppercaseTest extends TestCase
         $this->assertEquals('Джон пинкертон', $uppercasedFirst);
         $this->assertEquals('Джон Пинкертон', $uppercasedWords);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $uppercased = $string->uppercase();
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $uppercased);
+    }
 }

@@ -26,7 +26,7 @@ trait Encodable
     {
         Config\Base64::validateOption($mode);
 
-        return new static($mode($this->string));
+        return new static($mode($this->string), $this->encoding);
     }
 
     /**
@@ -45,7 +45,7 @@ trait Encodable
     {
         Config\Url::validateOption($mode);
 
-        return new static($mode($this->string));
+        return new static($mode($this->string), $this->encoding);
     }
 
     /**
@@ -81,6 +81,6 @@ trait Encodable
                 throw new RuntimeException('Invalid mode');
         }
 
-        return new static($string);
+        return new static($string, $this->encoding);
     }
 }

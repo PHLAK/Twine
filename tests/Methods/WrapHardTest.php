@@ -16,4 +16,13 @@ class WrapHardTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $wrappedHard);
         $this->assertEquals("john\npinke\nrton", $wrappedHard);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $wrappedHard = $string->wrapHard(5);
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $wrappedHard);
+    }
 }

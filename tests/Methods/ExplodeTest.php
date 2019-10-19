@@ -13,9 +13,10 @@ class ExplodeTest extends TestCase
 
         $exploded = $string->explode(' ');
 
-        $this->assertCount(2, $exploded);
-        $this->assertEquals('john', $exploded[0]);
-        $this->assertEquals('pinkerton', $exploded[1]);
+        $this->assertEquals(['john', 'pinkerton'], $exploded);
+        foreach ($exploded as $substring) {
+            $this->assertInstanceOf(Twine\Str::class, $substring);
+        }
     }
 
     public function test_it_can_be_exploded_with_a_limit()
@@ -24,9 +25,20 @@ class ExplodeTest extends TestCase
 
         $exploded = $string->explode(' ', 3);
 
-        $this->assertCount(3, $exploded);
-        $this->assertEquals('john', $exploded[0]);
-        $this->assertEquals('maurice', $exploded[1]);
-        $this->assertEquals('mcclean pinkerton', $exploded[2]);
+        $this->assertEquals(['john', 'maurice', 'mcclean pinkerton'], $exploded);
+        foreach ($exploded as $substring) {
+            $this->assertInstanceOf(Twine\Str::class, $substring);
+        }
+    }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $exploded = $string->explode(' ');
+
+        foreach ($exploded as $string) {
+            $this->assertAttributeEquals('ASCII', 'encoding', $string);
+        }
     }
 }

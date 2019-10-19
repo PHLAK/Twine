@@ -36,4 +36,13 @@ class NthTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $nth);
         $this->assertEquals('宮任 ', $nth);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $nth = $string->nth(3);
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $nth);
+    }
 }

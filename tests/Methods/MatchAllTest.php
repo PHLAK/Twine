@@ -34,4 +34,18 @@ class MatchAllTest extends TestCase
             $this->assertInstanceOf(Twine\Str::class, $match);
         }
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str(
+            'You can reach me on my cell at 123-456-7890 or at work 987-654-3210',
+            'ASCII'
+        );
+
+        $matches = $string->matchAll('/(?:\d{3}-?)\d{3}-?\d{4}/');
+
+        foreach ($matches as $match) {
+            $this->assertAttributeEquals('ASCII', 'encoding', $match);
+        }
+    }
 }

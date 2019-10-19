@@ -36,4 +36,13 @@ class ShuffleTest extends TestCase
         $this->assertNotEquals($string, $shuffled);
         $this->assertRegExp('/[ 本天任宮堂茂]{7}/', (string) $shuffled);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $shuffled = $string->shuffle();
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $shuffled);
+    }
 }

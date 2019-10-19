@@ -30,4 +30,15 @@ class SplitTest extends TestCase
             $this->assertInstanceOf(Twine\Str::class, $chunk);
         }
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $chunks = $string->split(3);
+
+        foreach ($chunks as $chunk) {
+            $this->assertAttributeEquals('ASCII', 'encoding', $chunk);
+        }
+    }
 }

@@ -26,4 +26,13 @@ class PadRightTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $rightPadded);
         $this->assertEquals('宮本 茂______', $rightPadded);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $rightPadded = $string->padRight(20, '_');
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $rightPadded);
+    }
 }

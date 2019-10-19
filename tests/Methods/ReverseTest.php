@@ -26,4 +26,13 @@ class ReverseTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $reveresed);
         $this->assertEquals('茂 本宮', $reveresed);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $reversed = $string->reverse();
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $reversed);
+    }
 }

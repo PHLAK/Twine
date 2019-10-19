@@ -26,4 +26,13 @@ class SnakeCaseTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $snakeCase);
         $this->assertEquals('джон_пинкертон', $snakeCase);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $snakeCase = $string->snakeCase();
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $snakeCase);
+    }
 }

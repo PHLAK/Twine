@@ -96,4 +96,13 @@ class PadTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $bothPadded);
         $this->assertEquals('___宮本 茂___', $bothPadded);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $padded = $string->pad(20, '_');
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $padded);
+    }
 }

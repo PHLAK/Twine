@@ -26,4 +26,13 @@ class BcryptTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $bcrypt);
         $this->assertRegExp('/\$2y\$10\$[a-zA-Z0-9+.\/]{53}/', (string) $bcrypt);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $bcrypt = $string->bcrypt();
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $bcrypt);
+    }
 }

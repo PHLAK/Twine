@@ -15,7 +15,7 @@ trait Searchable
     {
         preg_match($pattern, $this->string, $matches);
 
-        return new static($matches[0]);
+        return new static($matches[0], $this->encoding);
     }
 
     /**
@@ -30,7 +30,7 @@ trait Searchable
         preg_match_all($pattern, $this->string, $matches);
 
         return array_map(function ($match) {
-            return new static($match);
+            return new static($match, $this->encoding);
         }, $matches[0]);
     }
 }

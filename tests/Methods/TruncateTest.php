@@ -76,4 +76,13 @@ class TruncateTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $truncated);
         $this->assertEquals('宮本~', $truncated);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $truncated = $string->truncate(12);
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $truncated);
+    }
 }

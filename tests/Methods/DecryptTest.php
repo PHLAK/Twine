@@ -51,4 +51,13 @@ class DecryptTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $decrypted);
         $this->assertEquals('宮本 茂', $decrypted);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str($this->encryptedString, 'ASCII');
+
+        $decrypted = $string->decrypt('secret');
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $decrypted);
+    }
 }

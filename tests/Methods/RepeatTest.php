@@ -36,4 +36,13 @@ class RepeatTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $repeated);
         $this->assertEquals('宮本 茂 宮本 茂 宮本', $repeated);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $repeated = $string->repeat(2);
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $repeated);
+    }
 }

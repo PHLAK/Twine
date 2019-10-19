@@ -26,7 +26,7 @@ trait Hashable
      */
     public function crypt(string $salt) : self
     {
-        return new static(crypt($this->string, $salt));
+        return new static(crypt($this->string, $salt), $this->encoding);
     }
 
     /**
@@ -45,7 +45,7 @@ trait Hashable
     {
         Config\Md5::validateOption($mode);
 
-        return new static(hash('md5', $this->string, $mode));
+        return new static(hash('md5', $this->string, $mode), $this->encoding);
     }
 
     /**
@@ -64,7 +64,7 @@ trait Hashable
     {
         Config\Md5::validateOption($mode);
 
-        return new static(hash('sha1', $this->string, $mode));
+        return new static(hash('sha1', $this->string, $mode), $this->encoding);
     }
 
     /**
@@ -83,7 +83,7 @@ trait Hashable
     {
         Config\Sha256::validateOption($mode);
 
-        return new static(hash('sha256', $this->string, $mode));
+        return new static(hash('sha256', $this->string, $mode), $this->encoding);
     }
 
     /**
@@ -95,6 +95,6 @@ trait Hashable
      */
     public function bcrypt(array $options = []) : self
     {
-        return new static(password_hash($this->string, PASSWORD_BCRYPT, $options));
+        return new static(password_hash($this->string, PASSWORD_BCRYPT, $options), $this->encoding);
     }
 }

@@ -30,4 +30,13 @@ class Md5Test extends TestCase
         $this->assertEquals('c5d37b31d718f00ddb370839a847f44f', $md5);
         $this->assertEquals(base64_decode('xdN7MdcY8A3bNwg5qEf0Tw=='), $raw);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $md5 = $string->md5();
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $md5);
+    }
 }

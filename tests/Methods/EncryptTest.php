@@ -40,4 +40,13 @@ class EncryptTest extends TestCase
 
         return $encrypted;
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $encrypted = $string->encrypt('secret');
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $encrypted);
+    }
 }

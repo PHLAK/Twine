@@ -36,4 +36,13 @@ class StripTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $stripped);
         $this->assertEquals('宮 茂', $stripped);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $stripped = $string->strip('pink');
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $stripped);
+    }
 }

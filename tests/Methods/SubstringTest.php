@@ -30,4 +30,13 @@ class SubstringTest extends TestCase
         $this->assertEquals('本 茂', $substring);
         $this->assertEquals('本 ', $partial);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $substring = $string->substring(5, 4);
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $substring);
+    }
 }

@@ -30,4 +30,15 @@ class WordsTest extends TestCase
             $this->assertInstanceOf(Twine\Str::class, $word);
         }
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $words = $string->words();
+
+        foreach ($words as $word) {
+            $this->assertAttributeEquals('ASCII', 'encoding', $word);
+        }
+    }
 }

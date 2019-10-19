@@ -26,4 +26,13 @@ class FormatTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $formatted);
         $this->assertEquals('こんにちは, 宮本 茂! ようこそ 任天堂.', $formatted);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('Hello %s! Welcome to %s, population %b.', 'ASCII');
+
+        $formatted = $string->format('John', 'Pinkertown', 1337);
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $formatted);
+    }
 }

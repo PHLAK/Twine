@@ -26,4 +26,13 @@ class CryptTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $crypt);
         $this->assertEquals('NaJqmdk5MYCgs', $crypt);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $crypt = $string->crypt('NaCL');
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $crypt);
+    }
 }

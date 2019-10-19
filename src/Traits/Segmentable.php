@@ -16,7 +16,7 @@ trait Segmentable
     {
         $length = isset($length) ? $length : $this->length() - $start;
 
-        return new static(mb_substr($this->string, $start, $length, $this->encoding));
+        return new static(mb_substr($this->string, $start, $length, $this->encoding), $this->encoding);
     }
 
     /**
@@ -28,7 +28,7 @@ trait Segmentable
      */
     public function before(string $string) : self
     {
-        return new static(mb_split($string, $this->string, 2)[0]);
+        return new static(mb_split($string, $this->string, 2)[0], $this->encoding);
     }
 
     /**
@@ -40,7 +40,7 @@ trait Segmentable
      */
     public function after(string $string) : self
     {
-        return new static(mb_split($string, $this->string, 2)[1]);
+        return new static(mb_split($string, $this->string, 2)[1], $this->encoding);
     }
 
     /**
@@ -52,7 +52,7 @@ trait Segmentable
      */
     public function from(string $string) : self
     {
-        return new static(mb_strstr($this->string, $string, null, $this->encoding));
+        return new static(mb_strstr($this->string, $string, null, $this->encoding), $this->encoding);
     }
 
     /**
@@ -66,7 +66,7 @@ trait Segmentable
     {
         $substring = mb_strstr($this->string, $string, true, $this->encoding);
 
-        return new static($substring ? $substring . $string : null);
+        return new static($substring ? $substring . $string : null, $this->encoding);
     }
 
     /**
@@ -80,7 +80,8 @@ trait Segmentable
     public function truncate(int $length, string $suffix = '...') : self
     {
         return new static(
-            $this->first($length - mb_strlen($suffix, $this->encoding))->trimRight()->append($suffix)
+            $this->first($length - mb_strlen($suffix, $this->encoding))->trimRight()->append($suffix),
+            $this->encoding
         );
     }
 
@@ -96,7 +97,7 @@ trait Segmentable
         preg_match_all("/(?:.|\p{L}|\w){1,{$length}}/u", $this->string, $chunks);
 
         return array_map(function ($chunk) {
-            return new static($chunk);
+            return new static($chunk, $this->encoding);
         }, $chunks[0]);
     }
 
@@ -113,7 +114,7 @@ trait Segmentable
         preg_match_all("/(?:.|\p{L}|\w){1,{$length}}/u", $this->string, $chunks);
 
         return array_map(function ($chunk) {
-            return new static($chunk);
+            return new static($chunk, $this->encoding);
         }, $chunks[0]);
     }
 }

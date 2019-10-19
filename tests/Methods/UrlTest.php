@@ -48,4 +48,13 @@ class UrlTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $urldecoded);
         $this->assertEquals('宮本+茂/任天堂', $urldecoded);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $urlencoded = $string->url();
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $urlencoded);
+    }
 }

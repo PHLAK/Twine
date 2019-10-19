@@ -39,4 +39,14 @@ class JoinTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $joined);
         $this->assertEquals('宮本 茂', $joined);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $first = new Twine\Str('john', 'ASCII');
+        $last = new Twine\Str('pinkerton', 'ASCII');
+
+        $joined = $first->join($last);
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $joined);
+    }
 }

@@ -26,4 +26,13 @@ class LastTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $last);
         $this->assertEquals('本 茂', $last);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $last = $string->last(9);
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $last);
+    }
 }

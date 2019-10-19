@@ -36,4 +36,13 @@ class AfterTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $after);
         $this->assertEquals(' 茂', $after);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $lastName = $string->after(' ');
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $lastName);
+    }
 }

@@ -26,4 +26,13 @@ class FirstTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $first);
         $this->assertEquals('宮本', $first);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $first = $string->first(4);
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $first);
+    }
 }

@@ -18,7 +18,8 @@ trait Transformable
     public function insert(string $string, int $position) : self
     {
         return new static(
-            mb_substr($this->string, 0, $position, $this->encoding) . $string . mb_substr($this->string, $position, null, $this->encoding)
+            mb_substr($this->string, 0, $position, $this->encoding) . $string . mb_substr($this->string, $position, null, $this->encoding),
+            $this->encoding
         );
     }
 
@@ -30,7 +31,8 @@ trait Transformable
     public function reverse() : self
     {
         return new static(
-            implode(array_reverse(Support\Str::characters($this->string)))
+            implode(array_reverse(Support\Str::characters($this->string))),
+            $this->encoding
         );
     }
 
@@ -45,7 +47,7 @@ trait Transformable
      */
     public function replace($search, $replace, int &$count = null) : self
     {
-        return new static(str_replace($search, $replace, $this->string, $count));
+        return new static(str_replace($search, $replace, $this->string, $count), $this->encoding);
     }
 
     /**
@@ -59,7 +61,7 @@ trait Transformable
 
         shuffle($characters);
 
-        return new static(implode($characters));
+        return new static(implode($characters), $this->encoding);
     }
 
     /**
@@ -73,7 +75,7 @@ trait Transformable
     {
         $strings = array_fill(0, $multiplier, $this->string);
 
-        return new static(implode($glue, $strings));
+        return new static(implode($glue, $strings), $this->encoding);
     }
 
     /**
@@ -96,7 +98,7 @@ trait Transformable
     {
         Config\Wrap::validateOption($mode);
 
-        return new static(wordwrap($this->string, $width, $break, $mode));
+        return new static(wordwrap($this->string, $width, $break, $mode), $this->encoding);
     }
 
     /**
@@ -122,7 +124,7 @@ trait Transformable
 
         $diff = strlen($this->string) - mb_strlen($this->string, $this->encoding);
 
-        return new static(str_pad($this->string, $length + $diff, $padding, $mode));
+        return new static(str_pad($this->string, $length + $diff, $padding, $mode), $this->encoding);
     }
 
     /**
@@ -146,7 +148,7 @@ trait Transformable
     {
         Config\Trim::validateOption($mode);
 
-        return new static($mode($this->string, $mask));
+        return new static($mode($this->string, $mask), $this->encoding);
     }
 
     /**
@@ -176,7 +178,7 @@ trait Transformable
     public function explode(string $delimiter, int $limit = PHP_INT_MAX)
     {
         return array_map(function ($string) {
-            return new static($string);
+            return new static($string, $this->encoding);
         }, explode($delimiter, $this->string, $limit));
     }
 }

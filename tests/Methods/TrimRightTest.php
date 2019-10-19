@@ -26,4 +26,13 @@ class TrimRightTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $rightTrimmed);
         $this->assertEquals('宮本 ', $rightTrimmed);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $rightTrimmed = $string->trimRight('jton');
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $rightTrimmed);
+    }
 }

@@ -30,4 +30,13 @@ class Sha256Test extends TestCase
         $this->assertEquals('23b55193cb08e619247b7e1ba65bfc0f5863f73ee3615e5b0dc7101c80c4302f', $sha256);
         $this->assertEquals(base64_decode('I7VRk8sI5hkke34bplv8D1hj9z7jYV5bDccQHIDEMC8='), $raw);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $sha256 = $string->sha256();
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $sha256);
+    }
 }

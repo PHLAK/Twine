@@ -30,4 +30,13 @@ class Sha1Test extends TestCase
         $this->assertEquals('606d67644969b213dbd54696de4b428caa4acb1f', $sha1);
         $this->assertEquals(base64_decode('YG1nZElpshPb1UaW3ktCjKpKyx8='), $raw);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $sha1 = $string->sha1();
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $sha1);
+    }
 }

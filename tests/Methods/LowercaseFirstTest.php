@@ -26,4 +26,13 @@ class LowercaseFirstTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $lowercasedFirst);
         $this->assertEquals('дЖОН ПИНКЕРТОН', $lowercasedFirst);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('JOHN PINKERTON', 'ASCII');
+
+        $lowercasedFirst = $string->lowercaseFirst();
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $lowercasedFirst);
+    }
 }

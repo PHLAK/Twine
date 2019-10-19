@@ -26,4 +26,13 @@ class CamelCaseTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $camelCase);
         $this->assertEquals('джонПинкертон', $camelCase);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $camelCase = $string->camelCase();
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $camelCase);
+    }
 }

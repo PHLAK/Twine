@@ -37,4 +37,13 @@ class PrependTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $prepended);
         $this->assertEquals('宮本 茂', $prepended);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $prepended = $string->prepend('mr ');
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $prepended);
+    }
 }

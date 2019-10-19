@@ -26,4 +26,13 @@ class PadLeftTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $leftPadded);
         $this->assertEquals('______宮本 茂', $leftPadded);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $leftPadded = $string->padLeft(20, '_');
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $leftPadded);
+    }
 }

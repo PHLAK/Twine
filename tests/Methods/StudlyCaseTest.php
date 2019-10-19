@@ -26,4 +26,13 @@ class StudlyCaseTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $studlyCase);
         $this->assertEquals('ДжонПинкертон', $studlyCase);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $studlyCase = $string->studlyCase();
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $studlyCase);
+    }
 }

@@ -30,4 +30,15 @@ class EchoTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $echoed);
         $this->assertEquals('宮本 茂', $echoed);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $this->expectOutputString('john pinkerton');
+
+        $echoed = $string->echo();
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $echoed);
+    }
 }

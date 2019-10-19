@@ -37,4 +37,13 @@ class AppendTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $appended);
         $this->assertEquals('宮本 茂', $appended);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $appended = $string->append(' jr');
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $appended);
+    }
 }

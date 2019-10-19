@@ -37,4 +37,13 @@ class ReplaceTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $replaced);
         $this->assertEquals('宮本 任天堂', $replaced);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $replaced = $string->replace('john', 'bob', $count);
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $replaced);
+    }
 }

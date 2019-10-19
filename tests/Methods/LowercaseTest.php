@@ -60,4 +60,13 @@ class LowercaseTest extends TestCase
         $this->assertEquals('дЖОН ПИНКЕРТОН', $lowercasedFirst);
         $this->assertEquals('дЖОН пИНКЕРТОН', $lowercasedWords);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('JOHN PINKERTON', 'ASCII');
+
+        $lowercased = $string->lowercase();
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $lowercased);
+    }
 }

@@ -49,7 +49,7 @@ trait Encryptable
             throw new EncryptionException('Failed to encrypt the string');
         }
 
-        return new static(base64_encode($json));
+        return new static(base64_encode($json), $this->encoding);
     }
 
     /**
@@ -86,7 +86,7 @@ trait Encryptable
             throw new DecryptionException('Failed to decrypt the string');
         }
 
-        return new static($plaintext);
+        return new static($plaintext, $this->encoding);
     }
 
     /**

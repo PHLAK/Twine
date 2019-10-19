@@ -26,4 +26,13 @@ class UppercaseFirstTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $uppercasedFirst);
         $this->assertEquals('Джон пинкертон', $uppercasedFirst);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $uppercasedFirst = $string->uppercaseFirst();
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $uppercasedFirst);
+    }
 }

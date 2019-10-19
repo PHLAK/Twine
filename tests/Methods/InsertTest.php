@@ -26,4 +26,13 @@ class InsertTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $inserted);
         $this->assertEquals('宮本 任天堂 茂', $inserted);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $inserted = $string->insert('athan', 4);
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $inserted);
+    }
 }

@@ -42,4 +42,15 @@ class CharactersTest extends TestCase
             $this->assertInstanceOf(Twine\Str::class, $character);
         }
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $characters = $string->characters();
+
+        foreach ($characters as $character) {
+            $this->assertAttributeEquals('ASCII', 'encoding', $character);
+        }
+    }
 }

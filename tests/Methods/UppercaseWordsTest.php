@@ -26,4 +26,13 @@ class UppercaseWordsTest extends TestCase
         $this->assertInstanceOf(Twine\Str::class, $uppercasedWords);
         $this->assertEquals('Джон Пинкертон', $uppercasedWords);
     }
+
+    public function test_it_preserves_encoding()
+    {
+        $string = new Twine\Str('john pinkerton', 'ASCII');
+
+        $uppercasedWords = $string->uppercaseWords();
+
+        $this->assertAttributeEquals('ASCII', 'encoding', $uppercasedWords);
+    }
 }
