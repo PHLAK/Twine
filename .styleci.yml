@@ -7,7 +7,6 @@ enabled:
 
 disabled:
   - concat_without_spaces
-  - length_ordered_imports
   - trailing_comma_in_multiline_array
 
 finder:
