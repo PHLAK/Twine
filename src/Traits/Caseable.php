@@ -40,7 +40,7 @@ trait Caseable
                 );
 
             case Config\Uppercase::WORDS:
-                $string = preg_replace_callback('/(\p{Ll})[\S]*/u', function ($matched) {
+                $string = preg_replace_callback('/(\p{Ll})[\S]*/u', function (array $matched) {
                     return mb_strtoupper($matched[1], $this->encoding) . mb_substr($matched[0], 1, null, $this->encoding);
                 }, $this->string);
 
@@ -81,7 +81,7 @@ trait Caseable
                 );
 
             case Config\Lowercase::WORDS:
-                $string = preg_replace_callback('/(\p{Lu})[\S]*/u', function ($matched) {
+                $string = preg_replace_callback('/(\p{Lu})[\S]*/u', function (array $matched) {
                     return mb_strtolower($matched[1], $this->encoding) . mb_substr($matched[0], 1, null, $this->encoding);
                 }, $this->string);
 

@@ -66,13 +66,13 @@ trait Encodable
 
         switch ($mode) {
             case Config\Hex::ENCODE:
-                $string = array_reduce(Support\Str::characters($this->string), function ($str, $char) {
+                $string = array_reduce(Support\Str::characters($this->string), function (string $str, string $char) {
                     return $str . '\x' . dechex(mb_ord($char, $this->encoding));
                 }, '');
                 break;
 
             case Config\Hex::DECODE:
-                $string = preg_replace_callback('/\\\\x([0-9A-Fa-f]+)/', function ($matched) {
+                $string = preg_replace_callback('/\\\\x([0-9A-Fa-f]+)/', function (array $matched) {
                     return mb_chr(hexdec($matched[1]), $this->encoding);
                 }, $this->string);
                 break;

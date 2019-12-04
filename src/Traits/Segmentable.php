@@ -52,7 +52,7 @@ trait Segmentable
      */
     public function from(string $string) : self
     {
-        return new static(mb_strstr($this->string, $string, null, $this->encoding), $this->encoding);
+        return new static(mb_strstr($this->string, $string, false, $this->encoding), $this->encoding);
     }
 
     /**
@@ -96,7 +96,7 @@ trait Segmentable
     {
         preg_match_all("/(?:.|\p{L}|\w){1,{$length}}/u", $this->string, $chunks);
 
-        return array_map(function ($chunk) {
+        return array_map(function (string $chunk) {
             return new static($chunk, $this->encoding);
         }, $chunks[0]);
     }
@@ -111,10 +111,10 @@ trait Segmentable
     public function split(int $chunks) : array
     {
         $length = ceil($this->length() / $chunks);
-        preg_match_all("/(?:.|\p{L}|\w){1,{$length}}/u", $this->string, $chunks);
+        preg_match_all("/(?:.|\p{L}|\w){1,{$length}}/u", $this->string, $strings);
 
-        return array_map(function ($chunk) {
+        return array_map(function (string $chunk) {
             return new static($chunk, $this->encoding);
-        }, $chunks[0]);
+        }, $strings[0]);
     }
 }

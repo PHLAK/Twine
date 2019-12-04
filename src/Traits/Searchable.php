@@ -29,7 +29,7 @@ trait Searchable
     {
         preg_match_all($pattern, $this->string, $matches);
 
-        return array_map(function ($match) {
+        return array_map(function (string $match) {
             return new static($match, $this->encoding);
         }, $matches[0]);
     }

@@ -62,7 +62,7 @@ trait Convenience
     {
         preg_match_all('/\p{Lu}?[\p{Ll}0-9]+/u', $this->string, $matches);
 
-        return array_map(function ($words) {
+        return array_map(function (string $words) {
             return new static($words, $this->encoding);
         }, $matches[0]);
     }
@@ -72,7 +72,7 @@ trait Convenience
      *
      * @return \PHLAK\Twine\Str[]
      */
-    public function characters($mode = Config\Characters::ALL) : array
+    public function characters(string $mode = Config\Characters::ALL) : array
     {
         Config\Characters::validateOption($mode);
 
