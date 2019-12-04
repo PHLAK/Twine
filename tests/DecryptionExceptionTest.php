@@ -2,9 +2,9 @@
 
 namespace PHLAK\Twine\Tests;
 
-use PHPUnit\Framework\TestCase;
 use PHLAK\Twine\Exceptions\DecryptionException;
 use PHLAK\Twine\Exceptions\TwineException;
+use PHPUnit\Framework\TestCase;
 
 class DecryptionExceptionTest extends TestCase
 {

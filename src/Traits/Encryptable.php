@@ -2,8 +2,8 @@
 
 namespace PHLAK\Twine\Traits;
 
-use PHLAK\Twine\Exceptions\EncryptionException;
 use PHLAK\Twine\Exceptions\DecryptionException;
+use PHLAK\Twine\Exceptions\EncryptionException;
 
 trait Encryptable
 {

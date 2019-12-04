@@ -2,8 +2,8 @@
 
 namespace PHLAK\Twine\Config;
 
-use ReflectionClass;
 use PHLAK\Twine\Exceptions\ConfigException;
+use ReflectionClass;
 
 abstract class Config
 {
