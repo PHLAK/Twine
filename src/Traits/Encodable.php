@@ -73,7 +73,7 @@ trait Encodable
 
             case Config\Hex::DECODE:
                 $string = preg_replace_callback('/\\\\x([0-9A-Fa-f]+)/', function (array $matched) {
-                    return mb_chr(hexdec($matched[1]), $this->encoding);
+                    return (string) mb_chr(hexdec($matched[1]), $this->encoding);
                 }, $this->string);
                 break;
 

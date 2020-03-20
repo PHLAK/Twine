@@ -41,7 +41,7 @@ trait Transformable
      *
      * @param string|array $search  One or more strings to be replaced
      * @param string|array $replace One or more strings to replace with
-     * @param int          $count   This will be set to the number of replacements performed
+     * @param int|null     $count   This will be set to the number of replacements performed
      *
      * @return self
      */
