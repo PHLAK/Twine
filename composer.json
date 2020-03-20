@@ -26,7 +26,7 @@
         "ext-openssl": "*"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^2.3",
+        "friendsofphp/php-cs-fixer": "^2.16.1",
         "phpunit/phpunit": "^7.0 || ^8.0 || ^9.0",
         "psy/psysh": "^0.10",
         "vimeo/psalm": "^3.6"
