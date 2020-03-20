@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class StrTest extends TestCase
 {
-    protected function tearDown()
+    protected function tearDown(): void
     {
         Twine\Config\Str::setEncoding('UTF-8');
     }

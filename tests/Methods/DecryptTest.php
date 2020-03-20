@@ -58,6 +58,6 @@ class DecryptTest extends TestCase
 
         $decrypted = $string->decrypt('secret');
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $decrypted);
+        $this->assertEquals('ASCII', mb_detect_encoding($decrypted));
     }
 }

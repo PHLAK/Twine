@@ -33,6 +33,6 @@ class PascalCaseTest extends TestCase
 
         $pascalCase = $string->pascalCase();
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $pascalCase);
+        $this->assertEquals('ASCII', mb_detect_encoding($pascalCase));
     }
 }

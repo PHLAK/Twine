@@ -37,6 +37,6 @@ class Sha1Test extends TestCase
 
         $sha1 = $string->sha1();
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $sha1);
+        $this->assertEquals('ASCII', mb_detect_encoding($sha1));
     }
 }

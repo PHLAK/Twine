@@ -33,6 +33,6 @@ class StudlyCaseTest extends TestCase
 
         $studlyCase = $string->studlyCase();
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $studlyCase);
+        $this->assertEquals('ASCII', mb_detect_encoding($studlyCase));
     }
 }

@@ -37,6 +37,6 @@ class Md5Test extends TestCase
 
         $md5 = $string->md5();
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $md5);
+        $this->assertEquals('ASCII', mb_detect_encoding($md5));
     }
 }

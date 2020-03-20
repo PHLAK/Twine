@@ -33,6 +33,6 @@ class PadLeftTest extends TestCase
 
         $leftPadded = $string->padLeft(20, '_');
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $leftPadded);
+        $this->assertEquals('ASCII', mb_detect_encoding($leftPadded));
     }
 }

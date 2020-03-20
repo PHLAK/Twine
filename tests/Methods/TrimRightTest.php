@@ -33,6 +33,6 @@ class TrimRightTest extends TestCase
 
         $rightTrimmed = $string->trimRight('jton');
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $rightTrimmed);
+        $this->assertEquals('ASCII', mb_detect_encoding($rightTrimmed));
     }
 }

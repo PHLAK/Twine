@@ -33,6 +33,6 @@ class InsertTest extends TestCase
 
         $inserted = $string->insert('athan', 4);
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $inserted);
+        $this->assertEquals('ASCII', mb_detect_encoding($inserted));
     }
 }

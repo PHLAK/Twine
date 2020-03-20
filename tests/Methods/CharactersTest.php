@@ -50,7 +50,7 @@ class CharactersTest extends TestCase
         $characters = $string->characters();
 
         foreach ($characters as $character) {
-            $this->assertAttributeEquals('ASCII', 'encoding', $character);
+            $this->assertEquals('ASCII', mb_detect_encoding($character));
         }
     }
 }

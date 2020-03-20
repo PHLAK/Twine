@@ -45,7 +45,7 @@ class MatchAllTest extends TestCase
         $matches = $string->matchAll('/(?:\d{3}-?)\d{3}-?\d{4}/');
 
         foreach ($matches as $match) {
-            $this->assertAttributeEquals('ASCII', 'encoding', $match);
+            $this->assertEquals('ASCII', mb_detect_encoding($match));
         }
     }
 }

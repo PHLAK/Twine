@@ -33,6 +33,6 @@ class CamelCaseTest extends TestCase
 
         $camelCase = $string->camelCase();
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $camelCase);
+        $this->assertEquals('ASCII', mb_detect_encoding($camelCase));
     }
 }

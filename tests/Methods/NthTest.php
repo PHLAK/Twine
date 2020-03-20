@@ -43,6 +43,6 @@ class NthTest extends TestCase
 
         $nth = $string->nth(3);
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $nth);
+        $this->assertEquals('ASCII', mb_detect_encoding($nth));
     }
 }

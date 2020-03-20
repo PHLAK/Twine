@@ -23,6 +23,6 @@ class WrapSoftTest extends TestCase
 
         $wrappedSoft = $string->wrapSoft(5);
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $wrappedSoft);
+        $this->assertEquals('ASCII', mb_detect_encoding($wrappedSoft));
     }
 }

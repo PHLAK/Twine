@@ -33,6 +33,6 @@ class PadBothTest extends TestCase
 
         $padded = $string->padBoth(20, '_');
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $padded);
+        $this->assertEquals('ASCII', mb_detect_encoding($padded));
     }
 }

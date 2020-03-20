@@ -14,6 +14,6 @@ class EncodingTest extends TestCase
         $ascii = $string->encoding('ASCII');
 
         $this->assertInstanceOf(Twine\Str::class, $ascii);
-        $this->assertAttributeEquals('ASCII', 'encoding', $ascii);
+        $this->assertEquals('ASCII', mb_detect_encoding($ascii));
     }
 }

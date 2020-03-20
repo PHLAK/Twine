@@ -38,7 +38,7 @@ class ChunkTest extends TestCase
         $chunks = $string->chunk(3);
 
         foreach ($chunks as $chunk) {
-            $this->assertAttributeEquals('ASCII', 'encoding', $chunk);
+            $this->assertEquals('ASCII', mb_detect_encoding($chunk));
         }
     }
 }

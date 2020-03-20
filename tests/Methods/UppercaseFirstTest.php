@@ -33,6 +33,6 @@ class UppercaseFirstTest extends TestCase
 
         $uppercasedFirst = $string->uppercaseFirst();
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $uppercasedFirst);
+        $this->assertEquals('ASCII', mb_detect_encoding($uppercasedFirst));
     }
 }

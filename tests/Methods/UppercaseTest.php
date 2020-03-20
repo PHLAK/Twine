@@ -67,6 +67,6 @@ class UppercaseTest extends TestCase
 
         $uppercased = $string->uppercase();
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $uppercased);
+        $this->assertEquals('ASCII', mb_detect_encoding($uppercased));
     }
 }

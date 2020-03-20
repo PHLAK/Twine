@@ -33,6 +33,6 @@ class SnakeCaseTest extends TestCase
 
         $snakeCase = $string->snakeCase();
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $snakeCase);
+        $this->assertEquals('ASCII', mb_detect_encoding($snakeCase));
     }
 }

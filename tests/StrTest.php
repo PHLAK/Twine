@@ -4,10 +4,11 @@ namespace PHLAK\Twine\Tests;
 
 use PHLAK\Twine;
 use PHPUnit\Framework\TestCase;
+use ReflectionClass;
 
 class StrTest extends TestCase
 {
-    protected function tearDown()
+    protected function tearDown(): void
     {
         Twine\Config\Str::setEncoding('UTF-8');
     }
@@ -104,6 +105,24 @@ class StrTest extends TestCase
         $ascii = new Twine\Str();
 
         $this->assertAttributeEquals('UTF-8', 'encoding', $utf8);
-        $this->assertAttributeEquals('ASCII', 'encoding', $ascii);
+        $this->assertEquals('ASCII', mb_detect_encoding($ascii));
+    }
+
+    /**
+     * Custom attribute assertion.
+     *
+     * @param mixed  $expected
+     * @param string $property
+     * @param object $object
+     *
+     * @return void
+     */
+    protected function assertAttributeEquals($expected, string $property, object $object): void
+    {
+        $reflection = new ReflectionClass($object);
+        $property = $reflection->getProperty($property);
+        $property->setAccessible(true);
+
+        $this->assertEquals($expected, $property->getValue($object));
     }
 }

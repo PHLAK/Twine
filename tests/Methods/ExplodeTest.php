@@ -38,7 +38,7 @@ class ExplodeTest extends TestCase
         $exploded = $string->explode(' ');
 
         foreach ($exploded as $string) {
-            $this->assertAttributeEquals('ASCII', 'encoding', $string);
+            $this->assertEquals('ASCII', mb_detect_encoding($string));
         }
     }
 }

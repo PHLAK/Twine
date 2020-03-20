@@ -43,6 +43,6 @@ class AfterTest extends TestCase
 
         $lastName = $string->after(' ');
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $lastName);
+        $this->assertEquals('ASCII', mb_detect_encoding($lastName));
     }
 }

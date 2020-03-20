@@ -33,6 +33,6 @@ class CryptTest extends TestCase
 
         $crypt = $string->crypt('NaCL');
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $crypt);
+        $this->assertEquals('ASCII', mb_detect_encoding($crypt));
     }
 }

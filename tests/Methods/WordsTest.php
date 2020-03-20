@@ -38,7 +38,7 @@ class WordsTest extends TestCase
         $words = $string->words();
 
         foreach ($words as $word) {
-            $this->assertAttributeEquals('ASCII', 'encoding', $word);
+            $this->assertEquals('ASCII', mb_detect_encoding($word));
         }
     }
 }

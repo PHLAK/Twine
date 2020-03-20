@@ -33,6 +33,6 @@ class KebabCaseTest extends TestCase
 
         $kebabCase = $string->kebabCase();
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $kebabCase);
+        $this->assertEquals('ASCII', mb_detect_encoding($kebabCase));
     }
 }

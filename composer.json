@@ -8,6 +8,16 @@
             "email": "Chris@ChrisKankiewicz.com"
         }
     ],
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/PHLAK"
+        },
+        {
+            "type": "paypal",
+            "url": "https://paypal.me/ChrisKankiewicz"
+        }
+    ],
     "support": {
         "issues": "https://github.com/PHLAK/Twine/issues"
     },
@@ -17,8 +27,8 @@
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.3",
-        "phpunit/phpunit": "^6.0 || ^7.0",
-        "psy/psysh": "^0.9.6",
+        "phpunit/phpunit": "^7.0 || ^8.0 || ^9.0",
+        "psy/psysh": "^0.10",
         "vimeo/psalm": "^3.6"
     },
     "autoload": {

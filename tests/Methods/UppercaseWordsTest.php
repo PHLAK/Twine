@@ -33,6 +33,6 @@ class UppercaseWordsTest extends TestCase
 
         $uppercasedWords = $string->uppercaseWords();
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $uppercasedWords);
+        $this->assertEquals('ASCII', mb_detect_encoding($uppercasedWords));
     }
 }

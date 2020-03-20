@@ -67,6 +67,6 @@ class LowercaseTest extends TestCase
 
         $lowercased = $string->lowercase();
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $lowercased);
+        $this->assertEquals('ASCII', mb_detect_encoding($lowercased));
     }
 }

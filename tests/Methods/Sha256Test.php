@@ -37,6 +37,6 @@ class Sha256Test extends TestCase
 
         $sha256 = $string->sha256();
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $sha256);
+        $this->assertEquals('ASCII', mb_detect_encoding($sha256));
     }
 }

@@ -38,7 +38,7 @@ class SplitTest extends TestCase
         $chunks = $string->split(3);
 
         foreach ($chunks as $chunk) {
-            $this->assertAttributeEquals('ASCII', 'encoding', $chunk);
+            $this->assertEquals('ASCII', mb_detect_encoding($chunk));
         }
     }
 }

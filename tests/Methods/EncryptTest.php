@@ -47,6 +47,6 @@ class EncryptTest extends TestCase
 
         $encrypted = $string->encrypt('secret');
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $encrypted);
+        $this->assertEquals('ASCII', mb_detect_encoding($encrypted));
     }
 }

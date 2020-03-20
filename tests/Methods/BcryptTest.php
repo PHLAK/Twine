@@ -33,6 +33,6 @@ class BcryptTest extends TestCase
 
         $bcrypt = $string->bcrypt();
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $bcrypt);
+        $this->assertEquals('ASCII', mb_detect_encoding($bcrypt));
     }
 }

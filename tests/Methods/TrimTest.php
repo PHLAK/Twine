@@ -83,6 +83,6 @@ class TrimTest extends TestCase
 
         $trimmed = $string->trim('jton');
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $trimmed);
+        $this->assertEquals('ASCII', mb_detect_encoding($trimmed));
     }
 }

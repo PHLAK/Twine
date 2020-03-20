@@ -44,6 +44,6 @@ class AppendTest extends TestCase
 
         $appended = $string->append(' jr');
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $appended);
+        $this->assertEquals('ASCII', mb_detect_encoding($appended));
     }
 }

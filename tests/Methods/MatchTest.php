@@ -40,6 +40,6 @@ class MatchTest extends TestCase
 
         $match = $string->match('/(?:\d{3}-?)\d{3}-?\d{4}/');
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $match);
+        $this->assertEquals('ASCII', mb_detect_encoding($match));
     }
 }

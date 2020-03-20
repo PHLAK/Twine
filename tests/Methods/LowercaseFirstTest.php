@@ -33,6 +33,6 @@ class LowercaseFirstTest extends TestCase
 
         $lowercasedFirst = $string->lowercaseFirst();
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $lowercasedFirst);
+        $this->assertEquals('ASCII', mb_detect_encoding($lowercasedFirst));
     }
 }

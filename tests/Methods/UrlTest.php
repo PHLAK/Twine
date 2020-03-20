@@ -55,6 +55,6 @@ class UrlTest extends TestCase
 
         $urlencoded = $string->url();
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $urlencoded);
+        $this->assertEquals('ASCII', mb_detect_encoding($urlencoded));
     }
 }

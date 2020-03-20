@@ -103,6 +103,6 @@ class PadTest extends TestCase
 
         $padded = $string->pad(20, '_');
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $padded);
+        $this->assertEquals('ASCII', mb_detect_encoding($padded));
     }
 }

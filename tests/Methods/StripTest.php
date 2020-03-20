@@ -43,6 +43,6 @@ class StripTest extends TestCase
 
         $stripped = $string->strip('pink');
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $stripped);
+        $this->assertEquals('ASCII', mb_detect_encoding($stripped));
     }
 }

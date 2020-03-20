@@ -43,6 +43,6 @@ class WrapTest extends TestCase
 
         $wraped = $string->wrap(5);
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $wraped);
+        $this->assertEquals('ASCII', mb_detect_encoding($wraped));
     }
 }

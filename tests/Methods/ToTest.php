@@ -43,6 +43,6 @@ class ToTest extends TestCase
 
         $to = $string->to('pink');
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $to);
+        $this->assertEquals('ASCII', mb_detect_encoding($to));
     }
 }

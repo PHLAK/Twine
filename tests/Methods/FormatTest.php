@@ -33,6 +33,6 @@ class FormatTest extends TestCase
 
         $formatted = $string->format('John', 'Pinkertown', 1337);
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $formatted);
+        $this->assertEquals('ASCII', mb_detect_encoding($formatted));
     }
 }

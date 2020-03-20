@@ -43,6 +43,6 @@ class ShuffleTest extends TestCase
 
         $shuffled = $string->shuffle();
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $shuffled);
+        $this->assertEquals('ASCII', mb_detect_encoding($shuffled));
     }
 }

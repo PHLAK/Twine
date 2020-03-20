@@ -43,6 +43,6 @@ class RepeatTest extends TestCase
 
         $repeated = $string->repeat(2);
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $repeated);
+        $this->assertEquals('ASCII', mb_detect_encoding($repeated));
     }
 }

@@ -37,6 +37,6 @@ class SubstringTest extends TestCase
 
         $substring = $string->substring(5, 4);
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $substring);
+        $this->assertEquals('ASCII', mb_detect_encoding($substring));
     }
 }

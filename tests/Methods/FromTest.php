@@ -43,6 +43,6 @@ class FromTest extends TestCase
 
         $from = $string->from('pink');
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $from);
+        $this->assertEquals('ASCII', mb_detect_encoding($from));
     }
 }

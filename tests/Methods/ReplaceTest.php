@@ -44,6 +44,6 @@ class ReplaceTest extends TestCase
 
         $replaced = $string->replace('john', 'bob', $count);
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $replaced);
+        $this->assertEquals('ASCII', mb_detect_encoding($replaced));
     }
 }

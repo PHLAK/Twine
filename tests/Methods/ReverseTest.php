@@ -33,6 +33,6 @@ class ReverseTest extends TestCase
 
         $reversed = $string->reverse();
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $reversed);
+        $this->assertEquals('ASCII', mb_detect_encoding($reversed));
     }
 }

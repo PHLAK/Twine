@@ -83,6 +83,6 @@ class TruncateTest extends TestCase
 
         $truncated = $string->truncate(12);
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $truncated);
+        $this->assertEquals('ASCII', mb_detect_encoding($truncated));
     }
 }

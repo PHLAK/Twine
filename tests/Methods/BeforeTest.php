@@ -43,6 +43,6 @@ class BeforeTest extends TestCase
 
         $firstName = $string->before(' ');
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $firstName);
+        $this->assertEquals('ASCII', mb_detect_encoding($firstName));
     }
 }

@@ -33,6 +33,6 @@ class LastTest extends TestCase
 
         $last = $string->last(9);
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $last);
+        $this->assertEquals('ASCII', mb_detect_encoding($last));
     }
 }

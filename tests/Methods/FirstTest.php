@@ -33,6 +33,6 @@ class FirstTest extends TestCase
 
         $first = $string->first(4);
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $first);
+        $this->assertEquals('ASCII', mb_detect_encoding($first));
     }
 }

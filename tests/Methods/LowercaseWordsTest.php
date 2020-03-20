@@ -33,6 +33,6 @@ class LowercaseWordsTest extends TestCase
 
         $lowercasedWords = $string->lowercaseWords();
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $lowercasedWords);
+        $this->assertEquals('ASCII', mb_detect_encoding($lowercasedWords));
     }
 }

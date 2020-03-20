@@ -39,6 +39,6 @@ class EchoTest extends TestCase
 
         $echoed = $string->echo();
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $echoed);
+        $this->assertEquals('ASCII', mb_detect_encoding($echoed));
     }
 }

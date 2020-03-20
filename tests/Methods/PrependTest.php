@@ -44,6 +44,6 @@ class PrependTest extends TestCase
 
         $prepended = $string->prepend('mr ');
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $prepended);
+        $this->assertEquals('ASCII', mb_detect_encoding($prepended));
     }
 }

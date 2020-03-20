@@ -47,6 +47,6 @@ class JoinTest extends TestCase
 
         $joined = $first->join($last);
 
-        $this->assertAttributeEquals('ASCII', 'encoding', $joined);
+        $this->assertEquals('ASCII', mb_detect_encoding($joined));
     }
 }
