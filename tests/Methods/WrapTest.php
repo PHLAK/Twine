@@ -5,7 +5,7 @@ namespace PHLAK\Twine\Tests\Methods;
 use PHLAK\Twine;
 use PHPUnit\Framework\TestCase;
 
-class WrapTests extends TestCase
+class WrapTest extends TestCase
 {
     public function test_it_can_be_wrapped()
     {

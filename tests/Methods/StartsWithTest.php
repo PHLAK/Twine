@@ -5,7 +5,7 @@ namespace PHLAK\Twine\Tests\Methods;
 use PHLAK\Twine;
 use PHPUnit\Framework\TestCase;
 
-class StartsWith extends TestCase
+class StartsWithTest extends TestCase
 {
     public function test_it_can_determine_if_it_starts_with_a_string()
     {
