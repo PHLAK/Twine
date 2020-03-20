@@ -95,7 +95,7 @@ class StrTest extends TestCase
     {
         $string = new Twine\Str();
 
-        $this->assertAttributeEquals('UTF-8', 'encoding', $string);
+        $this->assertEquals('UTF-8', $this->getProperty($string, 'encoding'));
     }
 
     public function test_it_can_override_the_default_internal_encoding()
@@ -104,25 +104,24 @@ class StrTest extends TestCase
         Twine\Config\Str::setEncoding('ASCII');
         $ascii = new Twine\Str();
 
-        $this->assertAttributeEquals('UTF-8', 'encoding', $utf8);
+        $this->assertEquals('UTF-8', $this->getProperty($utf8, 'encoding'));
         $this->assertEquals('ASCII', mb_detect_encoding($ascii));
     }
 
     /**
-     * Custom attribute assertion.
+     * Retrieve a protected propert from an object.
      *
-     * @param mixed  $expected
-     * @param string $property
      * @param object $object
+     * @param string $property
      *
-     * @return void
+     * @return mixed
      */
-    protected function assertAttributeEquals($expected, string $property, object $object): void
+    protected function getProperty(object $object, string $property)
     {
         $reflection = new ReflectionClass($object);
         $property = $reflection->getProperty($property);
         $property->setAccessible(true);
 
-        $this->assertEquals($expected, $property->getValue($object));
+        return $property->getValue($object);
     }
 }
