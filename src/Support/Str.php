@@ -11,7 +11,7 @@ class Str
      *
      * @return array
      */
-    public static function characters(string $string) : array
+    public static function characters(string $string): array
     {
         return preg_split('//u', $string, -1, PREG_SPLIT_NO_EMPTY);
     }
@@ -23,7 +23,7 @@ class Str
      *
      * @return array
      */
-    public static function words(string $string) : array
+    public static function words(string $string): array
     {
         preg_match_all('/\p{Lu}?[\p{Ll}0-9]+/u', $string, $matches);
 

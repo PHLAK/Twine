@@ -27,9 +27,6 @@ return PhpCsFixer\Config::create()
         'ordered_imports' => true,
         'phpdoc_no_empty_return' => false,
         'phpdoc_order' => true,
-        'return_type_declaration' => [
-            'space_before' => 'one'
-        ],
         'semicolon_after_instruction' => true,
         'single_trait_insert_per_statement' => false,
         'trailing_comma_in_multiline_array' => false,

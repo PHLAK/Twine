@@ -12,7 +12,7 @@ trait Segmentable
      *
      * @return self
      */
-    public function substring(int $start, int $length = null) : self
+    public function substring(int $start, int $length = null): self
     {
         $length = isset($length) ? $length : $this->length() - $start;
 
@@ -26,7 +26,7 @@ trait Segmentable
      *
      * @return self
      */
-    public function before(string $string) : self
+    public function before(string $string): self
     {
         return new static(mb_split($string, $this->string, 2)[0], $this->encoding);
     }
@@ -38,7 +38,7 @@ trait Segmentable
      *
      * @return self
      */
-    public function after(string $string) : self
+    public function after(string $string): self
     {
         return new static(mb_split($string, $this->string, 2)[1], $this->encoding);
     }
@@ -50,7 +50,7 @@ trait Segmentable
      *
      * @return self
      */
-    public function from(string $string) : self
+    public function from(string $string): self
     {
         return new static(mb_strstr($this->string, $string, false, $this->encoding), $this->encoding);
     }
@@ -62,7 +62,7 @@ trait Segmentable
      *
      * @return self
      */
-    public function to(string $string) : self
+    public function to(string $string): self
     {
         $substring = mb_strstr($this->string, $string, true, $this->encoding);
 
@@ -77,7 +77,7 @@ trait Segmentable
      *
      * @return self
      */
-    public function truncate(int $length, string $suffix = '...') : self
+    public function truncate(int $length, string $suffix = '...'): self
     {
         return new static(
             $this->first($length - mb_strlen($suffix, $this->encoding))->trimRight()->append($suffix),
@@ -92,7 +92,7 @@ trait Segmentable
      *
      * @return \PHLAK\Twine\Str[]
      */
-    public function chunk(int $length) : array
+    public function chunk(int $length): array
     {
         preg_match_all("/(?:.|\p{L}|\w){1,{$length}}/u", $this->string, $chunks);
 
@@ -108,7 +108,7 @@ trait Segmentable
      *
      * @return \PHLAK\Twine\Str[]
      */
-    public function split(int $chunks) : array
+    public function split(int $chunks): array
     {
         $length = ceil($this->length() / $chunks);
         preg_match_all("/(?:.|\p{L}|\w){1,{$length}}/u", $this->string, $strings);

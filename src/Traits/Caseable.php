@@ -23,7 +23,7 @@ trait Caseable
      *
      * @return self
      */
-    public function uppercase(string $mode = Config\Uppercase::ALL) : self
+    public function uppercase(string $mode = Config\Uppercase::ALL): self
     {
         Config\Uppercase::validateOption($mode);
 
@@ -66,7 +66,7 @@ trait Caseable
      *
      * @return self
      */
-    public function lowercase(string $mode = Config\Lowercase::ALL) : self
+    public function lowercase(string $mode = Config\Lowercase::ALL): self
     {
         Config\Lowercase::validateOption($mode);
 
@@ -97,7 +97,7 @@ trait Caseable
      *
      * @return self
      */
-    public function camelCase() : self
+    public function camelCase(): self
     {
         $words = array_map(function ($word) {
             return mb_strtoupper(mb_substr($word, 0, 1, $this->encoding), $this->encoding) . mb_substr($word, 1, null, $this->encoding);
@@ -116,7 +116,7 @@ trait Caseable
      *
      * @return self
      */
-    public function studlyCase() : self
+    public function studlyCase(): self
     {
         $words = array_map(function ($word) {
             return mb_strtoupper(mb_substr($word, 0, 1, $this->encoding), $this->encoding) . mb_substr($word, 1, null, $this->encoding);
@@ -130,7 +130,7 @@ trait Caseable
      *
      * @return self
      */
-    public function pascalCase() : self
+    public function pascalCase(): self
     {
         return $this->studlyCase();
     }
@@ -140,7 +140,7 @@ trait Caseable
      *
      * @return self
      */
-    public function snakeCase() : self
+    public function snakeCase(): self
     {
         $words = array_map(function ($word) {
             return mb_strtolower($word, $this->encoding);
@@ -154,7 +154,7 @@ trait Caseable
      *
      * @return self
      */
-    public function kebabCase() : self
+    public function kebabCase(): self
     {
         $words = array_map(function ($word) {
             return mb_strtolower($word, $this->encoding);

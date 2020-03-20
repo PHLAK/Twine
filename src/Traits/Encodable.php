@@ -22,7 +22,7 @@ trait Encodable
      *
      * @return self
      */
-    public function base64(string $mode = Config\Base64::ENCODE) : self
+    public function base64(string $mode = Config\Base64::ENCODE): self
     {
         Config\Base64::validateOption($mode);
 
@@ -41,7 +41,7 @@ trait Encodable
      *
      * @return self
      */
-    public function url(string $mode = Config\Url::ENCODE) : self
+    public function url(string $mode = Config\Url::ENCODE): self
     {
         Config\Url::validateOption($mode);
 
@@ -60,7 +60,7 @@ trait Encodable
      *
      * @return self
      */
-    public function hex(string $mode = Config\Hex::ENCODE) : self
+    public function hex(string $mode = Config\Hex::ENCODE): self
     {
         Config\Hex::validateOption($mode);
 

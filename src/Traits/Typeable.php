@@ -9,7 +9,7 @@ trait Typeable
      *
      * @return bool
      */
-    public function isAlphanumeric() : bool
+    public function isAlphanumeric(): bool
     {
         return ctype_alnum($this->string);
     }
@@ -19,7 +19,7 @@ trait Typeable
      *
      * @return bool
      */
-    public function isAlphabetic() : bool
+    public function isAlphabetic(): bool
     {
         return ctype_alpha($this->string);
     }
@@ -29,7 +29,7 @@ trait Typeable
      *
      * @return bool
      */
-    public function isNumeric() : bool
+    public function isNumeric(): bool
     {
         return ctype_digit($this->string);
     }
@@ -39,7 +39,7 @@ trait Typeable
      *
      * @return bool
      */
-    public function isLowercase() : bool
+    public function isLowercase(): bool
     {
         return ctype_lower($this->string);
     }
@@ -49,7 +49,7 @@ trait Typeable
      *
      * @return bool
      */
-    public function isUppercase() : bool
+    public function isUppercase(): bool
     {
         return ctype_upper($this->string);
     }
@@ -59,7 +59,7 @@ trait Typeable
      *
      * @return bool
      */
-    public function isWhitespace() : bool
+    public function isWhitespace(): bool
     {
         return ctype_space($this->string);
     }
@@ -69,7 +69,7 @@ trait Typeable
      *
      * @return bool
      */
-    public function isPunctuation() : bool
+    public function isPunctuation(): bool
     {
         return ctype_punct($this->string);
     }
@@ -79,7 +79,7 @@ trait Typeable
      *
      * @return bool
      */
-    public function isPrintable() : bool
+    public function isPrintable(): bool
     {
         return ctype_print($this->string);
     }

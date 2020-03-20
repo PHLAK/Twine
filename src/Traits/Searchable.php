@@ -11,7 +11,7 @@ trait Searchable
      *
      * @return self
      */
-    public function match(string $pattern) : self
+    public function match(string $pattern): self
     {
         preg_match($pattern, $this->string, $matches);
 
@@ -25,7 +25,7 @@ trait Searchable
      *
      * @return array
      */
-    public function matchAll(string $pattern) : array
+    public function matchAll(string $pattern): array
     {
         preg_match_all($pattern, $this->string, $matches);
 

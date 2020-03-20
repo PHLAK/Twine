@@ -43,7 +43,7 @@ class Str implements \ArrayAccess, \JsonSerializable, \Serializable
      *
      * @return string The string
      */
-    public function __toString() : string
+    public function __toString(): string
     {
         return $this->string;
     }
@@ -55,7 +55,7 @@ class Str implements \ArrayAccess, \JsonSerializable, \Serializable
      *
      * @return self
      */
-    public static function make(...$parameters) : self
+    public static function make(...$parameters): self
     {
         return new static(...$parameters);
     }
@@ -65,7 +65,7 @@ class Str implements \ArrayAccess, \JsonSerializable, \Serializable
      *
      * @return string
      */
-    public function jsonSerialize() : string
+    public function jsonSerialize(): string
     {
         return $this->string;
     }
@@ -75,7 +75,7 @@ class Str implements \ArrayAccess, \JsonSerializable, \Serializable
      *
      * @return string
      */
-    public function serialize() : string
+    public function serialize(): string
     {
         return serialize($this->string);
     }
@@ -97,7 +97,7 @@ class Str implements \ArrayAccess, \JsonSerializable, \Serializable
      *
      * @return self
      */
-    public function encoding(string $encoding) : self
+    public function encoding(string $encoding): self
     {
         return new static($this->string, $encoding);
     }

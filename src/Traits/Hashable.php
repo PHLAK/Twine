@@ -11,7 +11,7 @@ trait Hashable
      *
      * @return int The crc32 polynomial of the string
      */
-    public function crc32() : int
+    public function crc32(): int
     {
         return crc32($this->string);
     }
@@ -24,7 +24,7 @@ trait Hashable
      *
      * @return self
      */
-    public function crypt(string $salt) : self
+    public function crypt(string $salt): self
     {
         return new static(crypt($this->string, $salt), $this->encoding);
     }
@@ -41,7 +41,7 @@ trait Hashable
      *
      * @return self
      */
-    public function md5(bool $mode = Config\Md5::DEFAULT) : self
+    public function md5(bool $mode = Config\Md5::DEFAULT): self
     {
         Config\Md5::validateOption($mode);
 
@@ -60,7 +60,7 @@ trait Hashable
      *
      * @return self
      */
-    public function sha1(bool $mode = Config\Md5::DEFAULT) : self
+    public function sha1(bool $mode = Config\Md5::DEFAULT): self
     {
         Config\Md5::validateOption($mode);
 
@@ -79,7 +79,7 @@ trait Hashable
      *
      * @return self
      */
-    public function sha256(bool $mode = Config\Sha256::DEFAULT) : self
+    public function sha256(bool $mode = Config\Sha256::DEFAULT): self
     {
         Config\Sha256::validateOption($mode);
 
@@ -93,7 +93,7 @@ trait Hashable
      *
      * @return self
      */
-    public function bcrypt(array $options = []) : self
+    public function bcrypt(array $options = []): self
     {
         return new static(password_hash($this->string, PASSWORD_BCRYPT, $options), $this->encoding);
     }

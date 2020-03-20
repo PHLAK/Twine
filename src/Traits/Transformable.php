@@ -15,7 +15,7 @@ trait Transformable
      *
      * @return self
      */
-    public function insert(string $string, int $position) : self
+    public function insert(string $string, int $position): self
     {
         return new static(
             mb_substr($this->string, 0, $position, $this->encoding) . $string . mb_substr($this->string, $position, null, $this->encoding),
@@ -28,7 +28,7 @@ trait Transformable
      *
      * @return self
      */
-    public function reverse() : self
+    public function reverse(): self
     {
         return new static(
             implode(array_reverse(Support\Str::characters($this->string))),
@@ -45,7 +45,7 @@ trait Transformable
      *
      * @return self
      */
-    public function replace($search, $replace, int &$count = null) : self
+    public function replace($search, $replace, int &$count = null): self
     {
         return new static(str_replace($search, $replace, $this->string, $count), $this->encoding);
     }
@@ -55,7 +55,7 @@ trait Transformable
      *
      * @return self
      */
-    public function shuffle() : self
+    public function shuffle(): self
     {
         $characters = Support\Str::characters($this->string);
 
@@ -71,7 +71,7 @@ trait Transformable
      *
      * @return self
      */
-    public function repeat(int $multiplier, string $glue = '') : self
+    public function repeat(int $multiplier, string $glue = ''): self
     {
         $strings = array_fill(0, $multiplier, $this->string);
 
@@ -94,7 +94,7 @@ trait Transformable
      *
      * @return self
      */
-    public function wrap(int $width, string $break = "\n", bool $mode = Config\Wrap::SOFT) : self
+    public function wrap(int $width, string $break = "\n", bool $mode = Config\Wrap::SOFT): self
     {
         Config\Wrap::validateOption($mode);
 
@@ -118,7 +118,7 @@ trait Transformable
      *
      * @return self
      */
-    public function pad(int $length, string $padding = ' ', int $mode = Config\Pad::RIGHT) : self
+    public function pad(int $length, string $padding = ' ', int $mode = Config\Pad::RIGHT): self
     {
         Config\Pad::validateOption($mode);
 
@@ -144,7 +144,7 @@ trait Transformable
      *
      * @return self
      */
-    public function trim(string $mask = " \t\n\r\0\x0B", string $mode = Config\Trim::BOTH) : self
+    public function trim(string $mask = " \t\n\r\0\x0B", string $mode = Config\Trim::BOTH): self
     {
         Config\Trim::validateOption($mode);
 

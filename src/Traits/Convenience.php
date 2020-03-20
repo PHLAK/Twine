@@ -14,7 +14,7 @@ trait Convenience
      *
      * @return int
      */
-    public function count(string $string) : int
+    public function count(string $string): int
     {
         return mb_substr_count($this->string, $string, $this->encoding);
     }
@@ -24,7 +24,7 @@ trait Convenience
      *
      * @return self
      */
-    public function echo() : self
+    public function echo(): self
     {
         echo $this->string;
 
@@ -38,7 +38,7 @@ trait Convenience
      *
      * @return self
      */
-    public function format(...$args) : self
+    public function format(...$args): self
     {
         return new static(sprintf($this->string, ...$args), $this->encoding);
     }
@@ -48,7 +48,7 @@ trait Convenience
      *
      * @return int Length of the string
      */
-    public function length() : int
+    public function length(): int
     {
         return mb_strlen($this->string, $this->encoding);
     }
@@ -58,7 +58,7 @@ trait Convenience
      *
      * @return \PHLAK\Twine\Str[]
      */
-    public function words() : array
+    public function words(): array
     {
         preg_match_all('/\p{Lu}?[\p{Ll}0-9]+/u', $this->string, $matches);
 
@@ -72,7 +72,7 @@ trait Convenience
      *
      * @return \PHLAK\Twine\Str[]
      */
-    public function characters(string $mode = Config\Characters::ALL) : array
+    public function characters(string $mode = Config\Characters::ALL): array
     {
         Config\Characters::validateOption($mode);
 
@@ -95,7 +95,7 @@ trait Convenience
      *
      * @return self
      */
-    public function nth(int $step, int $offset = 0) : self
+    public function nth(int $step, int $offset = 0): self
     {
         $length = $step - 1;
         $substring = mb_substr($this->string, $offset, null, $this->encoding);
@@ -110,7 +110,7 @@ trait Convenience
      *
      * @return bool
      */
-    public function isEmpty() : bool
+    public function isEmpty(): bool
     {
         return empty($this->string);
     }
@@ -120,7 +120,7 @@ trait Convenience
      *
      * @return bool
      */
-    public function isNotEmpty() : bool
+    public function isNotEmpty(): bool
     {
         return ! empty($this->string);
     }

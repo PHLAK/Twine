@@ -30,7 +30,7 @@ trait Encryptable
      *
      * @return self
      */
-    public function encrypt(string $key, string $cipher = 'AES-128-CBC') : self
+    public function encrypt(string $key, string $cipher = 'AES-128-CBC'): self
     {
         if (! in_array($cipher, $this->supportedCiphers)) {
             throw new EncryptionException('The cipher must be one of: ' . implode(', ', $this->supportedCiphers));
@@ -67,7 +67,7 @@ trait Encryptable
      *
      * @return self
      */
-    public function decrypt(string $key, string $cipher = 'AES-128-CBC') : self
+    public function decrypt(string $key, string $cipher = 'AES-128-CBC'): self
     {
         if (! $this->isEncrypted($cipher)) {
             throw new DecryptionException('The string is not an encrypted string');

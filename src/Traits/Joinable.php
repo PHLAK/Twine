@@ -11,7 +11,7 @@ trait Joinable
      *
      * @return self
      */
-    public function append(string ...$strings) : self
+    public function append(string ...$strings): self
     {
         array_unshift($strings, $this->string);
 
@@ -25,7 +25,7 @@ trait Joinable
      *
      * @return self
      */
-    public function prepend(string ...$strings) : self
+    public function prepend(string ...$strings): self
     {
         array_push($strings, $this->string);
 

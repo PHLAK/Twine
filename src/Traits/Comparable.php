@@ -21,7 +21,7 @@ trait Comparable
      *
      * @return bool True if the string matches the comparing string
      */
-    public function equals(string $string, string $mode = Config\Equals::CASE_SENSITIVE) : bool
+    public function equals(string $string, string $mode = Config\Equals::CASE_SENSITIVE): bool
     {
         Config\Equals::validateOption($mode);
 
@@ -35,7 +35,7 @@ trait Comparable
      *
      * @return bool True if the string matches the regular expression pattern
      */
-    public function matches(string $pattern) : bool
+    public function matches(string $pattern): bool
     {
         return (bool) preg_match($pattern, $this->string);
     }
@@ -47,7 +47,7 @@ trait Comparable
      *
      * @return bool True if the string starts with $string, otherwise false
      */
-    public function startsWith(string $string) : bool
+    public function startsWith(string $string): bool
     {
         if ($this->string === '' || $string === '') {
             return false;
@@ -67,7 +67,7 @@ trait Comparable
      *
      * @return bool True if the string ends with $string, otherwise false
      */
-    public function endsWith(string $string) : bool
+    public function endsWith(string $string): bool
     {
         if ($this->string === '' || $string === '') {
             return false;
@@ -83,7 +83,7 @@ trait Comparable
      *
      * @return bool True if the string contains $string, otherwise false
      */
-    public function contains(string $string) : bool
+    public function contains(string $string): bool
     {
         return mb_strpos($this->string, $string, 0, $this->encoding) !== false;
     }
@@ -103,7 +103,7 @@ trait Comparable
      *
      * @return bool True if the string exists in $string, otherwise false
      */
-    public function in(string $string, string $mode = Config\In::CASE_SENSITIVE) : bool
+    public function in(string $string, string $mode = Config\In::CASE_SENSITIVE): bool
     {
         Config\In::validateOption($mode);
 
@@ -117,7 +117,7 @@ trait Comparable
      *
      * @return float
      */
-    public function similarity(string $string) : float
+    public function similarity(string $string): float
     {
         similar_text($this->string, $string, $percent);
 

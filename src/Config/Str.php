@@ -30,7 +30,7 @@ class Str
      *
      * @return string
      */
-    public static function getEncoding() : string
+    public static function getEncoding(): string
     {
         return self::$encoding;
     }
