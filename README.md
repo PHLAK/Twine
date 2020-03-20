@@ -13,12 +13,9 @@
   <a href="https://travis-ci.org/PHLAK/Twine"><img src="https://img.shields.io/travis/PHLAK/Twine.svg?style=flat-square" alt="Build Status"></a>
   <a href="https://styleci.io/repos/95623990"><img src="https://styleci.io/repos/95623990/shield?branch=master" alt="StyleCI"></a>
   <br>
-  <a href="https://join.slack.com/t/phlaknet/shared_invite/enQtNzk0ODkwMDA2MDg0LWI4NDAyZGRlMWEyMWNhZmJmZjgzM2Y2YTdhNmZlYzc3OGNjZWU5MDNkMTcwMWQ5OGI5ODFmMjI5OWVkZTliN2M"><img src="https://img.shields.io/badge/Join_our-Slack-611f69.svg?style=flat-square" alt="Join our"></a>
+  <a href="https://spectrum.chat/phlaknet"><img src="https://img.shields.io/badge/Join_the-Community-7b16ff.svg?style=flat-square" alt="Join our Community"></a>
   <a href="https://github.com/users/PHLAK/sponsorship"><img src="https://img.shields.io/badge/Become_a-Sponsor-cc4195.svg?style=flat-square" alt="Become a Sponsor"></a>
-  <a href="https://patreon.com/PHLAK"><img src="https://img.shields.io/badge/Become_a-Patron-e7513b.svg?style=flat-square" alt="Become a Patron"></a>
   <a href="https://paypal.me/ChrisKankiewicz"><img src="https://img.shields.io/badge/Make_a-Donation-006bb6.svg?style=flat-square" alt="One-time Donation"></a>
-  <br>
-  <a href="https://www.ChrisKankiewicz.com"><img src="https://img.shields.io/badge/created_by-Chris%20Kankiewicz-319795.svg?style=for-the-badge" alt="Author"></a>
 </p>
 
 
@@ -150,6 +147,8 @@ Available Methods
 [lowercase](https://twine.phlak.net/docs/methods/lowercase) •
 [lowercaseFirst](https://twine.phlak.net/docs/methods/lowercasefirst) •
 [lowercaseWords](https://twine.phlak.net/docs/methods/lowercasewords) •
+[match](https://twine.phlak.net/docs/methods/match) •
+[matchAll](https://twine.phlak.net/docs/methods/matchall) •
 [matches](https://twine.phlak.net/docs/methods/matches) •
 [md5](https://twine.phlak.net/docs/methods/md5) •
 [nth](https://twine.phlak.net/docs/methods/nth) •
@@ -220,7 +219,7 @@ A list of changes can be found on the [GitHub Releases](https://github.com/PHLAK
 Troubleshooting
 ---------------
 
-For general help and support join our [Slack Workspace](https://join.slack.com/t/phlaknet/shared_invite/enQtNzk0ODkwMDA2MDg0LWI4NDAyZGRlMWEyMWNhZmJmZjgzM2Y2YTdhNmZlYzc3OGNjZWU5MDNkMTcwMWQ5OGI5ODFmMjI5OWVkZTliN2M).
+For general help and support join our [Spectrum community](https://spectrum.chat/phlaknet).
 
 Please report bugs to the [GitHub Issue Tracker](https://github.com/PHLAK/Twine/issues).
 
