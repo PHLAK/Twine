@@ -22,9 +22,7 @@ abstract class Config
         $constants = $reflection->getConstants();
 
         if (! in_array($option, $constants, true)) {
-            throw new ConfigException(
-                "Invalid configuration option '{$option}'. Must be one of: " . implode(', ', $constants)
-            );
+            throw new ConfigException("Invalid configuration option '{$option}'. Must be one of: " . implode(', ', $constants));
         }
     }
 }
