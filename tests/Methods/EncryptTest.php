@@ -15,7 +15,7 @@ class EncryptTest extends TestCase
         $encrypted = $string->encrypt('secret');
 
         $this->assertInstanceOf(Twine\Str::class, $encrypted);
-        $this->assertRegExp('/[a-zA-Z0-9=+\/]+/', (string) $encrypted);
+        $this->assertMatchesRegularExpression('/[a-zA-Z0-9=+\/]+/', (string) $encrypted);
 
         return $encrypted;
     }
@@ -36,7 +36,7 @@ class EncryptTest extends TestCase
         $encrypted = $string->encrypt('secret');
 
         $this->assertInstanceOf(Twine\Str::class, $encrypted);
-        $this->assertRegExp('/[a-zA-Z0-9=+\/]+/', (string) $encrypted);
+        $this->assertMatchesRegularExpression('/[a-zA-Z0-9=+\/]+/', (string) $encrypted);
 
         return $encrypted;
     }

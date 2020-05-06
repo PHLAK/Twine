@@ -19,7 +19,7 @@ class ShuffleTest extends TestCase
 
         $this->assertInstanceOf(Twine\Str::class, $shuffled);
         $this->assertNotEquals($string, $shuffled);
-        $this->assertRegExp('/[ ehijknoprt]{14}/', (string) $shuffled);
+        $this->assertMatchesRegularExpression('/[ ehijknoprt]{14}/', (string) $shuffled);
     }
 
     public function test_a_multibyte_string_can_be_shuffled()
@@ -34,7 +34,7 @@ class ShuffleTest extends TestCase
 
         $this->assertInstanceOf(Twine\Str::class, $shuffled);
         $this->assertNotEquals($string, $shuffled);
-        $this->assertRegExp('/[ 本天任宮堂茂]{7}/', (string) $shuffled);
+        $this->assertMatchesRegularExpression('/[ 本天任宮堂茂]{7}/', (string) $shuffled);
     }
 
     public function test_it_preserves_encoding()
