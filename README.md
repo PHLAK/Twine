@@ -68,7 +68,7 @@ $string = str('john pinkerton');
 ```
 
 Once you have a concrete `Twine\Str` instance you may treat it like any other
-string. This includes echoing it or using any of PHP's built in string functions
+string. This includes echoing it or using any of PHP's built-in string functions
 against it.
 
 ```php
@@ -79,7 +79,7 @@ str_shuffle($string) // Returns something like 'enoipo ktnjhnr'
 strlen($string); // Returns 14
 ```
 
-The strength of Twine, however comes from it's built-in methods.
+The strength of Twine, however comes from its built-in methods.
 
 ```php
 $string->echo(); // Echos 'john pinkerton'
@@ -95,7 +95,7 @@ $string->snakeCase(); // Returns 'john_pinkerton'
 ```
 
 At this point you're ready to start using Twine by calling any of its many
-built in methods.
+built-in methods.
 
 Available Methods
 -----------------
