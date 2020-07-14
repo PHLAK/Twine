@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.9.5@0cfe565d0afbcd31eadcc281b9017b5692911661">
-  <file src="src/Traits/Transformable.php">
-    <PossiblyNullArgument occurrences="1">
-      <code>$count</code>
-    </PossiblyNullArgument>
+<files psalm-version="3.12.2@7c7ebd068f8acaba211d4a2c707c4ba90874fa26">
+  <file src="src/Traits/Hashable.php">
+    <InvalidScalarArgument occurrences="1">
+      <code>PASSWORD_BCRYPT</code>
+    </InvalidScalarArgument>
   </file>
 </files>
