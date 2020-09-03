@@ -2,6 +2,7 @@
 
 namespace PHLAK\Twine;
 
+/** @psalm-consistent-constructor */
 class Str implements \ArrayAccess, \JsonSerializable, \Serializable
 {
     use Traits\Aliases,
