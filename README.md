@@ -212,13 +212,13 @@ $string->base64()->wrap(76, "\r\n", Twine\Config\Wrap::HARD);
 
 Additional details available in the full documentation at <https://twine.phlak.net>.
 
-Multi-Byte Strings
----------
+MultiByte Strings
+-----------------
 
-Twine aims for multi-byte string compatibility by relying on PHP's
+Twine aims for mltibyte string compatibility by relying on PHP's
 [Multibyte String extension](https://www.php.net/manual/en/book.mbstring.php)
 (mbstring) to perform string operations. For this reason, the mbstring extension
-is required. Multi-byte strings include Unicode encodings such as UTF-8 and UCS-2.
+is required. Multibyte strings include Unicode encodings such as UTF-8 and UCS-2.
 
 Changelog
 ---------
