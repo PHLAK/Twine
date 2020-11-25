@@ -27,7 +27,6 @@
         "ext-openssl": "*"
     },
     "require-dev": {
-        "php": ">=7.4",
         "friendsofphp/php-cs-fixer": "^2.16.1",
         "phlak/coding-standards": "^1.1",
         "phpunit/phpunit": "^9.1",
