@@ -8,8 +8,6 @@ class Str
      * Split a string into an array of characters.
      *
      * @param string $string A String
-     *
-     * @return array
      */
     public static function characters(string $string): array
     {
@@ -20,8 +18,6 @@ class Str
      * Split an string into an array of words.
      *
      * @param string $string A String
-     *
-     * @return array
      */
     public static function words(string $string): array
     {

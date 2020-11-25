@@ -4,7 +4,7 @@ namespace PHLAK\Twine\Config;
 
 final class Trim extends Config
 {
-    const BOTH = 'trim';
-    const LEFT = 'ltrim';
-    const RIGHT = 'rtrim';
+    public const BOTH = 'trim';
+    public const LEFT = 'ltrim';
+    public const RIGHT = 'rtrim';
 }

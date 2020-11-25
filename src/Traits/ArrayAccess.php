@@ -8,8 +8,6 @@ trait ArrayAccess
      * Determine whether a character exists in the string at a specific offset.
      *
      * @param int $offset Offset to check for existence
-     *
-     * @return bool
      */
     public function offsetExists($offset): bool
     {
@@ -32,12 +30,10 @@ trait ArrayAccess
     /**
      * Not implemented due to immutability.
      *
-     * @param int   $offset Not implemented
-     * @param mixed $value  Not implemented
+     * @param int $offset Not implemented
+     * @param mixed $value Not implemented
      *
      * @throws \RuntimeException
-     *
-     * @return void
      */
     public function offsetSet($offset, $value)
     {
@@ -50,8 +46,6 @@ trait ArrayAccess
      * @param int $offset Not implemented
      *
      * @throws \RuntimeException
-     *
-     * @return void
      */
     public function offsetUnset($offset)
     {

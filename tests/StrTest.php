@@ -111,9 +111,6 @@ class StrTest extends TestCase
     /**
      * Retrieve a protected propert from an object.
      *
-     * @param object $object
-     * @param string $property
-     *
      * @return mixed
      */
     protected function getProperty(object $object, string $property)

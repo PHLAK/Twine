@@ -7,10 +7,8 @@ trait Segmentable
     /**
      * Return part of the string.
      *
-     * @param int $start  Starting position of the substring
+     * @param int $start Starting position of the substring
      * @param int $length Length of substring
-     *
-     * @return self
      */
     public function substring(int $start, int $length = null): self
     {
@@ -23,8 +21,6 @@ trait Segmentable
      * Return part of the string occurring before a specific string.
      *
      * @param string $string The delimiting string
-     *
-     * @return self
      */
     public function before(string $string): self
     {
@@ -35,8 +31,6 @@ trait Segmentable
      * Return part of the string occurring after a specific string.
      *
      * @param string $string The delimiting string
-     *
-     * @return self
      */
     public function after(string $string): self
     {
@@ -47,8 +41,6 @@ trait Segmentable
      * Return part of the string starting from the first occurance of another string.
      *
      * @param string $string The string to start from
-     *
-     * @return self
      */
     public function from(string $string): self
     {
@@ -59,8 +51,6 @@ trait Segmentable
      * Return part of the string up to and including the first occurance of another string.
      *
      * @param string $string The string to end with
-     *
-     * @return self
      */
     public function to(string $string): self
     {
@@ -72,10 +62,8 @@ trait Segmentable
     /**
      * Truncate a string to a specific length and append a suffix.
      *
-     * @param int    $length Length string will be truncated to, including suffix
+     * @param int $length Length string will be truncated to, including suffix
      * @param string $suffix Suffix to append (default: '...')
-     *
-     * @return self
      */
     public function truncate(int $length, string $suffix = '...'): self
     {

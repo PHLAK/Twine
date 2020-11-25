@@ -20,8 +20,6 @@ trait Caseable
      *   - Twine\Config\Uppercase::WORDS - Uppercase the first character of each word of the string
      *
      * @throws \PHLAK\Twine\Exceptions\ConfigException
-     *
-     * @return self
      */
     public function uppercase(string $mode = Config\Uppercase::ALL): self
     {
@@ -63,8 +61,6 @@ trait Caseable
      *   - Twine\Config\Lowercase::WORDS - Lowercase the first character of each word of the string
      *
      * @throws \PHLAK\Twine\Exceptions\ConfigException
-     *
-     * @return self
      */
     public function lowercase(string $mode = Config\Lowercase::ALL): self
     {
@@ -92,11 +88,7 @@ trait Caseable
         }
     }
 
-    /**
-     * Convert the string to camelCase.
-     *
-     * @return self
-     */
+    /** Convert the string to camelCase. */
     public function camelCase(): self
     {
         $words = array_map(function ($word) {
@@ -111,11 +103,7 @@ trait Caseable
         );
     }
 
-    /**
-     * Convert the string to StudlyCase.
-     *
-     * @return self
-     */
+    /** Convert the string to StudlyCase. */
     public function studlyCase(): self
     {
         $words = array_map(function ($word) {
@@ -125,21 +113,13 @@ trait Caseable
         return new static(implode('', $words), $this->encoding);
     }
 
-    /**
-     * Convert the string to PascalCase.
-     *
-     * @return self
-     */
+    /** Convert the string to PascalCase. */
     public function pascalCase(): self
     {
         return $this->studlyCase();
     }
 
-    /**
-     * Convert the string to snake_case.
-     *
-     * @return self
-     */
+    /** Convert the string to snake_case. */
     public function snakeCase(): self
     {
         $words = array_map(function ($word) {
@@ -149,11 +129,7 @@ trait Caseable
         return new static(implode('_', $words), $this->encoding);
     }
 
-    /**
-     * Convert the string to kebab-case.
-     *
-     * @return self
-     */
+    /** Convert the string to kebab-case. */
     public function kebabCase(): self
     {
         $words = array_map(function ($word) {

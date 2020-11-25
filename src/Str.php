@@ -28,7 +28,7 @@ class Str implements \ArrayAccess, \JsonSerializable, \Serializable
     /**
      * Create a new Str object.
      *
-     * @param mixed  $string   A string
+     * @param mixed $string A string
      * @param string $encoding The internal encoding
      *
      * @return \PHLAK\Twine\Str
@@ -53,39 +53,25 @@ class Str implements \ArrayAccess, \JsonSerializable, \Serializable
      * Static make constructor.
      *
      * @param mixed ...$parameters The parameters
-     *
-     * @return self
      */
     public static function make(...$parameters): self
     {
         return new static(...$parameters);
     }
 
-    /**
-     * Returns the object as a string when json_encode is called.
-     *
-     * @return string
-     */
+    /** Returns the object as a string when json_encode is called. */
     public function jsonSerialize(): string
     {
         return $this->string;
     }
 
-    /**
-     * Serialize the string.
-     *
-     * @return string
-     */
+    /** Serialize the string. */
     public function serialize(): string
     {
         return serialize($this->string);
     }
 
-    /**
-     * Unserialize the string.
-     *
-     * @return void
-     */
+    /** Unserialize the string. */
     public function unserialize($serialized)
     {
         $this->string = unserialize($serialized);
@@ -95,8 +81,6 @@ class Str implements \ArrayAccess, \JsonSerializable, \Serializable
      * Set the internal character encoding.
      *
      * @param string $encoding The desired character encoding
-     *
-     * @return self
      */
     public function encoding(string $encoding): self
     {

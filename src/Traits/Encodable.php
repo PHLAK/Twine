@@ -19,8 +19,6 @@ trait Encodable
      *   - Twin\Config\Base64::DECODE - Decode the string from base64
      *
      * @throws \PHLAK\Twine\Exceptions\ConfigException
-     *
-     * @return self
      */
     public function base64(string $mode = Config\Base64::ENCODE): self
     {
@@ -38,8 +36,6 @@ trait Encodable
      *   - Twine\Config\Url::DECODE - Decode the string from a URL safe string
      *
      * @param string $mode A url mode flag
-     *
-     * @return self
      */
     public function url(string $mode = Config\Url::ENCODE): self
     {
@@ -57,8 +53,6 @@ trait Encodable
      *
      *   - Twine\Config\Hex::ENCODE - Encode the string to hex
      *   - Twine\Config\Hex::DECODE - Decode the string from hex
-     *
-     * @return self
      */
     public function hex(string $mode = Config\Hex::ENCODE): self
     {
@@ -69,12 +63,14 @@ trait Encodable
                 $string = array_reduce(Support\Str::characters($this->string), function (string $str, string $char) {
                     return $str . '\x' . dechex(mb_ord($char, $this->encoding));
                 }, '');
+
                 break;
 
             case Config\Hex::DECODE:
                 $string = preg_replace_callback('/\\\\x([0-9A-Fa-f]+)/', function (array $matched) {
                     return (string) mb_chr((int) hexdec($matched[1]), $this->encoding);
                 }, $this->string);
+
                 break;
 
             default:

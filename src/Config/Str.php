@@ -13,8 +13,6 @@ class Str
      * Set the default internal character encoding.
      *
      * @param string $encoding The desired character encoding
-     *
-     * @return void
      */
     public static function setEncoding(string $encoding)
     {
@@ -25,11 +23,7 @@ class Str
         self::$encoding = $encoding;
     }
 
-    /**
-     * Get the default internal character encoding.
-     *
-     * @return string
-     */
+    /** Get the default internal character encoding. */
     public static function getEncoding(): string
     {
         return self::$encoding;

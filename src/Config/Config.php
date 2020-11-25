@@ -13,8 +13,6 @@ abstract class Config
      * @param mixed $option A given option
      *
      * @throws \PHLAK\Twine\Exceptions\ConfigException
-     *
-     * @return void
      */
     public static function validateOption($option)
     {

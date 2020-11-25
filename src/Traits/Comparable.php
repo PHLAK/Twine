@@ -10,7 +10,7 @@ trait Comparable
      * Determine if the string is equal to another string.
      *
      * @param string $string The string to compare against
-     * @param string $mode   An equals mode flag
+     * @param string $mode An equals mode flag
      *
      * Available mode flags:
      *
@@ -92,7 +92,7 @@ trait Comparable
      * Determine if the string exists in another string.
      *
      * @param string $string The string to compare against
-     * @param string $mode   Flag for case-sensitive and case-insensitive mode
+     * @param string $mode Flag for case-sensitive and case-insensitive mode
      *
      * Available mode flags:
      *
@@ -114,8 +114,6 @@ trait Comparable
      * Calculate the similarity percentage between two strings.
      *
      * @param string $string The string to compare against
-     *
-     * @return float
      */
     public function similarity(string $string): float
     {

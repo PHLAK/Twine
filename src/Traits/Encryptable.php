@@ -12,13 +12,13 @@ trait Encryptable
         'aes-128-cbc',
         'AES-128-CBC',
         'aes-256-cbc',
-        'AES-256-CBC'
+        'AES-256-CBC',
     ];
 
     /**
      * Encrypt the string.
      *
-     * @param string $key    The key for encrypting
+     * @param string $key The key for encrypting
      * @param string $cipher The cipher method
      *
      * Supported cipher methods:
@@ -27,8 +27,6 @@ trait Encryptable
      *   - AES-256-CBC
      *
      * @throws \PHLAK\Twine\Exceptions\EncryptionException
-     *
-     * @return self
      */
     public function encrypt(string $key, string $cipher = 'AES-128-CBC'): self
     {
@@ -42,7 +40,7 @@ trait Encryptable
         $json = json_encode([
             'iv' => $iv = base64_encode($iv),
             'ciphertext' => $ciphertext,
-            'hmac' => hash_hmac('sha256', $iv . $ciphertext, $key)
+            'hmac' => hash_hmac('sha256', $iv . $ciphertext, $key),
         ]);
 
         if (json_last_error() !== JSON_ERROR_NONE) {
@@ -55,7 +53,7 @@ trait Encryptable
     /**
      * Decrypt the string.
      *
-     * @param string $key    The key for decrypting
+     * @param string $key The key for decrypting
      * @param string $cipher The cipher method
      *
      * Supported cipher methods:
@@ -64,8 +62,6 @@ trait Encryptable
      *   - AES-256-CBC
      *
      * @throws \PHLAK\Twine\Exceptions\DecryptionException
-     *
-     * @return self
      */
     public function decrypt(string $key, string $cipher = 'AES-128-CBC'): self
     {

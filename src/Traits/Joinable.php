@@ -8,8 +8,6 @@ trait Joinable
      * Append one or more strings to the string.
      *
      * @param string ...$strings One or more strings to append
-     *
-     * @return self
      */
     public function append(string ...$strings): self
     {
@@ -22,8 +20,6 @@ trait Joinable
      * Prepend one or more strings to the string.
      *
      * @param string ...$strings One or more strings to prepend
-     *
-     * @return self
      */
     public function prepend(string ...$strings): self
     {
@@ -36,7 +32,7 @@ trait Joinable
      * Join two strings with another string in between.
      *
      * @param string $string The string to be joined
-     * @param string $glue   A string to use as the glue
+     * @param string $glue A string to use as the glue
      *
      * @return self
      */

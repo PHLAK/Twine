@@ -21,8 +21,6 @@ trait Hashable
      * alternative algorithm that may be available on the system.
      *
      * @param string $salt A salt string to base the hashing on
-     *
-     * @return self
      */
     public function crypt(string $salt): self
     {
@@ -38,8 +36,6 @@ trait Hashable
      *
      *   - Twine\Config\Md5::DEFAULT - Return the hash
      *   - Twine\Config\Md5::RAW - Return the raw binary of the hash
-     *
-     * @return self
      */
     public function md5(bool $mode = Config\Md5::DEFAULT): self
     {
@@ -57,8 +53,6 @@ trait Hashable
      *
      *   - Twine\Config\Sha1::DEFAULT - Return the hash
      *   - Twine\Config\Sha1::RAW - Return the raw binary of the hash
-     *
-     * @return self
      */
     public function sha1(bool $mode = Config\Md5::DEFAULT): self
     {
@@ -76,8 +70,6 @@ trait Hashable
      *
      *   - Twine\Config\Sha256::DEFAULT - Return the hash
      *   - Twine\Config\Sha256::RAW - Return the raw binary of the hash
-     *
-     * @return self
      */
     public function sha256(bool $mode = Config\Sha256::DEFAULT): self
     {
@@ -90,8 +82,6 @@ trait Hashable
      * Creates a hash from the string using the CRYPT_BLOWFISH algorithm.
      *
      * @param array $options An array of bcrypt hasing options
-     *
-     * @return self
      */
     public function bcrypt(array $options = []): self
     {

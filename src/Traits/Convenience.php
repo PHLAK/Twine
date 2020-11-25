@@ -11,19 +11,13 @@ trait Convenience
      * Count the number of occurrences of a substring in the string.
      *
      * @param string $string The substring to count
-     *
-     * @return int
      */
     public function count(string $string): int
     {
         return mb_substr_count($this->string, $string, $this->encoding);
     }
 
-    /**
-     * Echo the string.
-     *
-     * @return self
-     */
+    /** Echo the string. */
     public function echo(): self
     {
         echo $this->string;
@@ -35,8 +29,6 @@ trait Convenience
      * Return the formatted string.
      *
      * @param mixed ...$args Any number of elements to fill the string
-     *
-     * @return self
      */
     public function format(...$args): self
     {
@@ -90,10 +82,8 @@ trait Convenience
     /**
      * Get every nth character of the string.
      *
-     * @param int $step   The number of characters to step
+     * @param int $step The number of characters to step
      * @param int $offset The string offset to start at
-     *
-     * @return self
      */
     public function nth(int $step, int $offset = 0): self
     {
@@ -105,21 +95,13 @@ trait Convenience
         return new static(implode($matches[1]), $this->encoding);
     }
 
-    /**
-     * Determine if the string is empty.
-     *
-     * @return bool
-     */
+    /** Determine if the string is empty. */
     public function isEmpty(): bool
     {
         return empty($this->string);
     }
 
-    /**
-     * Determine if the string is not empty.
-     *
-     * @return bool
-     */
+    /** Determine if the string is not empty. */
     public function isNotEmpty(): bool
     {
         return ! empty($this->string);

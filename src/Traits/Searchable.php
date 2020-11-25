@@ -8,8 +8,6 @@ trait Searchable
      * Return the first occurence of a matched pattern.
      *
      * @param string $pattern The patern to be matched
-     *
-     * @return self
      */
     public function match(string $pattern): self
     {
@@ -22,8 +20,6 @@ trait Searchable
      * Return an array of occurences of a matched pattern.
      *
      * @param string $pattern The pattern to be matched
-     *
-     * @return array
      */
     public function matchAll(string $pattern): array
     {

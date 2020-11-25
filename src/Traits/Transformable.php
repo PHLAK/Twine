@@ -10,10 +10,8 @@ trait Transformable
     /**
      * Insert some text into the string at a given position.
      *
-     * @param string $string   Text to insert
-     * @param int    $position Position at which to insert the text
-     *
-     * @return self
+     * @param string $string Text to insert
+     * @param int $position Position at which to insert the text
      */
     public function insert(string $string, int $position): self
     {
@@ -23,11 +21,7 @@ trait Transformable
         );
     }
 
-    /**
-     * Reverse the string.
-     *
-     * @return self
-     */
+    /** Reverse the string. */
     public function reverse(): self
     {
         return new static(
@@ -39,22 +33,16 @@ trait Transformable
     /**
      * Replace parts of the string with another string.
      *
-     * @param string|array $search  One or more strings to be replaced
+     * @param string|array $search One or more strings to be replaced
      * @param string|array $replace One or more strings to replace with
-     * @param int|null     $count   This will be set to the number of replacements performed
-     *
-     * @return self
+     * @param int|null $count This will be set to the number of replacements performed
      */
     public function replace($search, $replace, int &$count = null): self
     {
         return new static(str_replace($search, $replace, $this->string, $count), $this->encoding);
     }
 
-    /**
-     * Randomly shuffle the characters of the string.
-     *
-     * @return self
-     */
+    /** Randomly shuffle the characters of the string. */
     public function shuffle(): self
     {
         $characters = Support\Str::characters($this->string);
@@ -68,8 +56,6 @@ trait Transformable
      * Repeat the string multiple times.
      *
      * @param int $multiplier Number of times to repeat the string
-     *
-     * @return self
      */
     public function repeat(int $multiplier, string $glue = ''): self
     {
@@ -81,9 +67,9 @@ trait Transformable
     /**
      * Wrap the string to a given number of characters.
      *
-     * @param int    $width Number of characters at which to wrap
+     * @param int $width Number of characters at which to wrap
      * @param string $break Character used to break the string
-     * @param bool   $mode  A wrap mode flag
+     * @param bool $mode A wrap mode flag
      *
      * Available wrap modes:
      *
@@ -91,8 +77,6 @@ trait Transformable
      *   - Twine\Config\Wrap::HARD - Always wrap at or before the specified width
      *
      * @throws \PHLAK\Twine\Exceptions\ConfigException
-     *
-     * @return self
      */
     public function wrap(int $width, string $break = "\n", bool $mode = Config\Wrap::SOFT): self
     {
@@ -104,9 +88,9 @@ trait Transformable
     /**
      * Pad the string to a specific length.
      *
-     * @param int    $length  Length to pad the string to
+     * @param int $length Length to pad the string to
      * @param string $padding Character to pad the string with
-     * @param int    $mode    A pad mode flag
+     * @param int $mode A pad mode flag
      *
      * Available mode flags:
      *
@@ -115,8 +99,6 @@ trait Transformable
      *   - Twine\Config\Pad::BOTH - Pad both sides of the string
      *
      * @throws \PHLAK\Twine\Exceptions\ConfigException
-     *
-     * @return self
      */
     public function pad(int $length, string $padding = ' ', int $mode = Config\Pad::RIGHT): self
     {
@@ -141,8 +123,6 @@ trait Transformable
      *   - Twine\Config\Trim::RIGHT - Only trim characters from the end of the strring
      *
      * @throws \PHLAK\Twine\Exceptions\ConfigException
-     *
-     * @return self
      */
     public function trim(string $mask = " \t\n\r\0\x0B", string $mode = Config\Trim::BOTH): self
     {
@@ -167,7 +147,7 @@ trait Transformable
      * Split a string by a string.
      *
      * @param string $delimiter The boundary string
-     * @param int    $limit     the maximum number of elements in the exploded array.
+     * @param int $limit the maximum number of elements in the exploded array.
      *
      *   - If limit is set and positive, the returned array will contain a maximum of limit elements with the last element containing the rest of string.
      *   - If the limit parameter is negative, all components except the last -limit are returned.
