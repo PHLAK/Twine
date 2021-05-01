@@ -3,8 +3,7 @@
 namespace PHLAK\Twine\Tests;
 
 use PHLAK\Twine;
-use PHPUnit\Framework\TestCase;
-use ReflectionClass;
+use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
 class StrTest extends TestCase
 {
@@ -95,7 +94,7 @@ class StrTest extends TestCase
     {
         $string = new Twine\Str();
 
-        $this->assertEquals('UTF-8', $this->getProperty($string, 'encoding'));
+        $this->assertEquals('UTF-8', $this->getPropertyValue($string, 'encoding'));
     }
 
     public function test_it_can_override_the_default_internal_encoding()
@@ -104,21 +103,7 @@ class StrTest extends TestCase
         Twine\Config\Str::setEncoding('ASCII');
         $ascii = new Twine\Str();
 
-        $this->assertEquals('UTF-8', $this->getProperty($utf8, 'encoding'));
+        $this->assertEquals('UTF-8', $this->getPropertyValue($utf8, 'encoding'));
         $this->assertEquals('ASCII', mb_detect_encoding($ascii));
-    }
-
-    /**
-     * Retrieve a protected propert from an object.
-     *
-     * @return mixed
-     */
-    protected function getProperty(object $object, string $property)
-    {
-        $reflection = new ReflectionClass($object);
-        $property = $reflection->getProperty($property);
-        $property->setAccessible(true);
-
-        return $property->getValue($object);
     }
 }

@@ -4,7 +4,7 @@ namespace PHLAK\Twine\Tests;
 
 use PHLAK\Twine\Exceptions\ConfigException;
 use PHLAK\Twine\Exceptions\TwineException;
-use PHPUnit\Framework\TestCase;
+use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
 class ConfigExceptionTest extends TestCase
 {

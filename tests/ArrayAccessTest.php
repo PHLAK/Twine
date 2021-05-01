@@ -3,7 +3,7 @@
 namespace PHLAK\Twine\Tests;
 
 use PHLAK\Twine;
-use PHPUnit\Framework\TestCase;
+use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
 class ArrayAccessTest extends TestCase
 {

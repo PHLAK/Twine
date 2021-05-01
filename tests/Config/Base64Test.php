@@ -3,7 +3,7 @@
 namespace PHLAK\Twine\Tests\Config;
 
 use PHLAK\Twine;
-use PHPUnit\Framework\TestCase;
+use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
 class Base64Test extends TestCase
 {

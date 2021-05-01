@@ -29,9 +29,9 @@
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.16.1",
         "phlak/coding-standards": "^1.1",
-        "phpunit/phpunit": "^9.1",
         "psy/psysh": "^0.10",
-        "vimeo/psalm": "^4.2"
+        "vimeo/psalm": "^4.2",
+        "yoast/phpunit-polyfills": "^0.2.0"
     },
     "autoload": {
         "psr-4": {
