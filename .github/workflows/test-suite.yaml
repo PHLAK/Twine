@@ -1,0 +1,56 @@
+name: Twine Test Suite
+on: [push]
+
+jobs:
+  coding-standards:
+    name: Coding Standards
+    runs-on: 'ubuntu-latest'
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Install PHP Dependencies
+        run: composer update
+
+      - name: Verify Coding Standards
+        run: vendor/bin/php-cs-fixer fix --diff --dry-run
+
+  static-analysis:
+    name: Static Analysis
+    runs-on: 'ubuntu-latest'
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Install PHP Dependencies
+        run: composer update
+
+      - name: Run Static Analysis
+        run: vendor/bin/psalm
+
+  tests:
+    name: Tests
+    runs-on: 'ubuntu-latest'
+
+    strategy:
+      matrix:
+        php-versions: ['7.2', '7.3', '7.4', '8.0']
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
+          coverage: xdebug
+
+      - name: Install PHP Dependencies
+        run: composer update
+
+      - name: Run Tests
+        run: vendor/bin/phpunit --coverage-text
+
