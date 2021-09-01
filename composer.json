@@ -31,7 +31,7 @@
         "phlak/coding-standards": "^1.1",
         "psy/psysh": "^0.10",
         "vimeo/psalm": "^4.2",
-        "yoast/phpunit-polyfills": "^0.2.0"
+        "yoast/phpunit-polyfills": "^1.0.1"
     },
     "autoload": {
         "psr-4": {
