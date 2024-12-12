@@ -81,7 +81,7 @@ class StrTest extends TestCase
         return $serialized;
     }
 
-    /** @depends test_it_can_be_serialized */
+    #[\PHPUnit\Framework\Attributes\Depends('test_it_can_be_serialized')]
     public function test_it_can_be_unserialized($serialized)
     {
         $unserialized = unserialize($serialized);
@@ -92,16 +92,16 @@ class StrTest extends TestCase
 
     public function test_it_has_a_default_internal_encoding()
     {
-        $string = new Twine\Str();
+        $string = new Twine\Str;
 
         $this->assertEquals('UTF-8', $this->getPropertyValue($string, 'encoding'));
     }
 
     public function test_it_can_override_the_default_internal_encoding()
     {
-        $utf8 = new Twine\Str();
+        $utf8 = new Twine\Str;
         Twine\Config\Str::setEncoding('ASCII');
-        $ascii = new Twine\Str();
+        $ascii = new Twine\Str;
 
         $this->assertEquals('UTF-8', $this->getPropertyValue($utf8, 'encoding'));
         $this->assertEquals('ASCII', mb_detect_encoding($ascii));

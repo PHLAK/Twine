@@ -19,7 +19,7 @@ class UrlTest extends TestCase
         return $urlencoded;
     }
 
-    /** @depends test_it_can_be_url_encoded */
+    #[\PHPUnit\Framework\Attributes\Depends('test_it_can_be_url_encoded')]
     public function test_it_can_be_url_decoded(Twine\Str $urlencodedString)
     {
         $urldecoded = $urlencodedString->url(Twine\Config\Url::DECODE);
@@ -40,7 +40,7 @@ class UrlTest extends TestCase
         return $urlencoded;
     }
 
-    /** @depends test_a_multibyte_string_can_be_url_encoded */
+    #[\PHPUnit\Framework\Attributes\Depends('test_a_multibyte_string_can_be_url_encoded')]
     public function test_a_multibyte_string_can_be_url_decoded(Twine\Str $urlencodedString)
     {
         $urldecoded = $urlencodedString->url(Twine\Config\Url::DECODE);

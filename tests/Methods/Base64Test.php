@@ -20,7 +20,7 @@ class Base64Test extends TestCase
         return $base64;
     }
 
-    /** @depends test_it_can_be_base64_encoded */
+    #[\PHPUnit\Framework\Attributes\Depends('test_it_can_be_base64_encoded')]
     public function test_it_can_be_base64_decoded(Twine\Str $string)
     {
         $plaintext = $string->base64(Twine\Config\Base64::DECODE);

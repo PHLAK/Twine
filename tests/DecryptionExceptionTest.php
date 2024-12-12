@@ -10,7 +10,7 @@ class DecryptionExceptionTest extends TestCase
 {
     public function test_it_extends_the_base_twine_exception()
     {
-        $exception = new DecryptionException();
+        $exception = new DecryptionException;
 
         $this->assertInstanceOf(TwineException::class, $exception);
     }

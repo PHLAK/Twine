@@ -2,6 +2,4 @@
 
 namespace PHLAK\Twine\Exceptions;
 
-class ConfigException extends TwineException
-{
-}
+class ConfigException extends TwineException {}

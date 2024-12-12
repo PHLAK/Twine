@@ -2,6 +2,4 @@
 
 namespace PHLAK\Twine\Exceptions;
 
-class DecryptionException extends TwineException
-{
-}
+class DecryptionException extends TwineException {}

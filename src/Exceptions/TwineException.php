@@ -4,6 +4,4 @@ namespace PHLAK\Twine\Exceptions;
 
 use Exception;
 
-abstract class TwineException extends Exception
-{
-}
+abstract class TwineException extends Exception {}

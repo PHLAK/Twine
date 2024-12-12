@@ -5,19 +5,19 @@ namespace PHLAK\Twine;
 /** @psalm-consistent-constructor */
 class Str implements \ArrayAccess, \JsonSerializable, \Serializable
 {
-    use Traits\Aliases,
-        Traits\ArrayAccess,
-        Traits\Caseable,
-        Traits\Comparable,
-        Traits\Convenience,
-        Traits\Encodable,
-        Traits\Encryptable,
-        Traits\Hashable,
-        Traits\Joinable,
-        Traits\Searchable,
-        Traits\Segmentable,
-        Traits\Transformable,
-        Traits\Typeable;
+    use Traits\Aliases;
+    use Traits\ArrayAccess;
+    use Traits\Caseable;
+    use Traits\Comparable;
+    use Traits\Convenience;
+    use Traits\Encodable;
+    use Traits\Encryptable;
+    use Traits\Hashable;
+    use Traits\Joinable;
+    use Traits\Searchable;
+    use Traits\Segmentable;
+    use Traits\Transformable;
+    use Traits\Typeable;
 
     /** @var string A string */
     protected $string;

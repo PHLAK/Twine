@@ -19,7 +19,7 @@ class HexTest extends TestCase
         return $hex;
     }
 
-    /** @depends test_it_can_be_hex_encoded */
+    #[\PHPUnit\Framework\Attributes\Depends('test_it_can_be_hex_encoded')]
     public function test_it_can_be_hex_decoded(Twine\Str $hex)
     {
         $plaintext = $hex->hex(Twine\Config\Hex::DECODE);
@@ -40,7 +40,7 @@ class HexTest extends TestCase
         return $hex;
     }
 
-    /** @depends test_a_multibyte_string_can_be_hex_encoded */
+    #[\PHPUnit\Framework\Attributes\Depends('test_a_multibyte_string_can_be_hex_encoded')]
     public function test_a_multibyte_string_can_be_hex_decoded(Twine\Str $hex)
     {
         $plaintext = $hex->hex(Twine\Config\Hex::DECODE);
