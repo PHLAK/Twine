@@ -28,8 +28,8 @@
     },
     "require-dev": {
         "phlak/coding-standards": "^4.0",
+        "phpstan/phpstan": "^2.0",
         "psy/psysh": "^0.12",
-        "vimeo/psalm": "^4.2",
         "yoast/phpunit-polyfills": "^3.0"
     },
     "autoload": {

@@ -32,7 +32,7 @@ trait Convenience
      */
     public function format(...$args): self
     {
-        return new static(sprintf($this->string, ...$args), $this->encoding);
+        return new self(sprintf($this->string, ...$args), $this->encoding);
     }
 
     /**
@@ -55,7 +55,7 @@ trait Convenience
         preg_match_all('/\p{Lu}?[\p{Ll}0-9]+/u', $this->string, $matches);
 
         return array_map(function (string $words) {
-            return new static($words, $this->encoding);
+            return new self($words, $this->encoding);
         }, $matches[0]);
     }
 
@@ -75,7 +75,7 @@ trait Convenience
         }
 
         return array_map(function ($character) {
-            return new static($character, $this->encoding);
+            return new self($character, $this->encoding);
         }, $characters);
     }
 
@@ -92,7 +92,7 @@ trait Convenience
 
         preg_match_all("/(?:^|(?:.|\p{L}|\w){{$length}})(.|\p{L}|\w)/u", $substring, $matches);
 
-        return new static(implode($matches[1]), $this->encoding);
+        return new self(implode($matches[1]), $this->encoding);
     }
 
     /** Determine if the string is empty. */

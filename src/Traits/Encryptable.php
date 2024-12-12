@@ -2,12 +2,13 @@
 
 namespace PHLAK\Twine\Traits;
 
+use JsonException;
 use PHLAK\Twine\Exceptions\DecryptionException;
 use PHLAK\Twine\Exceptions\EncryptionException;
 
 trait Encryptable
 {
-    /** @var array Supported cipher methods */
+    /** @var list<string> Supported cipher methods */
     protected $supportedCiphers = [
         'aes-128-cbc',
         'AES-128-CBC',
@@ -34,20 +35,26 @@ trait Encryptable
             throw new EncryptionException('The cipher must be one of: ' . implode(', ', $this->supportedCiphers));
         }
 
-        $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length($cipher));
+        $length = openssl_cipher_iv_length($cipher);
+
+        if (! $length) {
+            throw new EncryptionException('Failed to get cipher IV length');
+        }
+
+        $iv = openssl_random_pseudo_bytes($length);
         $ciphertext = openssl_encrypt($this->string, $cipher, $key = md5($key), 0, $iv);
 
-        $json = json_encode([
-            'iv' => $iv = base64_encode($iv),
-            'ciphertext' => $ciphertext,
-            'hmac' => hash_hmac('sha256', $iv . $ciphertext, $key),
-        ]);
-
-        if (json_last_error() !== JSON_ERROR_NONE) {
+        try {
+            $json = json_encode([
+                'iv' => $iv = base64_encode($iv),
+                'ciphertext' => $ciphertext,
+                'hmac' => hash_hmac('sha256', $iv . $ciphertext, $key),
+            ], JSON_THROW_ON_ERROR);
+        } catch (JsonException) {
             throw new EncryptionException('Failed to encrypt the string');
         }
 
-        return new static(base64_encode($json), $this->encoding);
+        return new self(base64_encode($json), $this->encoding);
     }
 
     /**
@@ -82,7 +89,7 @@ trait Encryptable
             throw new DecryptionException('Failed to decrypt the string');
         }
 
-        return new static($plaintext, $this->encoding);
+        return new self($plaintext, $this->encoding);
     }
 
     /**

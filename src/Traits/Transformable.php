@@ -15,7 +15,7 @@ trait Transformable
      */
     public function insert(string $string, int $position): self
     {
-        return new static(
+        return new self(
             mb_substr($this->string, 0, $position, $this->encoding) . $string . mb_substr($this->string, $position, null, $this->encoding),
             $this->encoding
         );
@@ -24,7 +24,7 @@ trait Transformable
     /** Reverse the string. */
     public function reverse(): self
     {
-        return new static(
+        return new self(
             implode(array_reverse(Support\Str::characters($this->string))),
             $this->encoding
         );
@@ -33,13 +33,13 @@ trait Transformable
     /**
      * Replace parts of the string with another string.
      *
-     * @param string|array $search One or more strings to be replaced
-     * @param string|array $replace One or more strings to replace with
+     * @param string|array<string> $search One or more strings to be replaced
+     * @param string|array<string> $replace One or more strings to replace with
      * @param int|null $count This will be set to the number of replacements performed
      */
-    public function replace($search, $replace, int &$count = null): self
+    public function replace(string|array $search, string|array $replace, int &$count = null): self
     {
-        return new static(str_replace($search, $replace, $this->string, $count), $this->encoding);
+        return new self(str_replace($search, $replace, $this->string, $count), $this->encoding);
     }
 
     /** Randomly shuffle the characters of the string. */
@@ -49,7 +49,7 @@ trait Transformable
 
         shuffle($characters);
 
-        return new static(implode($characters), $this->encoding);
+        return new self(implode($characters), $this->encoding);
     }
 
     /**
@@ -61,7 +61,7 @@ trait Transformable
     {
         $strings = array_fill(0, $multiplier, $this->string);
 
-        return new static(implode($glue, $strings), $this->encoding);
+        return new self(implode($glue, $strings), $this->encoding);
     }
 
     /**
@@ -82,7 +82,7 @@ trait Transformable
     {
         Config\Wrap::validateOption($mode);
 
-        return new static(wordwrap($this->string, $width, $break, $mode), $this->encoding);
+        return new self(wordwrap($this->string, $width, $break, $mode), $this->encoding);
     }
 
     /**
@@ -106,7 +106,7 @@ trait Transformable
 
         $diff = strlen($this->string) - mb_strlen($this->string, $this->encoding);
 
-        return new static(str_pad($this->string, $length + $diff, $padding, $mode), $this->encoding);
+        return new self(str_pad($this->string, $length + $diff, $padding, $mode), $this->encoding);
     }
 
     /**
@@ -128,17 +128,15 @@ trait Transformable
     {
         Config\Trim::validateOption($mode);
 
-        return new static($mode($this->string, $mask), $this->encoding);
+        return new self($mode($this->string, $mask), $this->encoding);
     }
 
     /**
      * Remove one or more strings from the string.
      *
-     * @param string|array $search One or more strings to be removed
-     *
-     * @return self
+     * @param string|array<string> $search One or more strings to be removed
      */
-    public function strip($search)
+    public function strip(string|array $search): self
     {
         return $this->replace($search, '');
     }
@@ -146,7 +144,7 @@ trait Transformable
     /**
      * Split a string by a string.
      *
-     * @param string $delimiter The boundary string
+     * @param non-empty-string $delimiter The boundary string
      * @param int $limit the maximum number of elements in the exploded array.
      *
      *   - If limit is set and positive, the returned array will contain a maximum of limit elements with the last element containing the rest of string.
@@ -158,7 +156,7 @@ trait Transformable
     public function explode(string $delimiter, int $limit = PHP_INT_MAX)
     {
         return array_map(function ($string) {
-            return new static($string, $this->encoding);
+            return new self($string, $this->encoding);
         }, explode($delimiter, $this->string, $limit));
     }
 }

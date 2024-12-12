@@ -14,7 +14,7 @@ abstract class Config
      *
      * @throws \PHLAK\Twine\Exceptions\ConfigException
      */
-    public static function validateOption($option)
+    public static function validateOption($option): void
     {
         $reflection = new ReflectionClass(static::class);
         $constants = $reflection->getConstants();

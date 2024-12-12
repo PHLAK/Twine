@@ -13,7 +13,7 @@ trait Joinable
     {
         array_unshift($strings, $this->string);
 
-        return new static(implode($strings), $this->encoding);
+        return new self(implode($strings), $this->encoding);
     }
 
     /**
@@ -25,7 +25,7 @@ trait Joinable
     {
         array_push($strings, $this->string);
 
-        return new static(implode($strings), $this->encoding);
+        return new self(implode($strings), $this->encoding);
     }
 
     /**
@@ -38,6 +38,6 @@ trait Joinable
      */
     public function join(string $string, string $glue = ' ')
     {
-        return new static($this->string . $glue . $string, $this->encoding);
+        return new self($this->string . $glue . $string, $this->encoding);
     }
 }

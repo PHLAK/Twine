@@ -13,20 +13,22 @@ trait Searchable
     {
         preg_match($pattern, $this->string, $matches);
 
-        return new static($matches[0], $this->encoding);
+        return new self($matches[0], $this->encoding);
     }
 
     /**
      * Return an array of occurences of a matched pattern.
      *
      * @param string $pattern The pattern to be matched
+     *
+     * @return list<string>
      */
     public function matchAll(string $pattern): array
     {
         preg_match_all($pattern, $this->string, $matches);
 
         return array_map(function (string $match) {
-            return new static($match, $this->encoding);
+            return new self($match, $this->encoding);
         }, $matches[0]);
     }
 }

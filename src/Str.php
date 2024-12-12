@@ -2,8 +2,12 @@
 
 namespace PHLAK\Twine;
 
-/** @psalm-consistent-constructor */
-class Str implements \ArrayAccess, \JsonSerializable, \Serializable
+use ArrayAccess;
+use JsonSerializable;
+use Serializable;
+
+/** @implements ArrayAccess<int, string> */
+class Str implements ArrayAccess, JsonSerializable, Serializable
 {
     use Traits\Aliases;
     use Traits\ArrayAccess;
@@ -56,7 +60,7 @@ class Str implements \ArrayAccess, \JsonSerializable, \Serializable
      */
     public static function make(...$parameters): self
     {
-        return new static(...$parameters);
+        return new self(...$parameters);
     }
 
     /** Returns the object as a string when json_encode is called. */
@@ -84,6 +88,6 @@ class Str implements \ArrayAccess, \JsonSerializable, \Serializable
      */
     public function encoding(string $encoding): self
     {
-        return new static($this->string, $encoding);
+        return new self($this->string, $encoding);
     }
 }

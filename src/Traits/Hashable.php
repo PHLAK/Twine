@@ -24,7 +24,7 @@ trait Hashable
      */
     public function crypt(string $salt): self
     {
-        return new static(crypt($this->string, $salt), $this->encoding);
+        return new self(crypt($this->string, $salt), $this->encoding);
     }
 
     /**
@@ -41,7 +41,7 @@ trait Hashable
     {
         Config\Md5::validateOption($mode);
 
-        return new static(hash('md5', $this->string, $mode), $this->encoding);
+        return new self(hash('md5', $this->string, $mode), $this->encoding);
     }
 
     /**
@@ -58,7 +58,7 @@ trait Hashable
     {
         Config\Md5::validateOption($mode);
 
-        return new static(hash('sha1', $this->string, $mode), $this->encoding);
+        return new self(hash('sha1', $this->string, $mode), $this->encoding);
     }
 
     /**
@@ -75,16 +75,16 @@ trait Hashable
     {
         Config\Sha256::validateOption($mode);
 
-        return new static(hash('sha256', $this->string, $mode), $this->encoding);
+        return new self(hash('sha256', $this->string, $mode), $this->encoding);
     }
 
     /**
      * Creates a hash from the string using the CRYPT_BLOWFISH algorithm.
      *
-     * @param array $options An array of bcrypt hasing options
+     * @param array<int|string> $options An array of bcrypt hasing options
      */
     public function bcrypt(array $options = []): self
     {
-        return new static(password_hash($this->string, PASSWORD_BCRYPT, $options), $this->encoding);
+        return new self(password_hash($this->string, PASSWORD_BCRYPT, $options), $this->encoding);
     }
 }

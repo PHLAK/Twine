@@ -14,7 +14,7 @@ class Str
      *
      * @param string $encoding The desired character encoding
      */
-    public static function setEncoding(string $encoding)
+    public static function setEncoding(string $encoding): void
     {
         if (! in_array($encoding, mb_list_encodings())) {
             throw new ConfigException('Invalid encoding specified');

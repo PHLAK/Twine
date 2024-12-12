@@ -18,10 +18,8 @@ trait ArrayAccess
      * Retrieve a character from the string at a specific offset.
      *
      * @param int $offset Position of character to get
-     *
-     * @return mixed
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): string
     {
         // NOTE: Return an instance of Str?
         return $this->string[$offset];
@@ -35,7 +33,7 @@ trait ArrayAccess
      *
      * @throws \RuntimeException
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         throw new \RuntimeException('Cannot set string offsets; Twine\Str objects are immutable');
     }
@@ -47,7 +45,7 @@ trait ArrayAccess
      *
      * @throws \RuntimeException
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         throw new \RuntimeException('Cannot unset string offsets; Twine\Str objects are immutable');
     }

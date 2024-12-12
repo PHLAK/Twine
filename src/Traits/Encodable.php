@@ -24,7 +24,7 @@ trait Encodable
     {
         Config\Base64::validateOption($mode);
 
-        return new static($mode($this->string), $this->encoding);
+        return new self($mode($this->string), $this->encoding);
     }
 
     /**
@@ -41,7 +41,7 @@ trait Encodable
     {
         Config\Url::validateOption($mode);
 
-        return new static($mode($this->string), $this->encoding);
+        return new self($mode($this->string), $this->encoding);
     }
 
     /**
@@ -61,7 +61,7 @@ trait Encodable
         switch ($mode) {
             case Config\Hex::ENCODE:
                 $string = array_reduce(Support\Str::characters($this->string), function (string $str, string $char) {
-                    return $str . '\x' . dechex(mb_ord($char, $this->encoding));
+                    return $str . '\x' . dechex((int) mb_ord($char, $this->encoding));
                 }, '');
 
                 break;
@@ -77,6 +77,6 @@ trait Encodable
                 throw new RuntimeException('Invalid mode');
         }
 
-        return new static($string, $this->encoding);
+        return new self($string, $this->encoding);
     }
 }

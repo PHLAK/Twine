@@ -27,10 +27,10 @@ trait Caseable
 
         switch ($mode) {
             case Config\Uppercase::ALL:
-                return new static(mb_strtoupper($this->string, $this->encoding), $this->encoding);
+                return new self(mb_strtoupper($this->string, $this->encoding), $this->encoding);
 
             case Config\Uppercase::FIRST:
-                return new static(
+                return new self(
                     mb_strtoupper(
                         mb_substr($this->string, 0, 1, $this->encoding), $this->encoding
                     ) . mb_substr($this->string, 1, null, $this->encoding),
@@ -42,7 +42,7 @@ trait Caseable
                     return mb_strtoupper($matched[1], $this->encoding) . mb_substr($matched[0], 1, null, $this->encoding);
                 }, $this->string);
 
-                return new static($string, $this->encoding);
+                return new self($string, $this->encoding);
 
             default:
                 throw new RuntimeException('Invalid mode');
@@ -68,10 +68,10 @@ trait Caseable
 
         switch ($mode) {
             case Config\Lowercase::ALL:
-                return new static(mb_strtolower($this->string, $this->encoding), $this->encoding);
+                return new self(mb_strtolower($this->string, $this->encoding), $this->encoding);
 
             case Config\Lowercase::FIRST:
-                return new static(
+                return new self(
                     mb_strtolower(mb_substr($this->string, 0, 1, $this->encoding), $this->encoding) . mb_substr($this->string, 1, null, $this->encoding),
                     $this->encoding
                 );
@@ -81,7 +81,7 @@ trait Caseable
                     return mb_strtolower($matched[1], $this->encoding) . mb_substr($matched[0], 1, null, $this->encoding);
                 }, $this->string);
 
-                return new static($string, $this->encoding);
+                return new self($string, $this->encoding);
 
             default:
                 throw new RuntimeException('Invalid mode');
@@ -97,7 +97,7 @@ trait Caseable
 
         $word = implode('', $words);
 
-        return new static(
+        return new self(
             mb_strtolower(mb_substr($word, 0, 1, $this->encoding), $this->encoding) . mb_substr($word, 1, null, $this->encoding),
             $this->encoding
         );
@@ -110,7 +110,7 @@ trait Caseable
             return mb_strtoupper(mb_substr($word, 0, 1, $this->encoding), $this->encoding) . mb_substr($word, 1, null, $this->encoding);
         }, Support\Str::words($this->string));
 
-        return new static(implode('', $words), $this->encoding);
+        return new self(implode('', $words), $this->encoding);
     }
 
     /** Convert the string to PascalCase. */
@@ -126,7 +126,7 @@ trait Caseable
             return mb_strtolower($word, $this->encoding);
         }, Support\Str::words($this->string));
 
-        return new static(implode('_', $words), $this->encoding);
+        return new self(implode('_', $words), $this->encoding);
     }
 
     /** Convert the string to kebab-case. */
@@ -136,6 +136,6 @@ trait Caseable
             return mb_strtolower($word, $this->encoding);
         }, Support\Str::words($this->string));
 
-        return new static(implode('-', $words), $this->encoding);
+        return new self(implode('-', $words), $this->encoding);
     }
 }
