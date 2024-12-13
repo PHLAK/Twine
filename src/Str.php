@@ -7,7 +7,7 @@ use JsonSerializable;
 use Serializable;
 
 /** @implements ArrayAccess<int, string> */
-class Str implements ArrayAccess, JsonSerializable, Serializable
+class Str implements ArrayAccess, JsonSerializable
 {
     use Traits\Aliases;
     use Traits\ArrayAccess;
@@ -53,6 +53,22 @@ class Str implements ArrayAccess, JsonSerializable, Serializable
         return $this->string;
     }
 
+    /** @return array{string: string, encoding: string} */
+    public function __serialize(): array
+    {
+        return [
+            'string' => $this->string,
+            'encoding' => $this->encoding,
+        ];
+    }
+
+    /** @param array{string: string, encoding: string} $data */
+    public function __unserialize(array $data): void
+    {
+        $this->string = $data['string'];
+        $this->encoding = $data['encoding'];
+    }
+
     /**
      * Static make constructor.
      *
@@ -67,18 +83,6 @@ class Str implements ArrayAccess, JsonSerializable, Serializable
     public function jsonSerialize(): string
     {
         return $this->string;
-    }
-
-    /** Serialize the string. */
-    public function serialize(): string
-    {
-        return serialize($this->string);
-    }
-
-    /** Unserialize the string. */
-    public function unserialize($serialized)
-    {
-        $this->string = unserialize($serialized);
     }
 
     /**
