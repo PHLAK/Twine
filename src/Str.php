@@ -4,7 +4,6 @@ namespace PHLAK\Twine;
 
 use ArrayAccess;
 use JsonSerializable;
-use Serializable;
 
 /** @implements ArrayAccess<int, string> */
 class Str implements ArrayAccess, JsonSerializable
@@ -23,11 +22,11 @@ class Str implements ArrayAccess, JsonSerializable
     use Traits\Transformable;
     use Traits\Typeable;
 
-    /** @var string A string */
-    protected $string;
+    /** The raw string. */
+    public readonly string $string;
 
-    /** @var string The internal character encoding */
-    protected $encoding;
+    /** The internal character encoding. */
+    public readonly string $encoding;
 
     /**
      * Create a new Str object.
