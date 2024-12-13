@@ -3,11 +3,15 @@
 namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class CharactersTest extends TestCase
 {
-    public function test_it_can_be_split_into_an_array_of_characters()
+    #[Test]
+    public function it_can_be_split_into_an_array_of_characters(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -19,7 +23,8 @@ class CharactersTest extends TestCase
         }
     }
 
-    public function test_it_can_be_split_into_an_array_of_unique_characters()
+    #[Test]
+    public function it_can_be_split_into_an_array_of_unique_characters(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -31,7 +36,7 @@ class CharactersTest extends TestCase
         }
     }
 
-    public function test_a_multibyte_string_can_be_split_into_an_array_of_characters()
+    public function a_multibyte_string_can_be_split_into_an_array_of_characters(): void
     {
         $string = new Twine\Str('宮本 茂');
 
@@ -43,7 +48,8 @@ class CharactersTest extends TestCase
         }
     }
 
-    public function test_it_preserves_encoding()
+    #[Test]
+    public function it_preserves_encoding(): void
     {
         $string = new Twine\Str('john pinkerton', 'ASCII');
 

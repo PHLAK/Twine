@@ -3,11 +3,15 @@
 namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class ReverseTest extends TestCase
 {
-    public function test_it_can_be_reversed()
+    #[Test]
+    public function it_can_be_reversed(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -17,7 +21,8 @@ class ReverseTest extends TestCase
         $this->assertEquals('notreknip nhoj', $reveresed);
     }
 
-    public function test_it_is_multibyte_compatible()
+    #[Test]
+    public function it_is_multibyte_compatible(): void
     {
         $string = new Twine\Str('宮本 茂');
 
@@ -27,7 +32,8 @@ class ReverseTest extends TestCase
         $this->assertEquals('茂 本宮', $reveresed);
     }
 
-    public function test_it_preserves_encoding()
+    #[Test]
+    public function it_preserves_encoding(): void
     {
         $string = new Twine\Str('john pinkerton', 'ASCII');
 

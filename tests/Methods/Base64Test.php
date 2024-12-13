@@ -4,11 +4,17 @@ namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
 use PHLAK\Twine\Exceptions\ConfigException;
+use PHLAK\Twine\Str;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Depends;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class Base64Test extends TestCase
 {
-    public function test_it_can_be_base64_encoded()
+    #[Test]
+    public function it_can_be_base64_encoded(): Str
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -20,8 +26,8 @@ class Base64Test extends TestCase
         return $base64;
     }
 
-    #[\PHPUnit\Framework\Attributes\Depends('test_it_can_be_base64_encoded')]
-    public function test_it_can_be_base64_decoded(Twine\Str $string)
+    #[Test, Depends('it_can_be_base64_encoded')]
+    public function test_it_can_be_base64_decoded(Twine\Str $string): void
     {
         $plaintext = $string->base64(Twine\Config\Base64::DECODE);
 
@@ -29,7 +35,8 @@ class Base64Test extends TestCase
         $this->assertEquals('john pinkerton', $plaintext);
     }
 
-    public function test_it_throws_an_exception_when_base64_encoded_with_an_invalid_config_option()
+    #[Test]
+    public function it_throws_an_exception_when_base64_encoded_with_an_invalid_config_option(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -38,7 +45,8 @@ class Base64Test extends TestCase
         $string->base64('invalid');
     }
 
-    public function test_a_multibyte_string_can_be_base64_encoded()
+    #[Test]
+    public function a_multibyte_string_can_be_base64_encoded(): void
     {
         $string = new Twine\Str('宮本 茂');
 

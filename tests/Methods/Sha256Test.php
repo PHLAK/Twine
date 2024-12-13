@@ -3,11 +3,15 @@
 namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class Sha256Test extends TestCase
 {
-    public function test_it_can_be_hashed_with_sha256()
+    #[Test]
+    public function it_can_be_hashed_with_sha256(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -19,7 +23,7 @@ class Sha256Test extends TestCase
         $this->assertEquals(base64_decode('dDQ/bD8vPz5XNH8/LT8jXC9HP0k/Sz9pKz8/ZRU/Pw=='), $raw);
     }
 
-    public function test_a_multibyte_string_can_be_hashed_with_sha256()
+    public function a_multibyte_string_can_be_hashed_with_sha256(): void
     {
         $string = new Twine\Str('宮本 茂');
 
@@ -31,7 +35,8 @@ class Sha256Test extends TestCase
         $this->assertEquals(base64_decode('Iz9RPz8IPxkke34bP1s/D1hjPz4/YV5bDT8QHD8/MC8='), $raw);
     }
 
-    public function test_it_preserves_encoding()
+    #[Test]
+    public function it_preserves_encoding(): void
     {
         $string = new Twine\Str('john pinkerton', 'ASCII');
 

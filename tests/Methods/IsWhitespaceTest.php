@@ -3,11 +3,15 @@
 namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class IsWhitespaceTest extends TestCase
 {
-    public function test_it_can_determine_if_the_string_is_whitespace()
+    #[Test]
+    public function it_can_determine_if_the_string_is_whitespace(): void
     {
         $string = new Twine\Str(" \r\n\t");
 
@@ -16,7 +20,8 @@ class IsWhitespaceTest extends TestCase
         $this->assertTrue($whitespace);
     }
 
-    public function test_it_can_determine_if_the_string_is_not_whitespace()
+    #[Test]
+    public function it_can_determine_if_the_string_is_not_whitespace(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -25,7 +30,8 @@ class IsWhitespaceTest extends TestCase
         $this->assertFalse($notWhitespace);
     }
 
-    public function test_it_can_determine_if_a_multibyte_string_is_whitespace()
+    #[Test]
+    public function it_can_determine_if_a_multibyte_string_is_whitespace(): void
     {
         $string = new Twine\Str('任天堂');
 

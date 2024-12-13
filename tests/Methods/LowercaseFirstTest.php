@@ -3,11 +3,15 @@
 namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class LowercaseFirstTest extends TestCase
 {
-    public function test_it_can_lowercase_the_first_letter_only()
+    #[Test]
+    public function it_can_lowercase_the_first_letter_only(): void
     {
         $string = new Twine\Str('JOHN PINKERTON');
 
@@ -17,7 +21,8 @@ class LowercaseFirstTest extends TestCase
         $this->assertEquals('jOHN PINKERTON', $lcFirst);
     }
 
-    public function test_it_can_lowercase_the_first_letter_of_a_multibyte_string()
+    #[Test]
+    public function it_can_lowercase_the_first_letter_of_a_multibyte_string(): void
     {
         $first = new Twine\Str('ДЖОН ПИНКЕРТОН');
 
@@ -27,7 +32,8 @@ class LowercaseFirstTest extends TestCase
         $this->assertEquals('дЖОН ПИНКЕРТОН', $lowercasedFirst);
     }
 
-    public function test_it_preserves_encoding()
+    #[Test]
+    public function it_preserves_encoding(): void
     {
         $string = new Twine\Str('JOHN PINKERTON', 'ASCII');
 

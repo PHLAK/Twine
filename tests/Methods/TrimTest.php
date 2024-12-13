@@ -4,11 +4,15 @@ namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
 use PHLAK\Twine\Exceptions\ConfigException;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class TrimTest extends TestCase
 {
-    public function test_it_can_be_trimed()
+    #[Test]
+    public function it_can_be_trimed(): void
     {
         $string = new Twine\Str('   foo bar     ');
 
@@ -18,7 +22,8 @@ class TrimTest extends TestCase
         $this->assertEquals('foo bar', $trimmed);
     }
 
-    public function test_it_can_trim_specific_chracters()
+    #[Test]
+    public function it_can_trim_specific_chracters(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -28,7 +33,8 @@ class TrimTest extends TestCase
         $this->assertEquals('hn pinker', $trimmed);
     }
 
-    public function test_it_can_trim_characters_from_the_left_only()
+    #[Test]
+    public function it_can_trim_characters_from_the_left_only(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -38,7 +44,8 @@ class TrimTest extends TestCase
         $this->assertEquals('hn pinkerton', $leftTrimmed);
     }
 
-    public function test_it_can_trim_characters_from_the_right_only()
+    #[Test]
+    public function it_can_trim_characters_from_the_right_only(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -48,7 +55,8 @@ class TrimTest extends TestCase
         $this->assertEquals('john pinker', $rightTrimmed);
     }
 
-    public function test_it_throws_an_exception_when_trimming_with_an_invalid_config_option()
+    #[Test]
+    public function it_throws_an_exception_when_trimming_with_an_invalid_config_option(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -57,7 +65,8 @@ class TrimTest extends TestCase
         $string->trim(' ', 'invalid');
     }
 
-    public function test_it_is_multibyte_compatible()
+    #[Test]
+    public function it_is_multibyte_compatible(): void
     {
         $string = new Twine\Str('   宮本 茂     ');
 
@@ -67,7 +76,8 @@ class TrimTest extends TestCase
         $this->assertEquals('宮本 茂', $trimmed);
     }
 
-    public function test_it_can_trim_specific_chracters_from_a_multibyte_string()
+    #[Test]
+    public function it_can_trim_specific_chracters_from_a_multibyte_string(): void
     {
         $string = new Twine\Str('宮本 茂');
 
@@ -77,7 +87,8 @@ class TrimTest extends TestCase
         $this->assertEquals('本 ', $trimmed);
     }
 
-    public function test_it_preserves_encoding()
+    #[Test]
+    public function it_preserves_encoding(): void
     {
         $string = new Twine\Str('john pinkerton', 'ASCII');
 

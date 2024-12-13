@@ -3,11 +3,15 @@
 namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class ContainsTest extends TestCase
 {
-    public function test_it_can_determine_if_it_contains_a_string()
+    #[Test]
+    public function it_can_determine_if_it_contains_a_string(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -15,7 +19,8 @@ class ContainsTest extends TestCase
         $this->assertFalse($string->contains('purple'));
     }
 
-    public function test_it_can_determine_if_a_multibyte_string_contains_a_multibyte_string()
+    #[Test]
+    public function it_can_determine_if_a_multibyte_string_contains_a_multibyte_string(): void
     {
         $string = new Twine\Str('宮本 茂');
 

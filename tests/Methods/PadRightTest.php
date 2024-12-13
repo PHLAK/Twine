@@ -3,11 +3,15 @@
 namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class PadRightTest extends TestCase
 {
-    public function test_it_can_be_right_padded()
+    #[Test]
+    public function it_can_be_right_padded(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -17,7 +21,7 @@ class PadRightTest extends TestCase
         $this->assertEquals('john pinkerton______', $rightPadded);
     }
 
-    public function test_a_multibyte_string_can_be_right_padded()
+    public function a_multibyte_string_can_be_right_padded(): void
     {
         $string = new Twine\Str('宮本 茂');
 
@@ -27,7 +31,8 @@ class PadRightTest extends TestCase
         $this->assertEquals('宮本 茂______', $rightPadded);
     }
 
-    public function test_it_preserves_encoding()
+    #[Test]
+    public function it_preserves_encoding(): void
     {
         $string = new Twine\Str('john pinkerton', 'ASCII');
 

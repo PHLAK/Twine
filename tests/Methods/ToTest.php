@@ -3,11 +3,15 @@
 namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class ToTest extends TestCase
 {
-    public function test_it_can_get_part_of_a_string_ending_with_another_string()
+    #[Test]
+    public function it_can_get_part_of_a_string_ending_with_another_string(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -17,7 +21,8 @@ class ToTest extends TestCase
         $this->assertEquals('john pink', $to);
     }
 
-    public function test_it_returns_an_empty_string_when_getting_part_of_a_string_ending_with_a_non_existent_string()
+    #[Test]
+    public function it_returns_an_empty_string_when_getting_part_of_a_string_ending_with_a_non_existent_string(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -27,7 +32,8 @@ class ToTest extends TestCase
         $this->assertEquals('', $to);
     }
 
-    public function test_it_can_get_part_of_a_multibyte_string_ending_with_another_string()
+    #[Test]
+    public function it_can_get_part_of_a_multibyte_string_ending_with_another_string(): void
     {
         $string = new Twine\Str('宮本 茂');
 
@@ -37,7 +43,8 @@ class ToTest extends TestCase
         $this->assertEquals('宮本', $to);
     }
 
-    public function test_it_preserves_encoding()
+    #[Test]
+    public function it_preserves_encoding(): void
     {
         $string = new Twine\Str('john pinkerton', 'ASCII');
 

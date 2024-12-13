@@ -3,11 +3,15 @@
 namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class IsPrintableTest extends TestCase
 {
-    public function test_it_can_determine_if_the_string_is_printable()
+    #[Test]
+    public function it_can_determine_if_the_string_is_printable(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -16,7 +20,8 @@ class IsPrintableTest extends TestCase
         $this->assertTrue($printable);
     }
 
-    public function test_it_can_determine_if_the_string_is_not_printable()
+    #[Test]
+    public function it_can_determine_if_the_string_is_not_printable(): void
     {
         $string = new Twine\Str("john\npinkerton");
 
@@ -25,7 +30,8 @@ class IsPrintableTest extends TestCase
         $this->assertFalse($notPrintable);
     }
 
-    public function test_it_can_determine_if_a_multibyte_string_is_printable()
+    #[Test]
+    public function it_can_determine_if_a_multibyte_string_is_printable(): void
     {
         $string = new Twine\Str('任天堂');
 

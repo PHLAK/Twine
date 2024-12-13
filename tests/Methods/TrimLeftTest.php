@@ -3,11 +3,15 @@
 namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class TrimLeftTest extends TestCase
 {
-    public function test_it_can_be_left_trimmed()
+    #[Test]
+    public function it_can_be_left_trimmed(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -17,7 +21,7 @@ class TrimLeftTest extends TestCase
         $this->assertEquals('hn pinkerton', $leftTrimmed);
     }
 
-    public function test_a_multibyte_string_can_be_left_trimmed()
+    public function a_multibyte_string_can_be_left_trimmed(): void
     {
         $string = new Twine\Str('宮本 茂');
 
@@ -27,7 +31,8 @@ class TrimLeftTest extends TestCase
         $this->assertEquals('本 茂', $leftTrimmed);
     }
 
-    public function test_it_preserves_encoding()
+    #[Test]
+    public function it_preserves_encoding(): void
     {
         $string = new Twine\Str('john pinkerton', 'ASCII');
 

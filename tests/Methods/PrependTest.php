@@ -3,11 +3,15 @@
 namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class PrependTest extends TestCase
 {
-    public function test_it_can_be_prepended()
+    #[Test]
+    public function it_can_be_prepended(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -17,7 +21,8 @@ class PrependTest extends TestCase
         $this->assertEquals('mr john pinkerton', $prepended);
     }
 
-    public function test_it_can_be_prepended_with_multiple_strings()
+    #[Test]
+    public function it_can_be_prepended_with_multiple_strings(): void
     {
         $first = new Twine\Str('john');
         $last = new Twine\Str('pinkerton');
@@ -28,7 +33,8 @@ class PrependTest extends TestCase
         $this->assertEquals('john pinkerton', $prepended);
     }
 
-    public function test_it_is_multibyte_compatible()
+    #[Test]
+    public function it_is_multibyte_compatible(): void
     {
         $first = new Twine\Str('茂');
 
@@ -38,7 +44,8 @@ class PrependTest extends TestCase
         $this->assertEquals('宮本 茂', $prepended);
     }
 
-    public function test_it_preserves_encoding()
+    #[Test]
+    public function it_preserves_encoding(): void
     {
         $string = new Twine\Str('john pinkerton', 'ASCII');
 

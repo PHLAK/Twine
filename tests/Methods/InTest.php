@@ -3,11 +3,15 @@
 namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class InTest extends TestCase
 {
-    public function test_it_can_determine_if_it_exists_in_another_string()
+    #[Test]
+    public function it_can_determine_if_it_exists_in_another_string(): void
     {
         $string = new Twine\Str('pink');
 
@@ -16,7 +20,8 @@ class InTest extends TestCase
         $this->assertTrue($in);
     }
 
-    public function test_it_can_determine_if_it_does_not_exist_in_another_string()
+    #[Test]
+    public function it_can_determine_if_it_does_not_exist_in_another_string(): void
     {
         $string = new Twine\Str('purple');
 
@@ -25,7 +30,8 @@ class InTest extends TestCase
         $this->assertFalse($notIn);
     }
 
-    public function test_it_can_determine_if_it_exists_in_another_string_case_insensitive()
+    #[Test]
+    public function it_can_determine_if_it_exists_in_another_string_case_insensitive(): void
     {
         $string = new Twine\Str('Pink');
 
@@ -34,7 +40,8 @@ class InTest extends TestCase
         $this->assertTrue($in);
     }
 
-    public function test_it_can_determine_if_a_multibyte_string_exists_in_another_string()
+    #[Test]
+    public function it_can_determine_if_a_multibyte_string_exists_in_another_string(): void
     {
         $string = new Twine\Str('任天堂');
 

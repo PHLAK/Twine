@@ -3,11 +3,15 @@
 namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class FirstTest extends TestCase
 {
-    public function test_it_can_get_the_first_chunk_of_a_string()
+    #[Test]
+    public function it_can_get_the_first_chunk_of_a_string(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -17,7 +21,8 @@ class FirstTest extends TestCase
         $this->assertEquals('john', $first);
     }
 
-    public function test_it_can_get_the_first_chunk_of_a_multibyte_string()
+    #[Test]
+    public function it_can_get_the_first_chunk_of_a_multibyte_string(): void
     {
         $string = new Twine\Str('宮本 茂');
 
@@ -27,7 +32,8 @@ class FirstTest extends TestCase
         $this->assertEquals('宮本', $first);
     }
 
-    public function test_it_preserves_encoding()
+    #[Test]
+    public function it_preserves_encoding(): void
     {
         $string = new Twine\Str('john pinkerton', 'ASCII');
 

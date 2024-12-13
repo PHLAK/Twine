@@ -3,11 +3,15 @@
 namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class NthTest extends TestCase
 {
-    public function test_it_can_get_every_nth_character()
+    #[Test]
+    public function it_can_get_every_nth_character(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -17,7 +21,8 @@ class NthTest extends TestCase
         $this->assertEquals('jnieo', $nth);
     }
 
-    public function test_it_can_get_every_nth_character_starting_at_an_offset()
+    #[Test]
+    public function it_can_get_every_nth_character_starting_at_an_offset(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -27,7 +32,8 @@ class NthTest extends TestCase
         $this->assertEquals('hpkt', $nth);
     }
 
-    public function test_it_can_get_every_nth_character_of_a_multibyte_string()
+    #[Test]
+    public function it_can_get_every_nth_character_of_a_multibyte_string(): void
     {
         $string = new Twine\Str('宮本 任天堂 茂');
 
@@ -37,7 +43,8 @@ class NthTest extends TestCase
         $this->assertEquals('宮任 ', $nth);
     }
 
-    public function test_it_preserves_encoding()
+    #[Test]
+    public function it_preserves_encoding(): void
     {
         $string = new Twine\Str('john pinkerton', 'ASCII');
 

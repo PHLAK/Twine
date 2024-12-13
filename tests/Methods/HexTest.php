@@ -3,11 +3,17 @@
 namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
+use PHLAK\Twine\Str;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Depends;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class HexTest extends TestCase
 {
-    public function test_it_can_be_hex_encoded()
+    #[Test]
+    public function it_can_be_hex_encoded(): Str
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -19,8 +25,8 @@ class HexTest extends TestCase
         return $hex;
     }
 
-    #[\PHPUnit\Framework\Attributes\Depends('test_it_can_be_hex_encoded')]
-    public function test_it_can_be_hex_decoded(Twine\Str $hex)
+    #[Test, Depends('it_can_be_hex_encoded')]
+    public function test_it_can_be_hex_decoded(Twine\Str $hex): void
     {
         $plaintext = $hex->hex(Twine\Config\Hex::DECODE);
 
@@ -28,7 +34,8 @@ class HexTest extends TestCase
         $this->assertEquals('john pinkerton', $plaintext);
     }
 
-    public function test_a_multibyte_string_can_be_hex_encoded()
+    #[Test]
+    public function a_multibyte_string_can_be_hex_encoded(): Str
     {
         $string = new Twine\Str('宮本 茂');
 
@@ -40,8 +47,8 @@ class HexTest extends TestCase
         return $hex;
     }
 
-    #[\PHPUnit\Framework\Attributes\Depends('test_a_multibyte_string_can_be_hex_encoded')]
-    public function test_a_multibyte_string_can_be_hex_decoded(Twine\Str $hex)
+    #[Test, Depends('a_multibyte_string_can_be_hex_encoded')]
+    public function a_multibyte_string_can_be_hex_decoded(Twine\Str $hex): void
     {
         $plaintext = $hex->hex(Twine\Config\Hex::DECODE);
 

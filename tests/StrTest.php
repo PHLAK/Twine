@@ -3,8 +3,12 @@
 namespace PHLAK\Twine\Tests;
 
 use PHLAK\Twine;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Depends;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class StrTest extends TestCase
 {
     protected function tearDown(): void
@@ -12,7 +16,8 @@ class StrTest extends TestCase
         Twine\Config\Str::setEncoding('UTF-8');
     }
 
-    public function test_it_can_be_initialized_statically()
+    #[Test]
+    public function it_can_be_initialized_statically(): void
     {
         $string = Twine\Str::make('john pinkerton');
 
@@ -20,7 +25,8 @@ class StrTest extends TestCase
         $this->assertEquals('john pinkerton', $string);
     }
 
-    public function test_it_can_be_initialized_with_the_helper_function()
+    #[Test]
+    public function it_can_be_initialized_with_the_helper_function(): void
     {
         $string = str('john pinkerton');
 
@@ -28,14 +34,16 @@ class StrTest extends TestCase
         $this->assertEquals('john pinkerton', $string);
     }
 
-    public function test_it_can_be_accessed_as_a_string()
+    #[Test]
+    public function it_can_be_accessed_as_a_string(): void
     {
         $string = new Twine\Str('john pinkerton');
 
         $this->assertEquals('john pinkerton', $string);
     }
 
-    public function test_it_can_access_characters_via_array_notation()
+    #[Test]
+    public function it_can_access_characters_via_array_notation(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -43,7 +51,8 @@ class StrTest extends TestCase
         $this->assertEquals('p', $string[5]);
     }
 
-    public function test_it_throws_an_exception_when_modifying_characters_with_array_notation()
+    #[Test]
+    public function it_throws_an_exception_when_modifying_characters_with_array_notation(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -52,7 +61,8 @@ class StrTest extends TestCase
         $string[5] = 'z';
     }
 
-    public function test_it_throws_an_exception_when_unsetting_characters_with_array_notation()
+    #[Test]
+    public function it_throws_an_exception_when_unsetting_characters_with_array_notation(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -61,28 +71,30 @@ class StrTest extends TestCase
         unset($string[5]);
     }
 
-    public function test_it_can_be_converted_to_a_string_when_json_encoded()
+    #[Test]
+    public function it_can_be_converted_to_a_string_when_json_encoded(): void
     {
         $string = new Twine\Str('john pinkerton');
 
-        $json = json_encode(['name' => $string]);
+        $json = json_encode(['name' => $string], JSON_THROW_ON_ERROR);
 
         $this->assertJsonStringEqualsJsonString('{"name":"john pinkerton"}', $json);
     }
 
-    public function test_it_can_be_serialized()
+    #[Test]
+    public function it_can_be_serialized(): string
     {
         $string = new Twine\Str('john pinkerton');
 
         $serialized = serialize($string);
 
-        $this->assertEquals('C:15:"PHLAK\Twine\Str":22:{s:14:"john pinkerton";}', $serialized);
+        $this->assertEquals('O:15:"PHLAK\Twine\Str":2:{s:6:"string";s:14:"john pinkerton";s:8:"encoding";s:5:"UTF-8";}', $serialized);
 
         return $serialized;
     }
 
-    #[\PHPUnit\Framework\Attributes\Depends('test_it_can_be_serialized')]
-    public function test_it_can_be_unserialized($serialized)
+    #[Test, Depends('it_can_be_serialized')]
+    public function it_can_be_unserialized(string $serialized): void
     {
         $unserialized = unserialize($serialized);
 
@@ -90,20 +102,22 @@ class StrTest extends TestCase
         $this->assertEquals('john pinkerton', $unserialized);
     }
 
-    public function test_it_has_a_default_internal_encoding()
+    #[Test]
+    public function it_has_a_default_internal_encoding(): void
     {
         $string = new Twine\Str;
 
-        $this->assertEquals('UTF-8', $this->getPropertyValue($string, 'encoding'));
+        $this->assertEquals('UTF-8', $string->encoding);
     }
 
-    public function test_it_can_override_the_default_internal_encoding()
+    #[Test]
+    public function it_can_override_the_default_internal_encoding(): void
     {
         $utf8 = new Twine\Str;
         Twine\Config\Str::setEncoding('ASCII');
         $ascii = new Twine\Str;
 
-        $this->assertEquals('UTF-8', $this->getPropertyValue($utf8, 'encoding'));
+        $this->assertEquals('UTF-8', $utf8->encoding);
         $this->assertEquals('ASCII', mb_detect_encoding($ascii));
     }
 }

@@ -3,18 +3,23 @@
 namespace PHLAK\Twine\Tests;
 
 use PHLAK\Twine;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class ArrayAccessTest extends TestCase
 {
-    public function test_it_can_be_returned_as_a_string()
+    #[Test]
+    public function it_can_be_returned_as_a_string(): void
     {
         $string = new Twine\Str('john pinkerton');
 
         $this->assertEquals('john pinkerton', $string);
     }
 
-    public function test_it_can_be_access_characters_via_array_notation()
+    #[Test]
+    public function it_can_be_access_characters_via_array_notation(): void
     {
         $string = new Twine\Str('john pinkerton');
 

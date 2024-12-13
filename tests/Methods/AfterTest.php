@@ -3,11 +3,15 @@
 namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class AfterTest extends TestCase
 {
-    public function test_it_can_get_part_of_a_string_after_a_character()
+    #[Test]
+    public function it_can_get_part_of_a_string_after_a_character(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -17,7 +21,8 @@ class AfterTest extends TestCase
         $this->assertEquals('pinkerton', $lastName);
     }
 
-    public function test_it_can_get_part_of_a_string_after_a_character_with_multiple_delimiters()
+    #[Test]
+    public function it_can_get_part_of_a_string_after_a_character_with_multiple_delimiters(): void
     {
         $string = new Twine\Str('john pinkerton jr');
 
@@ -27,7 +32,8 @@ class AfterTest extends TestCase
         $this->assertEquals('pinkerton jr', $lastNameAndSuffix);
     }
 
-    public function test_it_can_get_part_of_a_multibyte_string_after_a_multibyte_string()
+    #[Test]
+    public function it_can_get_part_of_a_multibyte_string_after_a_multibyte_string(): void
     {
         $string = new Twine\Str('宮本 茂');
 
@@ -37,7 +43,8 @@ class AfterTest extends TestCase
         $this->assertEquals(' 茂', $after);
     }
 
-    public function test_it_preserves_encoding()
+    #[Test]
+    public function it_preserves_encoding(): void
     {
         $string = new Twine\Str('john pinkerton', 'ASCII');
 

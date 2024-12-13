@@ -3,11 +3,15 @@
 namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class ExplodeTest extends TestCase
 {
-    public function test_it_can_be_exploded()
+    #[Test]
+    public function it_can_be_exploded(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -19,7 +23,8 @@ class ExplodeTest extends TestCase
         }
     }
 
-    public function test_it_can_be_exploded_with_a_limit()
+    #[Test]
+    public function it_can_be_exploded_with_a_limit(): void
     {
         $string = new Twine\Str('john maurice mcclean pinkerton');
 
@@ -31,7 +36,8 @@ class ExplodeTest extends TestCase
         }
     }
 
-    public function test_it_preserves_encoding()
+    #[Test]
+    public function it_preserves_encoding(): void
     {
         $string = new Twine\Str('john pinkerton', 'ASCII');
 

@@ -3,11 +3,15 @@
 namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class EqualsTest extends TestCase
 {
-    public function test_it_can_determine_if_it_equals_another_string_exactly()
+    #[Test]
+    public function it_can_determine_if_it_equals_another_string_exactly(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -18,7 +22,8 @@ class EqualsTest extends TestCase
         $this->assertFalse($differs);
     }
 
-    public function test_it_can_determine_if_it_equals_another_string_ignoring_case()
+    #[Test]
+    public function it_can_determine_if_it_equals_another_string_ignoring_case(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -29,7 +34,8 @@ class EqualsTest extends TestCase
         $this->assertFalse($differs);
     }
 
-    public function test_it_can_determine_if_it_equals_another_instance_of_itself()
+    #[Test]
+    public function it_can_determine_if_it_equals_another_instance_of_itself(): void
     {
         $string1 = new Twine\Str('john pinkerton');
         $string2 = new Twine\Str('JoHN PiNKeRToN');
@@ -41,7 +47,8 @@ class EqualsTest extends TestCase
         $this->assertFalse($string1->equals($string3, Twine\Config\Equals::CASE_INSENSITIVE));
     }
 
-    public function test_it_can_determine_if_a_multibyte_string_equals_another_multibyte_string_exactly()
+    #[Test]
+    public function it_can_determine_if_a_multibyte_string_equals_another_multibyte_string_exactly(): void
     {
         $string = new Twine\Str('宮本 茂');
 

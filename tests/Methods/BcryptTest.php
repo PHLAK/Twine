@@ -3,11 +3,15 @@
 namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class BcryptTest extends TestCase
 {
-    public function test_it_can_be_hashed_with_bcrypt()
+    #[Test]
+    public function it_can_be_hashed_with_bcrypt(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -17,7 +21,8 @@ class BcryptTest extends TestCase
         $this->assertMatchesRegularExpression('/\$2y\$10\$[a-zA-Z0-9+.\/]{53}/', (string) $bcrypt);
     }
 
-    public function test_a_multibyte_string_can_be_hashed_with_bcrypt()
+    #[Test]
+    public function a_multibyte_string_can_be_hashed_with_bcrypt(): void
     {
         $string = new Twine\Str('宮本 茂');
 
@@ -27,7 +32,8 @@ class BcryptTest extends TestCase
         $this->assertMatchesRegularExpression('/\$2y\$10\$[a-zA-Z0-9+.\/]{53}/', (string) $bcrypt);
     }
 
-    public function test_it_preserves_encoding()
+    #[Test]
+    public function it_preserves_encoding(): void
     {
         $string = new Twine\Str('john pinkerton', 'ASCII');
 

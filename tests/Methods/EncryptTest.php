@@ -4,11 +4,16 @@ namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
 use PHLAK\Twine\Exceptions\EncryptionException;
+use PHLAK\Twine\Str;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class EncryptTest extends TestCase
 {
-    public function test_it_can_be_encrypted()
+    #[Test]
+    public function it_can_be_encrypted(): Str
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -20,7 +25,8 @@ class EncryptTest extends TestCase
         return $encrypted;
     }
 
-    public function test_it_throws_an_exception_when_encrypting_with_an_invalid_cipher()
+    #[Test]
+    public function it_throws_an_exception_when_encrypting_with_an_invalid_cipher(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -29,7 +35,7 @@ class EncryptTest extends TestCase
         $string->encrypt('secret', 'invalid');
     }
 
-    public function test_a_multibyte_string_can_be_encrypted()
+    public function a_multibyte_string_can_be_encrypted(): Str
     {
         $string = new Twine\Str('宮本 茂');
 
@@ -41,7 +47,8 @@ class EncryptTest extends TestCase
         return $encrypted;
     }
 
-    public function test_it_preserves_encoding()
+    #[Test]
+    public function it_preserves_encoding(): void
     {
         $string = new Twine\Str('john pinkerton', 'ASCII');
 

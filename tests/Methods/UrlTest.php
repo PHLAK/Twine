@@ -3,11 +3,17 @@
 namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
+use PHLAK\Twine\Str;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Depends;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class UrlTest extends TestCase
 {
-    public function test_it_can_be_url_encoded()
+    #[Test]
+    public function it_can_be_url_encoded(): Str
     {
         $string = new Twine\Str('john+pinkerton/john=pinkerton');
 
@@ -19,8 +25,8 @@ class UrlTest extends TestCase
         return $urlencoded;
     }
 
-    #[\PHPUnit\Framework\Attributes\Depends('test_it_can_be_url_encoded')]
-    public function test_it_can_be_url_decoded(Twine\Str $urlencodedString)
+    #[Test, Depends('it_can_be_url_encoded')]
+    public function test_it_can_be_url_decoded(Twine\Str $urlencodedString): void
     {
         $urldecoded = $urlencodedString->url(Twine\Config\Url::DECODE);
 
@@ -28,7 +34,8 @@ class UrlTest extends TestCase
         $this->assertEquals('john+pinkerton/john=pinkerton', $urldecoded);
     }
 
-    public function test_a_multibyte_string_can_be_url_encoded()
+    #[Test]
+    public function a_multibyte_string_can_be_url_encoded(): Str
     {
         $string = new Twine\Str('宮本+茂/任天堂');
 
@@ -40,8 +47,8 @@ class UrlTest extends TestCase
         return $urlencoded;
     }
 
-    #[\PHPUnit\Framework\Attributes\Depends('test_a_multibyte_string_can_be_url_encoded')]
-    public function test_a_multibyte_string_can_be_url_decoded(Twine\Str $urlencodedString)
+    #[Test, Depends('a_multibyte_string_can_be_url_encoded')]
+    public function test_a_multibyte_string_can_be_url_decoded(Twine\Str $urlencodedString): void
     {
         $urldecoded = $urlencodedString->url(Twine\Config\Url::DECODE);
 
@@ -49,7 +56,8 @@ class UrlTest extends TestCase
         $this->assertEquals('宮本+茂/任天堂', $urldecoded);
     }
 
-    public function test_it_preserves_encoding()
+    #[Test]
+    public function it_preserves_encoding(): void
     {
         $string = new Twine\Str('john pinkerton', 'ASCII');
 

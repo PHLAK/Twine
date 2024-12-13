@@ -3,11 +3,15 @@
 namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class SubstringTest extends TestCase
 {
-    public function test_it_can_return_a_substring()
+    #[Test]
+    public function it_can_return_a_substring(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -19,7 +23,8 @@ class SubstringTest extends TestCase
         $this->assertEquals('pink', $partial);
     }
 
-    public function test_it_can_return_a_multibyte_substring()
+    #[Test]
+    public function it_can_return_a_multibyte_substring(): void
     {
         $string = new Twine\Str('宮本 茂');
 
@@ -31,7 +36,8 @@ class SubstringTest extends TestCase
         $this->assertEquals('本 ', $partial);
     }
 
-    public function test_it_preserves_encoding()
+    #[Test]
+    public function it_preserves_encoding(): void
     {
         $string = new Twine\Str('john pinkerton', 'ASCII');
 

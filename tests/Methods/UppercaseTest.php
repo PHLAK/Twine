@@ -4,11 +4,15 @@ namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
 use PHLAK\Twine\Exceptions\ConfigException;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class UppercaseTest extends TestCase
 {
-    public function test_it_can_be_uppercased()
+    #[Test]
+    public function it_can_be_uppercased(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -18,7 +22,8 @@ class UppercaseTest extends TestCase
         $this->assertEquals('JOHN PINKERTON', $uppercased);
     }
 
-    public function test_it_can_uppercase_the_first_letter_only()
+    #[Test]
+    public function it_can_uppercase_the_first_letter_only(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -28,7 +33,8 @@ class UppercaseTest extends TestCase
         $this->assertEquals('John pinkerton', $ucFirst);
     }
 
-    public function test_it_can_uppercase_the_first_letter_of_each_word()
+    #[Test]
+    public function it_can_uppercase_the_first_letter_of_each_word(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -38,7 +44,8 @@ class UppercaseTest extends TestCase
         $this->assertEquals('John Pinkerton', $ucWords);
     }
 
-    public function test_it_throws_an_exception_when_uppercasing_with_an_invalid_config_option()
+    #[Test]
+    public function it_throws_an_exception_when_uppercasing_with_an_invalid_config_option(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -47,7 +54,8 @@ class UppercaseTest extends TestCase
         $string->uppercase('invalid');
     }
 
-    public function test_it_can_uppercase_a_multibyte_string()
+    #[Test]
+    public function it_can_uppercase_a_multibyte_string(): void
     {
         $string = new Twine\Str('джон пинкертон');
 
@@ -61,7 +69,8 @@ class UppercaseTest extends TestCase
         $this->assertEquals('Джон Пинкертон', $uppercasedWords);
     }
 
-    public function test_it_preserves_encoding()
+    #[Test]
+    public function it_preserves_encoding(): void
     {
         $string = new Twine\Str('john pinkerton', 'ASCII');
 

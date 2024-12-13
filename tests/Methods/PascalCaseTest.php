@@ -3,11 +3,15 @@
 namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class PascalCaseTest extends TestCase
 {
-    public function test_it_can_convert_to_pascal_case()
+    #[Test]
+    public function it_can_convert_to_pascal_case(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -17,7 +21,8 @@ class PascalCaseTest extends TestCase
         $this->assertEquals('JohnPinkerton', $pascalCase);
     }
 
-    public function test_it_a_multibyte_string_can_be_converted_to_pascal_case()
+    #[Test]
+    public function it_a_multibyte_string_can_be_converted_to_pascal_case(): void
     {
         $string = new Twine\Str('джон пинкертон');
 
@@ -27,7 +32,8 @@ class PascalCaseTest extends TestCase
         $this->assertEquals('ДжонПинкертон', $pascalCase);
     }
 
-    public function test_it_preserves_encoding()
+    #[Test]
+    public function it_preserves_encoding(): void
     {
         $string = new Twine\Str('john pinkerton', 'ASCII');
 

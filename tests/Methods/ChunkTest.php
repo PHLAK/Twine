@@ -3,11 +3,15 @@
 namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class ChunkTest extends TestCase
 {
-    public function test_it_can_be_split_into_chunks()
+    #[Test]
+    public function it_can_be_split_into_chunks(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -19,7 +23,7 @@ class ChunkTest extends TestCase
         }
     }
 
-    public function test_a_multibyte_string_can_be_chunked()
+    public function a_multibyte_string_can_be_chunked(): void
     {
         $string = new Twine\Str('宮本 任天堂 茂');
 
@@ -31,7 +35,8 @@ class ChunkTest extends TestCase
         }
     }
 
-    public function test_it_preserves_encoding()
+    #[Test]
+    public function it_preserves_encoding(): void
     {
         $string = new Twine\Str('john pinkerton', 'ASCII');
 

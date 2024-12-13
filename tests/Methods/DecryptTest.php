@@ -4,8 +4,11 @@ namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
 use PHLAK\Twine\Exceptions\DecryptionException;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class DecryptTest extends TestCase
 {
     /** @var string An encrypted string */
@@ -14,7 +17,8 @@ class DecryptTest extends TestCase
     /** @var string An encrypted multibyte string */
     protected $encryptedMultibyteString = 'eyJpdiI6IlpmREU5RjBLY3BYWTdqQ3hHelM3bFE9PSIsImNpcGhlcnRleHQiOiJGbEdvR3VGZUI1eUJmN1hhaXJINlpRPT0iLCJobWFjIjoiZDVjZDllNDQ4YTYzMmM5NDVjMDYxZDdlZTZlYmY0OGZlMmNhNWZlYzM1MDZhM2Q5NTZkYjM0ZmU4MDQ0YjAzNSJ9';
 
-    public function test_it_can_be_decrypted()
+    #[Test]
+    public function it_can_be_decrypted(): void
     {
         $string = new Twine\Str($this->encryptedString);
 
@@ -24,7 +28,8 @@ class DecryptTest extends TestCase
         $this->assertEquals('john pinkerton', $decrypted);
     }
 
-    public function test_it_throws_an_exception_when_decrypting_an_invalid_string()
+    #[Test]
+    public function it_throws_an_exception_when_decrypting_an_invalid_string(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -33,7 +38,8 @@ class DecryptTest extends TestCase
         $string->decrypt('secret');
     }
 
-    public function test_it_throws_an_exception_when_decryption_fails()
+    #[Test]
+    public function it_throws_an_exception_when_decryption_fails(): void
     {
         $string = new Twine\Str($this->encryptedString);
 
@@ -42,7 +48,7 @@ class DecryptTest extends TestCase
         $string->decrypt('shmecret');
     }
 
-    public function test_a_multibyte_string_can_be_decrypted()
+    public function a_multibyte_string_can_be_decrypted(): void
     {
         $string = new Twine\Str($this->encryptedMultibyteString);
 
@@ -52,7 +58,8 @@ class DecryptTest extends TestCase
         $this->assertEquals('宮本 茂', $decrypted);
     }
 
-    public function test_it_preserves_encoding()
+    #[Test]
+    public function it_preserves_encoding(): void
     {
         $string = new Twine\Str($this->encryptedString, 'ASCII');
 

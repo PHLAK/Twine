@@ -3,11 +3,15 @@
 namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class FormatTest extends TestCase
 {
-    public function test_it_can_be_formatted()
+    #[Test]
+    public function it_can_be_formatted(): void
     {
         $string = new Twine\Str('Hello %s! Welcome to %s, population %b.');
 
@@ -17,7 +21,7 @@ class FormatTest extends TestCase
         $this->assertEquals('Hello John! Welcome to Pinkertown, population 10100111001.', $formatted);
     }
 
-    public function test_a_multibyte_string_can_be_formatted()
+    public function a_multibyte_string_can_be_formatted(): void
     {
         $string = new Twine\Str('こんにちは, %s! ようこそ %s.');
 
@@ -27,7 +31,8 @@ class FormatTest extends TestCase
         $this->assertEquals('こんにちは, 宮本 茂! ようこそ 任天堂.', $formatted);
     }
 
-    public function test_it_preserves_encoding()
+    #[Test]
+    public function it_preserves_encoding(): void
     {
         $string = new Twine\Str('Hello %s! Welcome to %s, population %b.', 'ASCII');
 

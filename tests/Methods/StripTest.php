@@ -3,11 +3,15 @@
 namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class StripTest extends TestCase
 {
-    public function test_it_can_be_stripped()
+    #[Test]
+    public function it_can_be_stripped(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -17,7 +21,8 @@ class StripTest extends TestCase
         $this->assertEquals('john erton', $striped);
     }
 
-    public function test_it_can_strip_multiple_strings_from_the_string()
+    #[Test]
+    public function it_can_strip_multiple_strings_from_the_string(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -27,7 +32,8 @@ class StripTest extends TestCase
         $this->assertEquals('jhn pnkrtn', $striped);
     }
 
-    public function test_it_is_multibyte_compatible()
+    #[Test]
+    public function it_is_multibyte_compatible(): void
     {
         $string = new Twine\Str('宮本 茂');
 
@@ -37,7 +43,8 @@ class StripTest extends TestCase
         $this->assertEquals('宮 茂', $stripped);
     }
 
-    public function test_it_preserves_encoding()
+    #[Test]
+    public function it_preserves_encoding(): void
     {
         $string = new Twine\Str('john pinkerton', 'ASCII');
 

@@ -3,11 +3,15 @@
 namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class Base64DecodeTest extends TestCase
 {
-    public function test_it_can_be_base64_decoded()
+    #[Test]
+    public function it_can_be_base64_decoded(): void
     {
         $string = new Twine\Str('am9obiBwaW5rZXJ0b24=');
 
@@ -17,7 +21,8 @@ class Base64DecodeTest extends TestCase
         $this->assertEquals('john pinkerton', $plaintext);
     }
 
-    public function test_a_multibyte_string_can_be_base64_decoded()
+    #[Test]
+    public function a_multibyte_string_can_be_base64_decoded(): void
     {
         $string = new Twine\Str('5a6u5pysIOiMgg==');
 

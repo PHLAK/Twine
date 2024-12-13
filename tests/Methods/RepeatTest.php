@@ -3,11 +3,15 @@
 namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class RepeatTest extends TestCase
 {
-    public function test_it_can_be_repeated()
+    #[Test]
+    public function it_can_be_repeated(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -17,7 +21,8 @@ class RepeatTest extends TestCase
         $this->assertEquals('john pinkertonjohn pinkerton', $repeated);
     }
 
-    public function test_it_can_be_repeated_with_glue()
+    #[Test]
+    public function it_can_be_repeated_with_glue(): void
     {
         $string = new Twine\Str('beetlejuice');
 
@@ -27,7 +32,8 @@ class RepeatTest extends TestCase
         $this->assertEquals('beetlejuice beetlejuice beetlejuice', $repeated);
     }
 
-    public function test_it_is_multibyte_compatible()
+    #[Test]
+    public function it_is_multibyte_compatible(): void
     {
         $string = new Twine\Str('宮本');
 
@@ -37,7 +43,8 @@ class RepeatTest extends TestCase
         $this->assertEquals('宮本 茂 宮本 茂 宮本', $repeated);
     }
 
-    public function test_it_preserves_encoding()
+    #[Test]
+    public function it_preserves_encoding(): void
     {
         $string = new Twine\Str('john pinkerton', 'ASCII');
 

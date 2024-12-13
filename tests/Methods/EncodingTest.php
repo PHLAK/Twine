@@ -3,11 +3,15 @@
 namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class EncodingTest extends TestCase
 {
-    public function test_it_can_set_the_internal_encoding()
+    #[Test]
+    public function it_can_set_the_internal_encoding(): void
     {
         $string = new Twine\Str('john pinkerton');
 

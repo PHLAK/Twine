@@ -3,11 +3,15 @@
 namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class ShuffleTest extends TestCase
 {
-    public function test_it_can_be_shuffled()
+    #[Test]
+    public function it_can_be_shuffled(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -22,7 +26,7 @@ class ShuffleTest extends TestCase
         $this->assertMatchesRegularExpression('/[ ehijknoprt]{14}/', (string) $shuffled);
     }
 
-    public function test_a_multibyte_string_can_be_shuffled()
+    public function a_multibyte_string_can_be_shuffled(): void
     {
         $string = new Twine\Str('宮本 任天堂 茂');
 
@@ -37,7 +41,8 @@ class ShuffleTest extends TestCase
         $this->assertMatchesRegularExpression('/[ 本天任宮堂茂]{7}/', (string) $shuffled);
     }
 
-    public function test_it_preserves_encoding()
+    #[Test]
+    public function it_preserves_encoding(): void
     {
         $string = new Twine\Str('john pinkerton', 'ASCII');
 

@@ -4,11 +4,15 @@ namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
 use PHLAK\Twine\Exceptions\ConfigException;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
+#[CoversClass(Twine\Str::class)]
 class PadTest extends TestCase
 {
-    public function test_it_can_be_padded()
+    #[Test]
+    public function it_can_be_padded(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -18,7 +22,8 @@ class PadTest extends TestCase
         $this->assertEquals('john pinkerton______', $padded);
     }
 
-    public function test_it_can_be_right_padded()
+    #[Test]
+    public function it_can_be_right_padded(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -28,7 +33,8 @@ class PadTest extends TestCase
         $this->assertEquals('john pinkerton______', $rightPadded);
     }
 
-    public function test_it_can_be_left_padded()
+    #[Test]
+    public function it_can_be_left_padded(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -38,7 +44,8 @@ class PadTest extends TestCase
         $this->assertEquals('______john pinkerton', $leftPadded);
     }
 
-    public function test_it_can_be_both_padded()
+    #[Test]
+    public function it_can_be_both_padded(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -48,7 +55,8 @@ class PadTest extends TestCase
         $this->assertEquals('___john pinkerton___', $bothPadded);
     }
 
-    public function test_it_throws_an_exception_when_padding_with_an_invalid_config_option()
+    #[Test]
+    public function it_throws_an_exception_when_padding_with_an_invalid_config_option(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -57,7 +65,7 @@ class PadTest extends TestCase
         $string->pad(20, '_', 99);
     }
 
-    public function test_a_multibyte_string_can_be_padded()
+    public function a_multibyte_string_can_be_padded(): void
     {
         $string = new Twine\Str('宮本 茂');
 
@@ -67,7 +75,7 @@ class PadTest extends TestCase
         $this->assertEquals('宮本 茂______', $padded);
     }
 
-    public function test_a_multibyte_string_can_be_right_padded()
+    public function a_multibyte_string_can_be_right_padded(): void
     {
         $string = new Twine\Str('宮本 茂');
 
@@ -77,7 +85,7 @@ class PadTest extends TestCase
         $this->assertEquals('宮本 茂______', $rightPadded);
     }
 
-    public function test_a_multibyte_string_can_be_left_padded()
+    public function a_multibyte_string_can_be_left_padded(): void
     {
         $string = new Twine\Str('宮本 茂');
 
@@ -87,7 +95,7 @@ class PadTest extends TestCase
         $this->assertEquals('______宮本 茂', $leftPadded);
     }
 
-    public function test_a_multibyte_string_can_be_both_padded()
+    public function a_multibyte_string_can_be_both_padded(): void
     {
         $string = new Twine\Str('宮本 茂');
 
@@ -97,7 +105,8 @@ class PadTest extends TestCase
         $this->assertEquals('___宮本 茂___', $bothPadded);
     }
 
-    public function test_it_preserves_encoding()
+    #[Test]
+    public function it_preserves_encoding(): void
     {
         $string = new Twine\Str('john pinkerton', 'ASCII');
 
