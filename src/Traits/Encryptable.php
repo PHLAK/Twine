@@ -76,7 +76,9 @@ trait Encryptable
             throw new DecryptionException('The string is not an encrypted string');
         }
 
+        /** @var object{iv: string, ciphertext: string, hmac: string} $payload */
         $payload = json_decode(base64_decode($this->string));
+
         $expectedHmac = hash_hmac('sha256', $payload->iv . $payload->ciphertext, $key = md5($key));
 
         if (! hash_equals($payload->hmac, $expectedHmac)) {
@@ -99,6 +101,7 @@ trait Encryptable
      */
     protected function isEncrypted(string $cipher)
     {
+        /** @var object{iv?: string, ciphertext?: string, hmac?: string} $payload */
         $payload = json_decode(base64_decode($this->string));
 
         return isset($payload->iv, $payload->ciphertext, $payload->hmac)

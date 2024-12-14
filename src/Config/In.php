@@ -2,8 +2,8 @@
 
 namespace PHLAK\Twine\Config;
 
-final class In extends Config
+enum In
 {
-    public const CASE_SENSITIVE = 'mb_strpos';
-    public const CASE_INSENSITIVE = 'mb_stripos';
+    case CASE_SENSITIVE;
+    case CASE_INSENSITIVE;
 }

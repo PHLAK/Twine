@@ -3,7 +3,6 @@
 namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
-use PHLAK\Twine\Exceptions\ConfigException;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
@@ -53,16 +52,6 @@ class TrimTest extends TestCase
 
         $this->assertInstanceOf(Twine\Str::class, $rightTrimmed);
         $this->assertEquals('john pinker', $rightTrimmed);
-    }
-
-    #[Test]
-    public function it_throws_an_exception_when_trimming_with_an_invalid_config_option(): void
-    {
-        $string = new Twine\Str('john pinkerton');
-
-        $this->expectException(ConfigException::class);
-
-        $string->trim(' ', 'invalid');
     }
 
     #[Test]

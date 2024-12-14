@@ -3,7 +3,6 @@
 namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
-use PHLAK\Twine\Exceptions\ConfigException;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
@@ -42,16 +41,6 @@ class UppercaseTest extends TestCase
 
         $this->assertInstanceOf(Twine\Str::class, $ucWords);
         $this->assertEquals('John Pinkerton', $ucWords);
-    }
-
-    #[Test]
-    public function it_throws_an_exception_when_uppercasing_with_an_invalid_config_option(): void
-    {
-        $string = new Twine\Str('john pinkerton');
-
-        $this->expectException(ConfigException::class);
-
-        $string->uppercase('invalid');
     }
 
     #[Test]

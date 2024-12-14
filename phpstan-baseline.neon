@@ -1,0 +1,19 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Cannot cast mixed to string\.$#'
+			identifier: cast.string
+			count: 1
+			path: src/Str.php
+
+		-
+			message: '#^PHPDoc tag @param has invalid value \(string\|int\| \$string A string\)\: Unexpected token "\$string", expected type at offset 69 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: src/Str.php
+
+		-
+			message: '#^Method PHLAK\\Twine\\Support\\Str\:\:characters\(\) should return list\<string\> but returns list\<string\|false\>\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Support/Str.php

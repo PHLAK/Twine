@@ -3,7 +3,6 @@
 namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
-use PHLAK\Twine\Exceptions\ConfigException;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
@@ -42,16 +41,6 @@ class LowercaseTest extends TestCase
 
         $this->assertInstanceOf(Twine\Str::class, $lcWords);
         $this->assertEquals("jOHN pINKERTON\njOHN\tpINKERTON", $lcWords);
-    }
-
-    #[Test]
-    public function it_throws_an_exception_when_lowercasing_with_an_invalid_config_option(): void
-    {
-        $string = new Twine\Str('john pinkerton');
-
-        $this->expectException(ConfigException::class);
-
-        $string->lowercase('invalid');
     }
 
     #[Test]

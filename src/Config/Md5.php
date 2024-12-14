@@ -2,8 +2,8 @@
 
 namespace PHLAK\Twine\Config;
 
-final class Md5 extends Config
+enum Md5
 {
-    public const DEFAULT = false;
-    public const RAW = true;
+    case DEFAULT;
+    case RAW;
 }

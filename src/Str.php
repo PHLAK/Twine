@@ -31,12 +31,12 @@ class Str implements ArrayAccess, JsonSerializable
     /**
      * Create a new Str object.
      *
-     * @param mixed $string A string
+     * @param string|int| $string A string
      * @param string $encoding The internal encoding
      *
      * @return \PHLAK\Twine\Str
      */
-    public function __construct($string = '', $encoding = null)
+    public function __construct(mixed $string = '', $encoding = null)
     {
         $this->encoding = $encoding ?? Config\Str::getEncoding();
         $this->string = mb_convert_encoding((string) $string, $this->encoding);

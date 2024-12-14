@@ -2,8 +2,8 @@
 
 namespace PHLAK\Twine\Config;
 
-final class Hex extends Config
+enum Hex
 {
-    public const ENCODE = 'encode';
-    public const DECODE = 'decode';
+    case ENCODE;
+    case DECODE;
 }

@@ -3,6 +3,7 @@
 namespace PHLAK\Twine\Traits;
 
 use PHLAK\Twine\Config;
+use PHLAK\Twine\Config\Characters;
 use PHLAK\Twine\Support;
 
 trait Convenience
@@ -28,7 +29,7 @@ trait Convenience
     /**
      * Return the formatted string.
      *
-     * @param mixed ...$args Any number of elements to fill the string
+     * @param string|int|float ...$args Any number of elements to fill the string
      */
     public function format(...$args): self
     {
@@ -64,10 +65,8 @@ trait Convenience
      *
      * @return \PHLAK\Twine\Str[]
      */
-    public function characters(string $mode = Config\Characters::ALL): array
+    public function characters(Characters $mode = Config\Characters::ALL): array
     {
-        Config\Characters::validateOption($mode);
-
         $characters = Support\Str::characters($this->string);
 
         if ($mode === Config\Characters::UNIQUE) {

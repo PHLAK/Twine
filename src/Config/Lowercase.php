@@ -2,9 +2,9 @@
 
 namespace PHLAK\Twine\Config;
 
-final class Lowercase extends Config
+enum Lowercase
 {
-    public const ALL = 'all';
-    public const FIRST = 'first';
-    public const WORDS = 'words';
+    case ALL;
+    case FIRST;
+    case WORDS;
 }

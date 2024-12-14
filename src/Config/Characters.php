@@ -2,8 +2,8 @@
 
 namespace PHLAK\Twine\Config;
 
-final class Characters extends Config
+enum Characters
 {
-    public const ALL = 'all';
-    public const UNIQUE = 'unique';
+    case ALL;
+    case UNIQUE;
 }

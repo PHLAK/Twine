@@ -2,9 +2,9 @@
 
 namespace PHLAK\Twine\Config;
 
-final class Pad extends Config
+enum Pad: int
 {
-    public const RIGHT = STR_PAD_RIGHT;
-    public const LEFT = STR_PAD_LEFT;
-    public const BOTH = STR_PAD_BOTH;
+    case RIGHT = STR_PAD_RIGHT;
+    case LEFT = STR_PAD_LEFT;
+    case BOTH = STR_PAD_BOTH;
 }

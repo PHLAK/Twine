@@ -2,8 +2,8 @@
 
 namespace PHLAK\Twine\Config;
 
-final class Equals extends Config
+enum Equals
 {
-    public const CASE_SENSITIVE = 'strcmp';
-    public const CASE_INSENSITIVE = 'strcasecmp';
+    case CASE_SENSITIVE;
+    case CASE_INSENSITIVE;
 }

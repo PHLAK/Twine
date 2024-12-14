@@ -18,7 +18,7 @@ class StrTest extends TestCase
     {
         Twine\Config\Str::setEncoding('ASCII');
 
-        $this->assertEquals('ASCII', Twine\Config\Str::getEncoding('ASCII'));
+        $this->assertEquals('ASCII', Twine\Config\Str::getEncoding());
     }
 
     #[Test]

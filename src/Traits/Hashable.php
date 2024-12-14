@@ -30,52 +30,46 @@ trait Hashable
     /**
      * Calculate the md5 hash of the string.
      *
-     * @param bool $mode A md5 mode flag
+     * @param Config\Md5 $mode A md5 mode flag
      *
      * Available md5 modes:
      *
      *   - Twine\Config\Md5::DEFAULT - Return the hash
      *   - Twine\Config\Md5::RAW - Return the raw binary of the hash
      */
-    public function md5(bool $mode = Config\Md5::DEFAULT): self
+    public function md5(Config\Md5 $mode = Config\Md5::DEFAULT): self
     {
-        Config\Md5::validateOption($mode);
-
-        return new self(hash('md5', $this->string, $mode), $this->encoding);
+        return new self(hash('md5', $this->string, $mode === Config\Md5::RAW), $this->encoding);
     }
 
     /**
      * Calculate the sha1 hash of the string.
      *
-     * @param bool $mode A sha1 mode flag
+     * @param Config\Sha1 $mode A sha1 mode flag
      *
      *  Available sha1 modes:
      *
      *   - Twine\Config\Sha1::DEFAULT - Return the hash
      *   - Twine\Config\Sha1::RAW - Return the raw binary of the hash
      */
-    public function sha1(bool $mode = Config\Md5::DEFAULT): self
+    public function sha1(Config\Sha1 $mode = Config\Sha1::DEFAULT): self
     {
-        Config\Md5::validateOption($mode);
-
-        return new self(hash('sha1', $this->string, $mode), $this->encoding);
+        return new self(hash('sha1', $this->string, $mode === Config\Sha1::RAW), $this->encoding);
     }
 
     /**
      * Calculate the sha256 hash of the string.
      *
-     * @param bool $mode A sha256 mode flag
+     * @param Config\Sha256 $mode A sha256 mode flag
      *
      *  Available sha256 modes:
      *
      *   - Twine\Config\Sha256::DEFAULT - Return the hash
      *   - Twine\Config\Sha256::RAW - Return the raw binary of the hash
      */
-    public function sha256(bool $mode = Config\Sha256::DEFAULT): self
+    public function sha256(Config\Sha256 $mode = Config\Sha256::DEFAULT): self
     {
-        Config\Sha256::validateOption($mode);
-
-        return new self(hash('sha256', $this->string, $mode), $this->encoding);
+        return new self(hash('sha256', $this->string, $mode === Config\Sha256::RAW), $this->encoding);
     }
 
     /**

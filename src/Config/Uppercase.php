@@ -2,9 +2,9 @@
 
 namespace PHLAK\Twine\Config;
 
-final class Uppercase extends Config
+enum Uppercase
 {
-    public const ALL = 'all';
-    public const FIRST = 'first';
-    public const WORDS = 'words';
+    case ALL;
+    case FIRST;
+    case WORDS;
 }

@@ -3,7 +3,6 @@
 namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
-use PHLAK\Twine\Exceptions\ConfigException;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
@@ -53,16 +52,6 @@ class PadTest extends TestCase
 
         $this->assertInstanceOf(Twine\Str::class, $bothPadded);
         $this->assertEquals('___john pinkerton___', $bothPadded);
-    }
-
-    #[Test]
-    public function it_throws_an_exception_when_padding_with_an_invalid_config_option(): void
-    {
-        $string = new Twine\Str('john pinkerton');
-
-        $this->expectException(ConfigException::class);
-
-        $string->pad(20, '_', 99);
     }
 
     public function a_multibyte_string_can_be_padded(): void

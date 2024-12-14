@@ -10,22 +10,21 @@ trait Comparable
      * Determine if the string is equal to another string.
      *
      * @param string $string The string to compare against
-     * @param string $mode An equals mode flag
+     * @param Config\Equals $mode An equals mode flag
      *
      * Available mode flags:
      *
      *   - Twine\Config\Equals::CASE_SENSITIVE - Match the string with case sensitivity (default)
      *   - Twine\Config\Equals::CASE_INSENSITIVE - Match the string with case insensitivity
      *
-     * @throws \PHLAK\Twine\Exceptions\ConfigException
-     *
      * @return bool True if the string matches the comparing string
      */
-    public function equals(string $string, string $mode = Config\Equals::CASE_SENSITIVE): bool
+    public function equals(string $string, Config\Equals $mode = Config\Equals::CASE_SENSITIVE): bool
     {
-        Config\Equals::validateOption($mode);
-
-        return $mode($this->string, $string) === 0;
+        return match ($mode) {
+            Config\Equals::CASE_SENSITIVE => strcmp($this->string, $string),
+            Config\Equals::CASE_INSENSITIVE => strcasecmp($this->string, $string),
+        } === 0;
     }
 
     /**
@@ -92,22 +91,21 @@ trait Comparable
      * Determine if the string exists in another string.
      *
      * @param string $string The string to compare against
-     * @param string $mode Flag for case-sensitive and case-insensitive mode
+     * @param Config\In $mode Flag for case-sensitive and case-insensitive mode
      *
      * Available mode flags:
      *
      *   - Twine\Config\In::CASE_SENSITIVE - Match the string with case sensitivity (default)
      *   - Twine\Config\In::CASE_INSENSITIVE - Match the string with case insensitivity
      *
-     * @throws \PHLAK\Twine\Exceptions\ConfigException
-     *
      * @return bool True if the string exists in $string, otherwise false
      */
-    public function in(string $string, string $mode = Config\In::CASE_SENSITIVE): bool
+    public function in(string $string, Config\In $mode = Config\In::CASE_SENSITIVE): bool
     {
-        Config\In::validateOption($mode);
-
-        return $mode($string, $this->string, 0, $this->encoding) !== false;
+        return match ($mode) {
+            Config\In::CASE_SENSITIVE => mb_strpos($string, $this->string, 0, $this->encoding),
+            Config\In::CASE_INSENSITIVE => mb_stripos($string, $this->string, 0, $this->encoding),
+        } !== false;
     }
 
     /**

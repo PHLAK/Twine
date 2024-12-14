@@ -2,9 +2,9 @@
 
 namespace PHLAK\Twine\Config;
 
-final class Trim extends Config
+enum Trim
 {
-    public const BOTH = 'trim';
-    public const LEFT = 'ltrim';
-    public const RIGHT = 'rtrim';
+    case BOTH;
+    case LEFT;
+    case RIGHT;
 }

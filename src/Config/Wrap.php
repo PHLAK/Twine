@@ -2,8 +2,8 @@
 
 namespace PHLAK\Twine\Config;
 
-final class Wrap extends Config
+enum Wrap
 {
-    public const SOFT = false;
-    public const HARD = true;
+    case SOFT;
+    case HARD;
 }

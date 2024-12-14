@@ -2,8 +2,8 @@
 
 namespace PHLAK\Twine\Config;
 
-final class Sha256 extends Config
+enum Sha256
 {
-    public const DEFAULT = false;
-    public const RAW = true;
+    case DEFAULT;
+    case RAW;
 }

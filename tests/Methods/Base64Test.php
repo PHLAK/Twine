@@ -3,7 +3,6 @@
 namespace PHLAK\Twine\Tests\Methods;
 
 use PHLAK\Twine;
-use PHLAK\Twine\Exceptions\ConfigException;
 use PHLAK\Twine\Str;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Depends;
@@ -33,16 +32,6 @@ class Base64Test extends TestCase
 
         $this->assertInstanceOf(Twine\Str::class, $plaintext);
         $this->assertEquals('john pinkerton', $plaintext);
-    }
-
-    #[Test]
-    public function it_throws_an_exception_when_base64_encoded_with_an_invalid_config_option(): void
-    {
-        $string = new Twine\Str('john pinkerton');
-
-        $this->expectException(ConfigException::class);
-
-        $string->base64('invalid');
     }
 
     #[Test]

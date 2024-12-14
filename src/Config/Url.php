@@ -2,8 +2,8 @@
 
 namespace PHLAK\Twine\Config;
 
-final class Url extends Config
+enum Url
 {
-    public const ENCODE = 'urlencode';
-    public const DECODE = 'urldecode';
+    case ENCODE;
+    case DECODE;
 }

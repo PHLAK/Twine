@@ -69,20 +69,16 @@ trait Transformable
      *
      * @param int $width Number of characters at which to wrap
      * @param string $break Character used to break the string
-     * @param bool $mode A wrap mode flag
+     * @param Config\Wrap $mode A wrap mode flag
      *
      * Available wrap modes:
      *
      *   - Twine\Config\Wrap::SOFT - Wrap at the first whitespace character after the specified width (default)
      *   - Twine\Config\Wrap::HARD - Always wrap at or before the specified width
-     *
-     * @throws \PHLAK\Twine\Exceptions\ConfigException
      */
-    public function wrap(int $width, string $break = "\n", bool $mode = Config\Wrap::SOFT): self
+    public function wrap(int $width, string $break = "\n", Config\Wrap $mode = Config\Wrap::SOFT): self
     {
-        Config\Wrap::validateOption($mode);
-
-        return new self(wordwrap($this->string, $width, $break, $mode), $this->encoding);
+        return new self(wordwrap($this->string, $width, $break, $mode === Config\Wrap::HARD), $this->encoding);
     }
 
     /**
@@ -90,23 +86,19 @@ trait Transformable
      *
      * @param int $length Length to pad the string to
      * @param string $padding Character to pad the string with
-     * @param int $mode A pad mode flag
+     * @param Config\Pad $mode A pad mode flag
      *
      * Available mode flags:
      *
      *   - Twine\Config\Pad::RIGHT - Only pad the right side of the string (default)
      *   - Twine\Config\Pad::LEFT - Only pad the left side of the string
      *   - Twine\Config\Pad::BOTH - Pad both sides of the string
-     *
-     * @throws \PHLAK\Twine\Exceptions\ConfigException
      */
-    public function pad(int $length, string $padding = ' ', int $mode = Config\Pad::RIGHT): self
+    public function pad(int $length, string $padding = ' ', Config\Pad $mode = Config\Pad::RIGHT): self
     {
-        Config\Pad::validateOption($mode);
-
         $diff = strlen($this->string) - mb_strlen($this->string, $this->encoding);
 
-        return new self(str_pad($this->string, $length + $diff, $padding, $mode), $this->encoding);
+        return new self(str_pad($this->string, $length + $diff, $padding, $mode->value), $this->encoding);
     }
 
     /**
@@ -114,21 +106,21 @@ trait Transformable
      * and/or end of the string.
      *
      * @param string $mask A list of characters to be stripped (default: " \t\n\r\0\x0B")
-     * @param string $mode A trim mode flag
+     * @param Config\Trim $mode A trim mode flag
      *
      * Available trim modes:
      *
      *   - Twine\Config\Trim::BOTH - Trim characters from the beginning and end of the string (default)
      *   - Twine\Config\Trim::LEFT - Only trim characters from the begining of the string
      *   - Twine\Config\Trim::RIGHT - Only trim characters from the end of the strring
-     *
-     * @throws \PHLAK\Twine\Exceptions\ConfigException
      */
-    public function trim(string $mask = " \t\n\r\0\x0B", string $mode = Config\Trim::BOTH): self
+    public function trim(string $mask = " \t\n\r\0\x0B", Config\Trim $mode = Config\Trim::BOTH): self
     {
-        Config\Trim::validateOption($mode);
-
-        return new self($mode($this->string, $mask), $this->encoding);
+        return new self(match ($mode) {
+            Config\Trim::BOTH => trim($this->string, $mask),
+            Config\Trim::LEFT => ltrim($this->string, $mask),
+            Config\Trim::RIGHT => rtrim($this->string, $mask),
+        }, $this->encoding);
     }
 
     /**
