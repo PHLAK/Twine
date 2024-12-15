@@ -1,0 +1,20 @@
+name: Feature Request
+description: Suggest an idea or an enhancement
+labels: [Enhancement]
+assignees: [PHLAK]
+
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the feature or enhancement
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Additional context
+      description: List any additional context about the feature or alternative soltions you have considered.
+    validations:
+      required: false

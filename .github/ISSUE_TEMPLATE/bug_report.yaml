@@ -1,0 +1,33 @@
+name: Bug Report
+description: Report something that is broken or not working as expected
+labels: [Bug]
+assignees: [PHLAK]
+
+body:
+  - type: input
+    id: library-version
+    attributes:
+      label: Twine Version
+      description: What version of Twine are you using?
+    validations:
+      required: true
+
+  - type: input
+    id: php-version
+    attributes:
+      label: PHP Version
+      description: |
+        What version of PHP do you have installed?
+        Run `php --version` from a command line to find your version.
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the Bug
+      description: |
+        A description of the observed behavior and any other context about the problem.
+        Error logs and/or steps required to reproduce the error would be helpful here.
+    validations:
+      required: true
