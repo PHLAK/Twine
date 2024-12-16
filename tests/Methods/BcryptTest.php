@@ -15,10 +15,10 @@ class BcryptTest extends TestCase
     {
         $string = new Twine\Str('john pinkerton');
 
-        $bcrypt = $string->bcrypt();
+        $bcrypt = $string->bcrypt(['cost' => 12]);
 
         $this->assertInstanceOf(Twine\Str::class, $bcrypt);
-        $this->assertMatchesRegularExpression('/\$2y\$10\$[a-zA-Z0-9+.\/]{53}/', (string) $bcrypt);
+        $this->assertMatchesRegularExpression('/\$2y\$12\$[a-zA-Z0-9+.\/]{53}/', (string) $bcrypt);
     }
 
     #[Test]
@@ -26,10 +26,10 @@ class BcryptTest extends TestCase
     {
         $string = new Twine\Str('宮本 茂');
 
-        $bcrypt = $string->bcrypt();
+        $bcrypt = $string->bcrypt(['cost' => 12]);
 
         $this->assertInstanceOf(Twine\Str::class, $bcrypt);
-        $this->assertMatchesRegularExpression('/\$2y\$10\$[a-zA-Z0-9+.\/]{53}/', (string) $bcrypt);
+        $this->assertMatchesRegularExpression('/\$2y\$12\$[a-zA-Z0-9+.\/]{53}/', (string) $bcrypt);
     }
 
     #[Test]
