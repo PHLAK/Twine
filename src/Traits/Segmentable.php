@@ -8,9 +8,9 @@ trait Segmentable
      * Return part of the string.
      *
      * @param int $start Starting position of the substring
-     * @param int $length Length of substring
+     * @param int|null $length Length of substring
      */
-    public function substring(int $start, int $length = null): self
+    public function substring(int $start, ?int $length = null): self
     {
         $length = isset($length) ? $length : $this->length() - $start;
 

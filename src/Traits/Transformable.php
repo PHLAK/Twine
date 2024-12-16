@@ -37,7 +37,7 @@ trait Transformable
      * @param string|array<string> $replace One or more strings to replace with
      * @param int|null $count This will be set to the number of replacements performed
      */
-    public function replace(string|array $search, string|array $replace, int &$count = null): self
+    public function replace(string|array $search, string|array $replace, ?int &$count = null): self
     {
         return new self(str_replace($search, $replace, $this->string, $count), $this->encoding);
     }
