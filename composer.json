@@ -27,6 +27,7 @@
         "ext-openssl": "*"
     },
     "require-dev": {
+        "php": ">=8.2",
         "phlak/coding-standards": "^4.0",
         "phpstan/phpstan": "^2.0",
         "psy/psysh": "^0.12",
