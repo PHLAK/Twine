@@ -48,8 +48,8 @@ class WrapTest extends TestCase
     {
         $string = new Twine\Str('john pinkerton', 'ASCII');
 
-        $wraped = $string->wrap(5);
+        $wrapped = $string->wrap(5);
 
-        $this->assertEquals('ASCII', mb_detect_encoding($wraped));
+        $this->assertEquals('ASCII', mb_detect_encoding($wrapped));
     }
 }

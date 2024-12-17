@@ -73,7 +73,7 @@ class TruncateTest extends TestCase
         $this->assertEquals('宮...', $truncated);
     }
 
-    public function a_multibyte_string_can_be_truncated_to_a_word_boundry(): void
+    public function a_multibyte_string_can_be_truncated_to_a_word_boundary(): void
     {
         $string = new Twine\Str('宮本 茂');
 

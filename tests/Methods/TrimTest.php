@@ -11,7 +11,7 @@ use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 class TrimTest extends TestCase
 {
     #[Test]
-    public function it_can_be_trimed(): void
+    public function it_can_be_trimmed(): void
     {
         $string = new Twine\Str('   foo bar     ');
 
@@ -22,7 +22,7 @@ class TrimTest extends TestCase
     }
 
     #[Test]
-    public function it_can_trim_specific_chracters(): void
+    public function it_can_trim_specific_characters(): void
     {
         $string = new Twine\Str('john pinkerton');
 
@@ -66,7 +66,7 @@ class TrimTest extends TestCase
     }
 
     #[Test]
-    public function it_can_trim_specific_chracters_from_a_multibyte_string(): void
+    public function it_can_trim_specific_characters_from_a_multibyte_string(): void
     {
         $string = new Twine\Str('宮本 茂');
 

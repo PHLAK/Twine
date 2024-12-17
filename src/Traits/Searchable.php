@@ -5,9 +5,9 @@ namespace PHLAK\Twine\Traits;
 trait Searchable
 {
     /**
-     * Return the first occurence of a matched pattern.
+     * Return the first occurrence of a matched pattern.
      *
-     * @param string $pattern The patern to be matched
+     * @param string $pattern The pattern to be matched
      */
     public function match(string $pattern): self
     {
@@ -17,7 +17,7 @@ trait Searchable
     }
 
     /**
-     * Return an array of occurences of a matched pattern.
+     * Return an array of occurrences of a matched pattern.
      *
      * @param string $pattern The pattern to be matched
      *

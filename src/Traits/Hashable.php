@@ -75,7 +75,7 @@ trait Hashable
     /**
      * Creates a hash from the string using the CRYPT_BLOWFISH algorithm.
      *
-     * @param array<int|string> $options An array of bcrypt hasing options
+     * @param array<int|string> $options An array of bcrypt hashing options
      */
     public function bcrypt(array $options = []): self
     {
