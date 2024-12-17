@@ -90,7 +90,7 @@ $string->length(); // Returns 14
 
 $string->reverse(); // Returns 'notreknip nhoj'
 $string->contains('pink'); // Returns true
-$stting->replace('pink', 'purple'); // Returns 'john purpleton'
+$string->replace('pink', 'purple'); // Returns 'john purpleton'
 $string->snakeCase(); // Returns 'john_pinkerton'
 ```
 
@@ -214,7 +214,7 @@ Additional details available in the full documentation at <https://twine.phlak.n
 MultiByte Strings
 -----------------
 
-Twine aims for mltibyte string compatibility by relying on PHP's
+Twine aims for multibyte string compatibility by relying on PHP's
 [Multibyte String extension](https://www.php.net/manual/en/book.mbstring.php)
 (mbstring) to perform string operations. For this reason, the mbstring extension
 is required. Multibyte strings include Unicode encodings such as UTF-8 and UCS-2.

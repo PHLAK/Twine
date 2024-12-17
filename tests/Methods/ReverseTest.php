@@ -15,10 +15,10 @@ class ReverseTest extends TestCase
     {
         $string = new Twine\Str('john pinkerton');
 
-        $reveresed = $string->reverse();
+        $reversed = $string->reverse();
 
-        $this->assertInstanceOf(Twine\Str::class, $reveresed);
-        $this->assertEquals('notreknip nhoj', $reveresed);
+        $this->assertInstanceOf(Twine\Str::class, $reversed);
+        $this->assertEquals('notreknip nhoj', $reversed);
     }
 
     #[Test]
@@ -26,10 +26,10 @@ class ReverseTest extends TestCase
     {
         $string = new Twine\Str('宮本 茂');
 
-        $reveresed = $string->reverse();
+        $reversed = $string->reverse();
 
-        $this->assertInstanceOf(Twine\Str::class, $reveresed);
-        $this->assertEquals('茂 本宮', $reveresed);
+        $this->assertInstanceOf(Twine\Str::class, $reversed);
+        $this->assertEquals('茂 本宮', $reversed);
     }
 
     #[Test]

@@ -33,7 +33,7 @@ class BeforeTest extends TestCase
     }
 
     #[Test]
-    public function it_can_get_part_of_a_multibyte_string_before_a_mltibyte_string(): void
+    public function it_can_get_part_of_a_multibyte_string_before_a_multibyte_string(): void
     {
         $string = new Twine\Str('宮本 茂');
 

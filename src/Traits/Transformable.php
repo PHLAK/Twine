@@ -111,7 +111,7 @@ trait Transformable
      * Available trim modes:
      *
      *   - Twine\Config\Trim::BOTH - Trim characters from the beginning and end of the string (default)
-     *   - Twine\Config\Trim::LEFT - Only trim characters from the begining of the string
+     *   - Twine\Config\Trim::LEFT - Only trim characters from the beginning of the string
      *   - Twine\Config\Trim::RIGHT - Only trim characters from the end of the strring
      */
     public function trim(string $mask = " \t\n\r\0\x0B", Config\Trim $mode = Config\Trim::BOTH): self

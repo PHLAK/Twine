@@ -38,7 +38,7 @@ trait Segmentable
     }
 
     /**
-     * Return part of the string starting from the first occurance of another string.
+     * Return part of the string starting from the first occurrence of another string.
      *
      * @param string $string The string to start from
      */
@@ -48,7 +48,7 @@ trait Segmentable
     }
 
     /**
-     * Return part of the string up to and including the first occurance of another string.
+     * Return part of the string up to and including the first occurrence of another string.
      *
      * @param string $string The string to end with
      */

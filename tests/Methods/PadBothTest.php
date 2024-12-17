@@ -21,7 +21,7 @@ class PadBothTest extends TestCase
         $this->assertEquals('___john pinkerton___', $padded);
     }
 
-    public function a_multibyte_sring_can_be_both_padded(): void
+    public function a_multibyte_string_can_be_both_padded(): void
     {
         $string = new Twine\Str('宮本 茂');
 
