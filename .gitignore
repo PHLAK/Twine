@@ -1,4 +1,21 @@
+# ----------------------------------------
+# Application dependencies
+# ----------------------------------------
+
+/node_modules
+/vendor
+/composer.lock
+
+# ----------------------------------------
+# Development files
+# ----------------------------------------
+
 .php-cs-fixer.cache
 .phpunit.result.cache
-composer.lock
-/vendor/
+
+# ----------------------------------------
+# Documentation files
+# ----------------------------------------
+
+/docs/.vitepress/cache
+/docs/.vitepress/dist
