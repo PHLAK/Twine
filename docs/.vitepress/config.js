@@ -1,21 +1,15 @@
 import { defineConfig } from 'vitepress'
-
-// const head = [
-//     ['link', { rel: 'icon', href: '/images/twine.svg' }],
-// ];
+import fs from 'fs'
+import path from 'path';
 
 export default defineConfig({
     title: 'Twine Documentation',
     description: 'Official documentation for the phlak/twine package.',
 
-    // head: head,
-
     themeConfig: {
-        // logo: '/images/twine.svg',
-
         nav: [
             { text: 'Home', link: '/' },
-            { text: 'Docs', link: '/docs/what-is-twine' },
+            { text: 'Docs', link: '/what-is-twine' },
             { text: 'Changelog', link: 'https://github.com/PHLAK/Twine/releases' },
         ],
 
@@ -23,26 +17,26 @@ export default defineConfig({
             {
                 text: 'Introduction',
                 items: [
-                    { text: 'What is Twine?', link: '/docs/what-is-twine' },
-                ]
+                    { text: 'What is Twine?', link: '/what-is-twine' },
+                ],
             },
             {
                 text: 'Getting Started',
                 items: [
-                    { text: 'Installation', link: '/docs/installation' },
-                    { text: 'Usage', link: '/docs/usage' },
-                    { text: 'Method Chaining', link: '/docs/method-chaining' }, // Merge with Usage?
-                    { text: 'Troubleshooting', link: '/docs/troubleshooting' },
-                ]
+                    { text: 'Installation', link: '/installation' },
+                    { text: 'Usage', link: '/usage' },
+                    { text: 'Troubleshooting', link: '/troubleshooting' },
+                ],
             },
             {
                 text: 'Methods',
-                items: [
-                    { text: 'after', link: '/docs/methods/after' },
-                    { text: 'append', link: '/docs/methods/append' },
-                    { text: 'base64', link: '/docs/methods/base64' },
-                    // Additional methods here...
-                ]
+                items: fs.readdirSync(__dirname + '/../methods').filter(
+                    (file) => file.endsWith('.md')
+                ).map(function (file) {
+                    const method = path.parse(file)
+
+                    return { text: method.name, link: `/methods/${method.name}` }
+                })
             },
         ],
 
@@ -56,7 +50,7 @@ export default defineConfig({
         ],
 
         editLink: {
-            pattern: 'https://github.com/PHLAK/Twine/edit/master/docs/:path'
+            pattern: 'https://github.com/PHLAK/Twine/edit/master/:path'
         },
 
         lastUpdated: true,
