@@ -10,11 +10,11 @@ Twine\Str::join( string $string [, string $glue = ' ' ] ) : Twine\Str
 
 ### `$string`
 
-The string to be joined
+The string to be joined.
 
 ### `$glue`
 
-A string to use as the glue
+A string to use as the glue.
 
 ## Examples
 

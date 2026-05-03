@@ -10,11 +10,11 @@ Twine\Str::insert( string $string , int $position ) : Twine\Str
 
 ### `$string`
 
-Text to insert
+Text to insert.
 
 ### `$position`
 
-Position at which to insert the text
+Position at which to insert the text.
 
 ## Examples
 

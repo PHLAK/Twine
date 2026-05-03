@@ -1,6 +1,6 @@
 # `sha1`
 
-Calculate the sha1 hash of the string.
+Calculate the SHA-1 hash of the string.
 
 ```php
 Twine\Str::sha1( [ bool $mode = Twine\Config\Sha1::DEFAULT ] ) : Twine\Str
@@ -10,9 +10,9 @@ Twine\Str::sha1( [ bool $mode = Twine\Config\Sha1::DEFAULT ] ) : Twine\Str
 
 ### `$mode`
 
-A sha1 mode flag
+A SHA-1 mode flag.
 
-Available sha1 modes
+Available SHA-1 modes:
 
 - `Twine\Config\Sha1::DEFAULT`: Return the hash
 - `Twine\Config\Sha1::RAW`: Return the raw binary of the hash

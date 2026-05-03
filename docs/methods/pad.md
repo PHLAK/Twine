@@ -10,17 +10,17 @@ Twine\Str::pad( int $length [, string $padding = ' ' [, int $mode = Twine\Config
 
 ### `$length`
 
-Length to pad the string to
+Length to pad the string to.
 
 ### `$padding`
 
-Character to pad the string with
+Character to pad the string with.
 
 ### `$mode`
 
-A pad mode flag
+A pad mode flag.
 
-Available pad modes
+Available pad modes:
 
 - `Twine\Config\Pad::RIGHT`: Only pad the right side of the string
 - `Twine\Config\Pad::LEFT`: Only pad the left side of the string

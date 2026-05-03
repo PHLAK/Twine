@@ -10,15 +10,15 @@ Twine\Str::wrap( int $width [, string $break = "\n" [, bool $mode = Twine\Config
 
 ### `$width`
 
-Number of characters at which to wrap
+Number of characters at which to wrap.
 
 ### `$break`
 
-Character used to break the string
+Character used to break the string.
 
 ### `$mode`
 
-A wrap mode flag
+A wrap mode flag.
 
 Available wrap modes:
 

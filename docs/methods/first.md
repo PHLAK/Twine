@@ -10,7 +10,7 @@ Twine\Str::first( int $count ) : Twine\Str
 
 ### `$count`
 
-The number of characters to be returned
+The number of characters to be returned.
 
 ## Examples
 

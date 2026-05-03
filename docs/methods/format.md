@@ -10,7 +10,7 @@ Twine\Str::format( mixed ...$args ) : Twine\Str
 
 ### `...$args`
 
-Any number of elements to fill the string
+Any number of elements to fill the string.
 
 ## Examples
 

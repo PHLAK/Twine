@@ -10,11 +10,11 @@ Twine\Str::substring( int $start [, int $length = null ] ) : Twine\Str
 
 ### `$start`
 
-Starting position of the substring
+Starting position of the substring.
 
 ### `$length`
 
-Length of substring
+Length of substring.
 
 ## Examples
 

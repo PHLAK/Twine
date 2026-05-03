@@ -10,7 +10,7 @@ Twine\Str::trimRight( [ string $mask = " \t\n\r\0\x0B" ] ) : Twine\Str
 
 ### `$mask`
 
-A list of characters to be stripped
+A list of characters to be stripped.
 
 ## Examples
 

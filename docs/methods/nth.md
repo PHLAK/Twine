@@ -10,11 +10,11 @@ Twine\Str::nth( int $step [ , int $offset = 0 ] ) : Twine\Str
 
 ### `$step`
 
-The number of characters to step
+The number of characters to step.
 
 ### `$offset`
 
-The string offset to start at
+The string offset to start at.
 
 ## Examples
 

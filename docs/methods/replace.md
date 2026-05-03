@@ -10,15 +10,15 @@ Twine\Str::replace( string|array $search , string|array $replace [, int &$count 
 
 ### `$search`
 
-One or more strings to be replaced
+One or more strings to be replaced.
 
 ### `$replace`
 
-One or more strings to replace with
+One or more strings to replace with.
 
 ### `&$count`
 
-This will be set to the number of replacements performed
+This will be set to the number of replacements performed.
 
 ## Examples
 

@@ -10,9 +10,9 @@ Twine\Str::url( string $mode = Twine\Config\Url::ENCODE ) : Twine\Str
 
 ### `$mode`
 
-The string to compare against
+A URL mode flag.
 
-Available url modes:
+Available URL modes:
 
 - `Twine\Config\Url::ENCODE`: Encode the string to a URL safe string
 - `Twine\Config\Url::DECODE`: Decode the string from a URL safe string

@@ -10,7 +10,7 @@ Twine\Str::decrypt( string $key, [ string $cipher = 'AES-128-CBC' ] ) : Twine\St
 
 ### `$key`
 
-The key for decrypting
+The key for decrypting.
 
 ### `$cipher`
 

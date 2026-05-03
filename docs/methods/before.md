@@ -10,7 +10,7 @@ Twine\Str::before( string $string ) : Twine\Str
 
 ### `$string`
 
-The delimiting string
+The delimiting string.
 
 ## Examples
 

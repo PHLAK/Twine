@@ -10,7 +10,7 @@ Twine\Str::characters( [ $mode = Twine\Config\Characters::ALL ] )  : array
 
 ### `$mode`
 
-A characters mode flag
+A characters mode flag.
 
   - `Twine\Config\Characters::ALL`: Return all characters in the string
   - `Twine\Config\Characters::UNIQUE`: Return each character only once ignoring duplicate characters

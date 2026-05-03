@@ -10,7 +10,7 @@ Twine\Str::count( string $string ) : int
 
 ### `$string`
 
-The substring to count
+The substring to count.
 
 ## Examples
 

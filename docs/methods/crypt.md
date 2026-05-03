@@ -11,7 +11,7 @@ Twine\Str::crypt( string $salt ) : Twine\Str
 
 ### `$salt`
 
-A salt string to base the hashing on
+A salt string to base the hashing on.
 
 ## Examples
 

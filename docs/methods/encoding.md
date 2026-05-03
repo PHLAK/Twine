@@ -10,7 +10,7 @@ Twine\Str::encoding( string $encoding ) : Twine\Str
 
 ### `$encoding`
 
-The desired character encoding
+The desired character encoding.
 
 ## Examples
 

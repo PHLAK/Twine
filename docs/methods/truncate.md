@@ -10,11 +10,11 @@ Twine\Str::truncate( int $length [, string $suffix = '...' ] ) : Twine\Str
 
 ### `$length`
 
-Length string will be truncated to, including suffix
+Length string will be truncated to, including suffix.
 
 ### `$suffix`
 
-Suffix to append
+Suffix to append.
 
 ## Examples
 

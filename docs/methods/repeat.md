@@ -10,7 +10,7 @@ Twine\Str::repeat( int $multiplier ) : Twine\Str
 
 ### `$multiplier`
 
-Number of times to repeat the string
+Number of times to repeat the string.
 
 ## Examples
 

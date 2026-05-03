@@ -10,7 +10,7 @@ Twine\Str::split( int $chunks ) : array
 
 ### `$chunks`
 
-The number of chunks
+The number of chunks.
 
 ## Examples
 

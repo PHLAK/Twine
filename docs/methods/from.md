@@ -10,11 +10,11 @@ Twine\Str::from( string $string ) : Twine\Str
 
 ### `$string`
 
-The string to start from
+The string to start from.
 
 ### `$length`
 
-Length of substring
+Length of substring.
 
 ## Examples
 

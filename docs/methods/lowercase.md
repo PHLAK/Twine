@@ -10,7 +10,7 @@ Twine\Str::lowercase( [ string $mode = Twine\Config\Lowercase::ALL ] ) : Twine\S
 
 ### `$mode`
 
-A lowercase mode flag
+A lowercase mode flag.
 
 Available lowercase modes:
 

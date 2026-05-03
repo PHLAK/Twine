@@ -1,6 +1,6 @@
 # `md5`
 
-Calculate the md5 hash of the string.
+Calculate the MD5 hash of the string.
 
 ```php
 Twine\Str::md5( [ bool $mode = Twine\Config\Md5::DEFAULT ] ) : Twine\Str
@@ -10,9 +10,9 @@ Twine\Str::md5( [ bool $mode = Twine\Config\Md5::DEFAULT ] ) : Twine\Str
 
 ### `$mode`
 
-A md5 mode flag
+A MD5 mode flag.
 
-Available md5 modes
+Available MD5 modes:
 
 - `Twine\Config\Md5::DEFAULT`: Return the hash
 - `Twine\Config\Md5::RAW`: Return the raw binary of the hash

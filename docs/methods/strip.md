@@ -10,7 +10,7 @@ Twine\Str::strip( string|array $search ) : Twine\Str
 
 ### `$search`
 
-One or more strings to be removed
+One or more strings to be removed.
 
 ## Examples
 

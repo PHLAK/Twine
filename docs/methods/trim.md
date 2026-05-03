@@ -10,11 +10,11 @@ Twine\Str::trim( [ string $mask = " \t\n\r\0\x0B" [, string $mode = Config\Trim:
 
 ### `$mask`
 
-A list of characters to be stripped
+A list of characters to be stripped.
 
 ### `$mode`
 
-A trim mode flag
+A trim mode flag.
 
 Available trim modes:
 

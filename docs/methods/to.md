@@ -10,7 +10,7 @@ Twine\Str::to( string $string ) : Twine\Str
 
 ### `$string`
 
-The string to end with
+The string to end with.
 
 ## Examples
 

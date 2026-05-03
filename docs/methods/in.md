@@ -10,11 +10,11 @@ Twine\Str::in( string $string [ , string $mode = Twine\Config\In::CASE_SENSITIVE
 
 ### `$string`
 
-The string to compare against
+The string to compare against.
 
 ### `$mode`
 
-Flag for case-sensitive and case-insensitive mode
+A mode flag for case-sensitive and case-insensitive matching.
 
 Available in mode flags:
 

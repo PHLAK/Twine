@@ -10,11 +10,11 @@ Twine\Str::wrapSoft( int $width [, $break = "\n" ] ) : Twine\Str
 
 ### `$width`
 
-Number of characters at which to wrap
+Number of characters at which to wrap.
 
 ### `$break`
 
-Character used to break the string
+Character used to break the string.
 
 ## Examples
 

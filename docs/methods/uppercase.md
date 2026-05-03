@@ -10,7 +10,7 @@ Twine\Str::uppercase( [ string $mode = Twine\Config\Uppercase::ALL ] ) : Twine\S
 
 ### `$mode`
 
-An uppercase mode flag
+An uppercase mode flag.
 
 Available uppercase modes:
 

@@ -10,7 +10,7 @@ Twine\Str::prepend( string ...$strings ) : Twine\Str
 
 ### `...$strings`
 
-One or more strings to append
+One or more strings to prepend.
 
 ## Examples
 

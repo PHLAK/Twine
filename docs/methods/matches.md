@@ -10,7 +10,7 @@ Twine\Str::matches( string $pattern ) : bool
 
 ### `$pattern`
 
-A regular expression pattern
+A regular expression pattern.
 
 ## Examples
 

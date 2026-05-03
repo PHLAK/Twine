@@ -10,7 +10,7 @@ Twine\Str::startsWith( string $string ) : bool
 
 ### `$string`
 
-The string to compare against
+The string to compare against.
 
 ## Examples
 

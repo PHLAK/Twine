@@ -10,11 +10,11 @@ Twine\Str::padBoth( int $length [, string $padding = ' ' ] ) : Twine\Str
 
 ### `$length`
 
-Length to pad the string to
+Length to pad the string to.
 
 ### `$padding`
 
-Character to pad the string with
+Character to pad the string with.
 
 ## Examples
 

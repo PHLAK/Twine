@@ -10,7 +10,7 @@ Twine\Str::chunk( int $length ) : array
 
 ### `$length`
 
-The desired chunk length
+The desired chunk length.
 
 ## Examples
 

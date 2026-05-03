@@ -10,7 +10,7 @@ Twine\Str::similarity( string $string ) : float
 
 ### `$string`
 
-The string to compare against
+The string to compare against.
 
 ## Examples
 
