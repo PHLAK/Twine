@@ -2,11 +2,19 @@ import { defineConfig } from 'vitepress'
 import fs from 'fs'
 import path from 'path';
 
+const head = [
+    ['link', { rel: 'icon', href: '/images/twine.svg' }],
+];
+
 export default defineConfig({
     title: 'Twine Documentation',
     description: 'Official documentation for the phlak/twine package.',
 
+    head: head,
+
     themeConfig: {
+        logo: '/images/twine.svg',
+
         nav: [
             { text: 'Home', link: '/' },
             { text: 'Docs', link: '/what-is-twine' },
