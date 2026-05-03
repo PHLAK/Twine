@@ -10,7 +10,7 @@ Twine\Str::bcrypt( [ array $options = [] ] ) : Twine\Str
 
 ### `$options`
 
-An array of bcrypt hasing options
+An array of bcrypt hashing options
 
 ## Examples
 

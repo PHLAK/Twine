@@ -3,12 +3,12 @@
 Determine if the string matches a regular expression pattern.
 
 ```php
-Twine\Str::matches( string $patern ) : bool
+Twine\Str::matches( string $pattern ) : bool
 ```
 
 ## Parameters
 
-### `$patern`
+### `$pattern`
 
 A regular expression pattern
 
