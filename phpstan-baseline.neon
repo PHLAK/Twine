@@ -13,7 +13,7 @@ parameters:
 			path: src/Str.php
 
 		-
-			message: '#^Method PHLAK\\Twine\\Support\\Str\:\:characters\(\) should return list\<string\> but returns list\<string\|false\>\.$#'
+			message: '#^Method PHLAK\\Twine\\Support\\Str\:\:characters\(\) should return list\<non\-empty\-string\> but returns list\<non\-empty\-string\|false\>\.$#'
 			identifier: return.type
 			count: 1
 			path: src/Support/Str.php

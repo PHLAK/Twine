@@ -9,7 +9,7 @@ class Str
      *
      * @param string $string A String
      *
-     * @return list<string>
+     * @return list<non-empty-string>
      */
     public static function characters(string $string): array
     {
